@@ -18,6 +18,7 @@ public class Test {
 
 	public void setName(String name) {
 		this.name = name;
+		System.out.println("我进来了");
 	}
 	
 	
