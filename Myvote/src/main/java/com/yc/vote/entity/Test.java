@@ -19,7 +19,7 @@ public class Test {
 
 	public void setName(String name) {
 		this.name = name;
-		System.out.println("我进来了");
+		System.out.println("我了个去");
 	}
 
 	public int getAge() {
