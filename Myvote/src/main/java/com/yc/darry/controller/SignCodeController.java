@@ -1,4 +1,4 @@
-package com.yc.vote.controller;
+package com.yc.darry.controller;
 
 import java.awt.Color;
 import java.awt.Font;

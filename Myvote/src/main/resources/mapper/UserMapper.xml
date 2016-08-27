@@ -3,12 +3,6 @@
 <!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
-<mapper namespace="com.yc.vote.mapper.UserMapper">
-   <insert id="insertUser" parameterType="User">
-   		insert into voteUser values(seq_user_id.nextval,#{vuUsername},#{vuPassword},1,0,#{vuEmail})
-   </insert>
-   
-   <select id="login" parameterType="User" resultType="User">
-   		select * from voteUser where vuUsername=#{vuUsername} and vuPassword=#{vuPassword}
-   </select>
+<mapper namespace="com.yc.darry.mapper.UserMapper">
+
 </mapper>
