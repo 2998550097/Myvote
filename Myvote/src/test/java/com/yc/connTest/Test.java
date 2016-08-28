@@ -9,7 +9,7 @@ public class Test {
 
 	public void setName(String name) {
 		this.name = name;
-		System.out.println("我禁来了");
+		System.out.println("我禁来了你好吗");
 		
 	}
 	
