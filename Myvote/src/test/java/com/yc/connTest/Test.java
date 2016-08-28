@@ -9,9 +9,6 @@ public class Test {
 
 	public void setName(String name) {
 		this.name = name;
-		System.out.println("我提交了");
-		
+		System.out.println("你猜猜");
 	}
-	
-	
 }
