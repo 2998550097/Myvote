@@ -27,6 +27,9 @@ public class ConnTest {
 			assertNotNull("数据库连接失败!!!", con);
 			System.out.println(con);
 		} catch (SQLException e) {
+			
+			
+		//	、、123546548611
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
