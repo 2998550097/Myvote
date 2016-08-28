@@ -1,0 +1,86 @@
+/*首页*/
+/*banner*/
+.cb_main{height:400px}
+.banner{background:url(images/banner.jpg) no-repeat center;height:400px;}
+.banner-word{text-align:center;color:#8e4f1b;position:absolute;right:20px;top:68px;cursor:default;z-index:99}
+.banner-word h2{font-size:34px;margin-bottom:10px}
+.banner-word h3{font-size:20px;font-weight:100;margin-bottom:10px}
+.banner-word h4{font-size:16px;font-weight:100;margin-bottom:20px}
+.banner-word p{font-size:12px;line-height:22px}
+.sp_width{width:354px}
+
+
+/*中间内容*/
+.news-ul{overflow:hidden;padding:20px 0;margin-left:-13px}
+.news-ul li{float:left;margin-left:13px}
+.ul-center{height:40px;line-height:40px;text-align:center;background:#fff;width:235px}
+.ul-center a{color:#8e4f1b;font-size:14px;font-family:"微软雅黑"}
+.ul-bottom{background:url(images/the-bottom.jpg) no-repeat;width:235px;height:6px}
+.ul-top a{display:block}
+.ul_opacity{background:#fff;opacity:0.5;filter:alpha(opacity=50);width:100%;height:100%}
+.ul-center .opacity_word{text-decoration:underline}
+
+/*tab选项卡*/
+.ul-tab{background:url(images/tab-ul.jpg) repeat-x;height:36px}
+.ul-tab li{float:left;cursor:pointer}
+.ul-tab em{background:url(images/icon.png) no-repeat -78px 0;display:inline-block;height:36px;width:2px;vertical-align:middle}
+.ul-tab span{color:#8e4f1b;font-size:14px;vertical-align:middle;padding:0 38px;line-height:36px}
+.ul-tab .speca{float:right;line-height:36px;padding:0 10px}
+.ul-tab .speca a{font-size:14px;color:#666;background:url(images/all-right.png) no-repeat left center;padding-left:12px}
+.ul-tab .choose-tab{background:url(images/hover.jpg) repeat-x}
+
+/*选项卡下内容*/
+.all_tab{height:314px;position:relative}
+.all_tab li{background:#fff;overflow:hidden;width:980px;float:left;position:absolute;display:none}
+.tab_left a{display:block}
+.tab_right{width:460px;cursor:default;margin-top:50px;text-align:center}
+.tab_right h3{color:#8e4f1b;font-size:30px;margin-bottom:16px;text-align:center;font-style:italic}
+.tab_right p{color:#8e4f1b;font-size:14px;line-height:30px;text-align:center;}
+.to_more{margin:20px 0 26px 156px;overflow:hidden}
+.more-ul{clear:both;}
+.more-ul a{color:#888;font-size:12px;padding-left:10px;background:url(images/all-right.png) no-repeat left center;margin-right:22px}
+.more-ul a:hover{color:#8e4f1b;text-decoration:underline}
+
+/*百科新加*/
+.bkbook_all{background:#fff;margin-bottom:44px;overflow:hidden}
+/*左边*/
+.bkbook_left{padding:32px 0 0 18px;width:600px}
+/*第一块左边*/
+.bkbook_left-first{overflow:hidden}
+.bkleft_img{position:relative;height:180px}
+.bkleft_banner{position:relative;width:280px;height:180px}
+.bkleft_banner li{position:absolute;float:left;display:none;top:0;left:0}
+.bkleft_banner li a{display:block}
+.bkleft_banner .to_opacity{opacity:0.8;filter:alpha(opacity=80)}
+.banner_opa{background:#000;opacity:0.5;filter:alpha(opacity=50);height:30px;width:100%;position:absolute;bottom:0;left:0}
+.ban_word{height:30px;line-height:30px;padding-left:13px;position:absolute;bottom:0;left:0;font-size:12px;color:#fff}
+.bnhide{position:absolute;bottom:0;left:0;width:100%;height:30px}
+.small-xd{position:absolute;bottom:10px;font-size:0;right:12px;z-index:8;cursor:pointer}
+.small-xd span{display:inline-block;background:url(images/xd.png) no-repeat;width:7px;height:7px;margin-left:8px}
+.small-xd .bs_dian{background:url(images/xd.png) no-repeat 0 -7px;}
+/*第一块右边*/
+.bkfirst_ul{width:304px;float:right;}
+.bkfirst_ul li{border-bottom:1px dashed #e5e5e5;padding-bottom:6px}
+.bkfirst_ul h3{font-family:"微软雅黑";font-size:16px;color:#666;font-weight:100;margin-bottom:8px;margin-top:7px;}
+.bkfirst_ul h3 a{color:#666}
+.bkfirst_ul p{font-family:"宋体";font-size:12px;color:#888;line-height:22px;margin-bottom:8px;display:none;width:288px}
+.bkfirst_ul p a{color:#888}
+.bkfirst_ul .ts_list h3{color:#8e4f1b}
+.bkfirst_ul .ts_list h3 a{color:#8e4f1b}
+.bkfirst_ul .ts_list p{display:block}
+/*左边第二块*/
+.bkbook_left-sec{overflow:hidden;font-family:"宋体";padding:24px 0 20px 0}
+.bkbook_left-secul{width:276px;float:left}
+.bkbook_left-secul li{background:url(images/xiaod.jpg) no-repeat left center;color:#888;font-size:0;height:24px;line-height:24px;overflow:hidden;padding-left:14px}
+.bkbook_left-secul a{color:#666;font-size:14px}
+.bkbook_left-secul span{font-size:12px}
+.bkbook_left-secul a:hover{text-decoration:underline}
+.bkbook_left-spcul{width:304px;float:right}
+/*右边*/
+.bkbook_right{padding:30px 20px 0 0;width:300px}
+.bkbook_right-allul{overflow:hidden;margin-bottom:19px;}
+.bkbook_right-fimg a{display:block}
+.bkbook_right-fimg a:hover img{opacity:0.8;filter:alpha(opacity=80)}
+.bkbook_right-fimg img{width:120px;height:72px}
+.bkbook_right-spcul{width:160px;float:left;margin-left:18px;}
+/*首页end*/

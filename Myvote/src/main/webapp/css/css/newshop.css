@@ -1,0 +1,239 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+         说明：标准重置样式
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;font-family:"微软雅黑",arial;font-size:14px;color:#888;}
+ol,ul,li{list-style: none;margin:0;padding:0;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: '';content: none;}
+table {border-collapse: collapse;border-spacing: 0;}
+h1, h2, h3, h4, h5, h6{font-weight:normal;}
+i{font-style:inherit;}
+/*清除浮动*/
+.fix:after{content:" ";display:block;visibility:hidden;clear:both;height:0;line-height:0;}
+.fix{*zoom:1;}
+/*公用样式*/
+.marBot10{margin-bottom:10px;}
+.martop10{margin-top:10px;}
+.inlineBlock{display:inline-block;*display:inline;*zoom:1;}
+
+.cort{background:#fff;padding-bottom:0;}
+.paging_all{margin-bottom:60px;}
+.comeback{bottom:96px;}
+/*店铺列表页面样式*/
+.shopMain{width:1000px;margin:0 auto;}
+/*banner 焦点图*/
+.shopBanner{position:relative;height:400px;overflow:hidden;}
+.shopBanPics{position:relative;height:100%;}
+.shopBanPics li{position:absolute;top:0;left:0}
+.shopBanPics li img{width:1000px;height:400px;}
+.shopBanNav{position:absolute;bottom:0;left:50%;width:1000px;margin-left:-500px;z-index:1;}
+.shopBanNavBg{position:absolute;bottom:0;left:0;width:100%;height:100%;background:#000;opacity:.2;filter: Alpha(Opacity=20);z-index:-1;}
+.shopBanNav a{display:block;float:left;width:249px;height:28px;line-height:30px;border-right:1px solid #fff;text-align:center;color:#fff;opacity:.5;filter: Alpha(Opacity=50);}
+.shopBanNav a:hover,.shopBanNav a.select{background:#444;opacity:.7;filter: Alpha(Opacity=70);}
+.shopBanNav a.last{width:250px;border-right:none;}
+/*Server 服务说明*/
+.shopServer{width:100%;margin:20px auto;}
+.shopServerDic{float:left;width:160px;height:100px;padding-left:82px;margin-right:10px;background:#f8f8f8 url(../images/serverIcon.png) no-repeat;}
+.shopServerDic h3{line-height:30px;margin-top:16px;font-size:18px;color:#c77a61}
+.shopServerDic p{padding-right:1em;font-size:12px;line-height:20px;}
+.shopzjsd{background-position:14px 16px;}
+.shopgzzd{background-position:14px -184px;}
+.shopzjby{background-position:14px -384px;}
+.shopzjsj{margin-right:0;background-position:14px -584px;}
+/*search 搜索模块*/
+.shopSearch{padding:20px 0 20px 16px;background:#f8f8f8;}
+.shopSearch span{margin:0 26px 0 14px;}
+.shopSearch select{width:175px;height:25px;color:#666;}
+.shopSearch .searchBtn{height:20px;line-height:20px;padding:2px 20px;border:1px solid #c77a61;color:#c77a61;text-align:center;}
+.shopSearch .searchBtn:hover{background:#c77a61;color:#fff;}
+/*shopList 店铺列表*/
+.shopListMain{width:1000px;margin-top:20px;overflow:hidden;}
+.shopList{width:1200px;}
+.shopInfo{float:left;width:400px;height:180px;margin:0 200px 40px 0;}
+.shopInfo h4{height:38px;line-height:38px;margin-bottom:10px;border-bottom:1px dashed #ddd;font-size:18px;}
+.shopInfo h4 a{color:#c77a61;}
+.shopInfo h4 a:hover{color:#e99277;}
+.shopInfo h4 .showMapBtn{display:inline-block;*display:inline;*zoom:1;width:20px;height:26px;margin-left:10px;background:url(../images/shopIcon.png) no-repeat 2px 6px;}
+.shopInfo h4 .openSoon{display:inline-block;*display:inline;*zoom:1;line-height:36px;margin-left:10px;background:url(../images/shopIcon.png) no-repeat 0 -24px;text-indent:30px;font-size:12px;}
+.shopInfo p{line-height:24px;}
+/*pager 分页页码*/
+.pager{margin:10px 0 60px 0;}
+.pagin{text-align:center;}
+.pagin a,.pagin span{display:inline-block;*display:inline;*zoom:1;width:34px;height:34px;line-height:34px;border:1px solid #aaa;border-radius:3px;margin:0 5px;text-align:center;color:#888;}
+.pagin a:hover{border:1px solid #bd955a;color:#bd955a;}
+.pagin span{cursor:default;}
+.pagin a.current{width:36px;height:36px;line-height:36px;border:none;color:#bd955a;}
+/*attention 商品推荐*/
+.attention{width:100%;background:#f8f8f8;height:420px;}
+.attention h6{width:1000px;height:70px;line-height:70px;padding-top:30px;margin:0 auto;font-size:18px;}
+.attentionList{width:1000px;margin:0 auto;}
+.attentionList li{float:left;width:240px;height:270px;margin:0 5px;font-size:12px;}
+.attentionList a{display:block;position:relative;height:270px;color:#888;}
+.attentionList a:hover span{display:block;}
+.attentionList img{width:240px;height:240px;}
+.attentionList p{position:absolute;width:100%;bottom:0px;left:0;background:#fff;line-height:30px;text-align:center;cursor:pointer;}
+.attentionList p span{display:none;text-align:center;}
+.attentionList p i{margin-right:10px;font-size:12px;color:#c77a61;}
+/*分享*/
+.culture_share{padding-bottom:48px;margin-top:38px}
+.culture_share-tittle{font-size:0;text-align:center;padding-bottom:18px}
+.culture_share-tittle i{display:inline-block;width:49px;height:1px;background:url(../images/line.jpg) no-repeat;vertical-align:middle}
+.culture_share-tittle span{vertical-align:middle;color:#8e4f1b;font-size:14px;padding:0 8px;font-weight:bold}
+.culture_share-it{text-align:center;font-size:0}
+.culture_share-it a{display:inline-block;width:33px;height:34px;background:url(../images/share.png) no-repeat;margin-right:10px}
+.culture_share-it a:hover{background:url(../images/share_hover.png) no-repeat}
+.culture_share-it .cshare_1,.culture_share-it .cshare_1:hover{background-position:0 0}
+.culture_share-it .cshare_2,.culture_share-it .cshare_2:hover{background-position:-33px 0}
+.culture_share-it .cshare_3,.culture_share-it .cshare_3:hover{background-position:-66px 0}
+.culture_share-it .cshare_4,.culture_share-it .cshare_4:hover{background-position:-99px 0}
+.culture_share-it .cshare_5,.culture_share-it .cshare_5:hover{background-position:-132px 0}
+/*subscribe 免费预约*/
+.subscribe{position:fixed;bottom:0;left:0;width:100%;box-shadow:0 -3px 7px #eeeded;z-index:5}
+.subscribeBtn{position:relative;height:80px;}
+.subscribeBtnBg{position:absolute;top:0;left:0;width:100%;height:80px;background:url(../images/subscribe-bg.png) no-repeat center center;}
+.subscribeBtnMain{position:relative;width:1000px;height:100%;margin:0 auto;}
+.subscribeBtnMain .subscribeLink{position:absolute;top:22px;right:152px;width:120px;height:36px;line-height:36px;background:#c77a61;border-bottom: 2px solid #683f31;text-align:center;font-size:18px;color:#fff;}
+
+.subscribeBtnMain .subscribeLink:hover{background:#d9856a;}
+.subscribeBtnMain .subscribeClose{position:absolute;top:10px;right:-20px;width:20px;height:20px;background:url(../images/shopIcon.png) no-repeat 0 -60px;}
+.subscribeBtnMain .subscribeClose:hover{background:url(../images/shopIcon.png) no-repeat -20px -60px;}
+.subscribeMain{display:none;position:relative;height:310px;z-index:0;}
+.subscribeMainBg{position:absolute;top:0;left:0;height:100%;width:100%;background:#fff;opacity:.9;filter: Alpha(Opacity=90);z-index:-1;}
+.subscribeAction{width:1000px;margin:0 auto 50px;padding-top:24px;}
+.subscribeAction p{height:36px;line-height:36px;font-size:14px;color:#666;}
+.subscribeAction p label{display:inline-block;*display:inline;*zoom:1;width:90px;text-align:right;}
+.subscribeAction p i{color:#c77a61;}
+.subscribeAction p input{width:174px;height:23px;border:1px solid #ddd;}
+.subscribeAction p select{width:179px;height:25px;border:1px solid #ddd;}
+.subscribeAction .dataSelect{background:url(../images/shopIcon.png) no-repeat 156px -150px;}
+.checkServer{height:36px;line-height:36px;font-size:14px;color:#666;}
+.checkServer i{display:inline-block;*display:inline;*zoom:1;width:96px;text-align:right;}
+.checkServer span{margin-right:20px;}
+.checkServer input{width:16px;height:16px;margin-right:4px;vertical-align:middle;}
+.checkServer input.inputServer{width:174px;height:23px;border:1px solid #ddd;}
+.actionBtn{margin-top:26px;text-align:center;}
+.actionBtn a{width:200px;height:36px;line-height:36px;margin:0 25px;font-size:14px;}
+.actionBtn .actionBtnConfirm{background:#c77a61;color:#fff;}
+.actionBtn .actionBtnConfirm:hover{background:#d9856a;}
+.actionBtn .actionBtnCancel{background:#fee7d7;color:#c77a61;}
+.actionBtn .actionBtnCancel:hover{background:#feecdf;}
+.minSubscribe{display:none;position:fixed;right:2px;bottom:204px;width:77px;height:37px;background:url(../images/mfyy.jpg) no-repeat;text-indent:-9999px;}
+.minSubscribe:hover{background:url(../images/mfyy_hover.jpg) no-repeat;}
+/*shopMap 弹出显示地图*/
+.shopMapMain{position:fixed;top:0;left:0;width:100%;height:100%;z-index:10;opacity:0;filter:Alpha(Opacity=0);}
+.shopMapBg{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.2;filter:Alpha(Opacity=20);z-index:0;}
+.shopMap{position:relative;width:958px;height:566px;padding:1px;background:#fff;box-shadow:0 0 4px #cbcbcb;margin:6% auto 0;}
+.shopMapInfo{position:relative;margin:10px 0;}
+.shopMapInfo h5{height:30px;line-height:30px;text-indent:20px;font-size:18px;}
+.shopMapInfo p{height:20px;line-height:20px;text-indent:20px;color:#666;}
+.closeMap{position:absolute;top:0;right:8px;display:block;width:20px;height:20px;background:url(../images/shopIcon.png) no-repeat 3px -88px;}
+
+/*店铺详情页样式*/
+/*openBottomMain 开业倒数*/
+.openBottom{width:100%;height:100px;margin:20px auto 0;background:url(../images/openBottom.jpg) no-repeat;}
+.openBottomMain{padding-top:14px;width:570px;margin-left:422px;color:#fff;}
+.openBefore{float:left;width:238px;height:60px;}
+.openBeforeInfo{width:100%;height:100%;}
+.openBottomInfo{float:left;width:108px;margin-top:8px;}
+.openBottomInfo p{line-height:30px;font-size:20px;}
+.openBottomInfo span{line-height:20px;}
+.openBottomTime{float:left;width:130px;font-size:30px;}
+.openBottomTime i{margin-right:6px;font-size:60px;color:#c77a61;}
+.reservationBtn{float:left;width:136px;height:40px;margin:10px 20px 0 20px;line-height:40px;background:#c77a61;border-bottom: 2px solid #683f31;text-align:center;color:#fff;font-size:18px;}
+.reservationBtn:hover{background:#d9856a;}
+.reservationNum{float:left;margin-top:26px;}
+.reservationNum i{margin:0 6px;font-size:24px;color:#c77a61;}
+/*shopDetails 店铺详情信息*/
+.shopDetails{margin:40px 0;}
+.shopDetails h2{height:40px;line-height:40px;font-size:18px;color:#666;}
+.shopDetails .lookBigMap{display:inline-block;*display:inline;*zoom:1;width:108px;height:26px;line-height:26px;margin-left:10px;background:#feecdf url(../images/shopIcon.png) no-repeat 12px -113px;text-indent:10px;text-align:center;font-size:12px;color:#c77a61;}
+.shopOpenInfos{width:1110px;margin-top:20px;}
+.shopOpenInfo{float:left;width:326px;height:102px;margin-right:10px;background:url(../images/shopInfoBorder.png) no-repeat;}
+.shopOpenInfo dt{height:42px;line-height:42px;text-align:center;}
+.shopOpenInfo dd{padding:0 20px;;line-height:20px;font-size:12px;text-align:center;}
+/*shopDescribe 店铺描述*/
+.shopDescribeInfo{width:422px;}
+.shopDescribeInfo h4{height:40px;line-height:40px;font-size:18px;}
+.shopDescribeInfo p{line-height:20px;margin-bottom:20px;}
+.shopDescribeMap{width:400px;margin-top:10px;}
+/*subscribeShop 店铺预约*/
+.subscribeShop{margin-top:20px;}
+.subscribeShop h4{position:relative;height:40px;line-height:40px;border-bottom:2px solid #eee;font-size:18px;}
+.subscribeShop h4 span{position:absolute;top:2px;right:0;font-size:14px;}
+.subscribeShop h4 i{font-size:24px;font-style:italic;color:#c77a61;}
+
+/*shopTips 预约成功提示框*/
+.shopTips{display:none;position:fixed;top:0;left:0;width:100%;height:100%;z-index:4;}
+.shopTipsBg{position:absolute;top:0;left:0;width:100%;height:100%;background:#000;opacity:.1;filter:Alpha(Opacity=10);z-index:0;}
+.shopTipsMain{position:relative;width:520px;height:220px;background:#fff;margin:20% auto 0;box-shadow:0 0 4px #cbcbcb;text-align:center;}
+.shopTipsMain h6{height:70px;line-height:70px;padding-top:30px;font-size:24px;color:#c77a61;text-indent:70px;background:url(../images/icon-right.png) no-repeat 86px 40px;}
+.shopTipsMain p.openIng{height:50px;line-height:25px;color:#666;}
+.shopTipsMain p.open{height:50px;line-height:50px;color:#666;}
+.shopTipsMain i{height:40px;line-height:40px;color:#aaa;}
+.closeTips{position:absolute;top:8px;right:8px;display:block;width:20px;height:20px;background:url(../images/shopIcon.png) no-repeat 3px -88px;}
+/*20160107*/
+/*subscribe 免费预约*/
+.subscribeShop h4{border-bottom:0}
+.subscribeImg{width:575px;height:450px;float:left;overflow:hidden;}
+.subscribeImg img{width:100%;}
+.subscribeShop .subscribeAction{width:365px;height:410px;margin-left:575px;background:#f8f7f5;padding:20px 30px;}
+.subscribeShop .subscribeAction p{height:30px;line-height:30px;font-size:12px}
+.subscribeShop .subscribeAction p label{text-align:left;width:auto;}
+.subscribeShop .subscribeAction p i{color:#ff7373;margin-left:2px;vertical-align:middle;}
+.subscribeShop .subscribeAction label{font-size:12px;}
+.subscribeShop .subscribeForm input{width:220px;height:23px;border:1px solid #ddd;}
+.subscribeShop .subscribeForm select{width:auto;height:25px;border:1px solid #ddd;}
+.subscribeShop .subscribeAction p input[type="radio"]{width:auto;height:auto;margin-right:10px;vertical-align:middle}
+.subscribeShop .subscribeAction #txttel{width:105px}
+.subscribeShop .subscribeAction #txtemail{display:none}
+.subscribeShop .checkServer{height:auto}
+.subscribeShop .checkserver_sort,.subscribeForm #checkcontact{height:25px;line-height:16px}
+.subscribeShop .checkServer input{width:auto;height:23px;}
+.subscribeShop .checkServer input.inputServer{width:100%}
+.subscribeShop .subscribeForm#p_yuyue input{background:#fff url(../images/calendar.png) 80px center no-repeat}
+.subscribeShop input.inputerror,select.inputerror{border:1px solid #ff7373;background:#fff7f7;}
+.subscribeShop .actionBtn{margin-top:20px}
+.subscribeShop .actionBtn .actionBtnConfirm{color:#c57d5c;border:1px solid #c57d5c;background:none;border-radius:5px}
+.subscribeShop .actionBtn .actionBtnConfirm:hover{color:#d49e85;border:1px solid #d49e85;background:none;}
+.subscribeShop label.opentip{color:#c77a61;display:none}
+.subscribeShop label.errortips{color:#ff7373;display:none;}
+/*预约成功提示*/
+.shopTipsMain{width:490px;height:340px;padding:15px;padding-bottom:20px}
+.shopTipBorder{height:100%;border:2px solid #5e5d62;margin-bottom:5px}
+.shopTipBorder .closeTips{top:20px;right:20px}
+.shopTipBorder img{margin-top:70px}
+.shopTipBorder h6{padding-top:0;background:url(../images/ico-success.png) no-repeat 130px 20px;font-family:"宋体";font-weight:bold;text-indent:35px}
+.shopTipBorder .yuyueDetail{margin-bottom:20px;color:#c67c59}
+.shopTipBorder p.open{height:auto;line-height:20px}
+.yuyue_repeat{line-height:25px;display:none}
+.yuyue_repeat h6{background:none;text-indent:0;}
+.shopDetails .ico-yuyue{background:#feecdf url(../images/ico-yuyue.png) no-repeat 10px center}
+.link_yssm{text-align:center;}
+.link_yssm a{line-height:38px;font-size:12px;color:#999}
+.link_yssm a:hover{color:#666;}
