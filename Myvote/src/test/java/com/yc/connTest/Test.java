@@ -10,10 +10,12 @@ public class Test {
 
 	public void setId(String id) {
 		this.id = id;
+		System.out.println("谁告诉你的");
 	}
 
 	public String getName() {
 		return name;
+		
 	}
 
 	public void setName(String name) {
