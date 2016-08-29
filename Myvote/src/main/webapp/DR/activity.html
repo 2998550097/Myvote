@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <title>DR族粉丝社区</title>
+        <link rel="stylesheet" type="text/css" href="css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/activity.css">
+          <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="js/banner.js"></script>
+      <script type="text/javascript" src="js/common.js"></script>
+      <script type="text/javascript" src="js/index.js"></script>
+  
+</head>
+<body>
+<!-- 锚链接：回到顶部 -->
+<a name="toHeader"></a>
+<!-- 锚链接：回到顶部 end -->
+        <!-- start of 头部 -->
+<div class="ni-header fix">
+    <!-- start of 导航 -->
+    <div class="ni-nav">
+        <div class="ni-navMain fix">
+            <div class="ni-navInfo fr">
+                                <div class="ni-navSearch" id="ni-navSearch">
+                    <a href="javascript:;" class="navSearch-btn" id="navSearch-btn"></a>
+                    <div class="navSearch-input">
+                        <input placeholder="请输入搜索内容" value="" />
+                        <a href="javascript:;" id="navSearch-submit"></a>
+                    </div>
+                </div>
+                                <a class="ni-publish" href="javascript:;" request-url="/forum/create" is-login="">发表文章</a>
+                                    <a class="ni-login" id="ni-loginBtn" href="javascript:;">登录</a>
+                    <a class="ni-login" id="ni-resterBtn" href="javascript:;">加入DR族</a>
+                                <a class="ni-remind " 
+                href="javascript:;"></a>
+            </div>
+            <div class="ni-navMenu fl">
+                <a href="/"><div class="ni-logo fl"></div></a>
+                <!-- start of 导航 -->
+                <ul class="ni-menu fl" id="ni-navs">
+                                        <li><a  href="/">首页</a></li>
+                                        <li><a  href="javascript:;" >真爱部落</a>
+                        <div class="ni-subMenu">
+                            <ul class="fix">
+                                                                                                            <li><a href="/forum?id=15">求婚交流</a></li>
+                                                                            <li><a href="/forum?id=22">情感八卦</a></li>
+                                                                            <li><a href="/forum?id=23">最美钻戒</a></li>
+                                                                            <li><a href="/forum?id=36">问题反馈</a></li>
+                                                                                                </ul>
+                        </div>
+                    </li>
+                    <li><a class="activate"  href="/active">DR活动</a></li>
+                    <li><a href="http://darryring.com/" target="_blank">Darry Ring官网</a></li>
+                </ul>
+                <!-- end of 导航 -->
+            </div>
+        </div>
+    </div>
+    <!-- end of 导航 -->
+    <!-- start of 导航透明背景 -->
+    <div class="ni-navBg"></div>
+    <!-- end of 导航透明背景 -->
+</div>
+<!-- end of 头部 -->
+<!--登录弹窗-->
+<!-- start of 登录框 -->
+<div class="ni-loginBox" request-url="http://shequ.darryring.com/active">
+    <a id="ni-closeLoginBox" class="closeLoginBox" href="javascript:;"></a>
+    <iframe src="http://passport.darryring.com/other?regtype=7"></iframe>
+</div>
+<!-- end of 登录框 --><!--登录弹窗end-->
+<!--注册弹窗-->
+<!-- start of 透明背景-->
+<div class="dr_blackwall"></div>
+<!-- end of 透明背景end-->
+<!-- start of 注册 -->
+<div class="ni-regBox" request-url="http://shequ.darryring.com/active">
+    <a id="ni-closeRegBox" class="closeRegBox" href="javascript:;"></a>
+    <iframe class="url" src="http://passport.darryring.com/other"></iframe>
+</div>
+<!-- end of 登录框 --><!--注册弹窗-->
+
+<script type="text/javascript">
+    var isLogin = "0"
+    var searchUrl = "/forum/search";
+
+    //搜索栏显示隐藏
+    $('.navSearch-btn').off('click').on('click',function(e){
+        if (isLogin == 0) {
+            $('.dr_blackwall,.ni-loginBox').fadeIn();
+            loginRefresh();
+            return false;
+        }
+        $(this).hide();
+        $('.navSearch-input').show();
+        $('.navSearch-input input').focus();
+
+        stopPropagation(e);
+    });
+
+    $('#navSearch-submit').off('click').on('click',function(){
+
+        if (isLogin == 0) {
+            $('.dr_blackwall,.ni-loginBox').fadeIn();
+            loginRefresh();
+            return false;
+        }
+        var str = $('.navSearch-input input').val();
+        if(str == ''){
+            alert('关键字不能为空');
+            return false;
+        }
+        searchUrl = searchUrl + '?search=' + str;
+        $(this).attr('href', searchUrl);
+    })
+
+    $('.navSearch-input input').keydown(function(e){
+        if (e.keyCode == 13){
+            if (isLogin == 0) {
+                $('.dr_blackwall,.ni-loginBox').fadeIn();
+                loginRefresh();
+                return false;
+            }
+            var str = $('.navSearch-input input').val();
+            if(str == ''){
+                alert('关键字不能为空');
+                return false;
+            }
+            searchUrl = searchUrl + '?search=' + str;
+           location.href =  searchUrl;
+        }  
+    });
+</script>
+
+
+  <!-- start of 页面主体 -->
+  <div class="ni-main fix">
+    <div class="deanchart">
+        <span><a href="/">DR族社区</a></span>&gt;<span><a href="/active">DR活动</a></span>
+    </div>
+    <!-- start of 侧边栏 -->
+	<div class="ni-sidebar fr">
+	    <!-- start of 精选推荐 -->
+	    <div class="ni-referral ni-sidebarBox">
+	        <h3>热门活动</h3>
+	        <div class="ni-referralShow">
+	            <ul class="ni-referralList" id="ni-sidebarBanner">
+                                                    <li>
+                                <a  href="#">
+                                    <img src="images/1469677064.jpeg">
+                                    <p title="为你写“三行情书”赢999元真爱礼盒">为你写“三行情书”赢999元真爱礼盒</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#">
+                                    <img src="images/1467079958.jpeg">
+                                    <p title="一生“黑粉”你一人！">一生“黑粉”你一人！</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#">
+                                    <img src="images/1466676061.jpeg">
+                                    <p title="稀世粉钻高端定制">稀世粉钻高端定制</p>
+                                </a>
+                            </li>
+                                				</ul>
+        				<ul class="ni-referralMenu" id="ni-sidebarBanxd">
+                                                 <li class="activate"></li>
+                                                 <li class=""></li>
+                                                 <li class=""></li>
+                                				</ul>
+	        </div>
+	    </div>
+	    <!-- end of 精选推荐 -->
+	    <!-- start of 最新加入的DR族 -->
+                    <div class="ni-newDrz ni-sidebarBox">
+                <h3>最近报名的DR族</h3>
+                <ul class="ni-newDrzList fix">
+                                                    <li>
+                                <a  href="#" title="N3Swih">
+                                    <img src="images/0.jpeg" alt="/user/info/550251">
+                                    <p title="N3Swih">N3Swih</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="u7wvam">
+                                    <img src="images/57b94c7931b46.jpeg" alt="/user/info/550474">
+                                    <p title="u7wvam">u7wvam</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="Menfolk Serpent">
+                                    <img src="images/img_user1.png" alt="/user/info/550410">
+                                    <p title="Menfolk Serpent">Menfolk Serpent</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#"  title="~~╮(╯▽╰)╭你一辈子">
+                                    <img src="images/img_user1.png" alt="/user/info/550399">
+                                    <p title="~~╮(╯▽╰)╭你一辈子">~~╮(╯▽╰)╭你一辈子</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="kami雅哲">
+                                    <img src="images/img_user1.png" alt="/user/info/532140">
+                                    <p title="kami雅哲">kami雅哲</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="Dreams link">
+                                    <img src="images/img_user1.png" alt="/user/info/550113">
+                                    <p title="Dreams link">Dreams link</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="王洪峰0724">
+                                    <img src="images/img_user1.png" alt="/user/info/550087">
+                                    <p title="王洪峰0724">王洪峰0724</p>
+                                </a>
+                            </li>
+                                                    <li>
+                                <a  href="#" title="3whB2B">
+                                    <img src="images/img_user1.png" alt="/user/info/550053">
+                                    <p title="3whB2B">3whB2B</p>
+                                </a>
+                            </li>
+                                        </ul>
+            </div>
+        		<!-- end of 最新加入的DR族 -->
+	</div>
+	<!-- end of 侧边栏-->
+    <!-- start of 文章列表 -->
+    <div class="act-article fix fl">
+                    <div class="act-banner">
+                <a href="#"><img src="images/1469677313.jpg" alt="" width="665px" height="309px"></a>
+            </div>
+        	    <div class="ni-article">
+	      <div class="ni-articleList">
+	        <!-- start of 读取数据循环部分 -->
+                        <div class="ni-articleMain" activeId='6'>
+                  <h2><a href="#">[线上活动]为你写“三行情书”赢999元真爱礼盒</a></h2>
+                  <div class="ni-source fix">
+                    <div class="fr">
+                        <span class="ni-artReviewNum ni-actNum">参与人数(1443)</span>
+                        <span class="ni-artReadNum">阅读(<span class="readNum">1697</span>)</span>
+                    </div>
+                    <div class="fl">
+                        <a class="ni-artTag"  href="#">线上活动</a>
+                        <span class="ni-artDate">2016-07-28发表</span>
+                    </div>
+                  </div>
+                  <div class="ni-content">
+                      <a  href="#">
+                       	<div class="ni-contentImg"><img src="images/1469677313.jpg" alt=""></div>
+                      </a><br>
+                      <a  href="#" style="color: #000;">一场穿越千年的浪漫，一年只此一次的相会，一生只为你守候！世上没有任何情话比一句“嫁给我”更浪漫！这个七夕，为爱承诺！因为爱，每个人都变成了温柔的诗人；爱ta的你，可以为ta变得诗意，温雅动人；只想为ta一人写诗，字句虽质朴，传递的爱意却情深！爱，无需长篇大论，只想为你写一封“三行情书”，三行字，便可诉说一辈子的情！有人说，最暖心的三行情书是……有人说，最深情的三行情书是……又有人说，最浪漫动人的三行情书是……&nbsp;那属于你给ta的三行情书又是怎样的呢？【参与方式】在本活动页点击“发表文字”，发表你想表达的三行情书，并分享给朋友收集点赞。&nbsp;【活动时间】2016年7月28日---2016年8月9日【奖励形式】按最高点赞数</a>
+                      <a class="ni-readMore"  href="#">查看全文&gt;</a>
+                  </div>
+              </div>
+                        <div class="ni-articleMain" activeId='3'>
+                  <h2><a  href="#">[线上活动]DR萌主争宠赛</a></h2>
+                  <div class="ni-source fix">
+                    <div class="fr">
+                        <span class="ni-artReviewNum ni-actNum">参与人数(18)</span>
+                        <span class="ni-artReadNum">阅读(<span class="readNum">244</span>)</span>
+                    </div>
+                    <div class="fl">
+                        <a class="ni-artTag"  href="#">线上活动</a>
+                        <span class="ni-artDate">2016-07-21发表</span>
+                    </div>
+                  </div>
+                  <div class="ni-content">
+                      <a  href="#">
+                             <div class="ni-contentImg"><img src="images/1469092802.jpg" alt=""></div>
+                                              </a><br>
+                      <a  href="#" style="color: #000;">据说“咖啡”萌主（皮肤黝黑而得名），他在“后宫佳丽三千”中独被皇上恩宠！他行走于各大电视台、各类喜剧舞台、各种真人秀……打败了各种大咖，只可惜面对DR萌主争宠赛，他仅望而却步！原因只有一条：DR萌主（你）们各怀绝技、各有千秋，表情帝、动作帝、道具帝应有尽有！还不卖萌就老了！&nbsp;【参与事项】1、&nbsp; 仅限真爱情侣参与，但不限量萌主席位；2、&nbsp; 以“表情、动作、道具”为利用手段，脑洞大开无限“萌”，萌到被人宠坏。【参与方式】本DR活动页选择“分享照片”上传萌照，获得点赞。【参与时间】2016年7月22日—2016年8月8日【无限奖励】根据参赛期间所上传萌照的点赞数排行，择优奖励“手绘版照片”，并升级为DR族Ap</a>
+                      <a class="ni-readMore"  href="#">查看全文&gt;</a>
+                  </div>
+              </div>
+                        <div class="ni-articleMain" activeId='2'>
+                  <h2><a  href="#">[线上活动]一生“黑粉”你一人！</a></h2>
+                  <div class="ni-source fix">
+                    <div class="fr">
+                        <span class="ni-artReviewNum ni-actNum">参与人数(8)</span>
+                        <span class="ni-artReadNum">阅读(<span class="readNum">409</span>)</span>
+                    </div>
+                    <div class="fl">
+                        <a class="ni-artTag"  href="#">线上活动</a>
+                        <span class="ni-artDate">2016-06-28发表</span>
+                    </div>
+                  </div>
+                  <div class="ni-content">
+                      <a  href="#">
+                                <div class="ni-contentImg"><img src="images/1467079944.jpg" alt=""></div>
+                                              </a><br>
+                      <a target="_blank" href="/active/detail/2" style="color: #000;">限定版礼品一只要注册官网账号加入DR族，即可开启DR小白盒，并有机会获得以下其中一份礼品“主演签名海报或剧照”“黑粉专属iPhone6s手机壳”“黑粉专属iPhone6s plus手机壳”限定版礼品二活动期间消费满4999元，每人可领取《所以……和黑粉结婚了》电影券2张，限量赠送200张，以电子券形式发送到领取手机号，满足条件者需自行填写手机号领取。限定版礼品三活动期间预约到店，可领取DR专属《黑粉》明信片，详情预约到店咨询店员各城市DR实体店的明信片数量有限，先到先得 。活动开始时间：2016年7月3日立即预约到店，DR《黑粉》明信片等你来拿</a>
+                      <a class="ni-readMore"  href="#">查看全文&gt;</a>
+                  </div>
+              </div>
+                        <div class="ni-articleMain" activeId='1'>
+                  <h2><a  href="#">[官网活动]稀世粉钻高端定制</a></h2>
+                  <div class="ni-source fix">
+                    <div class="fr">
+                        <span class="ni-artReviewNum ni-actNum">参与人数(2)</span>
+                        <span class="ni-artReadNum">阅读(<span class="readNum">311</span>)</span>
+                    </div>
+                    <div class="fl">
+                        <a class="ni-artTag"  href="#">官网活动</a>
+                        <span class="ni-artDate">2016-06-23发表</span>
+                    </div>
+                  </div>
+                  <div class="ni-content">
+                      <a href="#">
+                       <div class="ni-contentImg"><img src="images/1466676061.jpeg" alt=""></div>
+                                              </a><br>
+                      <a  href="#" style="color: #000;">1、预约抢购资格发售日前登录官网免费预约购买名额2、开售当日登录购买发售当日登录官网粉钻页面支付购买3、限量商品以支付成功为准限量发售商品，订单以支付成功时间为准</a>
+                      <a class="ni-readMore" href="#">查看全文&gt;</a>
+                  </div>
+              </div>
+          	        <!-- end of 读取数据循环部分 -->
+
+        	<!-- start of 加载更多 -->
+                        <!-- end of 加载更多 -->
+	      </div>
+	    </div>
+    </div>
+    <!-- end of 文章列表-->
+  </div>
+    <!-- start of footer -->
+<div class="footer">
+    <p>Copyright：2006-2015 www.darryring.com 戴瑞珠宝 All Rights Reserved.</p>
+    <p>粤ICP备11012085号</p>
+</div>
+<!-- end of footer -->  <!-- end of 页面主体-->
+    <!--右侧工具begin-->
+<div class="dr_quickservice" id="dr-quickservice">
+    <div class="dr_quick-cort">
+        <a href="javascript:join_favorite();" class="dr_quick1"></a>
+        <div class="dr_quick-word">
+            收藏网站
+        </div>
+    </div>
+    <!--二维码-->
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_quick2"></a>
+        <div class="dr_quick-word dr_quick-ewm">
+            <img src="/bundles/acmedefault/newimg/ewm.jpg" alt="移动版二维码" />
+            <div class="dr_quick-ewmWord">
+                <h3>DR族</h3>
+                <h3>首款情侣APP</h3>
+                <p>扫描二维码下载</p>
+            </div>
+        </div>
+    </div>
+    <!--二维码end-->
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_quick3"></a>
+        <div class="dr_quick-word comShare">
+            <a class="shareWeibo" href="javascript:;"></a>
+            <a class="shareQzone" href="javascript:;"></a>
+            <a class="shareQweibo" href="javascript:;"></a>
+            <a class="shareRenren" href="javascript:;"></a>
+            <a class="shareDouban" href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_totop"></a>
+        <div class="dr_quick-word">
+            返回顶部
+        </div>
+    </div>
+</div>
+<!--右侧工具end-->
+
+<script type="text/javascript">
+    //侧边栏分享
+    var url = encodeURIComponent(document.location.href);
+    var title = "Darry Ring(DR真爱戒指)戴瑞珠宝官方社区，DR族的聚集地。";
+    var summary = title + "活动链接：" + url;
+    var oStar ='<a class="shareQzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+ url +'&title='+ title +'&pic=&summary='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareWeibo" href="http://v.t.sina.com.cn/share/share.php?url='+ url +'&title='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareQweibo" href="http://v.t.qq.com/share/share.php?url='+ url +'&title='+ summary +'&pic=" target="_blank"></a>';
+    oStar += '<a class="shareRenren" href="http://widget.renren.com/dialog/share?resourceUrl='+ url +'&title='+ title +'&content='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareDouban" href="https://www.douban.com/share/service?href='+ url + '&name=' + summary +'" target="_blank" ></a>';
+
+    $('.dr_quick-word.comShare').html(oStar);
+    
+</script>    <!-- DR族文章 -->
+    <a class="iToTop" href="#toHeader" title="返回顶部"></a>
+    <!-- DR族文章 end -->
+
+<script type="text/javascript">
+  //加载更多
+  var setMoreTimer = null;
+  var totalPager = 1;
+  var postUrl = "/active/more";
+  $('#getmore').click(function(){
+    var data = $(this).attr('nextPage');
+    $.post(postUrl, {data:data}, function(res){
+      if(res) {
+          var nextNum = parseInt(data) + 1;
+          $('.ni-articleMain').last().after(res);
+          $('.ni-loadMore').attr('nextPage', nextNum);
+          if (nextNum > totalPager){
+              $('#getmore').hide();
+          }
+          if(setMoreTimer){clearTimeout(setMoreTimer);}
+          setMoreTimer = setTimeout(function(){
+            $('.ni-contentImg img').each(function(index){
+              $(this).css({'marginTop':-($(this).height()/2)+'px','top':50+'%'});
+              if($(this).height()<220){
+                  $(this).css({'top':0,'left':50+'%','width':'auto','height':100 +'%','marginTop':0});
+                  $(this).css({'marginLeft':-($(this).width()/2)+'px'});
+              }
+            });
+          },100);
+      }
+
+    });
+
+  });
+
+window.onload = function(){
+  setContentImg();
+}
+</script>
+
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-64254262-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

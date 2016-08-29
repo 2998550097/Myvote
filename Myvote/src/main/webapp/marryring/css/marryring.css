@@ -1,0 +1,367 @@
+/* CSS Document */
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+body {
+	height: 2000px;
+	width: 100%;
+	min-width: 1000px;
+	background-color:#F6EFEF;
+}
+.head {
+	height: 10%;
+	background-color: #8080C0;
+}
+.middle {
+	height: 100%;
+	width: 100%;
+}
+.middle_pic {
+	height: 20%;
+}
+.middle_pic img {
+	width: 100%;
+	height: 100%;
+}
+.middle_body {
+	width: 100%;
+}
+.middle_body_search {
+	height: 80px;
+	line-height: 70px;
+	
+	background-color:#fff;
+}
+.middle_body_search_word {
+	width: 30%;
+	color: #666;
+	font-size: 14px;
+	float: left;
+	margin-left: 180px;
+}
+.middle_body_search_word a {
+	color: #666;
+	text-decoration: none;
+	margin-right: 5px;
+}
+.middle_body_search_bar {
+	float: right;
+	margin-right: 180px;
+}
+.middle_body_search_bar input {
+	vertical-align: middle;
+	width:120px;
+	height:20px;
+	display:inline-block;
+}
+#submit {
+	width:55px;
+	text-align:center;
+	padding-bottom:21px;
+	border: 1px solid #ddd;
+	background-color: #f3f3f3;
+	color: #666;
+	
+}
+.showring {
+	width: 100%;
+	height:1500px;
+	background-color: #F6EFEF;
+}
+.ringIntroducep {
+	height: 30px;
+	line-height: 30px;
+}
+
+.showring_same {
+	width: 1000px;
+	height: 50px;
+	border-bottom: solid 1px #F6EFEF;
+}
+.showring_same a {
+	font-size: 12px;
+}
+.showring_same ul li a {
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+.showring_same {
+	background-color: #FFF;
+}
+.showring_same ul {
+	list-style: none;
+	font-size: 14px;
+}
+.showring_same ul li {
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 15px;
+	list-style: none;
+	float: left;
+	color: #666666;
+	font-weight: bold;
+	font-style: normal;
+}
+.showring_same ul li a {
+	text-decoration: none;
+	color: #666666;
+	font-weight: normal;
+}
+.showring_same ul .more {
+	float: right;
+	width: 100px;
+}
+.showring_same_1 {
+	width: 100px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	margin-top: 15px;
+	border-right: 1px solid #CDCDCD;
+}
+.showring_all {
+	padding-top: 50px;
+	padding-left: 160px;
+}
+#showrin_same_label {
+	margin-top: 15px;
+}
+#priceBtn {
+	color: #666666;
+	font-size: 12px;
+	width: 50px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-style: normal;
+	position: relative;
+	top: 15px;
+	border: 1px solid #CDCDCD;
+	display: block;
+	background-color: #F3F3F3;
+}
+#minPrice, #maxPrice {
+	width: 50px;
+	margin-top: 15px;
+}
+
+.drring_sortall{
+	width:1150px;
+	height:80px;
+	border-bottom: 1px solid #C0C0C0;
+}
+
+.drring_sort_fl{
+	width:500px;
+	height:50px;
+	float:left;
+	padding-top:30px;
+	padding-left: 150px;
+}
+
+.drring_sort_fl ul{
+	list-style: none;
+	font-size: 14px;
+}
+.drring_sort_fl ul li{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 15px;
+	list-style: none;
+	float: left;
+	color: #666666;
+	font-weight: bold;
+	font-style: normal;
+	font-weight:200;
+}
+
+.drring_sort_fl ul .a{
+	margin-left:25px;
+	padding:2px 20px;
+	background-color:#FFF;
+}
+.drring_sort_fl ul .a a{
+	text-decoration:none;
+	color:#666666;
+	font-weight:100;
+}
+
+.pagin_fpagin_fr{
+	width:500px;
+	float:right;
+	padding-top:40px;
+}
+.pagin_fpagin_fr ul{
+	list-style: none;
+	font-size: 12px;
+	float:right;
+}
+.pagin_fpagin_fr ul li{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 15px;
+	list-style: none;
+	float: left;
+	color: #888888;
+	font-weight: 100;
+	font-style: normal;
+	margin-top:5px;
+}
+.pagin_fpagin_fr ul .b{
+	border: 1px solid #DBC7BA;
+	background-color:#dbc7ba;
+	padding:0 10px;
+	margin-top:2px;
+}
+.pagin_fpagin_fr ul li a{
+	text-decoration:none;
+	color:#FFF;
+}
+.dring_thing li {
+    background-color: #fff;
+    background-repeat: repeat;
+    float: left;
+    height: 460px;
+    margin-left: 20px;
+    margin-top: 40px;
+    text-align: center;
+    width: 320px;
+	list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+  	font-weight: inherit;
+    line-height: inherit;
+}
+.dring_thing .dring_thing_left{
+	margin-left:170px;
+	
+}
+.dring_thing li a{
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: medium;
+    text-decoration-color: -moz-use-text-color;
+    text-decoration-line: none;
+    text-decoration-style: solid;
+	color:#666;
+}
+.dring_thing-price {
+    text-align: center;
+    color: #797979;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 26px;
+}
+.dring_thing-word {
+    font-size: 14px;
+    color: #666;
+    font-family: "SimSun";
+    margin-bottom: 10px;
+	font-style: normal;
+	
+}
+.dring_thing-button{
+	margin-bottom:5px;
+}
+.dring_thing-button span {
+    color: #dbc7ba;
+    background: #fff;
+    border: 1px solid #dbc7ba;
+	display: inline-block;
+width: 100px;
+height: 20px;
+line-height: 20px;
+text-align: center;
+font-size: 12px;
+margin: 0 4px;
+cursor: pointer;
+}
+.dring_thing-button i {
+    display: inline-block;
+    width: 100px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    margin: 0 4px;
+    cursor: pointer;
+	font-style: inherit;
+	background: #dbc7ba;
+	color:#FFF;
+}
+.dring_thing-button i a{
+color: #fff;
+}
+.dring_thing-sold span {
+    border-right: 1px solid #d2d2d2;
+    padding-right: 4px;
+	font-size:12px;
+	font-style: normal;
+	color: #888;
+}
+
+.dring_thing-sold i {
+    padding-left: 6px;
+	font-size:12px;
+	list-style: none;
+}
+.dring_thing-sold em {
+    color: #c67c59;
+}
+
+
+
+.showring_same ul li a:hover {
+    color: #dbc7ba;
+}
+.drring_sort_fl ul li:hover {
+    background: #cab7aa;
+}
+.pagin_fpagin_fr ul .b:hover {
+   background:#cab7aa;
+}
+.dring_thing-button span:hover {
+    background: #f2f2f2;
+}
+.dring_thing-button i:hover {
+    background: #cab7aa;
+}
+
+
+.pagin_fpagin_fr_1{
+	margin-right: 180px;
+	float:right;
+	padding-top:40px;
+}
+.pagin_fpagin_fr_1 ul{
+	list-style: none;
+	font-size: 12px;
+	float:right;
+}
+.pagin_fpagin_fr_1 ul li{
+	display: inline-block;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 15px;
+	list-style: none;
+	float: left;
+	color: #888888;
+	font-weight: 100;
+	font-style: normal;
+	margin-top:5px;
+}
+.pagin_fpagin_fr_1 ul .b{
+	border: 1px solid #DBC7BA;
+	background-color:#dbc7ba;
+	padding:0 10px;
+	margin-top:2px;
+}
+.pagin_fpagin_fr_1 ul li a{
+	text-decoration:none;
+	color:#FFF;
+}

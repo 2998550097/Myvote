@@ -1,0 +1,658 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="renderer" content="webkit">
+    <title>DR族粉丝社区>>情感八卦</title>
+        <link rel="stylesheet" type="text/css" href="css/info.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+            <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/commonNew.js"></script>
+        <script type="text/javascript">
+            function mobile_device_detect(url)
+            {
+                var thisOS=navigator.platform;
+
+                var os=new Array("iPhone","iPod","iPad","android","Nokia","SymbianOS","Symbian","Windows Phone","Phone","Linux armv7l","MAUI","UNTRUSTED/1.0","Windows CE","BlackBerry","IEMobile");
+                for(var i=0;i<os.length;i++)
+                {
+                    if(thisOS.match(os[i]))
+                    {
+                        window.location=url;
+                    }
+
+                }
+                //因为相当部分的手机系统不知道信息,这里是做临时性特殊辨认
+                if(navigator.platform.indexOf('iPad') != -1)
+                {
+                    window.location=url;
+                }
+                //做这一部分是因为Android手机的内核也是Linux
+                //但是navigator.platform显示信息不尽相同情况繁多,因此从浏览器下手，即用navigator.appVersion信息做判断
+                var check = navigator.appVersion;
+
+
+
+                if( check.match(/linux/i) )
+                {
+                    //X11是UC浏览器的平台 ，如果有其他特殊浏览器也可以附加上条件
+                    if(check.match(/mobile/i) || check.match(/X11/i))
+                    {
+                        window.location=url;
+                    }
+                }
+
+                //类in_array函数
+                Array.prototype.in_array = function(e)
+                {
+                    for(i=0;i<this.length;i++)
+                    {
+                        if(this[i] == e)
+                            return true;
+                    }
+                    return false;
+                }
+            }
+            var str = location.pathname;
+            var new_str=str.split("/");
+            var url = new_str[new_str.length-1];
+            mobile_device_detect('/wap/' + url);
+        </script>
+    
+</head>
+<body>
+<!-- 锚链接：回到顶部 -->
+<a name="toHeader"></a>
+<!-- 锚链接：回到顶部 end -->
+    <body name="toHeader">
+<a name="toHeader" href="javascript:;"></a>
+<div class="wrap">
+    <!--start of 头部导航 -->
+    <!-- start of 头部 -->
+<div class="ni-header fix">
+    <!-- start of 导航 -->
+    <div class="ni-nav">
+        <div class="ni-navMain fix">
+            <div class="ni-navInfo fr">
+                                <div class="ni-navSearch" id="ni-navSearch">
+                    <a href="javascript:;" class="navSearch-btn" id="navSearch-btn"></a>
+                    <div class="navSearch-input">
+                        <input placeholder="请输入搜索内容" value="" />
+                        <a href="javascript:;" id="navSearch-submit"></a>
+                    </div>
+                </div>
+                                <a class="ni-publish" href="javascript:;" request-url="/forum/create" is-login="">发表文章</a>
+                                    <a class="ni-login" id="ni-loginBtn" href="javascript:;">登录</a>
+                    <a class="ni-login" id="ni-resterBtn" href="javascript:;">加入DR族</a>
+                                <a class="ni-remind " 
+                href="javascript:;"></a>
+            </div>
+            <div class="ni-navMenu fl">
+                <a href="/"><div class="ni-logo fl"></div></a>
+                <!-- start of 导航 -->
+                <ul class="ni-menu fl" id="ni-navs">
+                                        <li><a  href="/">首页</a></li>
+                                        <li><a  href="javascript:;" >真爱部落</a>
+                        <div class="ni-subMenu">
+                            <ul class="fix">
+                                                                                                            <li><a href="/forum?id=15">求婚交流</a></li>
+                                                                            <li><a href="/forum?id=22">情感八卦</a></li>
+                                                                            <li><a href="/forum?id=23">最美钻戒</a></li>
+                                                                            <li><a href="/forum?id=36">问题反馈</a></li>
+                                                                                                </ul>
+                        </div>
+                    </li>
+                    <li><a  href="/active">DR活动</a></li>
+                    <li><a href="#" >Darry Ring官网</a></li>
+                </ul>
+                <!-- end of 导航 -->
+            </div>
+        </div>
+    </div>
+    <!-- end of 导航 -->
+    <!-- start of 导航透明背景 -->
+    <div class="ni-navBg"></div>
+    <!-- end of 导航透明背景 -->
+</div>
+<!-- end of 头部 -->
+<!--登录弹窗-->
+<!-- start of 登录框 -->
+<div class="ni-loginBox" request-url="http://shequ.darryring.com/forum?id=15">
+    <a id="ni-closeLoginBox" class="closeLoginBox" href="javascript:;"></a>
+    <iframe src="http://passport.darryring.com/other?regtype=7"></iframe>
+</div>
+<!-- end of 登录框 --><!--登录弹窗end-->
+<!--注册弹窗-->
+<!-- start of 透明背景-->
+<div class="dr_blackwall"></div>
+<!-- end of 透明背景end-->
+<!-- start of 注册 -->
+<div class="ni-regBox" request-url="http://shequ.darryring.com/forum?id=15">
+    <a id="ni-closeRegBox" class="closeRegBox" href="javascript:;"></a>
+    <iframe class="url" src="http://passport.darryring.com/other"></iframe>
+</div>
+<!-- end of 登录框 --><!--注册弹窗-->
+
+<script type="text/javascript">
+    var isLogin = "0"
+    var searchUrl = "/forum/search";
+
+    //搜索栏显示隐藏
+    $('.navSearch-btn').off('click').on('click',function(e){
+        if (isLogin == 0) {
+            $('.dr_blackwall,.ni-loginBox').fadeIn();
+            loginRefresh();
+            return false;
+        }
+        $(this).hide();
+        $('.navSearch-input').show();
+        $('.navSearch-input input').focus();
+
+        stopPropagation(e);
+    });
+
+    $('#navSearch-submit').off('click').on('click',function(){
+
+        if (isLogin == 0) {
+            $('.dr_blackwall,.ni-loginBox').fadeIn();
+            loginRefresh();
+            return false;
+        }
+        var str = $('.navSearch-input input').val();
+        if(str == ''){
+            alert('关键字不能为空');
+            return false;
+        }
+        searchUrl = searchUrl + '?search=' + str;
+        $(this).attr('href', searchUrl);
+    })
+
+    $('.navSearch-input input').keydown(function(e){
+        if (e.keyCode == 13){
+            if (isLogin == 0) {
+                $('.dr_blackwall,.ni-loginBox').fadeIn();
+                loginRefresh();
+                return false;
+            }
+            var str = $('.navSearch-input input').val();
+            if(str == ''){
+                alert('关键字不能为空');
+                return false;
+            }
+            searchUrl = searchUrl + '?search=' + str;
+           location.href =  searchUrl;
+        }  
+    });
+</script>
+
+    <!-- end of 头部导航-->
+
+        <!--板块模块-->
+        <section class="container">
+            <div id="ct" class="wp cl ct2">
+                <div class="bm bw0 cl" id="chart">
+                    <div class="deanchart">
+                        <span><a href="/">DR族社区</a></span>><span><a href="/forum">真爱部落</a></span>>情感八卦                 </div>
+                </div>
+                <div class="mn">
+                    <div class="bm bml pbn flicon_cort">
+                        <div class="bm_h cl fix" style="height:60px !important">
+                            <div style=" float:left;" class="flicon_left">
+                            	<img src="images/1467101055.png" class="fl"/>
+                            	<div class="flicon_left-word fl">
+	                                <span>情感八卦  </span>
+	                                <i>谁也拦不住我聊点情感的方方面面</i>
+                            	</div>
+                            </div>
+                        </div>
+                        <!--弹出文章选项-->
+                        <div class="flicon_border-cort">
+                        	<div class="flicon_border-position">
+	                        	<span></span>
+		                        <ul class="flicon_border">
+                                    <li>
+                                        <a href="/forum">
+                                        <img src="/bundles/acmedefault/images/topic_small.png"/>
+                                        <i>全部文章</i>
+                                        </a>
+                                    </li>
+		                            		                                		                                    <li class="flicon_border-read">
+		                                        <a href="/forum?id=15">
+		                                            <img src="http://jewely-image.b0.upaiyun.com/images/2016-06-28/1467101047.png"/>
+		                                            <i>求婚交流</i>
+		                                        </a>
+		                                    </li>
+		                                		                                    <li >
+		                                        <a href="/forum?id=22">
+		                                            <img src="http://jewely-image.b0.upaiyun.com/images/2016-06-28/1467101055.png"/>
+		                                            <i>情感八卦</i>
+		                                        </a>
+		                                    </li>
+		                                		                                    <li >
+		                                        <a href="/forum?id=23">
+		                                            <img src="http://jewely-image.b0.upaiyun.com/images/2016-06-23/1466652300.png"/>
+		                                            <i>最美钻戒</i>
+		                                        </a>
+		                                    </li>
+		                                		                                    <li >
+		                                        <a href="/forum?id=36">
+		                                            <img src="http://jewely-image.b0.upaiyun.com/images/2016-06-23/1466652291.png"/>
+		                                            <i>问题反馈</i>
+		                                        </a>
+		                                    </li>
+		                                		                            		                        </ul>
+	                        </div>
+                        </div>
+                        <!--弹出文章选项end-->
+                        <div class="bm_c cl pbn">
+                        </div>
+                    </div>
+                    <!--优先查阅-->
+                    <div class="about_ht">
+                    	<div class="about_htleft">
+                    		<span>优先查阅：</span>
+                    		<i>最新文章</i>
+                    		<input type="checkbox" name="digest"  />
+                    		<label url="/forum?id=15&amp;digest=1" post-url="/forum?id=15&amp;digest=0">精选推荐</label>
+                    	</div>
+                    	<div class="about_htright">
+                    		<i>610</i>个文章
+                    	</div>
+                    	<!--下拉的选项-->
+                    	<div class="about_htxl">
+                    		<a href="/forum?id=15" >最新文章</a>
+                    		<a href="/forum?visit=1&amp;id=15" class="about_htxlclick">最热文章</a>
+                    		<a href="/forum?heats=1&amp;id=15" class="about_htxlclick">热议讨论</a>
+                    	</div>
+                    	<!--下拉的选项end-->
+                    </div>
+                    <!--优先查阅end-->
+                    
+                    <!--top列表-->
+                    <div class="ht_listcort topList">
+                        <ul class="ht_list clearfix">
+                                                    </ul>
+                    </div>
+                    <!--top列表end-->
+                    <!--列表-->
+                    <div class="ht_listcort">
+                        <ul class="ht_list">
+                                                                                                <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/avatar/2015-07-02/1435803586.png" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">你的约会场所选对了吗？</a><i></i>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">DR族官方账号</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>7</p>
+                                                <span>[1]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/images/2016-08-23/1471958635/57bc4e6b731fa" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a target="_blank" href="/forum-3079.html">特殊的名字，徐碌碌。</a><i></i>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">丛天琪</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>8</p>
+                                                <span>[2]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="/bundles/acmedefault/images/img_user1.png" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">我想向女朋友求婚</a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">BEAJFV</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>10</p>
+                                                <span>[11]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/avatar/2015-07-02/1435803586.png" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">创意浪漫求婚大攻略</a><i></i>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">DR族官方账号</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>24</p>
+                                                <span>[1]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://shequ.darryring.com/bundles/acmedefault/images/img_user5.png" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">求助求婚点子 </a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">丨飞灬扬丨</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>13</p>
+                                                <span>[5]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/images/2016-08-23/1471946423/57bc1eb76cbaf" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">GYT</a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">一生热爱不回头</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>8</p>
+                                                <span>[2]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/images/2016-08-23/1471954750/57bc3f3e707fd" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">爱一个人</a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">至尊的Love</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>4</p>
+                                                <span>[1]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/images/2016-08-23/1471958635/57bc4e6b731fa" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">愿你一生被爱。</a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">丛天琪</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>6</p>
+                                                <span>[2]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/avatar/2015-07-02/1435803586.png" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><span class="ni-atricleTop">精</span><!-- <em class="big_addgood"></em> --><a target="_blank" href="/forum-3024.html">北京的时光，你在，便无惧风雨</a><i></i>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a target="_blank" href="/user/info/236588">DR族官方账号</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>11</p>
+                                                <span>[2]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                    <li  class="htlist_read">
+                                        <div class="habow_bottom">
+                                           <a href="#" ><img src="http://jewely-image.b0.upaiyun.com/images/2016-08-24/1471983136/57bcae20c9a63" class="htlist_left"/></a>
+                                            <div class="htlist_right">
+                                                <p class="htlist_right-top"><a  href="#">丑哭了</a>                                                                                                                                                </p>
+                                                <div class="htlist_right-bottom">
+                                                    <a href="javascript:;" style="color: #ababab;">[求婚交流]</a>
+                                                    <span><a  href="#">‍綿綿</a></span>
+                                                </div>
+                                            </div>
+                                            <div class="htlist_number">
+                                                <p>9</p>
+                                                <span>[5]</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                                                                    </ul>
+	                                                                      <a id='getmore' class="ni-loadMore" href="javascript:;" onclick="getMoreForum(15,0,0,0,2)"></a>
+                        	                </div>    
+                    <!--列表end-->
+                </div>
+                <!-- start of left 右边盒子-->
+                <section class="deanboxr">
+                    <!--发表主题-->
+                    <div class="deanpublish" is_login = "" request_url = "/forum/create?id=15">
+                        <a href="javascript:void(0)"><img src="images/pn_post_big.png"></a>
+                    </div>
+                    <!--发表主题-->
+
+                    <!-- start of 明星用户 -->
+                    <div class="star box">
+                        <h4><strong>最近加入DR族</strong></h4>
+                        <div id="diyUserStar" class="area">
+                            <div class="superStar">
+                                        <a   href="#" title="Vh8zjJ">
+                                            <img   src="http://shequ.darryring.com/bundles/acmedefault/images/img_user5.png">
+                                            <i>Vh8zjJ</i>
+                                        </a>
+                                                                            <a   href="#" title="HD699T">
+                                            <img  src="http://shequ.darryring.com/bundles/acmedefault/images/img_user5.png">
+                                            <i>HD699T</i>
+                                        </a>
+                                                                            <a   href="#" title="含笑戏红尘">
+                                            <img src="http://wx.qlogo.cn/mmopen/ajNVdqHZLLATMdo6cXxEP2bIBofecicX07n7TNryw9ibrekf410gFu8POm65DLGuEySLgaHOySEdkZ9UyNuwaYAicBSfpj2WY4SzKS2S6e4jbs/0">
+                                            <i>含笑戏红尘</i>
+                                        </a>
+                                                                            <a   href="#" title="坤宇国际™怀抱梦想">
+                                            <img  src="http://q.qlogo.cn/qqapp/101139846/69D8464925D05B2C1CCA4C4180267A9D/100">
+                                            <i>坤宇国际</i>
+                                        </a>
+                                                                            <a   href="#" title="Aryanr、久伴她">
+                                            <img  src="http://wx.qlogo.cn/mmopen/al2KtoEtGicbkRJicucLiaoFx5jFQB2Q1oMs12eiciaJAAPUYVgp9DbHMeoWicRLb4OOg2A8jxVibnnOxGODX4C159muxmhXLG50NHB/0">
+                                            <i>Aryanr</i>
+                                        </a>
+                                                                            <a  href="#" title="小孩轩轩">
+                                            <img src="http://shequ.darryring.com/bundles/acmedefault/images/img_user5.png">
+                                            <i>小孩轩轩</i>
+                                        </a>
+                                                                            <a   href="#" title="热心网友">
+                                            <img  src="http://shequ.darryring.com/bundles/acmedefault/images/img_user5.png">
+                                            <i>热心网友</i>
+                                        </a>
+                                                                            <a   href="#" title="你再不劫婚我真要结婚">
+                                            <img width="200" height="200" src="http://q.qlogo.cn/qqapp/101139846/69D7F1F6B826419FA3FEDD4FF3AE5054/100">
+                                            <i>就流口水</i>
+                                        </a>
+                                                                                                </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- end of 明星用户 -->
+                </section>
+                <!-- end of left 右边盒子-->
+
+            </div>
+        </section>
+        <!--板块模块-->
+        <a class="iToTop" href="#toHeader" title="返回顶部"></a>
+    </div>
+<!--右侧工具begin-->
+<div class="dr_quickservice" id="dr-quickservice">
+    <div class="dr_quick-cort">
+        <a href="javascript:join_favorite();" class="dr_quick1"></a>
+        <div class="dr_quick-word">
+            收藏网站
+        </div>
+    </div>
+    <!--二维码-->
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_quick2"></a>
+        <div class="dr_quick-word dr_quick-ewm">
+            <img src="/bundles/acmedefault/newimg/ewm.jpg" alt="移动版二维码" />
+            <div class="dr_quick-ewmWord">
+                <h3>DR族</h3>
+                <h3>首款情侣APP</h3>
+                <p>扫描二维码下载</p>
+            </div>
+        </div>
+    </div>
+    <!--二维码end-->
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_quick3"></a>
+        <div class="dr_quick-word comShare">
+            <a class="shareWeibo" href="javascript:;"></a>
+            <a class="shareQzone" href="javascript:;"></a>
+            <a class="shareQweibo" href="javascript:;"></a>
+            <a class="shareRenren" href="javascript:;"></a>
+            <a class="shareDouban" href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="dr_quick-cort">
+        <a href="javascript:;" class="dr_totop"></a>
+        <div class="dr_quick-word">
+            返回顶部
+        </div>
+    </div>
+</div>
+<!--右侧工具end-->
+
+<script type="text/javascript">
+    //侧边栏分享
+    var url = encodeURIComponent(document.location.href);
+    var title = "Darry Ring(DR真爱戒指)戴瑞珠宝官方社区，DR族的聚集地。";
+    var summary = title + "活动链接：" + url;
+    var oStar ='<a class="shareQzone" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+ url +'&title='+ title +'&pic=&summary='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareWeibo" href="http://v.t.sina.com.cn/share/share.php?url='+ url +'&title='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareQweibo" href="http://v.t.qq.com/share/share.php?url='+ url +'&title='+ summary +'&pic=" target="_blank"></a>';
+    oStar += '<a class="shareRenren" href="http://widget.renren.com/dialog/share?resourceUrl='+ url +'&title='+ title +'&content='+ summary +'" target="_blank"></a>';
+    oStar += '<a class="shareDouban" href="https://www.douban.com/share/service?href='+ url + '&name=' + summary +'" target="_blank" ></a>';
+
+    $('.dr_quick-word.comShare').html(oStar);
+    
+</script>    <!--end of 板块部分-->
+    <!-- start of footer -->
+<div class="footer">
+    <p>Copyright：2006-2015 www.darryring.com 戴瑞珠宝 All Rights Reserved.</p>
+    <p>粤ICP备11012085号</p>
+</div>
+<!-- end of footer --></div>
+
+</body>
+<script type="text/javascript">
+
+    //切换精选
+    $('input[name="digest"]').click(function(){
+        var isCheck = $('input[name="digest"]').attr('checked');
+        var postUrl = $('label').attr('post-url');
+        var url = $('label').attr('url');
+
+        if(isCheck == 'checked'){
+            //选中
+            window.location.href= url;
+        }else{
+            //未选中
+            window.location.href = postUrl;
+        }
+    });
+
+    //加载更多
+    var totalPager = 61;
+    function getMoreForum(id,heats,digest,visit,pageNext) {
+        $.ajax({
+            type:'POST',
+            url:"/get/more/forum",
+            data: 'id='+id+'&heats='+heats+'&digest='+digest+'&visit='+visit+'&page='+pageNext,
+            success:function(msg) {
+                if(msg) {
+                    var nextNum = parseInt(pageNext) + 1;
+                    $('.ht_listcort ul li').last().after(msg);
+                    $('.ni-loadMore').attr('onclick','getMoreForum('+id+','+heats+','+digest+','+visit+','+nextNum+');');
+                    if (nextNum > totalPager){
+                        $('#getmore').hide();
+                    }
+                }
+            }
+        });
+    }
+
+    $(function(){
+           $('.xi2').change(function(){
+               var id = $(this).val();
+               if (id == '') {
+                 var id = 0;
+               }
+               $.ajax({
+                   type:'GET',
+                   url:"/forum/ajax",
+                   data:'id='+id,
+                   success:function(msg){
+                      window.location = "/forum?id="+msg.id;
+                   }
+               });
+           });
+
+        /*点击出现弹窗选项*/
+        $('.flicon_left span').click(function(){
+            $('.flicon_border-cort').show();
+            $('.flicon_left span').addClass('click_fbtom');
+        });
+        $('.flicon_border li,.flicon_border-cort span').click(function(){
+            $('.flicon_border-cort').hide();
+            $('.flicon_left span').removeClass('click_fbtom');
+        });
+        /*点击出现下拉选项*/
+        $('.about_htleft i,.about_htxl').click(function(){
+            $('.about_htxl').toggle();
+            $(this).toggleClass('click_fbtom');
+        });
+        $('.about_htxl a').click(function(){
+            $('.about_htxl').hide();
+            $('.about_htleft i').removeClass('click_fbtom');
+            $('.about_htleft i').html($(this).text());
+        });
+    }
+  );
+</script>
+
+<script>
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+  ga('create', 'UA-64254262-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
