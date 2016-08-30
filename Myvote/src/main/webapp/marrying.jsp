@@ -137,7 +137,7 @@
               <ul class="dring_thing">
                 
                         <li class="dring_thing_left">
-                            <a href="#">
+                            <a href="darry_marry.jsp">
                                 <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="marryring/images/201409031259093e45b5ecf0.jpg">
                             </a>
                             <div class="dring_thing-cort">
@@ -157,7 +157,7 @@
                         </li>
                     
                         <li>
-                              <a href="#">
+                              <a href="darry_marry.jsp">
                                 <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="marryring/images/2015093019140361614ead1d.jpg">
                             </a>
                             <div class="dring_thing-cort">
