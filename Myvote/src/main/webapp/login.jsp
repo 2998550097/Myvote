@@ -45,7 +45,7 @@
 	<!--通行证操作区-->
 		<div class="dr_actionMain w1000">
 			<div class="dr_passprt">
-				<form id="loginform" action="http://passport.darryring.com/login?lang=cn" method="post">
+				<form id="loginform" action="index.jsp" method="post">
 					<div class="dr_form">
 						<h3>DR族-登录</h3>
 						<div class="dr_minAction">
@@ -56,7 +56,7 @@
 							<p class="dr_actionPwd"><a class="fr" href="http://passport.darryring.com/forget?lang=cn">忘记密码?</a><input id="isRemember" type="checkbox"><label for="isRemember">记住密码</label></p>
 						</div>
 						<div id="login" class="dr_Btns">
-							<a class="defaultBtn focus">登录</a>
+							<a class="defaultBtn focus" href="index.jsp">登录</a>
 							<a class="colorBtn left">加入DR族</a>
 						</div>
 					</div>

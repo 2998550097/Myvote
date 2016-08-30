@@ -4,7 +4,7 @@
 <html>
 <head>
 <base href="/MyDarry/">
-<title>DR头部</title>
+<title>DR</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="css/same.css" />
 <link rel="stylesheet" href="css/valentine_index.css" />

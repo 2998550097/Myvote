@@ -65,9 +65,8 @@
 									<li><a href="DR/question.html">问题反馈</a></li>
 								</ul>
 							</div></li>
-						<li><a href="/active">DR活动</a></li>
-						<li><a href="http://darryring.com/" target="_blank">Darry
-								Ring官网</a></li>
+						<li><a href="DR/activity.html">DR活动</a></li>
+						<li><a href="index.jsp" target="_blank">Darry Ring官网</a></li>
 					</ul>
 					<!-- end of 导航 -->
 				</div>
