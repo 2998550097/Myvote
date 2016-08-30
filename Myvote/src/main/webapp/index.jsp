@@ -637,7 +637,7 @@
 <jsp:include page="footer.jsp"/>
 <script>
     // 加载底部入口模块
-    seajs.use("footerJs/footer.js");
+    seajs.use("MyDarry/footerJs/footer.js");
 </script>
 </body>
 </html>

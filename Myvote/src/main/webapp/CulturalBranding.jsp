@@ -530,7 +530,7 @@
 	<jsp:include page="footer.jsp"/>
 <script>
     // 加载底部入口模块
-    seajs.use("footerJs/footer.js");
+    seajs.use("MyDarry/footerJs/footer.js");
 </script>
 <!--客服弹窗end-->
 <!--JS begin-->

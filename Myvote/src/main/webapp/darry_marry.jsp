@@ -2418,7 +2418,7 @@ new Magnifier('magnifier0',{pPath:'http://img.darryring.com/userfiles/image/prod
 	<jsp:include page="footer.jsp" />
 	<script>
 	    // 加载底部入口模块
-	    seajs.use("footerJs/footer.js");
+	    seajs.use("MyDarry/footerJs/footer.js");
 	</script>
 	<a data-version="201601131096" data-cltversion="2.3.1"
 		data-cltsource="80001"
