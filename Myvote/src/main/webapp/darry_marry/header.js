@@ -4,12 +4,12 @@
  * */
 define(function (require, exports, module) {
     /*通过 require 引入依赖*/
-    alert(222);
-    require('darry_marry/jquery.js');
-    var drToggle = require('darry_marry/drtoggle.js');
-    var Tabs = require('darry_marry/tabs.js');
-    var Banner_nav = require('darry_marry/banner.js');
-    var twoTabs = require('darry_marry/twoTabs.js');
+    alert(111);
+    require('MyDarry/headerJs/jquery.js');
+    var drToggle = require('MyDarry/headerJs/drtoggle.js');
+    var Tabs = require('MyDarry/headerJs/tabs.js');
+    var Banner_nav = require('MyDarry/headerJs/banner.js');
+    var twoTabs = require('MyDarry/headerJs/twoTabs.js');
 
     $(function () {
         //首页子菜单显示隐藏

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/MyDarry/">
 <link rel="stylesheet" type="text/css" href="Darrying/css/same.css" />
 <script src="Darrying/js/jquery.js"></script>
 <script type="text/javascript" src="Darrying/js/index.js"></script>
@@ -11,13 +12,13 @@
 			// seajs 配置
 			seajs.config({
 				debug: true,
-				base: "/Three/",
+				base: "",
 				alias: {
-					"jquery": "Darrying/js/jquery.js"
+					"jquery": "MyDarry/Darrying/js/jquery.js"
 				}
 			});
 			// 加载头部入口模块
-			seajs.use("Darrying/js/header.js");
+			seajs.use("MyDarry/Darrying/js/header.js");
 		</script>
 <link rel="stylesheet" href="Darrying/css/common.css" />
 <script type="text/javascript" src="Darrying/js/header.js"></script>

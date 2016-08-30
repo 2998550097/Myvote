@@ -5,11 +5,11 @@
 define(function (require, exports, module) {
     /*通过 require 引入依赖*/
     alert(111);
-    require('headerJs/jquery.js');
-    var drToggle = require('headerJs/drtoggle.js');
-    var Tabs = require('headerJs/tabs.js');
-    var Banner_nav = require('headerJs/banner.js');
-    var twoTabs = require('headerJs/twoTabs.js');
+    require('MyDarry/headerJs/jquery.js');
+    var drToggle = require('MyDarry/headerJs/drtoggle.js');
+    var Tabs = require('MyDarry/headerJs/tabs.js');
+    var Banner_nav = require('MyDarry/headerJs/banner.js');
+    var twoTabs = require('MyDarry/headerJs/twoTabs.js');
 
     $(function () {
         //首页子菜单显示隐藏

@@ -3,6 +3,7 @@
 <!doctype>
 <html>
 <head>
+<base href="/MyDarry/">
 <meta charset="utf-8">
 <title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
 <link rel="stylesheet" type="text/css" href="marryring/css/same.css">
@@ -16,13 +17,13 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/MyDarry/",
+            base: "",
             alias: {
-                "jquery": "marryring/js/jquery.js"
+                "jquery": "MyDarry/marryring/js/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("marryring/js/header.js");
+        seajs.use("MyDarry/marryring/js/header.js");
     </script>
     <script type="text/javascript" src="CulturalBranding/js/header.js"></script>
     <link rel="stylesheet" type="text/css" href="marryring/css/common.css">

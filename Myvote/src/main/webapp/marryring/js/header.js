@@ -3,13 +3,13 @@
  * 2015-06-27 14:00
  * */
 define(function (require, exports, module) {
-	alert(11);
     /*通过 require 引入依赖*/
-    require('marryring/js/jquery.js');
-    var drToggle = require('marryring/js/drtoggle.js');
-    var Tabs = require('marryring/js/tabs.js');
-    var Banner_nav = require('marryring/js/banner.js');
-    var twoTabs = require('marryring/js/twoTabs.js');
+    alert(111);
+    require('MyDarry/headerJs/jquery.js');
+    var drToggle = require('MyDarry/headerJs/drtoggle.js');
+    var Tabs = require('MyDarry/headerJs/tabs.js');
+    var Banner_nav = require('MyDarry/headerJs/banner.js');
+    var twoTabs = require('MyDarry/headerJs/twoTabs.js');
 
     $(function () {
         //首页子菜单显示隐藏

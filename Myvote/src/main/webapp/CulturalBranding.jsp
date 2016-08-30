@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html>
+<base href="/MyDarry/">
 <head><link rel="stylesheet" type="text/css" href="CulturalBranding/css/same.css" />
 	<script type="text/javascript" src="CulturalBranding/js/jquery-1.11.3.min.js"></script>
     <script src="CulturalBranding/js/jquery.js"></script>
@@ -12,13 +13,13 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/MyDarry/",
+            base: "",
             alias: {
-                "jquery": "CulturalBranding/js/jquery.js"
+                "jquery": "MyDarry/CulturalBranding/js/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("CulturalBranding/js/header.js");
+        seajs.use("MyDarry/CulturalBranding/js/header.js");
     </script>
     <script type="text/javascript" src="CulturalBranding/js/header.js"></script>
     <link rel="stylesheet" href="CulturalBranding/css/common.css" />

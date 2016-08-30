@@ -27,13 +27,13 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/MyDarry/",
+            base: "",
             alias: {
-                "jquery":"headerJs/jquery.js"
+                "jquery":"MyDarry/headerJs/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("headerJs/header.js");
+        seajs.use("MyDarry/headerJs/header.js");
 </script>
 <script type="text/javascript" src="headerJs/header.js"></script>
 </head>

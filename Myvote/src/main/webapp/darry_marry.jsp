@@ -3,6 +3,7 @@
 <!DOCTYPE htm>
 <html>
 <head>
+<base href="/MyDarry/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="darry_marry/jiathis_counter.css" rel="stylesheet"
 	type="text/css">
@@ -30,13 +31,13 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/MyDarry/",
+            base: "",
             alias: {
-                "jquery": "darry_marry/jquery.js"
+                "jquery": "MyDarry/darry_marry/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("darry_marry/header.js");
+        seajs.use("MyDarry/darry_marry/header.js");
     </script>
 <script type="text/javascript" src="darry_marry/header.js"></script>
 <!--统计系统-->
