@@ -12,7 +12,7 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/Three/",
+            base: "/MyDarry/",
             alias: {
                 "jquery": "CulturalBranding/js/jquery.js"
             }

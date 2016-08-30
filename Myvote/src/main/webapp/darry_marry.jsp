@@ -30,7 +30,7 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/Three/",
+            base: "/MyDarry/",
             alias: {
                 "jquery": "darry_marry/jquery.js"
             }

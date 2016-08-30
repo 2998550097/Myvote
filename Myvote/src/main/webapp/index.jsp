@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<base href="/Three/">
+<base href="/MyDarry/">
 <title>DR头部</title>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="css/same.css" />
@@ -27,7 +27,7 @@
         // seajs 配置
         seajs.config({
             debug: true,
-            base: "/Three/",
+            base: "/MyDarry/",
             alias: {
                 "jquery":"headerJs/jquery.js"
             }
