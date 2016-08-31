@@ -3,6 +3,7 @@
 <!doctype html>
 <html>
 <head>
+<base href="/MyDarry/"> 
 <meta charset="utf-8">
 <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible">
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
