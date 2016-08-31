@@ -5,28 +5,29 @@
 <!-- saved from url=(0043)http://www.darryring.com/ncart/Address.aspx -->
 <html>
 <head>
+<base href="/MyDarry/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../Cart/css/shopping.css">
-<link rel="stylesheet" type="text/css" href="../Cart/css/common.css">
-<link rel="stylesheet" type="text/css" href="../Cart/css/drcart.css">
+<link rel="stylesheet" type="text/css" href="Cart/css/shopping.css">
+<link rel="stylesheet" type="text/css" href="Cart/css/common.css">
+<link rel="stylesheet" type="text/css" href="Cart/css/drcart.css">
 
-<script src="../Cart/js/hm.js">
+<script src="Cart/js/hm.js">
 	
 </script>
-<script charset="utf-8" src="../Cart/js/lxb.js"></script>
-<script charset="utf-8" src="../Cart/js/v.js"></script>
-<script async="" src="../Cart/js/analytics.js"></script>
-<script type="text/javascript" src="../Cart/js/jquery.js"></script>
-<script type="text/javascript" src="../Cart/js/shoppcart.js"></script>
+<script charset="utf-8" src="Cart/js/lxb.js"></script>
+<script charset="utf-8" src="Cart/js/v.js"></script>
+<script async="" src="Cart/js/analytics.js"></script>
+<script type="text/javascript" src="Cart/js/jquery.js"></script>
+<script type="text/javascript" src="Cart/js/shoppcart.js"></script>
 
 <title>提交订单Darry Ring求婚钻戒价格 戴瑞珠宝官网</title>
 <title></title>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="../Cart/js/zh_cn.js" data-requiremodule="lang"></script>
+	src="Cart/js/zh_cn.js" data-requiremodule="lang"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="../Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
+	src="Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="../Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
+	src="Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
 </head>
 <body>
 	<div id="nTalk_post_hiddenElement"
@@ -51,7 +52,7 @@
 				<!--头部-->
 				<div class="shop_top">
 					<div class="shopt_left fl">
-						<a href="#" title="Darry Ring"> <img src="../Cart/images/dr.png"
+						<a href="#" title="Darry Ring"> <img src="Cart/images/dr.png"
 							width="186" height="42">
 						</a>
 					</div>
@@ -509,7 +510,7 @@
 						Reserved. 粤ICP备11012085号</p>
 					<p>中国互联网违法信息举报中心 | 中国公安网络110报警服务 | 本网站提供所售商品的正式发票</p>
 					<div class="shop_foot-img">
-						<img src="../Cart/images/db.jpg" width="776" height="55">
+						<img src="Cart/images/db.jpg" width="776" height="55">
 					</div>
 				</div>
 				<!--底部end-->
@@ -603,7 +604,7 @@
 						+ _bdhmProtocol
 						+ "hm.baidu.com/h.js%3Fcbc01ac15a6b1e666bf91e1ecba215e9' type='text/javascript'%3E%3C/script%3E"));
 	</script>
-	<script src="../Cart/js/h.js" type="text/javascript"></script>
+	<script src="Cart/js/h.js" type="text/javascript"></script>
 	<!--有道start-->
 
 	<!--有道end-->
