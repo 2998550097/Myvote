@@ -124,7 +124,7 @@
                                 <input type="password" name="email_pwd_confirm" value="" class="ipTxt ico-pwd" placeholder="请再次确认密码">
                                 <div class="fix">
                                     <input type="text" name="email_code" value="" class="ipTxt ico-send inputCode" placeholder="请输入验证码">
-                                    <a class="yxCode fr" href="javascript:void(0)" title="点击刷新验证码"><img src="./戴瑞珠宝官网会员注册登录_Darry Ring求婚钻戒价格 戴瑞珠宝官网注册_files/code" onclick="javascript:this.src = &#39;/code?&#39; + Math.random();"></a>
+                                    <a class="yxCode fr" href="javascript:void(0)" title="点击刷新验证码"><img src="signcode/get" onclick=""></a>
                                 </div>
                                 <div class="checkTerms">
                                     <input type="checkbox" name="email_check" id="emailCheck" checked="checked"><label for="emailCheck">同意Darry Ring用户</label><a href="http://www.darryring.com/help_se/85.html">注册协议</a>和<a href="http://www.darryring.com/help_se/86.html">隐私条款</a>

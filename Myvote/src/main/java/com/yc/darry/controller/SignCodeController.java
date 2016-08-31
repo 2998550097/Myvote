@@ -16,9 +16,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 /**
@@ -32,8 +35,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @Scope("prototype")
 @RequestMapping("/signcode")
+@SessionAttributes("signcode")
 public class SignCodeController {
-
+	
+	@ModelAttribute
+	public void getSigncode(){
+		String signcode=new String();
+	}
     /** 检查验证码
      * 用户登录的时候避免暴力破解加上图片验证码
      * @param request
@@ -48,7 +56,7 @@ public class SignCodeController {
     {
         HttpSession session = request.getSession();
         String signcodeSession=(String)session.getAttribute("signcode");
-        System.out.println(signcodeSession);
+        System.out.println(signcodeSession+"!!!");
         if(signcode==null || "".equals(signcode))
         {
             return false;
@@ -79,10 +87,12 @@ public class SignCodeController {
 	 * @see [类、类#方法、类#成员]
 	 */
 	@RequestMapping(value = "/get",method=RequestMethod.GET)
-	public void service(HttpServletRequest request, HttpServletResponse response)
+	public void service(HttpServletRequest request, HttpServletResponse response,ModelMap map)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
+		
+		
 		// 验证码图片的宽度。
 		int width = 70;
 		// 验证码图片的高度。
@@ -143,8 +153,9 @@ public class SignCodeController {
 
 		// 将四位数字的验证码保存到Session中。
 		HttpSession session = request.getSession();
-		session.setAttribute("signcode", randomCode.toString());
-
+		session.removeAttribute("signcode");
+		map.put("signcode", randomCode.toString());
+		System.out.println(map.get("signcode"));
 		// 图象生效
 		g.dispose();
 
