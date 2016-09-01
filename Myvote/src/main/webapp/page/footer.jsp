@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!--底部-->
-<div class="dr_footer">
+<div class="dr_footer" style="height:34px;background: url(/MyDarry/images/foot-top.jpg)  repeat-x;">
     <div class="dr_footer-top"></div>
     <!--底部图标-->
     <ul class="dr_footer-icon w1000">
