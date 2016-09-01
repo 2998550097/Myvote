@@ -5,6 +5,7 @@ create table admin(
      apassword varchar2(50)  --密码
 );
 
+
 create table users(
        userid int primary key, --用户编号
        ucardId varchar2(20) not null unique, --身份证号码

@@ -163,11 +163,11 @@ body {
 			}
 
 			var shopCurrentNum = 1;
-
+			//商店的内容
 			function shopLoadData(currentPageNum) {
 				var pro = $("#ctl00_content_ddlProvince").val();
 				var city = $("#ctl00_content_ddlcity").val();
-
+			
 				$.get("/nAPI/shopList.aspx?lan=0&action=seach&pagenum=" + currentPageNum + "&pro=" + pro + "&city=" + city, function(data) {
 					$("#div_shoplist").empty();
 					$("#div_shoplist").html(data);
@@ -371,7 +371,7 @@ body {
 			<!--shopMap 店铺地图-->
 			<div class="shopMapMain" id="shopMapMain"
 				style="opacity: 1; display: none;">
-				<div class="shopMapBg" id="shopMapBg"></div>
+				<div class="shopMapBg" id="shopMapBg"></div
 				<div class="shopMap" id="shopMap">
 					<div class="shopMapInfo">
 						<h5 id="h_shopname">Darry Ring北京店</h5>
