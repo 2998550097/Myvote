@@ -58,7 +58,7 @@
 						</div>
 						<div id="login" class="dr_Btns">
 							<a class="defaultBtn focus" href="index.jsp">登录</a>
-							<a class="colorBtn left">加入DR族</a>
+							<a class="colorBtn left" href="register.jsp">加入DR族</a>
 						</div>
 					</div>
 					<div class="dr_otherLogin">
@@ -98,5 +98,6 @@
         
         
         <jsp:include page="footer.jsp"/>
+        
 </body>
 </html>

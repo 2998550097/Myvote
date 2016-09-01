@@ -60,14 +60,20 @@ create table goods(
        styleid int not null,  --款式号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
-       gfsize int not null, --手寸
-       gfense varchar2(20) not null,--分色（包括颜色和重量）
-       gcrystal varchar2(10), --净度
-       gcutting varchar2(10), --切工
        gprice int not null,  --价格
        averagescore number(2,1) not null, --平均评分
        gother varchar2(20) --其它
        
+);
+
+--商品参数表
+create table paramter(
+	paramterid int primary key, --参数编号
+	goodid int not null, --商品编号
+	pcarat int, --商品重量（分）
+	psize int,  --手寸
+	gcrystal varchar2(10), --净度
+	gcutting varchar2(10) --切工
 );
 
 --收货地址
@@ -82,7 +88,7 @@ create table  delivery(
 
 --订单表
 create table orders(
-       orderid number(20) primary key, --订单号
+       orderid varchar2(50) primary key, --订单号
        userid int not null, --用户编号 
        oname varchar2(20) not null, --收件人姓名
        odetail varchar2(100) not null, --详细地址
@@ -98,9 +104,10 @@ create table orders(
 
 create table orderdetail(
        orderdetailid int primary key, --商品明细
-       orderid int not null, --订单编号
+       orderid varchar2(50) not null, --订单编号
        goodid int null --商品编号
 );
+drop table orderdetail;
 --收藏表
 create table collection(
        collectionid int primary key, --收藏编号
@@ -144,7 +151,7 @@ create table articlecom(
 );
 
 
-
+create sequence seq_user_id start with 111;
 create sequence seq_store_id start with 11;
 create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
