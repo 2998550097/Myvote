@@ -4,24 +4,65 @@
 <head>
 <meta charset="UTF-8">
 <title>测量手寸</title>
-<link rel="stylesheet" href="../css/help.css" />
+
+<base href="/MyDarry/"> 
+<link rel="stylesheet" href="Help/css/help.css" />
+<link rel="stylesheet" href="css/kefu.css" />
+		<link rel="stylesheet" href="css/same.css" />
+		<link rel="stylesheet" href="css/valentine_index.css" />
+		<link rel="stylesheet" href="css/drindex.css">
+		<!--实体店应急20160122-->
+		<link rel="stylesheet" href="css/help.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script src="js/hm.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script src="js/hm(1).js"></script>
+		<script async="" src="js/gt.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script charset="utf-8" src="js/v.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script async="" src="headerJs/index.js"></script>
+		<script async="" src="headerJs/banner.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<script type="text/javascript">
+			// seajs 配置
+			seajs.config({
+			    debug: true,
+			    base: "",
+			    alias: {
+			        "jquery":"MyDarry/headerJs/jquery.js"
+			    }
+			});
+				// 加载头部入口模块
+				seajs.use("MyDarry/headerJs/header.js");
+				function zh(){
+					location.href="Help/aboutUs/qwrz.jsp";
+				}
+				
+				function zh2(){
+					location.href="Help/Service/xgsc.jsp";
+				}
+		</script>
+
+
+
+
+
 <style>
 .about_center {
 	height: 2246px;
 	background-color: #fff;
 }
 </style>
-<script type="text/javascript">
-			function zh(){
-				location.href="../aboutUs/qwrz.jsp";
-			}
-			
-			function zh2(){
-				location.href="../Service/xgsc.jsp";
-			}
-		</script>
+
 </head>
 <body>
+	<jsp:include page="../../page/header.jsp" />
+	<jsp:include page="../../page/nav.jsp" />
+
 	<div class="cort">
 		<div class="cmain aboutus">
 			<div class="zbk_top spalid">
@@ -65,47 +106,47 @@
 
 							<li class="bau_other">
 								<h4>
-									<a href="zclc.jsp">>注册流程</a>
+									<a href="Help/helpCenter/zclc.jsp">>注册流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="gmlc.jsp">>购买流程</a>
+									<a href="Help/helpCenter/gmlc.jsp">>购买流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="zffs.jsp">>支付方式 </a>
+									<a href="Help/helpCenter/zffs.jsp">>支付方式 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="pslc.jsp">>配送流程</a>
+									<a href="Help/helpCenter/pslc.jsp">>配送流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="thlc.jsp">>退货流程 </a>
+									<a href="Help/helpCenter/thlc.jsp">>退货流程 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="blsh.jsp">>办理售后</a>
+									<a href="Help/helpCenter/blsh.jsp">>办理售后</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="clsc.jsp" class="specl_other">>测量手寸</a>
+									<a href="Help/helpCenter/clsc.jsp" class="specl_other">>测量手寸</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="tsjy.jsp">>投诉建议</a>
+									<a href="Help/helpCenter/tsjy.jsp">>投诉建议</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="wzdt.jsp">>网站地图</a>
+									<a href="Help/helpCenter/wzdt.jsp">>网站地图</a>
 								</h4>
 							</li>
 						</ul></li>
@@ -182,7 +223,7 @@
 									class="sc_cort-corent_left fl">
 									<img width="320" height="200"
 										style="border: 0; vertical-align: middle;"
-										src="../images/1.gif" alt="step01">
+										src="Help/images/1.gif" alt="step01">
 								</div>
 								<div
 									style="margin: 0; float: right; display: inline; width: 354px; height: 200px; background: #FEF3F1;"
@@ -202,7 +243,7 @@
 								class="sc_cort-bottom">
 								<img width="39" height="46"
 									style="border: 0 none; vertical-align: middle;"
-									src="../images/pointpng.png">
+									src="Help/images/pointpng.png">
 							</div>
 							<div
 								style="margin: 0; overflow: hidden; color: black; font-family: Simsun; font-size: medium; background-color: #fff;"
@@ -211,7 +252,7 @@
 									class="sc_cort-corent_left fl">
 									<img width="320" height="200"
 										style="margin: 0; vertical-align: middle;"
-										src="../images/2.gif" alt="">
+										src="Help/images/2.gif" alt="">
 								</div>
 								<div
 									style="margin: 0; float: right; display: inline; width: 354px; height: 200px; background: #FEF3F1;"
@@ -231,7 +272,7 @@
 								class="sc_cort-bottom">
 								<img width="39" height="46"
 									style="margin: 0; border: 0; vertical-align: middle;"
-									src="../images/pointpng.png" alt="">
+									src="Help/images/pointpng.png" alt="">
 							</div>
 							<div
 								style="margin: 0; overflow: hidden; color: black; font-family: Simsun; font-size: medium; background-color: #FFF;"
@@ -240,7 +281,7 @@
 									class="sc_cort-corent_left fl">
 									<img width="320" height="200"
 										style="border: 0; vertical-align: middle;"
-										src="../images/3.gif" alt="">
+										src="Help/images/3.gif" alt="">
 								</div>
 								<div
 									style="margin: 0; float: right; display: inline; width: 354px; height: 200px; background: #FEF3F1;"
@@ -259,7 +300,7 @@
 								class="sc_cort-bottom">
 								<img width="39" height="46"
 									style="margin: 0; border: 0; vertical-align: middle;"
-									src="../images/pointpng.png" alt="">
+									src="Help/images/pointpng.png" alt="">
 							</div>
 							<div
 								style="margin: 0; overflow: hidden; color: black; font-family: Simsun; font-size: medium; background-color: #FFF;"
@@ -267,7 +308,7 @@
 								<div style="margin: 0; float: left; display: inline;"
 									class="sc_cort-corent_left fl">
 									<img style="margin: 0; border: 0; vertical-align: middle;"
-										src="../images/4.gif" alt="">
+										src="Help/images/4.gif" alt="">
 								</div>
 								<div
 									style="margin: 0; float: right; display: inline; width: 354px; height: 200px; background: #FEF3F1;"
@@ -288,7 +329,7 @@
 								class="sc_cort-bottom sc_cort-spbottom">
 								<img width="39" height="46"
 									style="margin: 0; border: 0; vertical-align: middle;"
-									src="../images/pointpng.png" alt="">
+									src="Help/images/pointpng.png" alt="">
 							</div>
 							<h4
 								style="margin: 0; padding: 0 0 8px; font-size: 14px; color: black; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #F3F3F3; font-weight: 100; font-family: Simsun; background-color: #fff;">
@@ -300,7 +341,7 @@
 									class="sc_cort-corent_left fl">
 									<img width="311" height="326"
 										style="margin: 0; border: 0; vertical-align: middle;"
-										src="../images/5.jpg" alt="">
+										src="Help/images/5.jpg" alt="">
 								</div>
 								<div
 									style="margin: 0; float: right; display: inline; width: 354px; height: 324px; background: #FEF3F1;"
@@ -341,7 +382,7 @@
 										style="margin: 0 0 0 70px; list-style: none; width: 320px; float: left;"><img
 										width="320" height="213"
 										style="margin: 0; border: 0; vertical-align: middle;"
-										src="../images/6-1.jpg" alt="">
+										src="Help/images/6-1.jpg" alt="">
 										<p
 											style="margin: 10px 0 0; font-size: 14px; color: #666666; line-height: 20px;">取白色纸条，按同样的方法进行
 											收紧测量；</p></li>
@@ -349,7 +390,7 @@
 										style="margin: 0 0 0 70px; list-style: none; width: 320px; float: left;">
 										<img width="320" height="213"
 										style="margin: 0; border: 0; vertical-align: middle;"
-										src="../images/6-2.jpg" alt="">
+										src="Help/images/6-2.jpg" alt="">
 										<p
 											style="margin: 10px 0 0; font-size: 14px; color: #666666; line-height: 20px;">
 											取皮尺，以0或10或20等为起点刻度，直接绕手指一圈 收紧测量， 读取数值即可（即手指最粗位置周长）；</p>
@@ -367,5 +408,11 @@
 			</div>
 		</div>
 	</div>
+	
+	<jsp:include page="../../page/footer.jsp"/>
+		<script>
+	    // 加载底部入口模块
+	   		seajs.use("MyDarry/footerJs/footer.js");
+		</script>
 </body>
 </html>

@@ -2,26 +2,64 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	<base href="/MyDarry/">
 		<meta charset="UTF-8">
 		<title>加入我们</title>
-		<link rel="stylesheet" href="../css/aboutU.css" />
+		<link rel="stylesheet" href="Help/css/aboutU.css" />
+		<link rel="stylesheet" href="css/kefu.css" />
 		<style>
 			.about_center{
 				height: 611px;
 				background-color: #fff;
 			}
 		</style>
-		<script type="text/javascript">
-			function zh1(){
-				location.href="../helpCenter/zclc.jsp";
-			}
-			
-			function zh2(){
-				location.href="../Service/xgsc.jsp";
-			}
+		<link rel="stylesheet" href="css/same.css" />
+		<link rel="stylesheet" href="css/valentine_index.css" />
+		<link rel="stylesheet" href="css/drindex.css">
+		<!--实体店应急20160122-->
+		<link rel="stylesheet" href="css/help.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script src="js/hm.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script src="js/hm(1).js"></script>
+		<script async="" src="js/gt.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script charset="utf-8" src="js/v.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script async="" src="headerJs/index.js"></script>
+		<script async="" src="headerJs/banner.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
+	<script type="text/javascript">
+		// seajs 配置
+		seajs.config({
+		    debug: true,
+		    base: "",
+		    alias: {
+		        "jquery":"MyDarry/headerJs/jquery.js"
+		    }
+		});
+		// 加载头部入口模块
+		seajs.use("MyDarry/headerJs/header.js");
+	
+				function zh1(){
+					location.href="Help/helpCenter/zclc.jsp";
+				}
+				
+				function zh2(){
+					location.href="Help/Service/xgsc.jsp";
+				}
 		</script>
+		
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
 	</head>
 	<body>
+	
+	<jsp:include page="../../page/header.jsp"/>
+	
+	<jsp:include page="../../page/nav.jsp"/>
+	
 		<div class="cort">
 			<div class="cmain aboutus">
 				<div class="zbk_top spalid">
@@ -38,27 +76,27 @@
 							<ul class="abul_ul" >
                                 <li class="bau_other">
                                     <h4>
-                                        <a href="qwrz.jsp" >>权威认证</a>
+                                        <a href="Help/aboutUs/qwrz.jsp" >>权威认证</a>
                                     </h4>
                                 </li>
                                 <li class="bau_other">
                                     <h4>
-                                        <a  href="ppsm.jsp" >>品牌声明</a>
+                                        <a  href="Help/aboutUs/ppsm.jsp" >>品牌声明</a>
                                     </h4>
                                 </li>
                                 <li class="bau_other">
                                     <h4>
-                                        <a  href="swhz.jsp" >>商务合作</a>
+                                        <a  href="Help/aboutUs/swhz.jsp" >>商务合作</a>
                                     </h4>
                                 </li>
                                 <li class="bau_other">
                                     <h4>
-                                        <a  href="lxwm.jsp" >>联系我们</a>
+                                        <a  href="Help/aboutUs/lxwm.jsp" >>联系我们</a>
                                     </h4>
                                 </li>
                                 <li class="bau_other">
                                     <h4>
-                                        <a href="jrwm.jsp" class="specl_other">>加入我们</a>
+                                        <a href="Help/aboutUs/jrwm.jsp" class="specl_other">>加入我们</a>
                                     </h4>
                                 </li>
                     		</ul>
@@ -153,5 +191,14 @@
 				</div>
 			</div>
 		</div>
+		
+		<jsp:include page="../../page/footer.jsp"/>
+		<script>
+	    // 加载底部入口模块
+	   		seajs.use("MyDarry/footerJs/footer.js");
+		</script>
+		
+		
+		
 	</body>
 </html>

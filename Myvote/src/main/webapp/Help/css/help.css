@@ -40,14 +40,13 @@ li{
 .abc_left{
 	width: 146px;
 	border: 2px solid #efefef;
-	border-bottom: none;}
-
-.fl{
+	border-bottom: none;
 	float: left;
 	display: inline;
 	margin-left: 20px;
 	margin-top: 15px;
 	}
+
 	
 .abc_left h3{
 	color:#333;

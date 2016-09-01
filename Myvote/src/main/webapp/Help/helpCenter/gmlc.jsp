@@ -6,24 +6,62 @@
 <title>购买流程</title>
 <title>帮助页面</title>
 <meta charset="utf-8" />
-<link rel="stylesheet" href="../css/help.css" />
+
+<base href="/MyDarry/"> 
+<link rel="stylesheet" href="Help/css/help.css" />
+<link rel="stylesheet" href="css/kefu.css" />
+		<link rel="stylesheet" href="css/same.css" />
+		<link rel="stylesheet" href="css/valentine_index.css" />
+		<link rel="stylesheet" href="css/drindex.css">
+		<!--实体店应急20160122-->
+		<link rel="stylesheet" href="css/help.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script src="js/hm.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script src="js/hm(1).js"></script>
+		<script async="" src="js/gt.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script charset="utf-8" src="js/v.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script async="" src="headerJs/index.js"></script>
+		<script async="" src="headerJs/banner.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<script type="text/javascript">
+			// seajs 配置
+			seajs.config({
+			    debug: true,
+			    base: "",
+			    alias: {
+			        "jquery":"MyDarry/headerJs/jquery.js"
+			    }
+			});
+				// 加载头部入口模块
+				seajs.use("MyDarry/headerJs/header.js");
+				function zh(){
+					location.href="Help/aboutUs/qwrz.jsp";
+				}
+				
+				function zh2(){
+					location.href="Help/Service/xgsc.jsp";
+				}
+		</script>
+
+
 <style>
 .about_center {
 	height: 3670px;
 	background-color: #fff;
 }
 </style>
-<script type="text/javascript">
-			function zh(){
-				location.href="../aboutUs/qwrz.jsp";
-			}
-			
-			function zh2(){
-				location.href="../Service/xgsc.jsp";
-			}
-		</script>
+
 </head>
 <body>
+
+	<jsp:include page="../../page/header.jsp" />
+	<jsp:include page="../../page/nav.jsp" />
 	<div class="cort">
 		<div class="cmain aboutus">
 			<div class="zbk_top spalid">
@@ -65,47 +103,47 @@
 
 							<li class="bau_other">
 								<h4>
-									<a href="zclc.jsp">>注册流程</a>
+									<a href="Help/helpCenter/zclc.jsp">>注册流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="gmlc.jsp" class="specl_other">>购买流程</a>
+									<a href="Help/helpCenter/gmlc.jsp" class="specl_other">>购买流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="zffs.jsp">>支付方式 </a>
+									<a href="Help/helpCenter/zffs.jsp">>支付方式 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="pslc.jsp">>配送流程</a>
+									<a href="Help/helpCenter/pslc.jsp">>配送流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="thlc.jsp">>退货流程 </a>
+									<a href="Help/helpCenter/thlc.jsp">>退货流程 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="blsh.jsp">>办理售后</a>
+									<a href="Help/helpCenter/blsh.jsp">>办理售后</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="clsc.jsp">>测量手寸</a>
+									<a href="Help/helpCenter/clsc.jsp">>测量手寸</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="tsjy.jsp">>投诉建议</a>
+									<a href="Help/helpCenter/tsjy.jsp">>投诉建议</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="wzdt.jsp">>网站地图</a>
+									<a href="Help/helpCenter/wzdt.jsp">>网站地图</a>
 								</h4>
 							</li>
 						</ul></li>
@@ -168,20 +206,20 @@
 								如果您已是戴瑞注册会员，直接“登录”即可，登录链接<br> <a href="#" target="_blank"
 									class="adr">http://passport.darryring.com/login</a><br>
 								小贴士：注册只需花费您一分钟时间，注册成功后即可享受免费的短信提醒服务。<br> <img width="709"
-									height="400" src="../images/sign1.jpg" alt="">
+									height="400" src="Help/images/sign1.jpg" alt="">
 							</div>
 							<div>&nbsp;</div>
 							<div>
 								<strong>二、挑选Darry Ring求婚钻戒</strong><br> Darry
 								Ring的钻戒根据镶座的大小，备有多种重量及等级的钻石供您选择。您可以根据自己的预算以及心爱之人的气质、喜好，挑选一枚合适的钻戒。Darry
 								Ring钻戒款式以经典款式居多，Darry Ring提供完美展现女性的美丽。<br> <img width="709"
-									height="400" src="../images/marry.jpg" alt="注册">
+									height="400" src="Help/images/marry.jpg" alt="注册">
 							</div>
 							<div>&nbsp;</div>
 							<div>
 								<strong>三、加入购物车及验证身份证</strong><br>
 								挑选好钻戒款式，选择好钻戒的4C等级，完善手寸及刻字信息后，点击“加入购物车”或“立即购买”后会提示您填定姓名、身份证号码进行购买权限验证后，如尚未购买，即可购买。<br>
-								<img width="709" height="400" src="../images/TLVertify.jpg"
+								<img width="709" height="400" src="Help/images/TLVertify.jpg"
 									alt="真爱验证">
 							</div>
 							<div>&nbsp;</div>
@@ -189,7 +227,7 @@
 								<strong>四、填写真爱协议</strong><br> 每位定制Darry
 								Ring的男士都必须填写一份真爱协议，表明自己专属唯一的一枚Darry Ring赠予了所属的女性。真爱协议为Darry
 								Ring专有，信息将永久保存，不得修改变更。<br> <img width="709" height="400"
-									src="../images/TLprotocol.jpg" alt="真爱协议">
+									src="Help/images/TLprotocol.jpg" alt="真爱协议">
 							</div>
 							<div>&nbsp;</div>
 							<div>
@@ -200,7 +238,7 @@
 								为了保证您的商品顺利送达目的地，请准确填写收货人的姓名、地址、邮编、电话等有效信息；<br>
 								&nbsp;需要发票的用户，请在备注里注明发票抬头，戴瑞珠宝所开发票均为正规发票，所开金额均为订单的实际金额（不包括运费）<br>
 								&nbsp;注：当月订单请在当月补开发票，过期不受理，如有退换货需将发票一起寄回。<br> <img
-									width="709" height="400" src="../images/order.jpg" alt="订单">
+									width="709" height="400" src="Help/images/order.jpg" alt="订单">
 							</div>
 							<div>&nbsp;</div>
 							<div>
@@ -209,7 +247,7 @@
 								1、普通支付适用于可一次性支付完成的订单；<br>
 								2、线下汇款是指您可以在任一家银行汇款或转账。为了确保您的资金安全，请务必在汇款前联系我们！填写电汇单时请在用途一栏注明您的订单号。<br>
 								提交订单后，系统自订单提交成功后将自动默认支付时限24小时，若需要延长支付时限，请联系客服顾问协助处理。<br> <img
-									width="709" height="400" src="../images/pay.jpg" alt="支付">
+									width="709" height="400" src="Help/images/pay.jpg" alt="支付">
 							</div>
 						</div>
 					</div>
@@ -219,5 +257,13 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	<jsp:include page="../../page/footer.jsp"/>
+		<script>
+	    // 加载底部入口模块
+	   		seajs.use("MyDarry/footerJs/footer.js");
+		</script>
 </body>
 </html>
