@@ -4,7 +4,7 @@ create table admin(
      aname varchar2(20) not null,  --管理员姓名
      apassword varchar2(50)  --密码
 );
-
+insert into admin values(1,'a','a');
 
 create table users(
        userid int primary key, --用户编号

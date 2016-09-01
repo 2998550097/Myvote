@@ -22,3 +22,6 @@
 信息 :2016-08-23 16:01:37,056 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select o.*,(select count(distinct(vuId)) from VoteItem where void=o.void) optionCount from voteoption o where vsId=? 
 信息 :2016-08-23 16:01:37,376 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 103(Integer)
 信息 :2016-08-23 16:01:37,507 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 5
+信息 :2016-09-01 21:31:15,050 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select * from admin where aname=? and apassword=? 
+信息 :2016-09-01 21:31:15,347 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String)
+信息 :2016-09-01 21:31:15,888 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1

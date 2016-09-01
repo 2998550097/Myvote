@@ -4,14 +4,12 @@ public class Admin {
 	private Integer adminId;
 	private String aname;
 	private String apassword;
-	public Admin(Integer adminId, String aname, String apassword) {
-		super();
-		this.adminId = adminId;
+	
+	public Admin( String aname, String apassword) {
 		this.aname = aname;
 		this.apassword = apassword;
 	}
 	public Admin() {
-		super();
 	}
 	public Integer getAdminId() {
 		return adminId;
