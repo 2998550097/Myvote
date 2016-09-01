@@ -6,6 +6,7 @@
 <base href="/MyDarry/">
 <title>DR</title>
 <meta charset="utf-8" />
+<link rel="stylesheet" href="css/kefu.css" />
 <link rel="stylesheet" href="css/same.css" />
 <link rel="stylesheet" href="css/valentine_index.css" />
 <link rel="stylesheet" href="css/common.css" />

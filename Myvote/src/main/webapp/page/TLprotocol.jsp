@@ -7,14 +7,12 @@
 <link rel="stylesheet" type="text/css" href="Cart/css/shopping.css">
 <link rel="stylesheet" type="text/css" href="Cart/css/common.css">
 <link rel="stylesheet" type="text/css" href="Cart/css/drcart.css">
-
 <script src="Cart/js/hm.js"></script>
 <script charset="utf-8" src="Cart/js/lxb.js"></script>
 <script charset="utf-8" src="Cart/js/v.js"></script>
 <script async="" src="Cart/js/analytics.js"></script>
 <script type="text/javascript" src="Cart/js/jquery.js"></script>
 <script type="text/javascript" src="Cart/js/shoppcart.js"></script>
-
 <title>真爱协议_Darry Ring求婚钻戒价格 戴瑞珠宝官网</title>
 <script type="text/javascript" src="Cart/js/WdatePicker.js"></script>
 <link href="Cart/css/WdatePicker.css" rel="stylesheet" type="text/css">
@@ -25,6 +23,9 @@
 	src="Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
 	src="Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
+	<style type="text/css">
+		body{margin-top:0px;}
+	</style>
 </head>
 <body>
 	<div id="nTalk_post_hiddenElement"
