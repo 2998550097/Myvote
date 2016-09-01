@@ -4,7 +4,6 @@
  * */
 define(function (require, exports, module) {
     /*通过 require 引入依赖*/
-    alert(111);
     require('MyDarry/headerJs/jquery.js');
     var drToggle = require('MyDarry/headerJs/drtoggle.js');
     var Tabs = require('MyDarry/headerJs/tabs.js');

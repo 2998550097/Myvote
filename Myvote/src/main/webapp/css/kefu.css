@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+.drKf_tc {
+	display: none;
+	background: #fff;
+	width: 250px;
+	height: 340px;
+	padding: 15px;
+	position: fixed;
+	z-index: 9;
+	top: 10%;
+	left: 50%;
+	margin-left: -140px;
+}
+
+.drKf_close {
+	position: absolute;
+	background: url(../drimg/tc_close.jpg) no-repeat;
+	width: 50px;
+	height: 50px;
+	top: 0;
+	right: -50px;
+	z-index: 4;
+	cursor: pointer;
+}
+
+.drKf_tcborder {
+	border: 2px solid #5e5d62;
+	height: 336px;
+}
+
+.drKf_tcborder li {
+	height: 111px;
+	border-top: 1px solid #eee;
+	color: #c57d5c;
+	text-align: center;
+	font-size: 0;
+	position: relative;
+}
+
+.drKf_tcborder li:first-child {
+	border: none;
+}
+
+.drKf_tcborder li:hover {
+	background: #eee;
+}
+
+.drKf_tcborder span {
+	display: inline-block;
+	font-size: 20px;
+	padding-left: 35px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.drKf_tcborder p {
+	margin-top: 10px;
+}
+
+.drKf_tcborder i {
+	font-size: 14px;
+	margin: 0 4px;
+}
+
+.drKf_tcborder a {
+	position: absolute;
+	opacity: 0.01;
+	filter: alpha(opacity = 0.01);
+	background: #fff;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+}
+
+.drsqkf {
+	background: url(../images/sqkef.png) no-repeat left center;
+	margin-top: 30px;
+}
+
+.drshkf {
+	background: url(../images/shkf.png) no-repeat left center;
+	margin-top: 30px;
+}
+
+.drotherHelp {
+	background: url(../images/kfhelp.png) no-repeat left center;
+	margin-top: 38px;
+}

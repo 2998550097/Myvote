@@ -4,24 +4,65 @@
 <head>
 <meta charset="UTF-8">
 <title>配送流程</title>
-<link rel="stylesheet" href="../css/help.css" />
+
+<base href="/MyDarry/"> 
+<link rel="stylesheet" href="Help/css/help.css" />
+<link rel="stylesheet" href="css/kefu.css" />
+		<link rel="stylesheet" href="css/same.css" />
+		<link rel="stylesheet" href="css/valentine_index.css" />
+		<link rel="stylesheet" href="css/drindex.css">
+		<!--实体店应急20160122-->
+		<link rel="stylesheet" href="css/help.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script src="js/hm.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script src="js/hm(1).js"></script>
+		<script async="" src="js/gt.js"></script>
+		<script charset="utf-8" src="js/lxb.js"></script>
+		<script charset="utf-8" src="js/v.js"></script>
+		<script async="" src="js/analytics.js"></script>
+		<script async="" src="headerJs/index.js"></script>
+		<script async="" src="headerJs/banner.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
+		<script type="text/javascript" src="headerJs/header.js"></script>
+		<link rel="stylesheet" href="css/common.css" />
+		<script type="text/javascript">
+			// seajs 配置
+			seajs.config({
+			    debug: true,
+			    base: "",
+			    alias: {
+			        "jquery":"MyDarry/headerJs/jquery.js"
+			    }
+			});
+				// 加载头部入口模块
+				seajs.use("MyDarry/headerJs/header.js");
+				function zh(){
+					location.href="Help/aboutUs/qwrz.jsp";
+				}
+				
+				function zh2(){
+					location.href="Help/Service/xgsc.jsp";
+				}
+		</script>
+
+
+
 <style>
 .about_center {
 	height: 1537px;
 	background-color: #fff;
 }
 </style>
-<script type="text/javascript">
-			function zh(){
-				location.href="../aboutUs/qwrz.jsp";
-			}
-			
-			function zh2(){
-				location.href="../Service/xgsc.jsp";
-			}
-		</script>
+
 </head>
 <body>
+
+
+	<jsp:include page="../../page/header.jsp" />
+	<jsp:include page="../../page/nav.jsp" />
+
 	<div class="cort">
 		<div class="cmain aboutus">
 			<div class="zbk_top spalid">
@@ -65,47 +106,47 @@
 
 							<li class="bau_other">
 								<h4>
-									<a href="zclc.jsp">>注册流程</a>
+									<a href="Help/helpCenter/zclc.jsp">>注册流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="gmlc.jsp">>购买流程</a>
+									<a href="Help/helpCenter/gmlc.jsp">>购买流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="zffs.jsp">>支付方式 </a>
+									<a href="Help/helpCenter/zffs.jsp">>支付方式 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="pslc.jsp" class="specl_other">>配送流程</a>
+									<a href="Help/helpCenter/pslc.jsp" class="specl_other">>配送流程</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="thlc.jsp">>退货流程 </a>
+									<a href="Help/helpCenter/thlc.jsp">>退货流程 </a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="blsh.jsp">>办理售后</a>
+									<a href="Help/helpCenter/blsh.jsp">>办理售后</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="clsc.jsp">>测量手寸</a>
+									<a href="Help/helpCenter/clsc.jsp">>测量手寸</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="tsjy.jsp">>投诉建议</a>
+									<a href="Help/helpCenter/tsjy.jsp">>投诉建议</a>
 								</h4>
 							</li>
 							<li class="bau_other">
 								<h4>
-									<a href="wzdt.jsp">>网站地图</a>
+									<a href="Help/helpCenter/wzdt.jsp">>网站地图</a>
 								</h4>
 							</li>
 						</ul></li>
@@ -204,7 +245,7 @@
 								</div>
 								<div>
 									&nbsp; &nbsp;&nbsp;<img width="582" height="594"
-										src="../images/table.png.jpeg" alt="">
+										src="Help/images/table.png.jpeg" alt="">
 								</div>
 							</div>
 							<div>
@@ -252,5 +293,12 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<jsp:include page="../../page/footer.jsp"/>
+		<script>
+	    // 加载底部入口模块
+	   		seajs.use("MyDarry/footerJs/footer.js");
+		</script>
 </body>
 </html>
