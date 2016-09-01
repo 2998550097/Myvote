@@ -1,0 +1,178 @@
+<table id="Store_data"></table>
+<div id="add_Store" class="easyui-dialog" title="添加店铺" data-options="iconCls:'icon-add',resizable:true,modal:true,closed:true,fit:true">  
+ 
+   <br/>
+    <div style="float:right;width:360px;margin-right:20px;">
+   		<fieldset id="Store_pics_show">
+   			<legend>图片预览</legend>
+   		</fieldset>
+   </div>
+   <form action="" style="float:left;padding-left:20px">
+   		<label>店铺名：<input type="text" id="Store_uname" name="uname" required="required"/><br/><br/>
+   		<label>店铺地址：</label><input type="text" id="Store_upwd" name="title" required="required"/><br/><br/>
+   		<label>预约计数：</label><input type="email" id="Store_email" name="email" required="required"/><br/><br/>
+   		<label>营业时间：</label><input type="email" id="Store_email" name="email" required="required"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="Store_pics" name="pics" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
+   		<a href="javascript:addStoreInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+   </form> 
+   
+  
+</div>  
+
+<div id="update_Store" class="easyui-dialog" title="修改店铺" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
+ 
+   <br/>
+    <div style="float:right;width:360px;margin-right:20px;">
+   		<fieldset id="User_pics_show">
+   			<legend>图片预览</legend>
+   		</fieldset>
+   </div>
+   <form action="" style="float:left;padding-left:20px">
+   		<label>店铺名：<input type="text" id="User_usid" name="usid" required="required"/><br/><br/>
+   		<label>店铺地址：<input type="text" id="User_uname" name="uname" required="required"/><br/><br/>
+   		<label>预约计数：</label><input type="text" id="User_upwd" name="title" required="required"/><br/><br/>
+   		<label>营业时间：</label><input type="email" id="User_email" name="email" required="required"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="User_pics" name="pics" onchange="previewMultipleImage(this,'User_pics_show')"/><br/><br/>
+   		<a href="javascript:updateNewsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+   </form> 
+   
+  
+</div>  
+
+<script>
+obj=$('#Store_data').datagrid({  
+	    url:'../../StoreServlet',  
+	    queryParams:{op:'findStore'},
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:2,
+	    pageList:[2,5,10,15,20,30,3],
+	    sortName:'tids',
+	    remoteSort:false,
+	    columns:[[  
+			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
+			{field:'usid',title:'店铺编号',width:100,align:'center',sortable:true}, 
+	        {field:'uname',title:'店铺名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'upwd',title:'店铺地址',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'email',title:'预约计数',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'email',title:'营业时间',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'photo',title:'图片',width:100,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		if(value!=null){
+	        			var str="";
+	        			var pics=value.split(",");
+	        			for(var i=0;i<pics.length;i++){
+	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        			}
+	        			return str;
+	        		}else{
+	        			return;
+	        		}
+	        	}	
+	        
+	        },
+	        {field:'_operate',title:'操作',width:100,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		return "<a href=''>详细</a>";
+	        	}	
+	        }
+	     ]],
+	    toolbar:[{
+	    	text:"添加",
+	    	iconCls:"icon-add",
+	    	handler:function(){
+	    		$('#add_Store').dialog('open');
+	    	}
+		 },{
+		    text:"修改",
+		   	iconCls:"icon-edit",
+		    handler:function(){
+		    	$('#update_Store').dialog('open');
+		    	var rows=obj.datagrid("getChecked")[0];
+		    	if(rows!=undefined){
+		    		$('#update_Store').dialog('open');
+		    	}
+		    }
+		 },{
+		    text:"删除",
+		    iconCls:"icon-remove",
+		    handler:function(){
+		    	//获取选中的行
+		   		var rows=obj.datagrid("getChecked");
+		    	if(rows!=undefined){
+		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
+		    			if(rs){
+		    				var tids="";
+		    				for(var i=0;i<rows.length-1;i++){
+		    					tids+=rows[i].usid+",";
+		    				}
+		    				tids+=rows[i].usid;
+		    				
+		    				//发请求到数据库删除
+		    				$.post("../../StoreServlet",{op:"delStore",usid:tids},function(data){
+		    					if(data>0){
+			    					$.messager.show({
+			    						title:'成功提示',
+			    						msg:'店铺信息删除成功...',
+			    						timeout:2000,
+			    						showType:'slide'
+			    					});
+			    						
+			    					rows=null;
+			    					obj.datagrid("reload");//刷新表格
+			    				}else{
+			    					$.messager.alert('失败提示','店铺信息删除失败...','error');
+			    				}
+		    				});
+		    			}else{
+		    				return;
+		    			}
+		    		});
+		    	}else{
+		    		$.messager.show({
+						title:'温馨提示',
+						msg:'请选中您要删除的数据...',
+						timeout:2000,
+						showType:'slide'
+					});
+		    	}
+		    }
+		 }]
+	}); 
+
+function addStoreInfo(){
+	var uname=$.trim($("#Store_uname").val());
+	var upwd=$.trim($("#Store_upwd").val());
+	var email=$.trim($("#Store_email").val());
+
+	$.ajaxFileUpload({
+		url:"../../StoreServlet?op=addStore",
+		secureuri:false,
+		fileElementId:"Store_pics",
+		dataType:"json",
+		data:{uname:uname,upwd:upwd,email:email},
+		success:function(data,status){
+			if(data>0){
+				$.messager.show({title:'成功提示',msg:"店铺信息添加成功....",timeout:2000,showType:'slide'});
+				$("#Store_uname").val("");
+				$("#Store_upwd").val("");
+				$("#Store_email").val("");
+				$("#Store_pics_show").html("");
+				$('#Store_data').datagrid("reload");
+				$('#add_Store').dialog('close');
+			}else{
+				$.messager.alert("错误提示","店铺信息添加失败...\n","error");
+			}
+		},
+		error:function(data,status,e){
+			$.messager.alert("错误提示","店铺信息添加失败...\n"+e,"error");
+		}
+	});
+}
+
+
+</script>

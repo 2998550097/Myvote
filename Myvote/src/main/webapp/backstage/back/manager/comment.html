@@ -1,0 +1,155 @@
+<table id="Comment_data"></table>
+
+
+<script>
+obj=$('#Comment_data').datagrid({  
+	    url:'../../CommentServlet',  
+	    queryParams:{op:'findComment'},
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:2,
+	    pageList:[2,5,10,15,20,30,3],
+	    sortName:'tids',
+	    remoteSort:false,
+	    columns:[[  
+			{field:'tids',title:'',width:151,align:'center',checkbox:true}, 
+			{field:'usid',title:'评论编号',width:151,align:'center',sortable:true}, 
+	        {field:'uname',title:'用户昵称',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'upwd',title:'商品名',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'email',title:'订单编号',width:151,align:'center',editor:{type:"email",options:{requires:true}}},  
+	       	{field:'upwd',title:'商品名',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'upwd',title:'评分',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	     	{field:'photo',title:'图片',width:151,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		if(value!=null){
+	        			var str="";
+	        			var pics=value.split(",");
+	        			for(var i=0;i<pics.length;i++){
+	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        			}
+	        			return str;
+	        		}else{
+	        			return;
+	        		}
+	        	}	
+	        
+	        },
+	        {field:'_operate',title:'操作',width:151,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		return "<a href=''>详细</a>";
+	        	}	
+	        }
+	     ]],
+	    toolbar:[{
+		    text:"删除",
+		    iconCls:"icon-remove",
+		    handler:function(){
+		    	//获取选中的行
+		   		var rows=obj.datagrid("getChecked");
+		    	if(rows!=undefined){
+		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
+		    			if(rs){
+		    				var tids="";
+		    				for(var i=0;i<rows.length-1;i++){
+		    					tids+=rows[i].usid+",";
+		    				}
+		    				tids+=rows[i].usid;
+		    				
+		    				//发请求到数据库删除
+		    				$.post("../../CommentServlet",{op:"delComment",usid:tids},function(data){
+		    					if(data>0){
+			    					$.messager.show({
+			    						title:'成功提示',
+			    						msg:'会员信息删除成功...',
+			    						timeout:2000,
+			    						showType:'slide'
+			    					});
+			    						
+			    					rows=null;
+			    					obj.datagrid("reload");//刷新表格
+			    				}else{
+			    					$.messager.alert('失败提示','会员信息删除失败...','error');
+			    				}
+		    				});
+		    			}else{
+		    				return;
+		    			}
+		    		});
+		    	}else{
+		    		$.messager.show({
+						title:'温馨提示',
+						msg:'请选中您要删除的数据...',
+						timeout:2000,
+						showType:'slide'
+					});
+		    	}
+		    }
+		 }]
+	}); 
+
+function addCommentInfo(){
+	var uname=$.trim($("#Comment_uname").val());
+	var upwd=$.trim($("#Comment_upwd").val());
+	var email=$.trim($("#Comment_email").val());
+
+	$.ajaxFileUpload({
+		url:"../../CommentServlet?op=addComment",
+		secureuri:false,
+		fileElementId:"Comment_pics",
+		dataType:"json",
+		data:{uname:uname,upwd:upwd,email:email},
+		success:function(data,status){
+			if(data>0){
+				$.messager.show({title:'成功提示',msg:"会员信息添加成功....",timeout:2000,showType:'slide'});
+				$("#Comment_uname").val("");
+				$("#Comment_upwd").val("");
+				$("#Comment_email").val("");
+				$("#Comment_pics_show").html("");
+				$('#Comment_data').datagrid("reload");
+				$('#add_Comment').dialog('close');
+			}else{
+				$.messager.alert("错误提示","会员信息添加失败...\n","error");
+			}
+		},
+		error:function(data,status,e){
+			$.messager.alert("错误提示","会员信息添加失败...\n"+e,"error");
+		}
+	});
+}
+
+function updateNewsInfo(){
+	var uname=$.trim($("#User_uname").val());
+	var upwd=$.trim($("#User_upwd").val());
+	var email=$.trim($("#User_email").val());
+	var usid=$.trim($("#User_usid").val());
+	$.ajaxFileUpload({
+		url:"../../CommentServlet?op=updateComment",
+		secureuri:false,
+		fileElementId:"User_pics",
+		dataType:"json",
+		data:{uname:uname,upwd:upwd,email:email,usid:usid},
+		success:function(data,status){
+			if(data>0){
+				$.messager.show({title:'成功提示',msg:"会员信息修改成功....",timeout:2000,showType:'slide'});
+				$("#Comment_uname").val("");
+				$("#Comment_upwd").val("");
+				$("#Comment_email").val("");
+				$("#Comment_pics_show").html("");
+				$('#Comment_data').datagrid("reload");
+				$('#add_Comment').dialog('close');
+			}else{
+				$.messager.alert("错误提示","会员信息修改失败...\n","error");
+			}
+		},
+		error:function(data,status,e){
+			$.messager.alert("错误提示","会员信息修改失败...\n"+e,"error");
+		}
+	});
+}
+
+
+</script>

@@ -1,0 +1,114 @@
+<table id="order_data"></table>
+
+<div style="position: absolute;top:60px;left:250px;">
+	订单号:<input id="Order_author" type="text" name="author" />&nbsp;
+	用户编号:<input id="Order_author" type="text" name="author" />&nbsp;
+	下单日期:<input id="pre_time" type="text"  class="easyui-datebox"  >&nbsp;
+	订单状态:<input id="Order_author" type="text" name="author" />&nbsp;
+	<input id="search_Order" type="button" value="查询" onclick="search()">
+</div> 
+	
+
+<div id="update_Order" class="easyui-dialog" title="修改订单" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
+   <form action="" style="float:left;padding-left:20px">
+   		<label>订单号：</label><input type="text" id="new_title" name="title" required="required"/><br/><br/>
+   		<label>收件人姓名：</label><input type="text" id="new_title" name="title" required="required"/><br/><br/>
+   		<label>详细地址者：</label><input type="text" id="new_author" name="author" required="required" value=""/><br/><br/>
+   		<label>移动电话：</label><input type="text" id="new_date" name="mdate" class="easyui-datebox" required="required"/><br/><br/>
+   		<label>邮编：</label><input type="number" id="new_weight" min="0" name="weight" required="required" value="0"/><br/><br/>
+   		<label>物流方式：</label><input type="number" id="new_weight" min="0" name="weight" required="required" value="0"/><br/><br/>
+   		<label>备注：</label>                                    
+   		<div>
+    		<script id="editor" type="text/plain" style="width:800px;height:300px;"></script>
+		</div>
+   		<a href="javascript:updateOrderInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+   </form> 
+</div>
+<script>
+//实例化编辑器
+//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+var ue = UE.getEditor('editor');
+var obj;
+obj=$('#order_data').datagrid({  
+	    url:'../../OrderServlet',  
+	    queryParams:{op:'findOrderByPage'},
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:5,
+	    pageList:[5,10,15,20,30,3],
+	    remoteSort:false,
+	    columns:[[  
+			{field:'tid',title:'',width:27,align:'center',checkbox:true}, 
+	        {field:'nid',title:'订单编号',width:88.5,align:'center',sortable:true},  
+	        {field:'title',title:'用户编号',width:88.5,align:'center'},
+	        {field:'title',title:'商品编号',width:88.5,align:'center'},
+	        {field:'title',title:'收件人',width:88.5,align:'center'},
+	        {field:'title',title:'详细地址',width:88.5,align:'center'},
+	        {field:'title',title:'移动电话',width:88.5,align:'center'},
+	        {field:'title',title:'邮编',width:88.5,align:'center'},
+	        {field:'title',title:'下单时间',width:88.5,align:'center'},
+	        {field:'title',title:'到货时间',width:88.5,align:'center'},
+	        {field:'title',title:'物流方式',width:88.5,align:'center'},
+	        {field:'author',title:'联系电话',width:88.5,align:'center'},
+	        {field:'mdate',title:'订单状态',width:88.5,align:'center'},
+	        {field:'tname',title:'备注',width:88.5,align:'center'},
+	     ]],
+	    toolbar:[{
+		    text:"修改",
+		   	iconCls:"icon-edit",
+		    handler:function(){
+		    		$('#update_Order').dialog('open');
+		    	}
+
+		 },{
+		    text:"删除",
+		    iconCls:"icon-remove",
+		    handler:function(){
+		    	//获取选中的行
+		   		var rows=obj.datagrid("getChecked");
+		    	if(rows!=undefined){
+		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
+		    			if(rs){
+		    				var tids="";
+		    				for(var i=0;i<rows.length-1;i++){
+		    					tids+=rows[i].nid+",";
+		    				}
+		    				tids+=rows[i].nid;
+		    				
+		    				//发请求到数据库删除
+		    				$.post("../../OrderServlet",{op:"delOrder",nid:tids},function(data){
+		    					if(data>0){
+			    					$.messager.show({
+			    						title:'成功提示',
+			    						msg:'新闻删除成功...',
+			    						timeout:2000,
+			    						showType:'slide'
+			    					});
+			    						
+			    					rows=null;
+			    					obj.datagrid("reload");//刷新表格
+			    				}else{
+			    					$.messager.alert('失败提示','新闻删除失败...','error');
+			    				}
+		    				});
+		    			}else{
+		    				return;
+		    			}
+		    		});
+		    	}else{
+		    		$.messager.show({
+						title:'温馨提示',
+						msg:'请选中您要删除的数据...',
+						timeout:2000,
+						showType:'slide'
+					});
+		    	}
+		    }
+		 }]
+	}); 
+
+</script>
