@@ -4,21 +4,20 @@ public class Store {
 	private Integer storeId;
 	private String sname;
 	private String saddress;
-	private Integer sappointCount;
-	private String simageLogo;
-	private String sstartTime; // 开业时间
-	private String sendTime; // 结束时间
+	private Integer sappointcount;
+	private String simagelogo;
+	private String sstarttime; // 开业时间
+	private String sendtime; // 结束时间
 
-	public Store(Integer storeId, String sname, String saddress, Integer sappointCount, String simageLogo,
-			String sstartTime, String sendTime) {
-		super();
+	public Store(Integer storeId, String sname, String saddress, Integer sappointcount, String simagelogo,
+			String sstarttime, String sendtime) {
 		this.storeId = storeId;
 		this.sname = sname;
 		this.saddress = saddress;
-		this.sappointCount = sappointCount;
-		this.simageLogo = simageLogo;
-		this.sstartTime = sstartTime;
-		this.sendTime = sendTime;
+		this.sappointcount = sappointcount;
+		this.simagelogo = simagelogo;
+		this.sstarttime = sstarttime;
+		this.sendtime = sendtime;
 	}
 
 	public Store() {
@@ -49,42 +48,42 @@ public class Store {
 		this.saddress = saddress;
 	}
 
-	public Integer getSappointCount() {
-		return sappointCount;
+	public Integer getsappointcount() {
+		return sappointcount;
 	}
 
-	public void setSappointCount(Integer sappointCount) {
-		this.sappointCount = sappointCount;
+	public void setsappointcount(Integer sappointcount) {
+		this.sappointcount = sappointcount;
 	}
 
-	public String getSimageLogo() {
-		return simageLogo;
+	public String getsimagelogo() {
+		return simagelogo;
 	}
 
-	public void setSimageLogo(String simageLogo) {
-		this.simageLogo = simageLogo;
+	public void setsimagelogo(String simagelogo) {
+		this.simagelogo = simagelogo;
 	}
 
-	public String getSstartTime() {
-		return sstartTime;
+	public String getsstarttime() {
+		return sstarttime;
 	}
 
-	public void setSstartTime(String sstartTime) {
-		this.sstartTime = sstartTime;
+	public void setsstarttime(String sstarttime) {
+		this.sstarttime = sstarttime;
 	}
 
-	public String getSendTime() {
-		return sendTime;
+	public String getsendtime() {
+		return sendtime;
 	}
 
-	public void setSendTime(String sendTime) {
-		this.sendTime = sendTime;
+	public void setsendtime(String sendtime) {
+		this.sendtime = sendtime;
 	}
 
 	@Override
 	public String toString() {
-		return "Store [storeId=" + storeId + ", sname=" + sname + ", saddress=" + saddress + ", sappointCount="
-				+ sappointCount + ", simageLogo=" + simageLogo + ", sstartTime=" + sstartTime + ", sendTime=" + sendTime
+		return "Store [storeId=" + storeId + ", sname=" + sname + ", saddress=" + saddress + ", sappointcount="
+				+ sappointcount + ", simagelogo=" + simagelogo + ", sstarttime=" + sstarttime + ", sendtime=" + sendtime
 				+ "]";
 	}
 }

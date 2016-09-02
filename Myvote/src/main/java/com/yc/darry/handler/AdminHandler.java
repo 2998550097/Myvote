@@ -5,16 +5,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.yc.darry.entity.Admin;
 import com.yc.darry.service.AdminService;
 
 @Controller
+
 public class AdminHandler {
 	@Autowired
 	private AdminService adminService;
 	
-	@RequestMapping(value="/login",method=RequestMethod.POST)
+	@RequestMapping("/login")
 	public String login(Admin admin,ModelMap map){
 		System.out.println("admin login..."+admin);
 		admin=adminService.login(admin);

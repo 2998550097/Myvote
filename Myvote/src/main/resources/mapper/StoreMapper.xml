@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.yc.darry.mapper.StoreMapper">
+		<select id="findStores" resultType="Store">
+			select *  from store
+		</select>
+		<insert id="insertStore" parameterType="Store" >
+			insert into store values(seq_store_id.nextval,#{sname},#{saddress},#{sappointCount},#{simageLogo},#{sstarttime},#{sendtime})
+		</insert>
+		<delete id="deleteStore" parameterType="Store">
+			delete from store where sname=#{sname}
+		</delete>
+		
+		<update id="updateStore" parameterType="Store">
+	   	<!-- prefix:添加前缀字符串
+	   		prefixOverrides:去掉的前缀字符串
+	   		suffix：添加后缀字符换
+	   		suffixOverrides：去掉的后缀字符串
+	   	 -->
+	   	 <trim prefix="update store set" prefixOverrides="," suffix="where storeId=#{storeId}">
+				<if test="sname!=null">
+	   				sname=#{sname}
+	   			</if>
+	   			<if test="saddress!=null">
+	   				,saddress=#{saddress}
+	   			</if>
+	   			<if test="sappointCount!=null">
+	   				,sappointCount=#{sappointCount}
+	   			</if>
+	   			<if test="simageLogo!=null">
+	   				,simageLogo=#{simageLogo}
+	   			</if>
+	   			<if test="sstartime!=null">
+	   				,sstartime=#{sstartime}
+	   			</if>
+	   			<if test="sendtime!=null">
+	   				,sendtime=#{sendtime}
+	   			</if> 	
+	   	 </trim>
+   	</update>
+</mapper>

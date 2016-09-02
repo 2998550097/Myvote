@@ -33,7 +33,7 @@ create table store(
        sstarttime varchar2(50) not null,  --开业时间
        sendtime varchar2(50) not null  --停业时间
 )
-
+insert into store values(10,'源城','衡阳',0,'a','a','a');
 --系列表
 create table series(
        seriesid int primary key,  --系列号
