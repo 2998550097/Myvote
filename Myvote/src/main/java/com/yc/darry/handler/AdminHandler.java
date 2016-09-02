@@ -10,7 +10,6 @@ import com.yc.darry.entity.Admin;
 import com.yc.darry.service.AdminService;
 
 @Controller
-@RequestMapping("/admin")
 public class AdminHandler {
 	@Autowired
 	private AdminService adminService;
@@ -23,6 +22,6 @@ public class AdminHandler {
 			map.put("errorMsg", "用户名或密码错误");
 			return "login";
 		}
-		return "index";
+		return "redirect:backstage/back/manager/index.html";
 	}
 }
