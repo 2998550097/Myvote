@@ -30,7 +30,18 @@
 		});
 			
 	});
-
+	function login(id,role) {
+    	var flag = $("#"+id).text();
+    	$("#"+role).val(flag);
+	}
+	
+	function showRegisterPage(){
+		$(".register-page").addClass("slidePageInFromLeft").removeClass("slidePageBackLeft");
+	}
+	
+	function backlogin(){
+		$(".register-page").removeClass("slidePageInFromLeft").addClass("slidePageBackLeft");
+	}
 	
 </script>
 </head>
