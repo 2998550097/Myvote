@@ -28,9 +28,6 @@
 	src="Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
 	src="Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
-	<style type="text/css">
-			body{margin-top: 0px;}
-		</style>
 </head>
 <body>
 	<div id="nTalk_post_hiddenElement"

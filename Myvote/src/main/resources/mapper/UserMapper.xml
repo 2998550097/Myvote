@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.yc.darry.mapper.UserMapper">
+	<insert id="add" parameterType="User">
+		insert into users values(seq_user_id.nextval,#{ucardId,jdbcType=VARCHAR},#{urealname,jdbcType=VARCHAR},#{uname,jdbcType=VARCHAR},#{ubirthday,jdbcType=VARCHAR},
+		#{usex,jdbcType=VARCHAR},#{uaddress,jdbcType=VARCHAR},#{utel,jdbcType=VARCHAR},#{uemail,jdbcType=VARCHAR},#{upassword},
+		#{upostcode,jdbcType=VARCHAR},'未激活',#{ustate,jdbcType=VARCHAR},#{uimage,jdbcType=VARCHAR})
+	</insert>
+	
+	<select id="getUserByEmail" parameterType="string" resultType="int">
+		select count(1) from users where uemail=#{uemail}
+	</select>
+	
+	<update id="updateStatus" parameterType="string">
+		update users set ustatus='已激活' where uemail=#{uemail}
+	</update>
+	
+	<select id="getUserByEmailAndPwd" parameterType="User" resultType="User">
+		select * from users where uemail=#{uemail} and upassword=#{upassword}
+	</select>
+	
+	<update id="updatePwdByEmail">
+		update users set upassword=#{upassword} where uemail=#{uemail}
+	</update>
+</mapper>

@@ -14,6 +14,7 @@ public class User {
 	private String upostcode;
 	private String ustatus;
 	private String uimage;
+	private String emailCode;
 	public User(Integer userId, String ucardId, String urealName, String uname, String ubirthday, String usex,
 			String uaddress, String utel, String uemail, String upassword, String upostcode, String ustatus,
 			String uimage) {
@@ -32,6 +33,15 @@ public class User {
 		this.ustatus = ustatus;
 		this.uimage = uimage;
 	}
+	
+	
+	public User(String uemail, String upassword) {
+		super();
+		this.uemail = uemail;
+		this.upassword = upassword;
+	}
+
+
 	public User() {
 		super();
 	}
@@ -119,6 +129,16 @@ public class User {
 				+ ", ubirthday=" + ubirthday + ", usex=" + usex + ", uaddress=" + uaddress + ", utel=" + utel
 				+ ", uemail=" + uemail + ", upassword=" + upassword + ", upostcode=" + upostcode + ", ustatus="
 				+ ustatus + ", uimage=" + uimage + "]";
+	}
+
+
+	public String getEmailCode() {
+		return emailCode;
+	}
+
+
+	public void setEmailCode(String emailCode) {
+		this.emailCode = emailCode;
 	}
 	
 }
