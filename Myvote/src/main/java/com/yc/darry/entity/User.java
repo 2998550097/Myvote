@@ -13,11 +13,12 @@ public class User {
 	private String upassword;
 	private String upostcode;
 	private String ustatus;
+	private String ustate;
 	private String uimage;
 	private String emailCode;
 
 	public User(Integer useid, String ucardid, String urealname, String uname, String ubirthday, String usex,
-			String uaddress, String utel, String uemail, String upassword, String upostcode, String ustatus,
+			String uaddress, String utel, String uemail, String upassword, String upostcode, String ustatus,String ustate,
 			String uimage, String emailCode) {
 		super();
 		this.useid = useid;
@@ -32,6 +33,7 @@ public class User {
 		this.upassword = upassword;
 		this.setUpostcode(upostcode);
 		this.ustatus = ustatus;
+		this.ustate = ustate;
 		this.uimage = uimage;
 		this.emailCode = emailCode;
 	}
@@ -163,7 +165,15 @@ public class User {
 		return "User [useid=" + useid + ", ucardid=" + ucardid + ", urealname=" + urealname + ", uname=" + uname
 				+ ", ubirthday=" + ubirthday + ", usex=" + usex + ", uaddress=" + uaddress + ", utel=" + utel
 				+ ", uemail=" + uemail + ", upassword=" + upassword + ", upostcode=" + upostcode + ", ustatus="
-				+ ustatus + ", uimage=" + uimage + ", emailCode=" + emailCode + "]";
+				+ ustatus + ", ustate=" + ustate +", uimage=" + uimage + ", emailCode=" + emailCode + "]";
+	}
+
+	public String getUstate() {
+		return ustate;
+	}
+
+	public void setUstate(String ustate) {
+		this.ustate = ustate;
 	}
 
 }
