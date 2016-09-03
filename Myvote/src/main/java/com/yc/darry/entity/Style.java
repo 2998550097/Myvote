@@ -1,38 +1,33 @@
 package com.yc.darry.entity;
 
 public class Style {
-	private Integer styleId;
-	private String styleName;
-
-	public Style(Integer styleId, String styleName) {
-		super();
-		this.styleId = styleId;
-		this.styleName = styleName;
-	}
-
+	private Integer styleid;
+	private String stylename;
+	
 	public Style() {
 		super();
 	}
-
-	public Integer getStyleId() {
-		return styleId;
+	public Style(Integer styleid, String stylename) {
+		super();
+		this.styleid = styleid;
+		this.stylename = stylename;
 	}
-
-	public void setStyleId(Integer styleId) {
-		this.styleId = styleId;
+	public Integer getStyleid() {
+		return styleid;
 	}
-
-	public String getStyleName() {
-		return styleName;
+	public void setStyleid(Integer styleid) {
+		this.styleid = styleid;
 	}
-
-	public void setStyleName(String styleName) {
-		this.styleName = styleName;
+	public String getStylename() {
+		return stylename;
 	}
-
+	public void setStylename(String stylename) {
+		this.stylename = stylename;
+	}
 	@Override
 	public String toString() {
-		return "Style [styleId=" + styleId + ", styleName=" + styleName + "]";
+		return "Style [styleid=" + styleid + ", stylename=" + stylename + "]";
 	}
-
+	
+	
 }

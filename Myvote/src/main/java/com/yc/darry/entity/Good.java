@@ -8,11 +8,11 @@ public class Good {
 	private String gmaterial;
 	private String gimage;
 	private Integer gprice;
-	private double averageScore;
+	private double averagescore;
 	private String gother;
 
 	public Good(Integer goodId, String gname, Integer seriesId, Integer styleId, String gmaterial, String gimage,
-			Integer gprice, double averageScore, String gother) {
+			Integer gprice, double averagescore, String gother) {
 		super();
 		this.goodId = goodId;
 		this.gname = gname;
@@ -21,7 +21,7 @@ public class Good {
 		this.gmaterial = gmaterial;
 		this.gimage = gimage;
 		this.gprice = gprice;
-		this.averageScore = averageScore;
+		this.averagescore = averagescore;
 		this.gother = gother;
 	}
 
@@ -85,12 +85,12 @@ public class Good {
 		this.gprice = gprice;
 	}
 
-	public double getAverageScore() {
-		return averageScore;
+	public double getAveragescore() {
+		return averagescore;
 	}
 
-	public void setAverageScore(double averageScore) {
-		this.averageScore = averageScore;
+	public void setAveragescore(double averagescore) {
+		this.averagescore = averagescore;
 	}
 
 	public String getGother() {
@@ -104,7 +104,7 @@ public class Good {
 	@Override
 	public String toString() {
 		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesId=" + seriesId + ", styleId=" + styleId
-				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averageScore="
-				+ averageScore + ", gother=" + gother + "]";
+				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore="
+				+ averagescore + ", gother=" + gother + "]";
 	}
 }

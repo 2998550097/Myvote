@@ -7,14 +7,14 @@ public class Order {
 	private String odetail;
 	private String ophone;
 	private String opostcode;
-	private String oarrivalTime;
+	private String oarrivaltime;
 	private String ologisticsstyle;
 	private String otel;
 	private String ostatus;
 	private String remark;
 
 	public Order(Integer orderId, Integer userId, String oname, String odetail, String ophone, String opostcode,
-			String oarrivalTime, String ologisticsstyle, String otel, String ostatus, String remark) {
+			String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark) {
 		super();
 		this.orderId = orderId;
 		this.userId = userId;
@@ -22,7 +22,7 @@ public class Order {
 		this.odetail = odetail;
 		this.ophone = ophone;
 		this.opostcode = opostcode;
-		this.oarrivalTime = oarrivalTime;
+		this.oarrivaltime = oarrivaltime;
 		this.ologisticsstyle = ologisticsstyle;
 		this.otel = otel;
 		this.ostatus = ostatus;
@@ -81,12 +81,12 @@ public class Order {
 		this.opostcode = opostcode;
 	}
 
-	public String getOarrivalTime() {
-		return oarrivalTime;
+	public String getOarrivaltime() {
+		return oarrivaltime;
 	}
 
-	public void setOarrivalTime(String oarrivalTime) {
-		this.oarrivalTime = oarrivalTime;
+	public void setOarrivaltime(String oarrivaltime) {
+		this.oarrivaltime = oarrivaltime;
 	}
 
 	public String getOlogisticsstyle() {
@@ -124,7 +124,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [orderId=" + orderId + ", userId=" + userId + ", oname=" + oname + ", odetail=" + odetail
-				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oarrivalTime=" + oarrivalTime
+				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oarrivaltime=" + oarrivaltime
 				+ ", ologisticsstyle=" + ologisticsstyle + ", otel=" + otel + ", ostatus=" + ostatus + ", remark="
 				+ remark + "]";
 	}
