@@ -18,6 +18,11 @@ public class StoreHandler {
 	@Autowired
 	private StoreService storeService;
 	
+	/**
+	 * 店铺查找所有
+	 * @param map
+	 * @param out
+	 */
 	@RequestMapping("/store")
 	public void findStore(ModelMap map,PrintWriter out){
 		List<Store> stores=(List<Store>) storeService.findStore();
@@ -30,16 +35,22 @@ public class StoreHandler {
 		out.flush();
 		out.close();
 	}
-	@RequestMapping(value="/addStore",method=RequestMethod.POST)
+	
+	
+	/**
+	 * 添加店铺
+	 * @param store
+	 * @param map
+	 * @return
+	 */
+	@RequestMapping("/addStore")
 	public String addStore(Store store,ModelMap map){
 		System.out.println("store 显示..."+store);
-		store=storeService.addStore(store);
-		if(store==null){
-			map.put("errorMsg", "店铺信息获取错误");
-			return "redirect:backstage/back/manager/index.html";
-		}
-		return "redirect:backstage/back/manager/store.html";
+		storeService.addStore(store);
+		return "redirect:backstage/back/manager/index.html";
 	}
+	
+	
 	@RequestMapping(value="/updateStore",method=RequestMethod.POST)
 	public String updateStore(Store store,ModelMap map){
 		System.out.println("store 显示..."+store);

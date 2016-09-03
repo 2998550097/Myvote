@@ -7,12 +7,12 @@
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="addStore" style="float:left;padding-left:20px">
+   <form action="../../../addStore" style="float:left;padding-left:20px">
    		<label>店铺名：</label><input type="text" id="User_usid" name="sname" required="required"/><br/><br/>
    		<label>店铺地址：</label><input type="text" id="User_uname" name="saddress" required="required"/><br/><br/>
-   		<label>预约计数：</label><input type="text" id="User_upwd" name="sappointCount" required="required"/><br/><br/>
-   		<label>营业时间：</label><input type="text" id="User_email" name="sstartTime" required="required"/>-<input type="text" id="User_email" name="sendTime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="pics" onchange="previewMultipleImage(this,'User_pics_show')"/><br/><br/>
+   		<label>预约计数：</label><input type="text" id="User_upwd" name="sappointcount" required="required"/><br/><br/>
+   		<label>营业时间：</label><input type="text" id="User_email" name="sstarttime" required="required"/>-<input type="text" id="User_email" name="sendtime" required="required"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
   		<input type="submit" value="添加" style="display:inline-block; width:52px;height:30px; background: url('../../easyui/icons/edit_add.png') no-repeat;"/>
    </form> 
    
@@ -23,7 +23,7 @@
  
    <br/>
     <div style="float:right;width:360px;margin-right:20px;">
-   		<fieldset id="User_pics_show">
+   		<fieldset id="Store_pics_show">
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
@@ -32,7 +32,7 @@
    		<label>店铺地址：</label><input type="text" id="User_uname" name="saddress" required="required"/><br/><br/>
    		<label>预约计数：</label><input type="text" id="User_upwd" name="sappointCount" required="required"/><br/><br/>
    		<label>营业时间：</label><input type="text" id="User_email" name="sstartTime" required="required"/>-<input type="text" id="User_email" name="sendTime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="pics" onchange="previewMultipleImage(this,'User_pics_show')"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="pics" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
   		<input type="submit" value="修改" style="display:inline-block; width:52px;height:30px; background: url('../../easyui/icons/pencil.png') no-repeat;"/>
    </form> 
    
@@ -40,6 +40,7 @@
 </div>  
 
 <script>
+var obj;
 obj=$('#Store_data').datagrid({  
 	    url:'../../../store',  
 	    //queryParams:{op:'findStore'},
@@ -67,7 +68,7 @@ obj=$('#Store_data').datagrid({
 	        			var str="";
 	        			var pics=value.split(",");
 	        			for(var i=0;i<pics.length;i++){
-	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        				str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 	        			}
 	        			return str;
 	        		}else{
@@ -146,6 +147,5 @@ obj=$('#Store_data').datagrid({
 	}); 
 	
 	
-
 
 </script>

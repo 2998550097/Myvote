@@ -20,7 +20,7 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public Store addStore(Store store) {
+	public int addStore(Store store) {
 		return storeMapper.addStores(store);
 	}
 

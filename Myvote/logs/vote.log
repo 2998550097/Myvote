@@ -28,3 +28,12 @@
 信息 :2016-09-02 15:59:26,046 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select aname,apassword from admin where aname=? and apassword= ? 
 信息 :2016-09-02 15:59:26,288 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String)
 信息 :2016-09-02 15:59:26,550 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-03 09:51:54,942 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
+信息 :2016-09-03 09:52:59,432 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
+信息 :2016-09-03 09:53:40,236 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
+信息 :2016-09-03 09:56:55,894 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
+信息 :2016-09-03 09:56:56,014 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String), 0(Integer), a(String), a(String), a(String)
+信息 :2016-09-03 09:56:56,051 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 1
+信息 :2016-09-03 10:01:00,858 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
+信息 :2016-09-03 10:01:00,976 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String), 0(Integer), a(String), a(String), a(String)
+信息 :2016-09-03 10:01:00,998 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 1

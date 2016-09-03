@@ -6,7 +6,7 @@ import com.yc.darry.entity.Store;
 
 public interface StoreService {
 	List<Store> findStore() ;
-	Store addStore(Store store);
+	int addStore(Store store);
 	Store updateStore(Store store);
 	Store deleteStore(Store store);
 	
