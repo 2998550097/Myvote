@@ -151,7 +151,7 @@ create table articlecom(
        praisecount int --点赞次数
 );
 
-
+create sequence seq_admin_id start with 2;
 create sequence seq_user_id start with 111;
 create sequence seq_store_id start with 11;
 create sequence seq_series_id start with 101;

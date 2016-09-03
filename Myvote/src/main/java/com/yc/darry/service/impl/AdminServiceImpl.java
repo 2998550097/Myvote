@@ -1,5 +1,7 @@
 package com.yc.darry.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,11 @@ public class AdminServiceImpl implements AdminService{
 	private AdminMapper adminMapper;
 	@Override
 	public Admin login(Admin admin) {
-		return adminMapper.findAdmin(admin);
+		return adminMapper.login(admin);
+	}
+	@Override
+	public List<Admin> findAdmin() {
+		return adminMapper.findAdmin();
 	}
 
 }

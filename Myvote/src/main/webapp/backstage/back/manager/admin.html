@@ -7,8 +7,7 @@
 	var flag;
 	
 	obj=$('#admin_data').datagrid({  
-	    url:'../../adminServlet',  
-	    queryParams:{op:'findAdmin'},
+	    url:'../../../findAdmin',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -21,9 +20,13 @@
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-	        {field:'aid',title:'管理员编号',width:100,align:'center',sortable:true}, 
+	        {field:'adminid',title:'管理员编号',width:100,align:'center',sortable:true}, 
 	        {field:'aname',title:'管理员姓名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'pwd',title:'密码',width:100,align:'center',editor:{type:"text",options:{requires:true}}}  
+	        {field:'apassword',title:'密码',width:100,align:'center',editor:{type:"text",options:{requires:true}}
+	        	formatter:function(value,rowData,index){
+    		 		return "******";
+    	 		}
+	        }  
 	    ]],
 	    toolbar:[{
 	    	text:"添加",
@@ -35,6 +38,7 @@
 	    			obj.datagrid("rejectChanges");//回滚所有的数据
 	    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
 	    			editRow=undefined;
+	    			
 	    		}else{
 	    			obj.datagrid("insertRow",{index:0,row:{}});
 	    			obj.datagrid("beginEdit",0);
