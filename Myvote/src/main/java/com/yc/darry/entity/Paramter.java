@@ -1,18 +1,18 @@
 package com.yc.darry.entity;
 
 public class Paramter {
-	private Integer paramterId;
-	private Integer goodId;
+	private Integer paramterid;
+	private Integer goodid;
 	private Integer pcarat;
 	private Integer psize;
 	private String gcrystal;
 	private String gcutting;
 
-	public Paramter(Integer paramterId, Integer goodId, Integer pcarat, Integer psize, String gcrystal,
+	public Paramter(Integer paramterid, Integer goodid, Integer pcarat, Integer psize, String gcrystal,
 			String gcutting) {
 		super();
-		this.paramterId = paramterId;
-		this.goodId = goodId;
+		this.paramterid = paramterid;
+		this.goodid = goodid;
 		this.pcarat = pcarat;
 		this.psize = psize;
 		this.gcrystal = gcrystal;
@@ -23,20 +23,20 @@ public class Paramter {
 		super();
 	}
 
-	public Integer getParamterId() {
-		return paramterId;
+	public Integer getParamterid() {
+		return paramterid;
 	}
 
-	public void setParamterId(Integer paramterId) {
-		this.paramterId = paramterId;
+	public void setParamterid(Integer paramterid) {
+		this.paramterid = paramterid;
 	}
 
-	public Integer getGoodId() {
-		return goodId;
+	public Integer getGoodid() {
+		return goodid;
 	}
 
-	public void setGoodId(Integer goodId) {
-		this.goodId = goodId;
+	public void setGoodid(Integer goodid) {
+		this.goodid = goodid;
 	}
 
 	public Integer getPcarat() {
@@ -73,7 +73,7 @@ public class Paramter {
 
 	@Override
 	public String toString() {
-		return "Paramter [paramterId=" + paramterId + ", goodId=" + goodId + ", pcarat=" + pcarat + ", psize=" + psize
+		return "Paramter [paramterid=" + paramterid + ", goodid=" + goodid + ", pcarat=" + pcarat + ", psize=" + psize
 				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting + "]";
 	}
 

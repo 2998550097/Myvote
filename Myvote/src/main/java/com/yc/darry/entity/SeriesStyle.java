@@ -1,48 +1,48 @@
 package com.yc.darry.entity;
 
 public class SeriesStyle {
-	private Integer ssId;
-	private Integer seriesId;
-	private Integer styleId;
-
-	public SeriesStyle(Integer ssId, Integer seriesId, Integer styleId) {
-		super();
-		this.ssId = ssId;
-		this.seriesId = seriesId;
-		this.styleId = styleId;
-	}
+	private Integer ssid;
+	private Integer seriesid;
+	private Integer styleid;
 
 	public SeriesStyle() {
 		super();
 	}
 
-	public Integer getSsId() {
-		return ssId;
+	public SeriesStyle(Integer ssid, Integer seriesid, Integer styleid) {
+		super();
+		this.ssid = ssid;
+		this.seriesid = seriesid;
+		this.styleid = styleid;
 	}
 
-	public void setSsId(Integer ssId) {
-		this.ssId = ssId;
+	public Integer getSsid() {
+		return ssid;
 	}
 
-	public Integer getSeriesId() {
-		return seriesId;
+	public void setSsid(Integer ssid) {
+		this.ssid = ssid;
 	}
 
-	public void setSeriesId(Integer seriesId) {
-		this.seriesId = seriesId;
+	public Integer getSeriesid() {
+		return seriesid;
 	}
 
-	public Integer getStyleId() {
-		return styleId;
+	public void setSeriesid(Integer seriesid) {
+		this.seriesid = seriesid;
 	}
 
-	public void setStyleId(Integer styleId) {
-		this.styleId = styleId;
+	public Integer getStyleid() {
+		return styleid;
+	}
+
+	public void setStyleid(Integer styleid) {
+		this.styleid = styleid;
 	}
 
 	@Override
 	public String toString() {
-		return "SeriesStyle [ssId=" + ssId + ", seriesId=" + seriesId + ", styleId=" + styleId + "]";
+		return "SeriesStyle [ssid=" + ssid + ", seriesid=" + seriesid + ", styleid=" + styleid + "]";
 	}
 
 }
