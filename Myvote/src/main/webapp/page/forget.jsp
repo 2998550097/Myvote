@@ -6,10 +6,12 @@
 <base href="/MyDarry/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="css/register/common.css">
-<link rel="stylesheet" type="text/css" href="css/register/style.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/drag.css">
 <script type="text/javascript" src="js/hm.js"></script>
 <script async="" src="js/analytics.js"></script>
 <script type="text/javascript" src="js/login/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="js/drag.js"></script>
 <script type="text/javascript" src="js/register/common.js"></script>
 <script type="text/javascript" src="js/register/banner.js"></script>
 <script type="text/javascript" async="async" charset="utf-8"
@@ -18,7 +20,7 @@
 	src="js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
 	src="js/comet.chat.js" data-requiremodule="TChat"></script>
-<title>注册</title>
+<title>忘记密码</title>
 <script type="text/javascript">
 
 $(function(){
@@ -30,8 +32,13 @@ $(function(){
 	}
 })
 
-function changeCode(){
-    $('#signcode').attr('src','signcode/authcode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+function validate(){
+	if($("#ispass").html()!="验证通过"){
+		$("#erError").css("display","block");
+		$("#erError").html("验证没通过!!!");
+		return false;
+	}
+	
 }
 
 
@@ -47,17 +54,8 @@ function eamilValidate(){
 	}
 }
 
-function passwordValidate(){
-	var upassword=$("#upassword").val().length;
-	var reg=/[\\s\\S]{6,20}/;
-	if(upassword<6 || upassword>20){
-		$("#erError").css("display","block");
-		$("#erError").html("密码长度应在6-20之间");
-	}else{
-		$("#erError").css("display","none");
-	}
-	
-}
+
+
 
 function confirmValidate(){
 	var upassword=$("#upassword").val();
@@ -102,8 +100,8 @@ function confirmValidate(){
 		<div class="dr_actionMain w1000">
 			<div class="dr_passprt dr_passprt-h">
 				<ul class="dr_formTabTitle fix">
-					<li class="dr_formTableft">手机注册</li>
-					<li class="dr_formTabright  em activite">邮箱注册</li>
+					<li class="dr_formTableft">通过手机找回</li>
+					<li class="dr_formTabright  em activite">通过邮箱找回</li>
 				</ul>
 				<div class="dr_form">
 					<div class="dr_formTabMain" id="formTabs">
@@ -156,8 +154,8 @@ function confirmValidate(){
 						</form>
 						<!--手机end-->
 						
-						<!--邮箱注册-->
-						<form class="form_second" action="user/register" method="post">
+						<!--邮箱找回密码-->
+						<form class="form_second" action="user/resetpwd" method="post" onsubmit="return validate();">
 							<input type="hidden" name="type" value="2">
 							<input type="hidden" name="retype" value="1">
 
@@ -166,24 +164,18 @@ function confirmValidate(){
 									<!--错误提示-->
 									<div class="errorMsg" id="erError">${errorMsg }</div>
 									<!--错误提示-->
-									<input type="text" name="uemail" id="uemail" value="2998550097@qq.com" class="ipTxt ico-email" placeholder="请输入您的邮箱地址" required="required" onblur="eamilValidate()"> 
-									<input type="password" name="upassword" id="upassword" value="123456" class="ipTxt ico-pwd" placeholder="请输入长度为6-20位数的密码" required="required" onblur="passwordValidate()"> 
-									<input type="password" id="upassword_confirm" value="123456" class="ipTxt ico-pwd" placeholder="请再次确认密码" required="required" onblur="confirmValidate()">
-									<div class="fix">
-										<input type="text" name="emailCode" value="" class="ipTxt ico-send inputCode" placeholder="请输入验证码" required="required">
-										<a class="yxCode fr" href="javascript:void(0)" title="点击刷新验证码" >
-											<img src="signcode/authcode" onclick="changeCode()" title="图片看不清？点击重新得到验证码" id="signcode">
-										</a>
-									</div>
-									<div class="checkTerms">
-										<input type="checkbox" name="email_check" id="emailCheck" checked="checked">
-										<label for="emailCheck">同意Darry Ring用户 </label>
-										<a href="http://www.darryring.com/help_se/85.html">注册协议</a>和
-										<a href="http://www.darryring.com/help_se/86.html">隐私条款</a>
-									</div>
+									<input type="text" name="uemail" id="uemail" value="2998550097@qq.com" class="ipTxt ico-email" placeholder="请输入您的邮箱地址" required="required" onblur="eamilValidate()">
+									<br><br>
+									
+									<div id="drag"></div>
+
+									<script type="text/javascript">
+										$('#drag').drag();
+									</script>
+									 
 								</div>
 								<div class="dr_Btns">
-									<input class="colorBtn" type="submit" id="email_reg" value="立即加入DR族">
+									<input class="colorBtn" type="submit" id="email_reg" value="确认重置密码">
 								</div>
 								<div class="loginLink">
 									<!--简体版第三方登录-->

@@ -13,8 +13,8 @@
             <div class="drmember_sec">
                 
                 <div class="dr_member-left fl" id="div_islog">
-                    <a href="login.jsp" rel="nofollow">登录</a>
-                    <a href="register.jsp" rel="nofollow" class="drtojoin">加入DR族</a>
+                    <a href="page/login.jsp" rel="nofollow">登录</a>
+                    <a href="page/register.jsp" rel="nofollow" class="drtojoin">加入DR族</a>
                 </div>
                 
 
