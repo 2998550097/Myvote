@@ -5,12 +5,15 @@
  -->
 <mapper namespace="com.yc.darry.mapper.AdminMapper">
 		<select id="login" parameterType="Admin" resultType="Admin">
-			select aname,apassword  from admin where aname=#{aname} and apassword= #{apassword}
+			select *  from admin where aname=#{aname} and apassword= #{apassword}
 		</select>
 		<select id="findAdmin" resultType="Admin">
 			select *  from admin 
 		</select>
-		<!--  <insert id="addadmin" parameterType="Admin"> 
-			insert into admin values(seq_admin_id,#{aname},#{apassword})
-		</insert>-->
+		<insert id="addAdmin" parameterType="Admin"> 
+			insert into admin values(seq_admin_id.nextval,#{aname},#{apassword})
+		</insert>
+		<delete id="delAdmin" parameterType="int">
+			delete  from admin where adminId = #{adminId}
+		</delete>
 </mapper>

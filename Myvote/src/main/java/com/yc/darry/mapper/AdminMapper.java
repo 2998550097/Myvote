@@ -10,5 +10,7 @@ public interface AdminMapper {
 	
 	List<Admin> findAdmin();
 	
-	int findAdminById(Admin admin);
+	int addAdmin(Admin admin);
+	
+	int delAdmin(int adminId);
 }
