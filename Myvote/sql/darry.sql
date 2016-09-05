@@ -181,4 +181,5 @@ select * from comments;
 select * from article;
 select * from articlecom;
 
-
+alter table goods add goodnum number(10);
+alter table collection drop (scount);

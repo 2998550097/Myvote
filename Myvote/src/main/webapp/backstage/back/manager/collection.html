@@ -2,8 +2,7 @@
 
 <script>
 obj=$('#Collection_data').datagrid({  
-	    url:'../../usersServlet',  
-	    queryParams:{op:'findUsers'},
+	    url:'../../findColl',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -16,12 +15,13 @@ obj=$('#Collection_data').datagrid({
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-			{field:'usid',title:'收藏编号',width:100,align:'center',sortable:true}, 
-	        {field:'uname',title:'用户姓名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'upwd',title:'商品名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'email',title:'收藏时间',width:100,align:'center',editor:{type:"email",options:{requires:true}}},  
-	       	{field:'email',title:'收藏总数量',width:100,align:'center',editor:{type:"email",options:{requires:true}}},  
-	     	{field:'photo',title:'图片',width:100,align:'center',
+			{field:'collectionId',title:'收藏编号',width:100,align:'center',sortable:true}, 
+	        {field:'gname',title:'商品名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'ctime',title:'收藏时间',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'seriesId',title:'商品系列',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
+	       	{field:'styleId',title:'商品样式',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
+	       	{field:'scount',title:'收藏总数量',width:100,align:'center',editor:{type:"text",options:{requires:true}}}, 
+	       	{field:'gimage',title:'商品图片',width:100,align:'center',
 	        	formatter:function(value,rowData,index){
 	        		if(value!=null){
 	        			var str="";
@@ -36,57 +36,7 @@ obj=$('#Collection_data').datagrid({
 	        	}	
 	        
 	        },
-	        {field:'_operate',title:'操作',width:100,align:'center',
-	        	formatter:function(value,rowData,index){
-	        		return "<a href=''>详细</a>";
-	        	}	
-	        }
-	     ]],
-	    toolbar:[{
-		    text:"删除",
-		    iconCls:"icon-remove",
-		    handler:function(){
-		    	//获取选中的行
-		   		var rows=obj.datagrid("getChecked");
-		    	if(rows!=undefined){
-		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
-		    			if(rs){
-		    				var tids="";
-		    				for(var i=0;i<rows.length-1;i++){
-		    					tids+=rows[i].usid+",";
-		    				}
-		    				tids+=rows[i].usid;
-		    				
-		    				//发请求到数据库删除
-		    				$.post("../../usersServlet",{op:"delUsers",usid:tids},function(data){
-		    					if(data>0){
-			    					$.messager.show({
-			    						title:'成功提示',
-			    						msg:'会员信息删除成功...',
-			    						timeout:2000,
-			    						showType:'slide'
-			    					});
-			    						
-			    					rows=null;
-			    					obj.datagrid("reload");//刷新表格
-			    				}else{
-			    					$.messager.alert('失败提示','会员信息删除失败...','error');
-			    				}
-		    				});
-		    			}else{
-		    				return;
-		    			}
-		    		});
-		    	}else{
-		    		$.messager.show({
-						title:'温馨提示',
-						msg:'请选中您要删除的数据...',
-						timeout:2000,
-						showType:'slide'
-					});
-		    	}
-		    }
-		 }]
+	     ]]
 	}); 
 
 function addUsersInfo(){
