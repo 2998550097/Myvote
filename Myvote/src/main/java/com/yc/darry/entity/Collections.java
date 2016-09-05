@@ -5,15 +5,12 @@ public class Collections {
 	private Integer userId;
 	private Integer goodId;
 	private String ctime;
-	private Integer scount;
 	
-	public Collections(Integer collectionId, Integer userId, Integer goodId, String ctime, Integer scount) {
-		super();
+	public Collections(Integer collectionId, Integer userId, Integer goodId, String ctime) {
 		this.collectionId = collectionId;
 		this.userId = userId;
 		this.goodId = goodId;
 		this.ctime = ctime;
-		this.scount = scount;
 	}
 	
 	public Collections() {
@@ -51,17 +48,10 @@ public class Collections {
 		this.ctime = ctime;
 	}
 
-	public Integer getScount() {
-		return scount;
-	}
-
-	public void setScount(Integer scount) {
-		this.scount = scount;
-	}
 
 	@Override
 	public String toString() {
 		return "Collection [collectionId=" + collectionId + ", userId=" + userId + ", goodId=" + goodId + ", ctime="
-				+ ctime + ", scount=" + scount + "]";
+				+ ctime + ", scount=" +  "]";
 	}
 }
