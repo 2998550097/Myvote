@@ -8,7 +8,7 @@ insert into admin values(1,'a','a');
 
 create table users(
        userid int primary key, --用户编号
-       ucardId varchar2(20) not null unique, --身份证号码
+       ucardId varchar2(20) unique, --身份证号码
        urealname varchar2(50),  --真实姓名
        uname varchar2(50) not null,  --用户昵称
        ubirthday varchar2(20),  --出生日期
@@ -18,8 +18,8 @@ create table users(
        uemail varchar2(20) not null unique,   --邮箱
        upassword varchar2(50) not null,
        upostcode varchar2(10),   --邮编
-       ustatus varchar2(2),   --激活状态
-       ustate varchar2(2),     --情感状态
+       ustatus varchar2(20),   --激活状态
+       ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
 
