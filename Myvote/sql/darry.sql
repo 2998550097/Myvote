@@ -18,8 +18,8 @@ create table users(
        uemail varchar2(20) not null unique,   --邮箱
        upassword varchar2(50) not null,
        upostcode varchar2(10),   --邮编
-       ustatus varchar2(10),   --激活状态
-       ustate varchar2(50),     --情感状态
+       ustatus varchar2(20),   --激活状态
+       ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
 drop table users;
