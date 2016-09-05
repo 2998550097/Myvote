@@ -1,7 +1,11 @@
 package com.yc.darry.handler;
 
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +30,6 @@ public class StoreHandler {
 	@RequestMapping("/store")
 	public void findStore(ModelMap map,PrintWriter out){
 		List<Store> stores=(List<Store>) storeService.findStore();
-		System.out.println(stores);
 		if(stores.size()<=0){
 			map.put("errorMsg", "店铺信息获取错误");
 		}
@@ -44,23 +47,41 @@ public class StoreHandler {
 	 * @return
 	 */
 	@RequestMapping("/addStore")
-	public String addStore(Store store,ModelMap map){
-		System.out.println("store 显示..."+store);
-		storeService.addStore(store);
-		return "redirect:backstage/back/manager/index.html";
+	public void addStore(HttpServletRequest request,PrintWriter out){
+		String param=request.getParameter("param");
+		System.out.println("!!!!"+param);
+		Gson gson=new Gson();
+		String simagelogo=request.getParameter("simagelogo");
+		Store store=gson.fromJson(param, Store.class);
+		store.setSimagelogo(simagelogo);
+		System.out.println("我进来了"+store);
+		boolean a=storeService.addStore(store);
+		if(a){
+			out.println(a);
+			out.flush();
+			out.close();
+		}
 	}
 	
 	
 	@RequestMapping(value="/updateStore",method=RequestMethod.POST)
-	public String updateStore(Store store,ModelMap map){
-		System.out.println("store 显示..."+store);
-		store=storeService.updateStore(store);
-		if(store==null){
-			map.put("errorMsg", "店铺信息获取错误");
-			return "redirect:backstage/back/manager/index.html";
+	public void updateStore(HttpServletRequest request,PrintWriter out){
+		String param=request.getParameter("param");
+		System.out.println("!!!!"+param);
+		Gson gson=new Gson();
+		String simagelogo=request.getParameter("simagelogo");
+		Store store=gson.fromJson(param, Store.class);
+		store.setSimagelogo(simagelogo);
+		System.out.println("我进来了"+store);
+		boolean a=storeService.updateStore(store);
+		if(a){
+			out.println(a);
+			out.flush();
+			out.close();
 		}
-		return "redirect:backstage/back/manager/store.html";
 	}
+	
+	
 	@RequestMapping(value="/deleteStore",method=RequestMethod.PUT)
 	public String deleteStore(Store store,ModelMap map){
 		System.out.println("store 显示..."+store);
