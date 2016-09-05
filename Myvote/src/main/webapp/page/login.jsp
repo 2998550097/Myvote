@@ -16,6 +16,48 @@
 <script type="text/javascript" async="async" charset="utf-8" src="js/login/zh_cn.js" data-requiremodule="lang"></script>
 <script type="text/javascript" async="async" charset="utf-8" src="js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8" src="js/comet.chat.js" data-requiremodule="TChat"></script>
+
+<script type="text/javascript">
+
+$(function(){
+	var errorMsg=$("#loginError").html();
+	if(errorMsg==""){
+		$("#loginError").css("display","none");
+	}else{
+		$("#loginError").css("display","block");
+	}
+})
+
+function changeCode(){
+    $('#signcode').attr('src','signcode/authcode?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+}
+
+
+//邮箱校验
+function eamilValidate(){
+	var uemail=$("#txtName").val();
+	var reg=/^\d{6,12}@qq.com$/ig;
+	if(reg.test(uemail)==false){
+		$("#loginError").css("display","block");
+		$("#loginError").html("邮箱格式不正确");
+	}else{
+		$("#loginError").css("display","none");
+	}
+}
+
+function passwordValidate(){
+	var upassword=$("#txtPwd").val().length;
+	var reg=/[\\s\\S]{6,20}/;
+	if(upassword<6 || upassword>20){
+		$("#loginError").css("display","block");
+		$("#loginError").html("密码长度应在6-20之间");
+	}else{
+		$("#loginError").css("display","none");
+	}
+	
+}
+
+</script>
 </head>
 <body>
     <header class="cart_head">
@@ -26,8 +68,8 @@
         <div class="dr_member fr">
             <div class="drmember_sec">
                 <div class="dr_member-left fl">
-                    <a href="http://passport.darryring.com/login">登录</a>
-                    <a href="http://passport.darryring.com/sign?lang=cn" class="drtojoin">加入DR族</a>
+                    <a href="page/index.jsp">登录</a>
+                    <a href="page/register.jsp" class="drtojoin">加入DR族</a>
                 </div>
                 <div class="dr_member-left fl">
                     <i>
@@ -46,19 +88,19 @@
 	<!--通行证操作区-->
 		<div class="dr_actionMain w1000">
 			<div class="dr_passprt">
-				<form id="loginform" action="index.jsp" method="post">
+				<form id="loginform" action="user/login" method="post">
 					<div class="dr_form">
 						<h3>DR族-登录</h3>
 						<div class="dr_minAction">
-							<div class="errorMsg" id="loginError" style=""></div>
+							<div class="errorMsg" id="loginError" style="">${errorMsg }</div>
                             
-							<input type="text" class="ipTxt ico-user" value="" id="txtName" name="data[email]" placeholder="请输入您的邮箱/手机号码">
-							<input type="password" class="ipTxt ico-pwd" value="" id="txtPwd" name="data[password]" placeholder="请输入密码">
-							<p class="dr_actionPwd"><a class="fr" href="http://passport.darryring.com/forget?lang=cn">忘记密码?</a><input id="isRemember" type="checkbox"><label for="isRemember">记住密码</label></p>
+							<input type="text" class="ipTxt ico-user" value="" id="txtName" name="uemail" placeholder="请输入您的邮箱/手机号码" required="required" onblur="eamilValidate()">
+							<input type="password" class="ipTxt ico-pwd" value="" id="txtPwd" name="upassword" placeholder="请输入密码" required="required" onblur="passwordValidate()">
+							<p class="dr_actionPwd"><a class="fr" href="page/forget.jsp">忘记密码?</a><input id="isRemember" type="checkbox"><label for="isRemember">记住密码</label></p>
 						</div>
 						<div id="login" class="dr_Btns">
-							<a class="defaultBtn focus" href="index.jsp">登录</a>
-							<a class="colorBtn left" href="register.jsp">加入DR族</a>
+							<input type="image" class="defaultBtn focus" value="登录" />
+							<a class="colorBtn left" href="page/register.jsp">加入DR族</a>
 						</div>
 					</div>
 					<div class="dr_otherLogin">

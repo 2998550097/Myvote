@@ -4,7 +4,16 @@
 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.yc.darry.mapper.AdminMapper">
-		<select id="findAdmin" parameterType="Admin" resultType="Admin">
-			select aname,apassword  from admin where aname=#{aname} and apassword= #{apassword}
+		<select id="login" parameterType="Admin" resultType="Admin">
+			select *  from admin where aname=#{aname} and apassword= #{apassword}
 		</select>
+		<select id="findAdmin" resultType="Admin">
+			select *  from admin 
+		</select>
+		<insert id="addAdmin" parameterType="Admin"> 
+			insert into admin values(seq_admin_id.nextval,#{aname},#{apassword})
+		</insert>
+		<delete id="delAdmin" parameterType="int">
+			delete  from admin where adminId = #{adminId}
+		</delete>
 </mapper>

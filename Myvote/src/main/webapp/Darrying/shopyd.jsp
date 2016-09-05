@@ -235,7 +235,7 @@ body {
 					}
 				</script>
 			<!-- 头部 -->
-			<jsp:include page="../header.jsp" />
+			<jsp:include page="header.jsp" />
 			<!-- 导航 -->
 			<jsp:include page="../nav.jsp" />
 			<!--店铺主题-->

@@ -11,7 +11,7 @@
 		<script type="text/javascript" src="Cart/js/shoppcart.js"></script>
 		<title> Darry Ring钻戒购物车_Darry Ring求婚钻戒价格 戴瑞珠宝官网  </title>
 		<style type="text/css">
-			body{margin-top: 0px;}
+			body{margin-top: -20px;}
 		</style>
 	</head>
 	<body>

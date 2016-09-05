@@ -2,38 +2,38 @@ package com.yc.darry.entity;
 
 public class Series {
 
-	private Integer seriesId;
-	private String seriesName;
-
-	public Series(Integer seriesId, String seriesName) {
-		super();
-		this.seriesId = seriesId;
-		this.seriesName = seriesName;
-	}
+	private Integer seriesid;
+	private String seriesname;
 
 	public Series() {
 		super();
 	}
 
-	public Integer getSeriesId() {
-		return seriesId;
+	public Series(Integer seriesid, String seriesname) {
+		super();
+		this.seriesid = seriesid;
+		this.seriesname = seriesname;
 	}
 
-	public void setSeriesId(Integer seriesId) {
-		this.seriesId = seriesId;
+	public Integer getSeriesid() {
+		return seriesid;
 	}
 
-	public String getSeriesName() {
-		return seriesName;
+	public void setSeriesid(Integer seriesid) {
+		this.seriesid = seriesid;
 	}
 
-	public void setSeriesName(String seriesName) {
-		this.seriesName = seriesName;
+	public String getSeriesname() {
+		return seriesname;
+	}
+
+	public void setSeriesname(String seriesname) {
+		this.seriesname = seriesname;
 	}
 
 	@Override
 	public String toString() {
-		return "Series [seriesId=" + seriesId + ", seriesName=" + seriesName + "]";
+		return "Series [seriesid=" + seriesid + ", seriesname=" + seriesname + "]";
 	}
 
 }

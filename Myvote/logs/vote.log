@@ -37,3 +37,6 @@
 信息 :2016-09-03 10:01:00,858 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: insert into store values(seq_store_id.nextval,?,?,?,?,?,?) 
 信息 :2016-09-03 10:01:00,976 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String), 0(Integer), a(String), a(String), a(String)
 信息 :2016-09-03 10:01:00,998 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 1
+信息 :2016-09-03 19:32:31,841 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select aname,apassword from admin where aname=? and apassword= ? 
+信息 :2016-09-03 19:32:32,260 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: a(String), a(String)
+信息 :2016-09-03 19:32:32,738 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1

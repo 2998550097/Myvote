@@ -7,7 +7,7 @@ public class Article {
 	private String aplate;
 	private String aprivacy;
 	private String atime;
-	private Integer areadCount;
+	private Integer areadcount;
 	private Integer afocus;
 	
 	public Article(Integer articleId, Integer userId, String atitle, String aplate, String aprivacy, String atime,
@@ -19,7 +19,7 @@ public class Article {
 		this.aplate = aplate;
 		this.aprivacy = aprivacy;
 		this.atime = atime;
-		this.areadCount = areadCount;
+		this.areadcount = areadcount;
 		this.afocus = afocus;
 	}
 	
@@ -74,12 +74,12 @@ public class Article {
 		this.atime = atime;
 	}
 
-	public Integer getAreadCount() {
-		return areadCount;
+	public Integer getAreadcount() {
+		return areadcount;
 	}
 
-	public void setAreadCount(Integer areadCount) {
-		this.areadCount = areadCount;
+	public void setAreadcount(Integer areadcount) {
+		this.areadcount = areadcount;
 	}
 
 	public Integer getAfocus() {
@@ -93,7 +93,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [articleId=" + articleId + ", userId=" + userId + ", atitle=" + atitle + ", aplate=" + aplate
-				+ ", aprivacy=" + aprivacy + ", atime=" + atime + ", areadCount=" + areadCount + ", afocus=" + afocus
+				+ ", aprivacy=" + aprivacy + ", atime=" + atime + ", areadcount=" + areadcount + ", afocus=" + afocus
 				+ "]";
 	}
 }

@@ -8,7 +8,7 @@ insert into admin values(1,'a','a');
 
 create table users(
        userid int primary key, --用户编号
-       ucardId varchar2(20) not null unique, --身份证号码
+       ucardId varchar2(20) unique, --身份证号码
        urealname varchar2(50),  --真实姓名
        uname varchar2(50) not null,  --用户昵称
        ubirthday varchar2(20),  --出生日期
@@ -18,11 +18,11 @@ create table users(
        uemail varchar2(20) not null unique,   --邮箱
        upassword varchar2(50) not null,
        upostcode varchar2(10),   --邮编
-       ustatus varchar2(2),   --激活状态
-       ustate varchar2(2),     --情感状态
+       ustatus varchar2(20),   --激活状态
+       ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
-
+drop table users;
 --店铺表
 create table store(
        storeid int primary key,--店铺编号
@@ -151,7 +151,7 @@ create table articlecom(
        praisecount int --点赞次数
 );
 
-
+create sequence seq_admin_id start with 2;
 create sequence seq_user_id start with 111;
 create sequence seq_store_id start with 11;
 create sequence seq_series_id start with 101;
@@ -181,4 +181,5 @@ select * from comments;
 select * from article;
 select * from articlecom;
 
-
+alter table goods add goodnum number(10);
+alter table collection drop (scount);
