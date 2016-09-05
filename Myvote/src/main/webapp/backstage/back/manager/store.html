@@ -67,7 +67,6 @@ obj=$('#Store_data').datagrid({
 	        		if(value!=null){
 	        			var str="";
 	        			var pics=value.split(",");
-	        			alert(pics);
 	        			for(var i=0;i<pics.length;i++){
 	        				str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 	        			}
@@ -171,7 +170,6 @@ obj=$('#Store_data').datagrid({
 
 	function updateStore(){
 		var simagelogo=$("#simagelogo").val();
-		alert(simagelogo);
 		var jsonStr=toJsonStr($("#update").serialize());
 		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
 			if(data){
