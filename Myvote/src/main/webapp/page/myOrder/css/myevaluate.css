@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+.member_all-nav-right em {
+	color: #e94d4d;
+}
+
+.ask-table-trfirst td {
+	background: #fafafa;
+	color: #333;
+	font-size: 12px;
+	border-bottom: 1px solid #e6e6e6;
+}
+
+.member_ask-table td {
+	text-align: center;
+	padding: 10px 0;
+}
+
+.ask-table-td1 {
+	width: 358px;
+}
+
+.ask-table-td2 {
+	width: 148px;
+}
+
+.member_ask-table .ask-table-trfirst .ask-table-td3 {
+	width: 184px;
+	padding: 10px 38px;
+}
+
+.member_ask-table {
+	margin-left: 0;
+	border: 1px solid #e6e6e6;
+	margin-top: 20px;
+	border-bottom: none;
+}
+
+.table {
+	border-collapse: collapse;
+	empty-cells: show;
+}

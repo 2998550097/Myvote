@@ -1,0 +1,194 @@
+@charset "utf-8";
+.myorder-xq-news_top {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.member_all-nav-right {
+			    font-size: 0;
+			    height: 30px;
+			    line-height: 30px;
+			    float: right;
+				display: inline;
+			}
+
+.myorder-xq-news_top p {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 4px;
+}
+
+.myshou{
+	float: left;
+	display: inline;
+	float: left;
+	display: inline;
+}
+
+.image{
+	    float: left;
+    	display: inline;
+}
+
+.ollection-table-word {
+    margin-left: 20px;
+    width: 186px;
+    float: left;
+	display: inline;
+}
+
+.member_all-nav-right span {
+    color: #888;
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.member_ollection-table {
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+    margin: 0;
+}
+table {
+    border-collapse: collapse;
+    empty-cells: show;
+    border-spacing: 0;
+}
+
+.member_ollection-table td {
+    padding: 10px 0;
+    text-align: center;
+}
+.member_ollection-table td {
+    padding: 10px 0;
+    text-align: center;
+}
+.ollection-table-trfirst td {
+    background: #fef3f1;
+    font-size: 12px;
+    color: #333;
+    border-bottom: 1px solid #e6e6e6;
+}
+.ollection-table-td1 {
+    width: 325px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td2 {
+    width: 163px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td3 {
+    width: 163px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td4 {
+    width: 114px;
+}
+
+.ollection-table-trsec .ollection-table-td1 {
+    text-align: justify;
+}
+.ollection-table-trsec td {
+    border-bottom: 1px solid #e6e6e6;
+}
+.member_ollection-table td {
+    padding: 10px 0;
+    text-align: center;
+}
+.ollection-table-td1 {
+    width: 325px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td1 img {
+    margin-left: 14px;
+}
+
+.ollection-table-word p {
+    font-size: 12px;
+    color: #333;
+    line-height: 17px;
+}
+
+.ollection-table-trsec .ollection-table-td2 {
+    color: #ff4c4c;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+}
+
+.ollection-table-td2 {
+    width: 163px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td3 {
+    width: 163px;
+    border-right: 1px solid #e6e6e6;
+}
+
+.ollection-table-td3 p {
+    color: #333;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.ollection-table-td3 a {
+    color: #888;
+}
+
+.ollection-table-td4 {
+    width: 114px;
+}
+
+.ollection-table-td4 p {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #333;
+}
+.ollection-table-td4 p {
+    margin-top: 8px;
+}
+
+.ollection-table-td4 .ollection-join {
+    border: 1px solid #c9a548;
+    color: #c6a34d;
+}
+.ollection-table-td4 a {
+    font-size: 12px;
+    color: #888;
+}
+
+.ollection-table-td4 a {
+    font-size: 12px;
+    color: #888;
+}
+.ollection-xq {
+    border: 1px solid #ccc;
+}
+.ollection-join, .ollection-xq {
+    display: inline-block;
+    height: 21px;
+    line-height: 21px;
+    width: 78px;
+    text-align: center;
+}
+
+.ollection-table-td4 a {
+    font-size: 12px;
+    color: #888;
+}
+
+.show_hover a:hover{
+	color: #8E4F1B;
+	text-decoration: underline;
+}
+
+.ollection-table-td3 a:hover{
+	text-decoration: underline;
+}
