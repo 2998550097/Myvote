@@ -16,7 +16,6 @@ public class AdminHandler {
 	
 	@RequestMapping("/login")
 	public String login(Admin admin,ModelMap map){
-		System.out.println("admin login..."+admin);
 		admin=adminService.login(admin);
 		if(admin==null){
 			map.put("errorMsg", "用户名或密码错误");

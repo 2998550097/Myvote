@@ -8,9 +8,9 @@ public interface StoreMapper {
 	//后台店铺查询操作
 	List<Store> findStores();
 	
-	int addStores(Store store);
+	void addStores(Store store);
 	
-	Store updateStores(Store store);
+	void updateStores(Store store);
 	
 	Store deleteStores(Store store);
 	

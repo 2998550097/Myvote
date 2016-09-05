@@ -7,13 +7,13 @@
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="../../../addStore" style="float:left;padding-left:20px">
-   		<label>店铺名：</label><input type="text" id="User_usid" name="sname" required="required"/><br/><br/>
-   		<label>店铺地址：</label><input type="text" id="User_uname" name="saddress" required="required"/><br/><br/>
-   		<label>预约计数：</label><input type="text" id="User_upwd" name="sappointcount" required="required"/><br/><br/>
-   		<label>营业时间：</label><input type="text" id="User_email" name="sstarttime" required="required"/>-<input type="text" id="User_email" name="sendtime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
-  		<input type="submit" value="添加" style="display:inline-block; width:52px;height:30px; background: url('../../easyui/icons/edit_add.png') no-repeat;"/>
+   <form action="" style="float:left;padding-left:20px" id="add">
+   		<label>店铺名：</label><input type="text" id="sname" name="sname" required="required"/><br/><br/>
+   		<label>店铺地址：</label><input type="text" id="saddress" name="saddress" required="required"/><br/><br/>
+   		<label>预约计数：</label><input type="text" id="sappointcount" name="sappointcount" required="required"/><br/><br/>
+   		<label>营业时间：</label><input type="text" id="sstarttime" name="sstarttime" required="required"/>-<input type="text" id="sendtime" name="sendtime" required="required"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simagelogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
+  		<a href="javascript:addStore()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
    </form> 
    
   
@@ -23,17 +23,17 @@
  
    <br/>
     <div style="float:right;width:360px;margin-right:20px;">
-   		<fieldset id="Store_pics_show">
+   		<fieldset id="Store_pics_show1">
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="updateStore" style="float:left;padding-left:20px">
-   		<label>店铺名：</label><input type="text" id="User_usid" name="sname" required="required"/><br/><br/>
-   		<label>店铺地址：</label><input type="text" id="User_uname" name="saddress" required="required"/><br/><br/>
-   		<label>预约计数：</label><input type="text" id="User_upwd" name="sappointCount" required="required"/><br/><br/>
-   		<label>营业时间：</label><input type="text" id="User_email" name="sstartTime" required="required"/>-<input type="text" id="User_email" name="sendTime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simageLogo" name="pics" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
-  		<input type="submit" value="修改" style="display:inline-block; width:52px;height:30px; background: url('../../easyui/icons/pencil.png') no-repeat;"/>
+   <form action="updateStore" style="float:left;padding-left:20px" id="update">
+   		<label>店铺名：</label><input type="text" id="usname" name="sname" required="required"/><br/><br/>
+   		<label>店铺地址：</label><input type="text" id="usaddress" name="saddress" required="required"/><br/><br/>
+   		<label>预约计数：</label><input type="text" id="usappointcount" name="sappointcount" required="required"/><br/><br/>
+   		<label>营业时间：</label><input type="text" id="usstarttime" name="sstarttime" required="required"/>-<input type="text" id="ussendtime" name="sendtime" required="required"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="usimagelogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show1')"/><br/><br/>
+  		<a href="javascript:updateStore()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
    </form> 
    
   
@@ -67,6 +67,7 @@ obj=$('#Store_data').datagrid({
 	        		if(value!=null){
 	        			var str="";
 	        			var pics=value.split(",");
+	        			alert(pics);
 	        			for(var i=0;i<pics.length;i++){
 	        				str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 	        			}
@@ -93,10 +94,17 @@ obj=$('#Store_data').datagrid({
 		    text:"修改",
 		   	iconCls:"icon-edit",
 		    handler:function(){
-		    	$('#update_Store').dialog('open');
 		    	var rows=obj.datagrid("getChecked")[0];
+		    	alert(rows);
+		    	alert(rows.sname);
 		    	if(rows!=undefined){
 		    		$('#update_Store').dialog('open');
+		    		$("#usname").val(rows.sname);
+		    		$("#usaddress").val(rows.saddress);
+		    		$("#usappointcount").val(rows.sappointcount);
+		    		$("#usstarttime").val(rows.sstarttime);
+		    		$("#ussendtime").val(rows.sendtime);
+		    		$("#Store_pics_show1").html(showpic(rows.simagelogo));
 		    	}
 		    }
 		 },{
@@ -146,6 +154,47 @@ obj=$('#Store_data').datagrid({
 		 }]
 	}); 
 	
+	function addStore(){
+		var simagelogo=$("#simagelogo").val();
+		alert(simagelogo);
+		var jsonStr=toJsonStr($("#add").serialize());
+		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+			if(data){
+				$("#add_Store").dialog('close');
+				obj.datagrid("reload");//刷新表格
+			}else{
+				$.messager.alert('失败提示','店铺信息添加失败...','error');
+			}
+		});
+	} 
 	
 
+	function updateStore(){
+		var simagelogo=$("#simagelogo").val();
+		alert(simagelogo);
+		var jsonStr=toJsonStr($("#update").serialize());
+		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+			if(data){
+				$("#update_Store").dialog('close');
+				obj.datagrid("reload");//刷新表格
+			}else{
+				$.messager.alert('失败提示','店铺信息修改失败...','error');
+			}
+		});
+	} 
+	
+	
+	
+	function toJsonStr(str){
+		return str="{\"" + str.replace(/=/g,"\":\"").replace(/&/g,"\",\"")+"\"}";
+	}
+	
+	function showpic(value){
+		var str="";
+		var pics=value.split(",");
+		for(var i=0;i<pics.length;i++){
+			str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+		}
+		return str;
+	}
 </script>

@@ -20,14 +20,26 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public int addStore(Store store) {
-		return storeMapper.addStores(store);
+	public boolean addStore(Store store) {
+		try {
+			storeMapper.addStores(store);
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 	@Override
-	public Store updateStore(Store store) {
-		return storeMapper.updateStores(store);
+	public boolean updateStore(Store store) {
+		try {
+			storeMapper.updateStores(store);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
+
 
 	@Override
 	public Store deleteStore(Store store) {
