@@ -10,8 +10,9 @@ public class Good {
 	private Integer gprice;
 	private double averagescore;
 	private String gother;
-	private int goodnum;
-
+	private Integer goodnum;
+	private Integer usercount;
+	private Integer comcount;
 	
 
 	public Good() {
@@ -90,16 +91,32 @@ public class Good {
 		this.gother = gother;
 	}
 
-	public int getGoodnum() {
-		return goodnum;
+	public Integer getUsercount() {
+		return usercount;
 	}
 
-	public void setGoodnum(int goodnum) {
+	public void setUsercount(Integer usercount) {
+		this.usercount = usercount;
+	}
+
+	public Integer getComcount() {
+		return comcount;
+	}
+
+	public void setComcount(Integer comcount) {
+		this.comcount = comcount;
+	}
+
+	public void setGoodnum(Integer goodnum) {
 		this.goodnum = goodnum;
 	}
 
+	public Integer getGoodnum() {
+		return goodnum;
+	}
+
 	public Good(Integer goodId, String gname, Integer seriesId, Integer styleId, String gmaterial, String gimage,
-			Integer gprice, double averagescore, String gother, int goodnum) {
+			Integer gprice, double averagescore, String gother, Integer goodnum, Integer usercount, Integer comcount) {
 		super();
 		this.goodId = goodId;
 		this.gname = gname;
@@ -111,11 +128,15 @@ public class Good {
 		this.averagescore = averagescore;
 		this.gother = gother;
 		this.goodnum = goodnum;
+		this.usercount = usercount;
+		this.comcount = comcount;
 	}
+
 	@Override
 	public String toString() {
 		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesId=" + seriesId + ", styleId=" + styleId
 				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore="
-				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + "]";
+				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount=" + usercount
+				+ ", comcount=" + comcount + "]";
 	}
 }

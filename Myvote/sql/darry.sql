@@ -181,5 +181,7 @@ select * from comments;
 select * from article;
 select * from articlecom;
 
-alter table goods add goodnum number(10);
+alter table goods add goodnum number(10);--收藏次数
+alter table goods add usercount number(10);--用户购买次数
+alter table goods add comnum number(10);--评论次数
 alter table collection drop (scount);
