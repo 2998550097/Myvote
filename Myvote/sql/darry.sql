@@ -22,6 +22,9 @@ create table users(
        ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
+insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
+'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a')
+select * from users;
 drop table users;
 --店铺表
 create table store(
@@ -39,13 +42,15 @@ create table series(
        seriesid int primary key,  --系列号
        seriesname varchar2(20) not null --系列名字
 );
-
+insert into series values(seq_series_id.nextval,'My love');
+select * from series;
 --款式表
 create table style(
        styleid int primary key,  --款式号
        stylename varchar2(20) not null --款式名字
 );
-
+insert into style values(seq_style_id.nextval,'戒指');
+select * from style;
 --系列款式表
 create table seriesStyle(
        ssid int primary key,
@@ -64,9 +69,10 @@ create table goods(
        gprice int not null,  --价格
        averagescore number(2,1) not null, --平均评分
        gother varchar2(20) --其它
-       
 );
-
+select * from paramter;
+insert into goods values(seq_goods_id.nextval,'自行车',101,1002,'粉钻','a',12000,4,'钻石一样的永恒');
+select * from goods;
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号
@@ -76,7 +82,8 @@ create table paramter(
 	gcrystal varchar2(10), --净度
 	gcutting varchar2(10) --切工
 );
-
+insert into paramter values (seq_paramter_id.nextval,100003,1,12,'纯净','完美');
+select * from paramter;
 --收货地址
 create table  delivery(
        deliveryid int primary key, --地址编号
@@ -115,9 +122,9 @@ create table collection(
        userid int not null, --用户编号
        goodid int not null, --商品编号
        ctime varchar2(50) not null,  --收藏时间
-       scount int --收藏总数量
 );
-
+insert into COLLECTION values(seq_orderdetail_id.nextval,131,100003,'2016-9-5',1);
+select * from COLLECTION;
 --评论表
 create table comments(
       commentid int primary key,  --评论编号
@@ -158,6 +165,7 @@ create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
 create sequence seq_goods_id start with 100001;
+create sequence seq_paramter_id start with 200001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
 create sequence seq_orderdetail_id start with 1000001;
@@ -181,5 +189,24 @@ select * from comments;
 select * from article;
 select * from articlecom;
 
+drop table admin;
+drop table users;
+drop table store;
+drop table series;
+drop table style;
+drop table seriesstyle;
+drop table goods;
+drop table delivery;
+drop table orders;
+drop table orderdetail;
+drop table collection;
+drop table comments;
+drop table article;
+drop table articlecom;
+
 alter table goods add goodnum number(10);
 alter table collection drop (scount);
+
+select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
+from goods g,collection c,series s,style sy 
+where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid;

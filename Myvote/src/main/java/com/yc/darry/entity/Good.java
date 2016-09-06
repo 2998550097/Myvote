@@ -3,19 +3,18 @@ package com.yc.darry.entity;
 public class Good {
 	private Integer goodId;
 	private String gname;
-	private Integer seriesId;
-	private Integer styleId;
+	private String seriesname;
+	private String stylename;
 	private String gmaterial;
 	private String gimage;
 	private Integer gprice;
 	private double averagescore;
 	private String gother;
 	private int goodnum;
-
-	
+	private Integer collectionId;//收藏编号
+	private String ctime; //收藏时间
 
 	public Good() {
-		super();
 	}
 
 	public Integer getGoodId() {
@@ -34,20 +33,20 @@ public class Good {
 		this.gname = gname;
 	}
 
-	public Integer getSeriesId() {
-		return seriesId;
+	public String getseriesname() {
+		return seriesname;
 	}
 
-	public void setSeriesId(Integer seriesId) {
-		this.seriesId = seriesId;
+	public void setseriesname(String seriesname) {
+		this.seriesname = seriesname;
 	}
 
-	public Integer getStyleId() {
-		return styleId;
+	public String getstylename() {
+		return stylename;
 	}
 
-	public void setStyleId(Integer styleId) {
-		this.styleId = styleId;
+	public void setstylename(String stylename) {
+		this.stylename = stylename;
 	}
 
 	public String getGmaterial() {
@@ -98,13 +97,12 @@ public class Good {
 		this.goodnum = goodnum;
 	}
 
-	public Good(Integer goodId, String gname, Integer seriesId, Integer styleId, String gmaterial, String gimage,
+	public Good(Integer goodId, String gname, String seriesname, String stylename, String gmaterial, String gimage,
 			Integer gprice, double averagescore, String gother, int goodnum) {
-		super();
 		this.goodId = goodId;
 		this.gname = gname;
-		this.seriesId = seriesId;
-		this.styleId = styleId;
+		this.seriesname = seriesname;
+		this.stylename = stylename;
 		this.gmaterial = gmaterial;
 		this.gimage = gimage;
 		this.gprice = gprice;
@@ -112,10 +110,28 @@ public class Good {
 		this.gother = gother;
 		this.goodnum = goodnum;
 	}
+	
+	public Good(Integer goodId, String gname, String seriesname, String stylename, String gmaterial, String gimage,
+			Integer gprice, double averagescore, String gother, int goodnum, Integer collectionId, String ctime) {
+		this.goodId = goodId;
+		this.gname = gname;
+		this.seriesname = seriesname;
+		this.stylename = stylename;
+		this.gmaterial = gmaterial;
+		this.gimage = gimage;
+		this.gprice = gprice;
+		this.averagescore = averagescore;
+		this.gother = gother;
+		this.goodnum = goodnum;
+		this.collectionId = collectionId;
+		this.ctime = ctime;
+	}
+
 	@Override
 	public String toString() {
-		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesId=" + seriesId + ", styleId=" + styleId
+		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesname=" + seriesname + ", stylename=" + stylename
 				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore="
-				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + "]";
+				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", collectionId=" + collectionId
+				+ ", ctime=" + ctime + "]";
 	}
 }
