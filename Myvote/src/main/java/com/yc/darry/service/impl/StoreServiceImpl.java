@@ -42,8 +42,13 @@ public class StoreServiceImpl implements StoreService{
 
 
 	@Override
-	public Store deleteStore(Store store) {
-		return storeMapper.deleteStores(store);
+	public  boolean deleteStore(int storeid) {
+		try {
+			storeMapper.deleteStore(storeid);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 
 }

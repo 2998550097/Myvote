@@ -12,6 +12,6 @@ public interface StoreMapper {
 	
 	void updateStore(Store store);
 	
-	Store deleteStores(Store store);
+	void deleteStore(int storeid);
 	
 }

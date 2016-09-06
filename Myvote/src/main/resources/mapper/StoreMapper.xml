@@ -10,8 +10,8 @@
 		<insert id="addStores" parameterType="Store" >
 			insert into store values(seq_store_id.nextval,#{sname,jdbcType=VARCHAR},#{saddress,jdbcType=VARCHAR},#{sappointcount,jdbcType=INTEGER},#{simagelogo,jdbcType=VARCHAR},#{sstarttime,jdbcType=VARCHAR},#{sendtime,jdbcType=VARCHAR})
 		</insert>
-		<delete id="deleteStore" parameterType="Store">
-			delete from store where sname=#{sname}
+		<delete id="deleteStore" parameterType="Integer">
+			delete from store where storeid=#{storeid}
 		</delete>
 		
 		<update id="updateStore" parameterType="Store">

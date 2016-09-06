@@ -69,7 +69,7 @@ obj=$('#Store_data').datagrid({
 	        			var str="";
 	        			var pics=value.split(",");
 	        			for(var i=0;i<pics.length;i++){
-	        				str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        				str+="<img src='../images/"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 	        			}
 	        			return str;
 	        		}else{
@@ -105,7 +105,6 @@ obj=$('#Store_data').datagrid({
 		    		$("#ustoreId").val(rows.storeid);
 		    		$("simagelogoup").val(rows.simagelogo);
 		    		$("#Store_pics_show1").html(showpic(rows.simagelogo));
-		    		$
 		    	}
 		    }
 		 },{
@@ -119,13 +118,12 @@ obj=$('#Store_data').datagrid({
 		    			if(rs){
 		    				var tids="";
 		    				for(var i=0;i<rows.length-1;i++){
-		    					tids+=rows[i].usid+",";
+		    					tids+=rows[i].storeid+",";
 		    				}
-		    				tids+=rows[i].usid;
-		    				
+		    				tids+=rows[i].storeid;
 		    				//发请求到数据库删除
-		    				$.post("../../deleteStore",{usid:tids},function(data){
-		    					if(data>0){
+		    				$.post("../../../deleteStore",{storeid:tids},function(data){
+		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
 			    						msg:'店铺信息删除成功...',
@@ -158,7 +156,7 @@ obj=$('#Store_data').datagrid({
 	function addStore(){
 		var simagelogo=$("#simagelogo").val();
 		var jsonStr=toJsonStr($("#add").serialize());
-		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+		$.post("../../../addStore",{param:jsonStr,simagelogo:simagelogo},function(data){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
@@ -171,7 +169,6 @@ obj=$('#Store_data').datagrid({
 
 	function updateStore(){
 		var storeId=$("#ustoreId").val();
-		alert(storeId);
 		var simagelogo=$("#ussimagelogo").val();
 		var jsonStr=toJsonStr($("#update").serialize());
 		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo,storeid:storeId},function(data){
@@ -193,8 +190,8 @@ obj=$('#Store_data').datagrid({
 	function showpic(value){
 		var str="";
 		var pics=value.split(",");
-		for(var i=0;i<pics.length;i++){
-			str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+		for(var i=0;i<pics.length;is++){
+			str+="<img src='../images/s"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 		}
 		return str;
 	}
