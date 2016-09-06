@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
 <!--导航-->
 <div class="dr_navbk fix">
 	<ul class="dr_nav w1000">
@@ -42,80 +44,55 @@
 					<div class="dr_navsuv-cort dr_navTabs">
 						<!--戒指-->
 						<div class="dr_navsuv-ring dr_navsuvleft-ring fl">
-							<a href="http://www.darryring.com/pinkdiamond.aspx"
-								style="display: block;"> <img
-								src="images/2014092610543039082c76fd.jpg" width="200"
-								height="200">
-							</a> <a
-								href="http://www.darryring.com/darry_ring/A16001/Z03023278801.html"
-								style="display: none;"> <img
-								src="images//2015081318151576e08c7f5c.jpg" width="200"
-								height="200">
-							</a> <a
-								href="http://www.darryring.com/darry_ring/A02001/Z05019488801.html"
-								style="display: none;"> <img
-								src="images/201409031259093e45b5ecf0.jpg" width="200"
-								height="200">
-							</a> <a
-								href="http://www.darryring.com/darry_ring/A03002/Z05021300002.html"
-								style="display: none;"> <img
-								src="images/20150930190558ba3bac51e0.jpg" width="200"
-								height="200">
-							</a> <a href="http://www.darryring.com/darry_ring/387.htmll"
-								style="display: none;"> <img
-								src="images/2015093019140361614ead1d.jpg" width="200"
-								height="200">
+							<a href="http://www.darryring.com/pinkdiamond.aspx" style="display: block;"> 
+								<img src="images/2014092610543039082c76fd.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/A16001/Z03023278801.html" style="display: none;"> 
+								<img src="images//2015081318151576e08c7f5c.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/A02001/Z05019488801.html" style="display: none;"> 
+								<img src="images/201409031259093e45b5ecf0.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/A03002/Z05021300002.html" style="display: none;"> 
+								<img src="images/20150930190558ba3bac51e0.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/387.htmll" style="display: none;"> 
+								<img src="images/2015093019140361614ead1d.jpg" width="200" height="200">
 							</a>
 						</div>
 						<!--戒指end-->
 						<!--相同部分-->
-						<div class="dr_navsuv-same dr_navsuvleft-same fl">
-							<a href="http://www.darryring.com/pinkdiamond.aspx"
-								class="select">稀世粉钻</a> <a
-								href="http://www.darryring.com/darry_ring?series=loveline">Love
-								Line系列</a> <a href="http://www.darryring.com/dr_series/12_22.html">Forever
-								系列</a> <a href="http://www.darryring.com/dr_series/11_20.html">My
-								Heart系列</a> <a href="http://www.darryring.com/dr_series/16_30.html">True
-								Love系列</a>
+						<div class="dr_navsuv-same dr_navsuvleft-same fl" id="leftseries">
+							
+							<!-- <a href="http://www.darryring.com/pinkdiamond.aspx" class="select">稀世粉钻</a>
+							<a href="http://www.darryring.com/darry_ring?series=loveline">Love Line系列</a>
+							<a href="http://www.darryring.com/dr_series/12_22.html">Forever 系列</a> 
+							<a href="http://www.darryring.com/dr_series/11_20.html">My Heart系列</a> 
+							<a href="http://www.darryring.com/dr_series/16_30.html">True Love系列</a> -->
 						</div>
 						<!--相同部分end-->
 						<!--相同部分-->
-						<div class="dr_navsuv-same dr_navsuvright-same fl">
-							<a href="http://www.darryring.com/dr_series/15_28.html"
-								class="select">I Swear系列</a> <a
-								href="http://www.darryring.com/dr_series/13_24.html">Just
-								You系列</a> <a
-								href="http://www.darryring.com/darry_ring?series=princess">Princess系列</a>
-							<a
-								href="http://www.darryring.com/darry_ring?page=1&title=Believe%E7%B3%BB%E5%88%97">Believe系列</a>
-							<a href="http://www.darryring.com/darry_ring">查看全部商品</a>
+						<div class="dr_navsuv-same dr_navsuvright-same fl" >
+							
+							<a href="http://www.darryring.com/darry_ring" id="rightseries">查看全部商品</a>
 						</div>
 						<!--相同部分end-->
 						<!--戒指-->
 						<div class="dr_navsuv-ring dr_navsuvright-ring fl">
-							<a
-								href="http://www.darryring.com/darry_ring/A04004/Z05021300003.html"
-								style="display: block;"> <img
-								src="images/20140902094335966c32bf74.jpg" width="200"
-								height="200">
-							</a> <a
-								href="http://www.darryring.com/darry_ring/A05001/Z03022478801.html"
-								style="display: none;"> <img
-								src="images/20141208151441cc5ac80d54.jpg" width="200"
-								height="200">
-							</a> <a href="http://www.darryring.com/darry_ring/353.html"
-								style="display: none;"> <img
-								src="images/201409011559313d34c1c807.jpg" width="200"
-								height="200">
-							</a> <a
-								href="http://www.darryring.com/darry_ring/A07001/Z03025478891.html"
-								style="display: none;"> <img
-								src="images/20150129114316f8a2465758.jpg" width="200"
-								height="200">
-							</a> <a href="http://www.darryring.com/darry_ring"
-								style="display: none;"> <img
-								src="images/201502061050359c37df606b.jpg" width="200"
-								height="200">
+							<a href="http://www.darryring.com/darry_ring/A04004/Z05021300003.html" style="display: block;"> 
+								<img src="images/20140902094335966c32bf74.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/A05001/Z03022478801.html" style="display: none;"> 
+								<img src="images/20141208151441cc5ac80d54.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/353.html" style="display: none;"> 
+								<img src="images/201409011559313d34c1c807.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring/A07001/Z03025478891.html" style="display: none;"> 
+								<img src="images/20150129114316f8a2465758.jpg" width="200" height="200">
+							</a> 
+							<a href="http://www.darryring.com/darry_ring" style="display: none;"> 
+								<img src="images/201502061050359c37df606b.jpg" width="200" height="200">
 							</a>
 						</div>
 						<!--戒指end-->
@@ -156,12 +133,8 @@
 						</div>
 						<!--戒指end-->
 						<!--相同部分-->
-						<div class="dr_navsuv-same dr_navsuvleft-same fl">
-							<a href="http://www.darryring.com/dr_phonics" class="select">对戒</a>
-							<a href="http://www.darryring.com/jewelry_2">男戒</a> <a
-								href="http://www.darryring.com/jewelry_4">吊坠</a> <a
-								href="http://www.darryring.com/jewelry_6">耳饰</a> <a
-								href="http://www.darryring.com/jewelry?type=bracelet">手链/手镯</a>
+						<div class="dr_navsuv-same dr_navsuvleft-same fl" id="leftstyle">
+							
 						</div>
 						<!--相同部分end-->
 						<!--相同部分-->
