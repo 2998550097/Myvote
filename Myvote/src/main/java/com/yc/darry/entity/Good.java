@@ -11,9 +11,6 @@ public class Good {
 	private double averagescore;
 	private String gother;
 	private int goodnum;
-	private Integer collectionId;//收藏编号
-	private String ctime; //收藏时间
-
 	public Good() {
 	}
 
@@ -109,29 +106,5 @@ public class Good {
 		this.averagescore = averagescore;
 		this.gother = gother;
 		this.goodnum = goodnum;
-	}
-	
-	public Good(Integer goodId, String gname, String seriesname, String stylename, String gmaterial, String gimage,
-			Integer gprice, double averagescore, String gother, int goodnum, Integer collectionId, String ctime) {
-		this.goodId = goodId;
-		this.gname = gname;
-		this.seriesname = seriesname;
-		this.stylename = stylename;
-		this.gmaterial = gmaterial;
-		this.gimage = gimage;
-		this.gprice = gprice;
-		this.averagescore = averagescore;
-		this.gother = gother;
-		this.goodnum = goodnum;
-		this.collectionId = collectionId;
-		this.ctime = ctime;
-	}
-
-	@Override
-	public String toString() {
-		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesname=" + seriesname + ", stylename=" + stylename
-				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore="
-				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", collectionId=" + collectionId
-				+ ", ctime=" + ctime + "]";
 	}
 }

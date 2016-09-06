@@ -28,6 +28,7 @@
    		</fieldset>
    </div>
    <form action="updateStore" style="float:left;padding-left:20px" id="update">
+  		<label>店铺编号：</label><input type="text" id="ustoreId" name="storeId" required="required" disabled="true" value=""/><br/><br/>
    		<label>店铺名：</label><input type="text" id="usname" name="sname" required="required"/><br/><br/>
    		<label>店铺地址：</label><input type="text" id="usaddress" name="saddress" required="required"/><br/><br/>
    		<label>预约计数：</label><input type="text" id="usappointcount" name="sappointcount" required="required"/><br/><br/>
@@ -56,7 +57,7 @@ obj=$('#Store_data').datagrid({
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-			{field:'storeId',title:'店铺编号',width:100,align:'center',sortable:true}, 
+			{field:'storeid',title:'店铺编号',width:100,align:'center',sortable:true}, 
 	        {field:'sname',title:'店铺名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
 	        {field:'saddress',title:'店铺地址',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
 	        {field:'sappointcount',title:'预约计数',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
@@ -67,9 +68,8 @@ obj=$('#Store_data').datagrid({
 	        		if(value!=null){
 	        			var str="";
 	        			var pics=value.split(",");
-	        			alert(pics);
 	        			for(var i=0;i<pics.length;i++){
-	        				str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        				str+="<img src='../images/"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 	        			}
 	        			return str;
 	        		}else{
@@ -95,8 +95,6 @@ obj=$('#Store_data').datagrid({
 		   	iconCls:"icon-edit",
 		    handler:function(){
 		    	var rows=obj.datagrid("getChecked")[0];
-		    	alert(rows);
-		    	alert(rows.sname);
 		    	if(rows!=undefined){
 		    		$('#update_Store').dialog('open');
 		    		$("#usname").val(rows.sname);
@@ -104,6 +102,8 @@ obj=$('#Store_data').datagrid({
 		    		$("#usappointcount").val(rows.sappointcount);
 		    		$("#usstarttime").val(rows.sstarttime);
 		    		$("#ussendtime").val(rows.sendtime);
+		    		$("#ustoreId").val(rows.storeid);
+		    		$("simagelogoup").val(rows.simagelogo);
 		    		$("#Store_pics_show1").html(showpic(rows.simagelogo));
 		    	}
 		    }
@@ -118,13 +118,12 @@ obj=$('#Store_data').datagrid({
 		    			if(rs){
 		    				var tids="";
 		    				for(var i=0;i<rows.length-1;i++){
-		    					tids+=rows[i].usid+",";
+		    					tids+=rows[i].storeid+",";
 		    				}
-		    				tids+=rows[i].usid;
-		    				
+		    				tids+=rows[i].storeid;
 		    				//发请求到数据库删除
-		    				$.post("../../StoreServlet",{op:"delStore",usid:tids},function(data){
-		    					if(data>0){
+		    				$.post("../../../deleteStore",{storeid:tids},function(data){
+		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
 			    						msg:'店铺信息删除成功...',
@@ -156,9 +155,8 @@ obj=$('#Store_data').datagrid({
 	
 	function addStore(){
 		var simagelogo=$("#simagelogo").val();
-		alert(simagelogo);
 		var jsonStr=toJsonStr($("#add").serialize());
-		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+		$.post("../../../addStore",{param:jsonStr,simagelogo:simagelogo},function(data){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
@@ -170,10 +168,10 @@ obj=$('#Store_data').datagrid({
 	
 
 	function updateStore(){
-		var simagelogo=$("#simagelogo").val();
-		alert(simagelogo);
+		var storeId=$("#ustoreId").val();
+		var simagelogo=$("#ussimagelogo").val();
 		var jsonStr=toJsonStr($("#update").serialize());
-		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo,storeid:storeId},function(data){
 			if(data){
 				$("#update_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
@@ -192,8 +190,8 @@ obj=$('#Store_data').datagrid({
 	function showpic(value){
 		var str="";
 		var pics=value.split(",");
-		for(var i=0;i<pics.length;i++){
-			str+="<img src='../../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+		for(var i=0;i<pics.length;is++){
+			str+="<img src='../images/s"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
 		}
 		return str;
 	}

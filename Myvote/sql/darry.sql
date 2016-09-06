@@ -209,4 +209,4 @@ alter table collection drop (scount);
 
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
 from goods g,collection c,series s,style sy 
-where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid;
+where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid

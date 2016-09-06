@@ -1,0 +1,262 @@
+a{
+	text-decoration: none;
+}
+
+
+	
+.member_cortr-first{
+	overflow: hidden;
+	margin-bottom: 22px;}
+	
+.member_cortr-first-left{
+	float: left;
+	display: inline;}
+	
+.member_first-left-top {
+    overflow: hidden;
+    margin-bottom: 30px;}
+    
+.mb_theleft, .mb_theright-sec {
+    width: 246px;
+    overflow: hidden;
+    float: left;
+	display: inline;}
+	
+.mb_theleft span {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+   }
+   
+.member_cortr-first-left a {
+    font-size: 12px;
+    color: #8e4f1b;
+    text-decoration: none;
+	outline: none;}
+	
+.mb_theright {
+    font-size: 0;
+    margin: 4px 0 0 20px;
+    float: left;
+	display: inline;}
+	
+.member_cortr-first .mb_email {
+    width: 14px;
+    height: 10px;
+    background-position: -22px -65px;}
+
+.member_cortr-first-left i {
+    background: url(../images/icon02.png) no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    font-style: inherit;}
+    
+.mb_theright a, .mb_theright-sec a {
+    vertical-align: middle;
+}
+.member_cortr-first-left a {
+    font-size: 12px;
+    color: #8e4f1b;
+}
+    
+.mb_theright-sec .vtop, .mb_theright .vtop {
+    vertical-align: top;}
+    
+.mb_theright span {
+    font-size: 12px;
+    color: #333;
+    vertical-align: middle;
+    margin: 0 6px;}
+    
+.member_cortr-first-right {
+    margin-right: 58px;
+    float: right;
+	display: inline;}
+	
+	
+.member_cortr-first-right a {
+    font-size: 12px;
+    color: #333;
+}
+
+.member_cortr-first-right p {
+    text-align: center;
+}
+
+.member_cortr-first a:hover {
+    text-decoration: none;
+    color: #8e4f1b;
+}
+
+	
+.member_cort-right h3 {
+    color: #666;
+    font-size: 14px;
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 10px;
+    padding-top: 4px;
+    font-weight: normal;}
+    
+.member_cortr-sec {
+    overflow: hidden;
+    margin: 13px 0 30px 0;}
+    
+.member_cortr-sec li {
+    float: left;
+    padding: 9px 18px;
+    border: 1px solid transparent;
+}
+
+
+
+
+
+
+.mb_theright-sec {
+    font-size: 12px;
+    background: url(../images/line.jpg) no-repeat right center;
+}
+
+.member_first-left-sec .mb_theright .mb_red-color {
+    background: #ff4c4c;
+}
+
+
+.member_first-left-sec .mb_theright em {
+    display: inline-block;
+    width: 44px;
+    height: 11px;
+    line-height: 11px;
+    text-align: center;
+    border: 1px solid #f2f2f2;
+    padding: 1px;
+    background: #ccc;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 12px;
+}
+
+.member_cortr-sec-left {
+    background: url(../images/tb.jpg) no-repeat;
+    height: 70px;
+    width: 75px;
+    float: left;
+	display: inline;}
+	
+.member_cortr-sec-right {
+    margin-left: 10px;
+    float: left;
+	display: inline;}
+
+.member_cortr-sec h4, .member_cortr-sec a {
+    color: #333;
+    font-size: 14px;}
+    
+.member_cortr-sec h4 {
+    margin: 4px 0 12px 0;
+    font-weight: normal;
+}
+
+.member_cortr-sec h4, .member_cortr-sec a {
+    color: #333;
+    font-size: 14px;
+}
+
+.member_cortr-sec p {
+    font-size: 12px;
+    color: #888;
+    line-height: 18px;
+}
+
+.member_cortr-sec .member_secimg_2 {
+    background-position: 0 -70px;
+}
+.member_cortr-sec-left {
+    background: url(../images/tb.jpg) no-repeat;
+    height: 70px;
+    width: 75px;
+    float: left;
+	display: inline;
+}
+
+
+.member_cortr-sec .member_secimg_3 {
+    background-position: 0 -140px;
+}
+.member_cortr-sec-left {
+    background: url(../images/tb.jpg) no-repeat;
+    height: 70px;
+    width: 75px;
+    float: left;
+	display: inline;
+}
+
+.member_cortr-sec .member_secimg_4 {
+    background-position: 0 -210px;
+}
+.member_cortr-sec-left {
+    background: url(../images/tb.jpg) no-repeat;
+    height: 70px;
+    width: 75px;
+    float: left;
+	display: inline;
+}
+
+
+.member_cortr-sec .mb_border {
+    border: 1px solid #ffcbcb;
+}
+
+.member_cortr-sec .mb_border p,.member_cortr-sec .mb_border a {
+    color: #c6a34d;
+}
+
+.member_cortr-sec li {
+    float: left;
+    padding: 9px 18px;
+    border: 1px solid transparent;
+}
+
+.read_jl {
+    font-size: 14px;
+    color: #666;
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 20px;
+}
+
+
+.read_ul {
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.read_ul li {
+    float: left;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.read_top {
+    height: 140px;
+    margin-bottom: 6px;
+}
+
+.read_ul a {
+    color: #888888;
+    font-family: "Arial";
+    display: block;
+    border: 1px solid transparent;
+}
+
+.read_top img {
+    width: 138px;
+    height: 138px;
+}
+
+.read_ul p {
+    font-family: "微软雅黑";
+    font-size: 12px;
+    color: #666;
+    width: 140px;
+}
+

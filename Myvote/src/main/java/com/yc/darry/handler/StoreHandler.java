@@ -67,12 +67,12 @@ public class StoreHandler {
 	@RequestMapping(value="/updateStore",method=RequestMethod.POST)
 	public void updateStore(HttpServletRequest request,PrintWriter out){
 		String param=request.getParameter("param");
-		System.out.println("!!!!"+param);
 		Gson gson=new Gson();
 		String simagelogo=request.getParameter("simagelogo");
+		String storeid= request.getParameter("storeid");
 		Store store=gson.fromJson(param, Store.class);
 		store.setSimagelogo(simagelogo);
-		System.out.println("我进来了"+store);
+		store.setStoreid(Integer.parseInt(storeid));
 		boolean a=storeService.updateStore(store);
 		if(a){
 			out.println(a);
@@ -82,14 +82,15 @@ public class StoreHandler {
 	}
 	
 	
-	@RequestMapping(value="/deleteStore",method=RequestMethod.PUT)
-	public String deleteStore(Store store,ModelMap map){
-		System.out.println("store 显示..."+store);
-		store=storeService.deleteStore(store);
-		if(store==null){
-			map.put("errorMsg", "店铺信息获取错误");
-			return "redirect:backstage/back/manager/index.html";
+	@RequestMapping(value="/deleteStore",method=RequestMethod.POST)
+	public void deleteStore(HttpServletRequest request,PrintWriter out){
+		String storeid=request.getParameter("storeid");
+		boolean a=storeService.deleteStore(Integer.parseInt(storeid));
+		if(a){
+			out.println(a);
+			out.flush();
+			out.close();
 		}
-		return "redirect:backstage/back/manager/store.html";
+		
 	}
 }
