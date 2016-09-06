@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.yc.darry.entity.Store;
@@ -27,16 +28,11 @@ public class StoreHandler {
 	 * @param map
 	 * @param out
 	 */
+	@ResponseBody
 	@RequestMapping("/store")
-	public void findStore(ModelMap map,PrintWriter out){
+	public List<Store>  findStore(){
 		List<Store> stores=(List<Store>) storeService.findStore();
-		if(stores.size()<=0){
-			map.put("errorMsg", "店铺信息获取错误");
-		}
-		Gson gson=new Gson();
-		out.println(gson.toJson(stores));
-		out.flush();
-		out.close();
+		return stores;
 	}
 	
 	
@@ -46,28 +42,18 @@ public class StoreHandler {
 	 * @param map
 	 * @return
 	 */
+	@ResponseBody
 	@RequestMapping("/addStore")
-	public void addStore(HttpServletRequest request,PrintWriter out){
-		String param=request.getParameter("param");
-		System.out.println("!!!!"+param);
-		Gson gson=new Gson();
-		String simagelogo=request.getParameter("simagelogo");
-		Store store=gson.fromJson(param, Store.class);
-		store.setSimagelogo(simagelogo);
+	public boolean addStore(Store store){
 		System.out.println("我进来了"+store);
-		boolean a=storeService.addStore(store);
-		if(a){
-			out.println(a);
-			out.flush();
-			out.close();
-		}
+		return storeService.addStore(store);
 	}
 	
 	
 	@RequestMapping(value="/updateStore",method=RequestMethod.POST)
 	public void updateStore(HttpServletRequest request,PrintWriter out){
 		String param=request.getParameter("param");
-		Gson gson=new Gson();
+	Gson gson=new Gson();
 		String simagelogo=request.getParameter("simagelogo");
 		String storeid= request.getParameter("storeid");
 		Store store=gson.fromJson(param, Store.class);

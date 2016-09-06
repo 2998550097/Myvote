@@ -1,8 +1,13 @@
 <table id="Collection_data"></table>
-
+<div style="position: absolute;top:60px;left:50px;">
+	商品名:<input id="Coll_gname" type="text" name="gname" />&nbsp;
+	商品样式:<select id="Coll_seriesname" name="seriesname" ></select>&nbsp;
+	商品款式:<select id="Coll_stylename" name="stylename" ></select>&nbsp;
+	<input id="search_Coll" type="button" value="查询" onclick="search()">
+</div> 
 <script>
 obj=$('#Collection_data').datagrid({  
-	    url:'../../findColl',  
+	    url:'../../../Coll/findColl',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -14,14 +19,14 @@ obj=$('#Collection_data').datagrid({
 	    sortName:'tids',
 	    remoteSort:false,
 	    columns:[[  
-			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-			{field:'collectionId',title:'收藏编号',width:100,align:'center',sortable:true}, 
-	        {field:'gname',title:'商品名',width:100,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'ctime',title:'收藏时间',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'seriesId',title:'商品系列',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
-	       	{field:'styleId',title:'商品样式',width:100,align:'center',editor:{type:"text",options:{requires:true}}},
-	       	{field:'scount',title:'收藏总数量',width:100,align:'center',editor:{type:"text",options:{requires:true}}}, 
-	       	{field:'gimage',title:'商品图片',width:100,align:'center',
+			{field:'tids',title:'',width:165,align:'center',checkbox:true}, 
+			{field:'collectionId',title:'收藏编号',width:165,align:'center',sortable:true}, 
+	        {field:'gname',title:'商品名',width:165,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'ctime',title:'收藏时间',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'seriesname',title:'商品系列',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+	       	{field:'stylename',title:'商品款式',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+	       	{field:'scount',title:'收藏总数量',width:165,align:'center',editor:{type:"text",options:{requires:true}}}, 
+	       	{field:'gimage',title:'商品图片',width:165,align:'center',
 	        	formatter:function(value,rowData,index){
 	        		if(value!=null){
 	        			var str="";
@@ -36,68 +41,25 @@ obj=$('#Collection_data').datagrid({
 	        	}	
 	        
 	        },
-	     ]]
-	}); 
-
-function addUsersInfo(){
-	var uname=$.trim($("#Users_uname").val());
-	var upwd=$.trim($("#Users_upwd").val());
-	var email=$.trim($("#Users_email").val());
-
-	$.ajaxFileUpload({
-		url:"../../usersServlet?op=addUsers",
-		secureuri:false,
-		fileElementId:"Users_pics",
-		dataType:"json",
-		data:{uname:uname,upwd:upwd,email:email},
-		success:function(data,status){
-			if(data>0){
-				$.messager.show({title:'成功提示',msg:"会员信息添加成功....",timeout:2000,showType:'slide'});
-				$("#Users_uname").val("");
-				$("#Users_upwd").val("");
-				$("#Users_email").val("");
-				$("#Users_pics_show").html("");
-				$('#Users_data').datagrid("reload");
-				$('#add_Users').dialog('close');
-			}else{
-				$.messager.alert("错误提示","会员信息添加失败...\n","error");
-			}
-		},
-		error:function(data,status,e){
-			$.messager.alert("错误提示","会员信息添加失败...\n"+e,"error");
-		}
+	     ]],
+	     toolbar:[{
+	     }],
 	});
-}
-
-function updateNewsInfo(){
-	var uname=$.trim($("#User_uname").val());
-	var upwd=$.trim($("#User_upwd").val());
-	var email=$.trim($("#User_email").val());
-	var usid=$.trim($("#User_usid").val());
-	$.ajaxFileUpload({
-		url:"../../usersServlet?op=updateUsers",
-		secureuri:false,
-		fileElementId:"User_pics",
-		dataType:"json",
-		data:{uname:uname,upwd:upwd,email:email,usid:usid},
-		success:function(data,status){
-			if(data>0){
-				$.messager.show({title:'成功提示',msg:"会员信息修改成功....",timeout:2000,showType:'slide'});
-				$("#Users_uname").val("");
-				$("#Users_upwd").val("");
-				$("#Users_email").val("");
-				$("#Users_pics_show").html("");
-				$('#Users_data').datagrid("reload");
-				$('#add_Users').dialog('close');
-			}else{
-				$.messager.alert("错误提示","会员信息修改失败...\n","error");
-			}
-		},
-		error:function(data,status,e){
-			$.messager.alert("错误提示","会员信息修改失败...\n"+e,"error");
-		}
-	});
-}
-
-
+	$(function(){
+		$.post("../../../series/getname",function(data){
+			var obj=$("#Coll_seriesname");
+			var opt;
+			$.each(data.rows,function(index,item){
+				opt="<option value='"+item.seriesid+"'>"+item.seriesname+"</option>";
+				obj.append($(opt));
+			});
+		},"json");
+		$.post("../../../style/getname",function(data){
+			var obj1=$("#Coll_stylename");
+			var opt;
+			$.each(data.rows,function(index,item){
+				opt="<option value='"+item.styleid+"'>"+item.stylename+"</option>";
+				obj1.append($(opt)); 
+			});
+		},"json");
 </script>

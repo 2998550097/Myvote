@@ -7,9 +7,11 @@ public class Paramter {
 	private Integer psize;
 	private String gcrystal;
 	private String gcutting;
+	private Integer pprice;
+	private String pcolor;
 
 	public Paramter(Integer paramterid, Integer goodid, Integer pcarat, Integer psize, String gcrystal,
-			String gcutting) {
+			String gcutting,Integer pprice,String pcolor) {
 		super();
 		this.paramterid = paramterid;
 		this.goodid = goodid;
@@ -17,6 +19,8 @@ public class Paramter {
 		this.psize = psize;
 		this.gcrystal = gcrystal;
 		this.gcutting = gcutting;
+		this.pprice=pprice;
+		this.pcolor=pcolor;
 	}
 
 	public Paramter() {
@@ -74,7 +78,23 @@ public class Paramter {
 	@Override
 	public String toString() {
 		return "Paramter [paramterid=" + paramterid + ", goodid=" + goodid + ", pcarat=" + pcarat + ", psize=" + psize
-				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting + "]";
+				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting +  ", pprice=" + pprice +", pcolor=" + pcolor + "]";
+	}
+
+	public Integer getPprice() {
+		return pprice;
+	}
+
+	public void setPprice(Integer pprice) {
+		this.pprice = pprice;
+	}
+
+	public String getPcolor() {
+		return pcolor;
+	}
+
+	public void setPcolor(String pcolor) {
+		this.pcolor = pcolor;
 	}
 
 }

@@ -168,19 +168,19 @@
     </div>
     <!--在线客服end-->
     <div class="dr_quick-cort">
-        <a rel="nofollow" href="http://www.darryring.com/cart/cart.html" class="dr_quick2"></a>
+        <a rel="nofollow" href="page/Cart.jsp" class="dr_quick2"></a>
         <div class="dr_quick-word em3">
             购物车
         </div>
     </div>
     <div class="dr_quick-cort">
-        <a rel="nofollow" href="http://www.darryring.com/member/myorder.html" class="dr_quick3"></a>
+        <a rel="nofollow" href="page/myOrder/myOrder.jsp" class="dr_quick3"></a>
         <div class="dr_quick-word">
             我的订单
         </div>
     </div>
     <div class="dr_quick-cort">
-        <a rel="nofollow" href="http://www.darryring.com/member/myfavorites.html" class="dr_quick4"></a>
+        <a rel="nofollow" href="page/myOrder/myFavorites.jsp" class="dr_quick4"></a>
         <div class="dr_quick-word">
             我的收藏
         </div>

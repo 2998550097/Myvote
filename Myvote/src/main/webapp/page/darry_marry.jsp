@@ -367,19 +367,17 @@
 						<div class="buycort_center fl">
 							<ul class="ul_center">
 
-								<li id="magnifier0" style="display: list-item;"><img
-									alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/201606201013425c46d90c91.jpg"> <span
-									style="position: absolute; left: 192.5px; top: 248px; display: none; width: 150px; height: 150px; border: 1px solid rgb(0, 0, 0); cursor: move; opacity: 0.4; zoom: 1; background: rgb(153, 153, 153);">
-								</span>
-									<div
-										style="position: absolute; overflow: hidden; width: 300px; height: 300px; top: 0px; right: -385px; border: 1px solid rgb(204, 204, 204); z-index: 99998; display: none;">
-										<img src="darry_marry/201606201013425c46d90c91.jpg"
-											style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
-									</div></li>
+								<li id="magnifier0" style="display: list-item;">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="darry_marry/201606201013425c46d90c91.jpg"> 
+									<span style="position: absolute; left: 192.5px; top: 248px; display: none; width: 150px; height: 150px; border: 1px solid rgb(0, 0, 0); cursor: move; opacity: 0.4; zoom: 1; background: rgb(153, 153, 153);"></span>
+									<div style="position: absolute; overflow: hidden; width: 300px; height: 300px; top: 0px; right: -385px; border: 1px solid rgb(204, 204, 204); z-index: 99998; display: none;">
+										<img src="darry_marry/201606201013425c46d90c91.jpg" style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
+									</div>
+								</li>
 
-								<li id="magnifier1"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/2016062010134644945bb6a4.jpg"></li>
+								<li id="magnifier1">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="darry_marry/2016062010134644945bb6a4.jpg">
+								</li>
 
 								<li id="magnifier2"><img alt="MY HEART 系列 奢华款 0.7 H"
 									src="darry_marry/201606201013489a22139075.jpg"></li>

@@ -6,7 +6,7 @@
 <div class="dr_navbk fix">
 	<ul class="dr_nav w1000">
 		<li id="DrNav"><a
-			href="images/Darry Ring(DR真爱戒指)戴瑞珠宝官方网站 _ 求婚钻戒领导品牌_首页.html">DR</a> <!--下拉导航-->
+			href="page/index.jsp">DR</a> <!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-third" id="DRsubNav">
 				<!--导航上部分-->
 				<div class="dr_navsuv-top">
@@ -35,7 +35,7 @@
 				</div>
 				<!--导航上部分end-->
 			</div> <!--下拉导航end--></li>
-		<li id="qhzjNav"><a href="marrying.jsp">求婚钻戒</a>
+		<li id="qhzjNav"><a href="page/marrying.jsp">求婚钻戒</a>
 			<!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-first" id="qhzjsubNav">
 				<!--导航上部分-->
@@ -101,7 +101,7 @@
 				</div>
 				<!--导航上部分end-->
 			</div> <!--下拉导航end--></li>
-		<li id="zaskNav"><a href="marrying.jsp">爱的礼物</a>
+		<li id="zaskNav"><a href="page/marrying.jsp">爱的礼物</a>
 			<!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-sec" id="zasksubNav">
 				<!--导航上部分-->
@@ -176,7 +176,7 @@
 				</div>
 				<!--导航上部分end-->
 			</div> <!--下拉导航end--></li>
-		<li><a href="shopyd.jsp"></a></li>
+		<li><a href="page/shopyd.jsp"></a></li>
 		<li id="shopNav"><a href="http://www.darryring.com/shopyd">DR实体店</a>
 			<!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-third" id="ShopsubNav">
@@ -318,7 +318,7 @@
 				</div>
 				<!--导航上部分end-->
 			</div> <!--下拉导航end--></li>
-		<li id="ppwhNav"><a href="CulturalBranding.jsp">DR品牌文化</a>
+		<li id="ppwhNav"><a href="page/CulturalBranding.jsp">DR品牌文化</a>
 			<!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-third" id="ppwhsubNav"
 				style="display: none;">
@@ -352,7 +352,7 @@
 				<!--导航上部分end-->
 			</div> <!--下拉导航end--></li>
 		<li id="DRsqNav"><a rel="nofollow" target="_blank"
-			href="community.jsp">DR社区</a> <!--下拉导航-->
+			href="page/community.jsp">DR社区</a> <!--下拉导航-->
 			<div class="dr_navsuv dr_navsuv-third" id="DRsqsubNav"
 				style="display: none;">
 				<!--导航上部分-->

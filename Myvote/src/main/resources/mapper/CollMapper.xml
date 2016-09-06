@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.yc.darry.mapper.CollMapper">
+		<select id="findColl" resultType="Good">
+			select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   from goods g,collection c,series s,style sy where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid
+		</select>
+		
+</mapper>

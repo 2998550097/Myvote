@@ -22,6 +22,9 @@ create table users(
        ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
+insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
+'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a')
+select * from users;
 drop table users;
 --店铺表
 create table store(
@@ -32,27 +35,30 @@ create table store(
        simagelogo varchar2(200) not null, --店铺logo
        sstarttime varchar2(50) not null,  --开业时间
        sendtime varchar2(50) not null  --停业时间
-)
+);
 insert into store values(10,'源城','衡阳',0,'a','a','a');
 --系列表
 create table series(
        seriesid int primary key,  --系列号
        seriesname varchar2(20) not null --系列名字
 );
-
+insert into series values(seq_series_id.nextval,'My love');
+select * from series;
 --款式表
 create table style(
        styleid int primary key,  --款式号
        stylename varchar2(20) not null --款式名字
 );
-
+insert into style values(seq_style_id.nextval,'戒指');
+select * from style;
 --系列款式表
 create table seriesStyle(
        ssid int primary key,
-       seriesid int,
-       styleid int
+       seriesid int ,
+       styleid int 
 );
-
+insert into seriesStyle values(seq_seriesstyle_id.nextval,101,1001)
+select * from SERIESSTYLE;
 --商品表
 create table goods(
        goodid int primary key, --商品编号
@@ -60,24 +66,27 @@ create table goods(
        ssid int not null,--系列款式编号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
-       gprice int not null,  --价格
        averagescore number(2,1) not null, --平均评分
-       goodnum number(10),
-       usercount number(10),
-       comcount number(10),
+       goodnum number(10), --收藏次数
+       usercount number(10),--购买次数
+       comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
-
+select * from paramter;
+insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
+select * from goods;
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号
-	goodid int not null, --商品编号
+	goodid int, --商品编号
 	pcarat int, --商品重量（分）
 	psize int,  --手寸
 	gcrystal varchar2(10), --净度
-	gcutting varchar2(10) --切工
+	gcutting varchar2(10), --切工
+	pprice number(10) not null --价格
 );
-
+insert into paramter values (seq_paramter_id.nextval,100001,1,12,'纯净','完美',10);
+select * from paramter;
 --收货地址
 create table  delivery(
        deliveryid int primary key, --地址编号
@@ -117,8 +126,10 @@ create table collection(
        goodid int not null, --商品编号
        ctime varchar2(50) not null,  --收藏时间
        scount int --收藏总数量
+       
 );
-
+insert into COLLECTION values(seq_orderdetail_id.nextval,111,100001,'2016-9-5',1);
+select * from COLLECTION;
 --评论表
 create table comments(
       commentid int primary key,  --评论编号
@@ -159,6 +170,7 @@ create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
 create sequence seq_goods_id start with 100001;
+create sequence seq_paramter_id start with 1001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
 create sequence seq_orderdetail_id start with 1000001;
@@ -174,6 +186,7 @@ select * from series;
 select * from style;
 select * from seriesstyle;
 select * from goods;
+select * from paramter;
 select * from delivery;
 select * from orders;
 select * from orderdetail;
@@ -181,10 +194,47 @@ select * from collection;
 select * from comments;
 select * from article;
 select * from articlecom;
-drop table goods;
 
+drop sequence seq_admin_id ;
+drop sequence seq_user_id;
+drop sequence seq_store_id;
+drop sequence seq_series_id ;
+drop sequence seq_style_id ;
+drop sequence seq_seriesstyle_id ;
+drop sequence seq_goods_id;
+drop sequence seq_paramter_id ;
+drop sequence seq_delivery_id ;
+drop sequence seq_orders_id ;
+drop sequence seq_orderdetail_id ;
+drop sequence seq_collection_id ;
+drop sequence seq_comments_id ;
+drop sequence seq_article_id ;
+drop sequence seq_articlecom_id ;
+
+drop table admin;
+drop table users;
+drop table store;
+drop table series;
+drop table style;
+drop table seriesstyle;
+drop table goods;
+drop table paramter;
+drop table delivery;
+drop table orders;
+drop table orderdetail;
+drop table collection;
+drop table comments;
+drop table article;
+drop table articlecom;
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
 alter table collection drop (scount);
 
+alter table goods drop (gprice);
+alter table paramter add pprice number(10);--价格
+alter table paramter add pcolor varchar2(20);--颜色
+
+select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
+from goods g,collection c,series s,style sy 
+where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid

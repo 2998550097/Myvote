@@ -154,9 +154,10 @@ obj=$('#Store_data').datagrid({
 	}); 
 	
 	function addStore(){
-		var simagelogo=$("#simagelogo").val();
-		var jsonStr=toJsonStr($("#add").serialize());
-		$.post("../../../addStore",{param:jsonStr,simagelogo:simagelogo},function(data){
+		var str = $("#add").serialize() + 
+		"&simagelogo=" + $("#simagelogo").val(); 
+		//var jsonStr=toJsonStr(str);
+		$.post("../../../addStore",str,function(data){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
@@ -168,10 +169,10 @@ obj=$('#Store_data').datagrid({
 	
 
 	function updateStore(){
-		var storeId=$("#ustoreId").val();
-		var simagelogo=$("#ussimagelogo").val();
-		var jsonStr=toJsonStr($("#update").serialize());
-		$.post("../../../updateStore",{param:jsonStr,simagelogo:simagelogo,storeid:storeId},function(data){
+		var str = $("#update").serialize() + 
+			"&simagelogo=" + $("#ussimagelogo").val() + 
+			"&storeid="+ $("#ustoreId").val();
+		$.post("../../../updateStore",{param:str},function(data){
 			if(data){
 				$("#update_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
