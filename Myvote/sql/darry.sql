@@ -49,22 +49,23 @@ create table style(
 --系列款式表
 create table seriesStyle(
        ssid int primary key,
-       seriesid int not null,
-       styleid int not null
+       seriesid int,
+       styleid int
 );
 
 --商品表
 create table goods(
        goodid int primary key, --商品编号
        gname varchar2(50) not null unique,  --商品名称
-       seriesid int not null, --系列号
-       styleid int not null,  --款式号
+       ssid int not null,--系列款式编号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
        gprice int not null,  --价格
        averagescore number(2,1) not null, --平均评分
+       goodnum number(10),
+       usercount number(10),
+       comcount number(10),
        gother varchar2(20) --其它
-       
 );
 
 --商品参数表
@@ -180,8 +181,10 @@ select * from collection;
 select * from comments;
 select * from article;
 select * from articlecom;
+drop table goods;
 
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
 alter table collection drop (scount);
+
