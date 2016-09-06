@@ -10,7 +10,7 @@ public interface StoreMapper {
 	
 	void addStores(Store store);
 	
-	void updateStores(Store store);
+	void updateStore(Store store);
 	
 	Store deleteStores(Store store);
 	

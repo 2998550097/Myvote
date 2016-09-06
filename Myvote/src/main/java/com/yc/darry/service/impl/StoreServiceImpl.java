@@ -33,7 +33,7 @@ public class StoreServiceImpl implements StoreService{
 	@Override
 	public boolean updateStore(Store store) {
 		try {
-			storeMapper.updateStores(store);
+			storeMapper.updateStore(store);
 		} catch (Exception e) {
 			return false;
 		}

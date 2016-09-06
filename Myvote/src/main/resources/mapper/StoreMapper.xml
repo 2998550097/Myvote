@@ -20,21 +20,21 @@
 	   		suffix：添加后缀字符换
 	   		suffixOverrides：去掉的后缀字符串
 	   	 -->
-	   	 <trim prefix="update store set" prefixOverrides="," suffix="where storeId=#{storeId}">
+	   	 <trim prefix="update store set" prefixOverrides="," suffix="where storeid=#{storeid}">
 				<if test="sname!=null">
 	   				sname=#{sname}
 	   			</if>
 	   			<if test="saddress!=null">
 	   				,saddress=#{saddress}
 	   			</if>
-	   			<if test="sappointCount!=null">
-	   				,sappointCount=#{sappointCount}
+	   			<if test="sappointcount!=null">
+	   				,sappointcount=#{sappointcount}
 	   			</if>
-	   			<if test="simageLogo!=null">
-	   				,simageLogo=#{simageLogo}
+	   			<if test="simagelogo!=null">
+	   				,simagelogo=#{simagelogo}
 	   			</if>
-	   			<if test="sstartime!=null">
-	   				,sstartime=#{sstartime}
+	   			<if test="sstarttime!=null">
+	   				,sstarttime=#{sstarttime}
 	   			</if>
 	   			<if test="sendtime!=null">
 	   				,sendtime=#{sendtime}
