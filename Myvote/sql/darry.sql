@@ -35,7 +35,7 @@ create table store(
        simagelogo varchar2(200) not null, --店铺logo
        sstarttime varchar2(50) not null,  --开业时间
        sendtime varchar2(50) not null  --停业时间
-)
+);
 insert into store values(10,'源城','衡阳',0,'a','a','a');
 --系列表
 create table series(
@@ -57,7 +57,8 @@ create table seriesStyle(
        seriesid int ,
        styleid int 
 );
-
+insert into seriesStyle values(seq_seriesstyle_id.nextval,101,1001)
+select * from SERIESSTYLE;
 --商品表
 create table goods(
        goodid int primary key, --商品编号
@@ -65,7 +66,6 @@ create table goods(
        ssid int not null,--系列款式编号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
-       
        averagescore number(2,1) not null, --平均评分
        goodnum number(10), --收藏次数
        usercount number(10),--购买次数
@@ -73,7 +73,7 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
-insert into goods values(seq_goods_id.nextval,'自行车',101,1002,'粉钻','a',12000,4,'钻石一样的永恒');
+insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
 select * from goods;
 --商品参数表
 create table paramter(
@@ -82,10 +82,10 @@ create table paramter(
 	pcarat int, --商品重量（分）
 	psize int,  --手寸
 	gcrystal varchar2(10), --净度
-	gcutting varchar2(10) --切工
+	gcutting varchar2(10), --切工
 	pprice number(10) not null --价格
 );
-insert into paramter values (seq_paramter_id.nextval,100003,1,12,'纯净','完美');
+insert into paramter values (seq_paramter_id.nextval,100001,1,12,'纯净','完美',10);
 select * from paramter;
 --收货地址
 create table  delivery(
@@ -128,7 +128,7 @@ create table collection(
        scount int --收藏总数量
        
 );
-insert into COLLECTION values(seq_orderdetail_id.nextval,131,100003,'2016-9-5',1);
+insert into COLLECTION values(seq_orderdetail_id.nextval,111,100001,'2016-9-5',1);
 select * from COLLECTION;
 --评论表
 create table comments(
@@ -195,6 +195,22 @@ select * from comments;
 select * from article;
 select * from articlecom;
 
+drop sequence seq_admin_id ;
+drop sequence seq_user_id;
+drop sequence seq_store_id;
+drop sequence seq_series_id ;
+drop sequence seq_style_id ;
+drop sequence seq_seriesstyle_id ;
+drop sequence seq_goods_id;
+drop sequence seq_paramter_id ;
+drop sequence seq_delivery_id ;
+drop sequence seq_orders_id ;
+drop sequence seq_orderdetail_id ;
+drop sequence seq_collection_id ;
+drop sequence seq_comments_id ;
+drop sequence seq_article_id ;
+drop sequence seq_articlecom_id ;
+
 drop table admin;
 drop table users;
 drop table store;
@@ -202,6 +218,7 @@ drop table series;
 drop table style;
 drop table seriesstyle;
 drop table goods;
+drop table paramter;
 drop table delivery;
 drop table orders;
 drop table orderdetail;

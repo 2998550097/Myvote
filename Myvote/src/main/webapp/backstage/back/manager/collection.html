@@ -1,10 +1,8 @@
 <table id="Collection_data"></table>
 <div style="position: absolute;top:60px;left:50px;">
 	商品名:<input id="Coll_gname" type="text" name="gname" />&nbsp;
-	商品样式:<select id="Coll_seriesname" type="text"  name="seriesname" ></select>&nbsp;
-	商品款式:<select id="Coll_stylename" type="text" name="stylename" ></select>&nbsp;
-	商品价格:<input id="Coll_gprice" type="text" name="gprice" />&nbsp;
-	收藏次数:<input id="Coll_goodnum" type="text" name="goodnum" />&nbsp;
+	商品样式:<select id="Coll_seriesname" name="seriesname" ></select>&nbsp;
+	商品款式:<select id="Coll_stylename" name="stylename" ></select>&nbsp;
 	<input id="search_Coll" type="button" value="查询" onclick="search()">
 </div> 
 <script>
@@ -46,5 +44,22 @@ obj=$('#Collection_data').datagrid({
 	     ]],
 	     toolbar:[{
 	     }],
-	}); 
+	});
+	$(function(){
+		$.post("../../../series/getname",function(data){
+			var obj=$("#Coll_seriesname");
+			var opt;
+			$.each(data.rows,function(index,item){
+				opt="<option value='"+item.seriesid+"'>"+item.seriesname+"</option>";
+				obj.append($(opt));
+			});
+		},"json");
+		$.post("../../../style/getname",function(data){
+			var obj1=$("#Coll_stylename");
+			var opt;
+			$.each(data.rows,function(index,item){
+				opt="<option value='"+item.styleid+"'>"+item.stylename+"</option>";
+				obj1.append($(opt)); 
+			});
+		},"json");
 </script>
