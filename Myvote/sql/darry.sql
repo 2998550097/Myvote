@@ -54,20 +54,22 @@ select * from style;
 --系列款式表
 create table seriesStyle(
        ssid int primary key,
-       seriesid int not null,
-       styleid int not null
+       seriesid int ,
+       styleid int 
 );
 
 --商品表
 create table goods(
        goodid int primary key, --商品编号
        gname varchar2(50) not null unique,  --商品名称
-       seriesid int not null, --系列号
-       styleid int not null,  --款式号
+       ssid int not null,--系列款式编号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
-       gprice int not null,  --价格
+       
        averagescore number(2,1) not null, --平均评分
+       goodnum number(10), --收藏次数
+       usercount number(10),--购买次数
+       comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
 select * from paramter;
@@ -76,11 +78,12 @@ select * from goods;
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号
-	goodid int not null, --商品编号
+	goodid int, --商品编号
 	pcarat int, --商品重量（分）
 	psize int,  --手寸
 	gcrystal varchar2(10), --净度
 	gcutting varchar2(10) --切工
+	pprice number(10) not null --价格
 );
 insert into paramter values (seq_paramter_id.nextval,100003,1,12,'纯净','完美');
 select * from paramter;
@@ -122,6 +125,8 @@ create table collection(
        userid int not null, --用户编号
        goodid int not null, --商品编号
        ctime varchar2(50) not null,  --收藏时间
+       scount int --收藏总数量
+       
 );
 insert into COLLECTION values(seq_orderdetail_id.nextval,131,100003,'2016-9-5',1);
 select * from COLLECTION;
@@ -165,7 +170,7 @@ create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
 create sequence seq_goods_id start with 100001;
-create sequence seq_paramter_id start with 200001;
+create sequence seq_paramter_id start with 1001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
 create sequence seq_orderdetail_id start with 1000001;
@@ -181,6 +186,7 @@ select * from series;
 select * from style;
 select * from seriesstyle;
 select * from goods;
+select * from paramter;
 select * from delivery;
 select * from orders;
 select * from orderdetail;
@@ -203,9 +209,14 @@ drop table collection;
 drop table comments;
 drop table article;
 drop table articlecom;
-
-alter table goods add goodnum number(10);
+alter table goods add goodnum number(10);--收藏次数
+alter table goods add usercount number(10);--用户购买次数
+alter table goods add comnum number(10);--评论次数
 alter table collection drop (scount);
+
+alter table goods drop (gprice);
+alter table paramter add pprice number(10);--价格
+alter table paramter add pcolor varchar2(20);--颜色
 
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
 from goods g,collection c,series s,style sy 
