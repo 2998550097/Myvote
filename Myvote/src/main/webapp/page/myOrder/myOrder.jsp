@@ -96,7 +96,7 @@
 							<li>
 								<h3>-售后服务-</h3>
 								<ul class="member_ul-dr">
-									<li id="aftersale"><a href="/member/aftersale.html"
+									<li id="aftersale"><a href="page/myOrder/afterSale.jsp"
 										rel="nofollow">售后办理</a></li>
 								</ul>
 							</li>

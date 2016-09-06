@@ -87,17 +87,17 @@
 						        <li>
 						            <h3>-订单中心-</h3>
 						            <ul class="member_ul-dr">
-						                <li  id="order"><a href="/member/myorder.html" rel="nofollow">我的订单</a></li>
-						                <li id="ask"><a href="/member/myevaluate.html" rel="nofollow">我要评价</a></li>
-						                <li id="cart"><a target="_blank" href="/cart/cart.html" rel="nofollow">我的购物车</a></li>
-						                <li id="collect"><a href="/member/myfavorites.html" rel="nofollow">我的收藏</a></li>
-						                <li id="yuyue" class="no_border"><a href="/member/myappointment.html" rel="nofollow">我的预约</a></li>
+						                <li  id="order"><a href="page/myOrder/myOrder.jsp" rel="nofollow">我的订单</a></li>
+						                <li id="ask"><a href="page/myOrder/myEvaluate.jsp" rel="nofollow">我要评价</a></li>
+						                <li id="cart"><a target="_blank" href="page/Cart.jsp" rel="nofollow">我的购物车</a></li>
+						                <li id="collect"><a href="page/myOrder/myFavorites.jsp" rel="nofollow">我的收藏</a></li>
+						                <li id="yuyue" class="no_border"><a href="page/myOrder/myAppointment.jsp" rel="nofollow">我的预约</a></li>
 						            </ul>
 						        </li>
 						        <li>
 						            <h3>-售后服务-</h3>
 						            <ul class="member_ul-dr">
-						                <li class="speacil_color" id="aftersale"><a href="/member/aftersale.html" rel="nofollow">售后办理</a></li>
+						                <li class="speacil_color" id="aftersale"><a href="page/myOrder/afterSale.jsp" rel="nofollow">售后办理</a></li>
 						            </ul>
 						        </li>
 						        <li>
