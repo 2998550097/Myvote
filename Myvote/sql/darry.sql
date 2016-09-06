@@ -60,24 +60,25 @@ create table goods(
        ssid int not null,--系列款式编号
        gmaterial varchar2(20) not null,--商品材质
        gimage varchar2(200) not null, --图片路径
-       gprice int not null,  --价格
        averagescore number(2,1) not null, --平均评分
-       goodnum number(10),
-       usercount number(10),
-       comcount number(10),
+       goodnum number(10), --收藏次数
+       usercount number(10),--购买次数
+       comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
 
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号
-	goodid int not null, --商品编号
+	goodid int, --商品编号
 	pcarat int, --商品重量（分）
 	psize int,  --手寸
 	gcrystal varchar2(10), --净度
-	gcutting varchar2(10) --切工
+	gcutting varchar2(10), --切工
+	pprice number(10) not null --价格
 );
 
+drop table paramter;
 --收货地址
 create table  delivery(
        deliveryid int primary key, --地址编号
@@ -159,6 +160,7 @@ create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
 create sequence seq_goods_id start with 100001;
+create sequence seq_paramnter_id start with 1001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
 create sequence seq_orderdetail_id start with 1000001;
@@ -174,6 +176,7 @@ select * from series;
 select * from style;
 select * from seriesstyle;
 select * from goods;
+select * from paramter;
 select * from delivery;
 select * from orders;
 select * from orderdetail;
@@ -188,3 +191,6 @@ alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
 alter table collection drop (scount);
 
+alter table goods drop (gprice);
+alter table paramter add pprice number(10);--价格
+alter table paramter add pcolor varchar2(20);--颜色
