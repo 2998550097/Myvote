@@ -1,10 +1,9 @@
 package com.yc.darry.entity;
 
 public class Good {
-	private Integer goodId;
+	private Integer goodid;
 	private String gname;
-	private Integer seriesId;
-	private Integer styleId;
+	private Integer ssid;
 	private String gmaterial;
 	private String gimage;
 	private Integer gprice;
@@ -13,18 +12,33 @@ public class Good {
 	private Integer goodnum;
 	private Integer usercount;
 	private Integer comcount;
-	
+
+	public Good(Integer goodid, String gname, Integer ssid, String gmaterial, String gimage, Integer gprice,
+			double averagescore, String gother, Integer goodnum, Integer usercount, Integer comcount) {
+		super();
+		this.goodid = goodid;
+		this.gname = gname;
+		this.ssid = ssid;
+		this.gmaterial = gmaterial;
+		this.gimage = gimage;
+		this.gprice = gprice;
+		this.averagescore = averagescore;
+		this.gother = gother;
+		this.goodnum = goodnum;
+		this.usercount = usercount;
+		this.comcount = comcount;
+	}
 
 	public Good() {
 		super();
 	}
 
-	public Integer getGoodId() {
-		return goodId;
+	public Integer getGoodid() {
+		return goodid;
 	}
 
-	public void setGoodId(Integer goodId) {
-		this.goodId = goodId;
+	public void setGoodid(Integer goodid) {
+		this.goodid = goodid;
 	}
 
 	public String getGname() {
@@ -35,20 +49,12 @@ public class Good {
 		this.gname = gname;
 	}
 
-	public Integer getSeriesId() {
-		return seriesId;
+	public Integer getSsid() {
+		return ssid;
 	}
 
-	public void setSeriesId(Integer seriesId) {
-		this.seriesId = seriesId;
-	}
-
-	public Integer getStyleId() {
-		return styleId;
-	}
-
-	public void setStyleId(Integer styleId) {
-		this.styleId = styleId;
+	public void setSsid(Integer ssid) {
+		this.ssid = ssid;
 	}
 
 	public String getGmaterial() {
@@ -91,6 +97,14 @@ public class Good {
 		this.gother = gother;
 	}
 
+	public Integer getGoodnum() {
+		return goodnum;
+	}
+
+	public void setGoodnum(Integer goodnum) {
+		this.goodnum = goodnum;
+	}
+
 	public Integer getUsercount() {
 		return usercount;
 	}
@@ -107,36 +121,11 @@ public class Good {
 		this.comcount = comcount;
 	}
 
-	public void setGoodnum(Integer goodnum) {
-		this.goodnum = goodnum;
-	}
-
-	public Integer getGoodnum() {
-		return goodnum;
-	}
-
-	public Good(Integer goodId, String gname, Integer seriesId, Integer styleId, String gmaterial, String gimage,
-			Integer gprice, double averagescore, String gother, Integer goodnum, Integer usercount, Integer comcount) {
-		super();
-		this.goodId = goodId;
-		this.gname = gname;
-		this.seriesId = seriesId;
-		this.styleId = styleId;
-		this.gmaterial = gmaterial;
-		this.gimage = gimage;
-		this.gprice = gprice;
-		this.averagescore = averagescore;
-		this.gother = gother;
-		this.goodnum = goodnum;
-		this.usercount = usercount;
-		this.comcount = comcount;
-	}
-
 	@Override
 	public String toString() {
-		return "Good [goodId=" + goodId + ", gname=" + gname + ", seriesId=" + seriesId + ", styleId=" + styleId
-				+ ", gmaterial=" + gmaterial + ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore="
-				+ averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount=" + usercount
-				+ ", comcount=" + comcount + "]";
+		return "Good [goodid=" + goodid + ", gname=" + gname + ", ssid=" + ssid + ", gmaterial=" + gmaterial
+				+ ", gimage=" + gimage + ", gprice=" + gprice + ", averagescore=" + averagescore + ", gother=" + gother
+				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount + "]";
 	}
+
 }
