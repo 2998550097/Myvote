@@ -21,4 +21,15 @@ public class CommentServiceImpl implements CommentService {
 		return commentMapper.findComments();
 	}
 
+	@Override
+	public boolean deleteComments(int commentid) {
+		try {
+			commentMapper.deleteComments(commentid);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
+	
+
 }

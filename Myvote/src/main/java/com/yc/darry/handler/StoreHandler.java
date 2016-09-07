@@ -49,34 +49,17 @@ public class StoreHandler {
 		return storeService.addStore(store);
 	}
 	
-	
+	@ResponseBody
 	@RequestMapping(value="/updateStore",method=RequestMethod.POST)
-	public void updateStore(HttpServletRequest request,PrintWriter out){
-		String param=request.getParameter("param");
-	Gson gson=new Gson();
-		String simagelogo=request.getParameter("simagelogo");
-		String storeid= request.getParameter("storeid");
-		Store store=gson.fromJson(param, Store.class);
-		store.setSimagelogo(simagelogo);
-		store.setStoreid(Integer.parseInt(storeid));
-		boolean a=storeService.updateStore(store);
-		if(a){
-			out.println(a);
-			out.flush();
-			out.close();
-		}
+	public boolean updateStore(Store store){
+		System.out.println("update我进来了"+store);
+		return storeService.updateStore(store);
+		
 	}
 	
-	
+	@ResponseBody
 	@RequestMapping(value="/deleteStore",method=RequestMethod.POST)
-	public void deleteStore(HttpServletRequest request,PrintWriter out){
-		String storeid=request.getParameter("storeid");
-		boolean a=storeService.deleteStore(Integer.parseInt(storeid));
-		if(a){
-			out.println(a);
-			out.flush();
-			out.close();
-		}
-		
+	public boolean deleteStore(int storeid,PrintWriter out){
+		return storeService.deleteStore(storeid);
 	}
 }

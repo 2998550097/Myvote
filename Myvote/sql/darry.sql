@@ -140,7 +140,8 @@ create table comments(
       comimage varchar2(1000), --上传图片
       comscore number(2,1)  --评分
 );
-
+insert into comments values(seq_comments_id.nextval,1301,1230,'2016-9-5','有毒',null,2.1);
+commit;
 --发表文章
 create table article(
        articleid int primary key, --文章编号

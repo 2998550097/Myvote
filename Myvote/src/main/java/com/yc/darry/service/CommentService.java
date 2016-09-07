@@ -8,4 +8,6 @@ public interface CommentService {
 
 	List<Comments> findComments();
 
+	boolean deleteComments(int commentid);
+
 }

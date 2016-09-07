@@ -8,4 +8,6 @@ public interface CommentMapper {
 
 	List<Comments> findComments();
 
+	void deleteComments(int commentid);
+
 }

@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.yc.darry.entity.Comments;
@@ -19,21 +21,21 @@ public class CommentHandler {
 
 	@Autowired
 	private CommentService commentService;
+
 	
 	/**
 	 * 评论查找所有
-	 * @param map
-	 * @param out
 	 */
+	@ResponseBody
 	@RequestMapping("/findAllComment")
-	public void findComments(ModelMap map,PrintWriter out){
+	public List<Comments>  findComments(){
 		List<Comments> comments=commentService.findComments();
-		if(comments.size()<=0){
-			map.put("errorMsg", "评论信息获取错误");
-		}
-		Gson gson=new Gson();
-		out.println(gson.toJson(comments));
-		out.flush();
-		out.close();
+		return comments;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteComment",method=RequestMethod.POST)
+	public boolean deleteComment(int commentid,PrintWriter out){
+		return commentService.deleteComments(commentid);
 	}
 }
