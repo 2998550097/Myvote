@@ -5,8 +5,8 @@
     <div class="w1000 fix">
         <div class="dr_logo fl">
             <a href="./Darry Ring(DR真爱戒指)戴瑞珠宝官方网站 _ 求婚钻戒领导品牌_files/Darry Ring(DR真爱戒指)戴瑞珠宝官方网站 _ 求婚钻戒领导品牌.html">
-            <img src="images/drlogo.png" alt="Darry Ring官网">
-        </a>
+            	<img src="images/drlogo.png" alt="Darry Ring官网">
+       		</a>
         </div>
 
         <div class="dr_member fr">

@@ -3,10 +3,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>我的收藏</title>
+<title>系统消息</title>
 <link rel="stylesheet" href="css/left.css" />
-<link rel="stylesheet" href="css/myfavorites.css" />
+<link rel="stylesheet" href="css/mynews.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	function mnw() {
+		$("#mnw").addClass("member_all-nav-click");
+		$("#xtn").removeClass("member_all-nav-click");
+	}
 
+	function xtn() {
+		$("#xtn").addClass("member_all-nav-click");
+		$("#mnw").removeClass("member_all-nav-click");
+	}
+</script>
 <base href="/MyDarry/">
 <link rel="stylesheet" href="css/kefu.css" />
 <link rel="stylesheet" href="css/same.css" />
@@ -40,7 +51,6 @@
 	// 加载头部入口模块
 	seajs.use("MyDarry/headerJs/header.js");
 </script>
-
 
 </head>
 <body>
@@ -76,8 +86,8 @@
 										rel="nofollow">我要评价</a></li>
 									<li id="cart"><a target="_blank" href="page/Cart.jsp"
 										rel="nofollow">我的购物车</a></li>
-									<li class="speacil_color" id="collect"><a
-										href="page/myOrder/myFavorites.jsp" rel="nofollow">我的收藏</a></li>
+									<li id="collect"><a href="page/myOrder/myFavorites.jsp"
+										rel="nofollow">我的收藏</a></li>
 									<li id="yuyue" class="no_border"><a
 										href="page/myOrder/myAppointment.jsp" rel="nofollow">我的预约</a></li>
 								</ul>
@@ -85,22 +95,22 @@
 							<li>
 								<h3>-售后服务-</h3>
 								<ul class="member_ul-dr">
-									<li id="aftersale"><a href="page/myOrder/afterSale.jsp"
+									<li id="aftersale"><a href="/member/aftersale.html"
 										rel="nofollow">售后办理</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>-帐户管理-</h3>
 								<ul class="member_ul-dr">
-									<li id="myinfo"><a href="page/myOrder/personInfo.jsp"
+									<li id="myinfo"><a href="/member/personinfo.html"
 										rel="nofollow">个人信息</a></li>
-									<li id="password"><a href="page/myOrder/myPwd.jsp"
+									<li id="password"><a href="/member/mypwd.html"
 										rel="nofollow">修改密码</a></li>
-									<li id="address"><a href="page/myOrder/myAddress.jsp"
+									<li id="address"><a href="/member/myaddress.html"
 										rel="nofollow">收货地址</a></li>
-									<li id="li_jnr"><a href="page/myOrder/mydr-Jnr.jsp">纪念日维护</a></li>
-									<li id="news" class="no_border"><a
-										href="page/myOrder/myNews.jsp" rel="nofollow">系统消息</a></li>
+									<li id="li_jnr"><a href="/member/mydr_jnr.html">纪念日维护</a></li>
+									<li class="speacil_color" id="news" class="no_border"><a
+										href="/member/mynews.html" rel="nofollow">系统消息</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -114,69 +124,76 @@
 						});
 					</script>
 					<!--右边开始 -->
-
-
-
 					<div class="member_cort-right fr">
-						<!--我的收藏-->
-						<div class="member_ollection">
-							<div class="myorder-xq-news_top">
-								<p class="fl myshou">我的收藏</p>
-								<div class="member_all-nav-right fr">
-									<span>遇到感兴趣的商品时，如果还没决定立即购买，您可以先把它放入我的收藏，以便下次的查找与购买。</span>
+						<!--系统消息-->
+						<div class="member_news">
+							<!--切换nav-->
+							<div class="member_all-nav">
+								<div class="member_all-nav-top">
+									<ul class="member_all-nav-ul fl">
+										<li id="xtn" onclick="xtn()" class="member_all-nav-click">系统消息(0)</li>
+										<li id="mnw" onclick="mnw()">我的消息(0)</li>
+									</ul>
 								</div>
+								<!--黄色线-->
+								<div class="member_all-nav-line"></div>
+								<!--黄色线end-->
 							</div>
-							<!--收藏的table-->
-							<table class="member_ollection-table" border="0" cellpadding="0"
-								cellspacing="0">
-								<tbody>
-									<tr class="ollection-table-trfirst">
-										<td class="ollection-table-td1">商品信息</td>
-										<td class="ollection-table-td2">价格</td>
-										<td class="ollection-table-td3">收藏日期</td>
-										<td class="ollection-table-td4">操作</td>
-									</tr>
+							<!--切换nav end-->
+							<!--系统消息与我的消息-->
+							<div class="member_news-all">
+								<!--系统消息-->
+								<div class="member_news-it">
+									<table cellspacing="0" cellpadding="0" border="0"
+										class="member_news-custre">
+										<tbody>
+											<tr class="news-custre-trfirst">
+												<td class="news-custre-td1"><input type="checkbox"
+													onchange="allcheckbox(0,this)" id="systemallcheck">
+													<label for="systemallcheck"> 全选</label></td>
+												<td class="news-custre-td2">状态</td>
+												<td class="news-custre-td3">主题</td>
+												<td class="news-custre-td4">发送时间</td>
+											</tr>
+										</tbody>
+									</table>
+									<!--删除选项-->
+									<div class="news-custre-del">
+										<div class="bt2">
+											<span>删除选中项</span>
+										</div>
+									</div>
+									<!--删除选项end-->
+								</div>
+								<!--系统消息end-->
+								<!--我的消息-->
+								<div style="display: none" class="member_news-it">
+									<table cellspacing="0" cellpadding="0" border="0"
+										class="member_news-custre">
+										<tbody>
+											<tr class="news-custre-trfirst">
+												<td class="news-custre-td1"><input type="checkbox"
+													onchange="allcheckbox(1,this)" id="mymsgallcheck">
+													<label for="mymsgallcheck"> 全选</label></td>
+												<td class="news-custre-td2">状态</td>
+												<td class="news-custre-td3">主题</td>
+												<td class="news-custre-td4">发送时间</td>
+											</tr>
 
-									<tr class="ollection-table-trsec" id="myf156878">
-										<td class="ollection-table-td1"><img
-											src="http://img.darryring.com/userfiles/image/product/20160512095843e410458e7d.jpg"
-											class="fl image" height="93" width="93">
-											<div class="ollection-table-word fl">
-												<p>黑骑士</p>
-												<p>[A16018]</p>
-												<p>主钻：20分</p>
-												<p>材质：白18K金</p>
-
-											</div></td>
-										<td class="ollection-table-td2">￥6699.00</td>
-										<td class="ollection-table-td3">
-											<p>2016-08-31 09:48:56 收藏</p>
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')">查看评论(0条)</a>
-											</p>
-										</td>
-										<td class="ollection-table-td4">
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')"
-													class="ollection-join">加入购物车</a>
-											</p>
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')"
-													class="ollection-xq">商品详情</a>
-											</p>
-											<p class="show_hover">
-												<a href="javascript:deleteFavorites(156878);">删除收藏</a>
-											</p>
-										</td>
-									</tr>
-
-								</tbody>
-							</table>
-							<!--收藏的table end-->
+										</tbody>
+									</table>
+									<!--删除选项-->
+									<div class="news-custre-del">
+										<div class="bt2">&gt; 删除选中项</div>
+									</div>
+									<!--删除选项end-->
+								</div>
+								<!--我的消息end-->
+							</div>
+							<!--系统消息与我的消息end-->
 						</div>
-						<!--我的收藏end-->
+						<!--系统消息end-->
 					</div>
-
 					<!-- 右边结束-->
 				</div>
 			</div>
