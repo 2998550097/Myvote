@@ -235,6 +235,6 @@ alter table goods drop (gprice);
 alter table paramter add pprice number(10);--价格
 alter table paramter add pcolor varchar2(20);--颜色
 
-select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
-from goods g,collection c,series s,style sy 
-where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid
+select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
+from goods g,collection c,seriesstyle ss,series s,style sy 
+where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
