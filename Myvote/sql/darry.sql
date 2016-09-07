@@ -73,7 +73,6 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
-insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
 select * from goods;
 --商品参数表
 create table paramter(
@@ -85,7 +84,6 @@ create table paramter(
 	gcutting varchar2(10), --切工
 	pprice number(10) not null --价格
 );
-insert into paramter values (seq_paramter_id.nextval,100001,1,12,'纯净','完美',10);
 select * from paramter;
 --收货地址
 create table  delivery(
@@ -114,9 +112,12 @@ create table orders(
 );
 
 create table orderdetail(
-       orderdetailid int primary key, --商品明细
+       orderdetailid int primary key, --商品明细编号
        orderid varchar2(50) not null, --订单编号
-       goodid int null --商品编号
+       goodid int not null --商品编号
+       odcount int, --商品数量
+       discount number(2,1)  --商品折扣
+       totalprice number(10)  --总价格
 );
 drop table orderdetail;
 --收藏表
@@ -230,12 +231,269 @@ drop table articlecom;
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
-alter table collection drop (scount);
+alter table goods add gcount number(10);--商品数量
+alter table goods drop (gcount);
 
 alter table goods drop (gprice);
 alter table paramter add pprice number(10);--价格
-alter table paramter add pcolor varchar2(20);--颜色
-
+alter table paramter add pcount number(10);--数量
+alter table paramter modify pcarat varchar2(20);
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
 from goods g,collection c,series s,style sy 
 where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid
+
+
+--系列表
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'稀世粉钻'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'Love Line系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'Forever系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'My Heart系列');
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'Forever 系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'True Love系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'I Swear系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'Princess系列'); 
+insert into series(seriesid,seriesname) values(seq_series_id.nextval,'Believe系列'); 
+
+--款式表
+insert into style(styleid,stylename) values(seq_style_id.nextval,'对戒');
+insert into style(styleid,stylename) values(seq_style_id.nextval,'男戒'); 
+insert into style(styleid,stylename) values(seq_style_id.nextval,'吊坠');
+insert into style(styleid,stylename) values(seq_style_id.nextval,'耳饰'); 
+insert into style(styleid,stylename) values(seq_style_id.nextval,'手链/手镯');
+
+
+--系列款式表
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,101,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,101,1004);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,102,1004);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,102,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,1001);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,1002);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,1004);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,104,1003);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,104,1005);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,1001);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,1004);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,106,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,106,1004);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,106,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,107,1001);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,107,1002);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,107,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,107,1004);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,108,1002);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,108,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,109,1001);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,109,1003);      
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,109,1005);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,101,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,101,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,102,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,103,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,104,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,105,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,106,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,107,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,108,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,108,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,109,null);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1001);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1001);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1002);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1003);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1004);
+insert into seriesstyle(ssid,seriesid,styleid) values(seq_seriesstyle_id.nextval,null,1005);
+
+
+--商品表
+insert into goods(goodid,gname,ssid,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
+values(seq_goods_id.nextval,'A10001',10041,'白18K金,PT950','201606201013425c46d90c91.jpg,2016062010134644945bb6a4.jpg,201606201013489a22139075.jpg,20160620101350d2f9fcb5a8.jpg',0,0,0,0,null);
+insert into goods(goodid,gname,ssid,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
+values(seq_goods_id.nextval,'A10002',10042,'白18K金,PT950','201606201013425c46d90c91.jpg,2016062010134644945bb6a4.jpg,201606201013489a22139075.jpg,20160620101350d2f9fcb5a8.jpg',0,0,0,0,null);
+insert into goods(goodid,gname,ssid,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
+values(seq_goods_id.nextval,'A10003',10043,'白18K金,PT950','201606201013425c46d90c91.jpg,2016062010134644945bb6a4.jpg,201606201013489a22139075.jpg,20160620101350d2f9fcb5a8.jpg',0,0,0,0,null);
+insert into goods(goodid,gname,ssid,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
+values(seq_goods_id.nextval,'A10004',10044,'白18K金,PT950','201606201013425c46d90c91.jpg,2016062010134644945bb6a4.jpg,201606201013489a22139075.jpg,20160620101350d2f9fcb5a8.jpg',0,0,0,0,null);
+insert into goods(goodid,gname,ssid,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
+values(seq_goods_id.nextval,'A10005',10045,'白18K金,PT950','201606201013425c46d90c91.jpg,2016062010134644945bb6a4.jpg,201606201013489a22139075.jpg,20160620101350d2f9fcb5a8.jpg',0,0,0,0,null);
+--商品参数表
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',7,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',8,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',9,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',10,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',11,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',12,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',13,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',14,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分H',15,'VS2','EX',12,30);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',7,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',8,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',9,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',10,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',11,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',12,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',13,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',14,'VS2','EX',14,20);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分H',15,'VS2','EX',14,20);
+
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',7,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',8,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',9,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',10,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',11,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',12,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',13,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',14,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分H',15,'VS1','VG',16,10);
+
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',7,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',8,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',9,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',10,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',11,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',12,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',13,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',14,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分J',15,'VS2','EX',12,30);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',7,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',8,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',9,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',10,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',11,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',12,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',13,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',14,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分J',15,'VS2','EX',14,30);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',7,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',8,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',9,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',10,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',11,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',12,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',13,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',14,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分J',15,'VS1','VG',16,10);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',7,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',8,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',9,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',10,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',11,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',12,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',13,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',14,'VS2','EX',12,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'30分D',15,'VS2','EX',12,30);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',7,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',8,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',9,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',10,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',11,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',12,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',13,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',14,'VS2','EX',14,30);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'50分D',15,'VS2','EX',14,30);
+
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',7,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',8,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',9,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',10,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',11,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',12,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',13,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',14,'VS1','VG',16,10);
+insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
+values(seq_paramter_id.nextval,100005,'99分D',15,'VS1','VG',16,10);

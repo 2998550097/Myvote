@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>我的收藏</title>
+<title>纪念日维护</title>
 <link rel="stylesheet" href="css/left.css" />
-<link rel="stylesheet" href="css/myfavorites.css" />
-
+<link rel="stylesheet" href="css/mydr_jnr.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <base href="/MyDarry/">
 <link rel="stylesheet" href="css/kefu.css" />
 <link rel="stylesheet" href="css/same.css" />
@@ -40,8 +40,6 @@
 	// 加载头部入口模块
 	seajs.use("MyDarry/headerJs/header.js");
 </script>
-
-
 </head>
 <body>
 	<jsp:include page="../../page/header.jsp" />
@@ -76,8 +74,8 @@
 										rel="nofollow">我要评价</a></li>
 									<li id="cart"><a target="_blank" href="page/Cart.jsp"
 										rel="nofollow">我的购物车</a></li>
-									<li class="speacil_color" id="collect"><a
-										href="page/myOrder/myFavorites.jsp" rel="nofollow">我的收藏</a></li>
+									<li id="collect"><a href="page/myOrder/myFavorites.jsp"
+										rel="nofollow">我的收藏</a></li>
 									<li id="yuyue" class="no_border"><a
 										href="page/myOrder/myAppointment.jsp" rel="nofollow">我的预约</a></li>
 								</ul>
@@ -85,22 +83,23 @@
 							<li>
 								<h3>-售后服务-</h3>
 								<ul class="member_ul-dr">
-									<li id="aftersale"><a href="page/myOrder/afterSale.jsp"
+									<li id="aftersale"><a href="/member/aftersale.html"
 										rel="nofollow">售后办理</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>-帐户管理-</h3>
 								<ul class="member_ul-dr">
-									<li id="myinfo"><a href="page/myOrder/personInfo.jsp"
+									<li id="myinfo"><a href="/member/personinfo.html"
 										rel="nofollow">个人信息</a></li>
-									<li id="password"><a href="page/myOrder/myPwd.jsp"
+									<li id="password"><a href="/member/mypwd.html"
 										rel="nofollow">修改密码</a></li>
-									<li id="address"><a href="page/myOrder/myAddress.jsp"
+									<li id="address"><a href="/member/myaddress.html"
 										rel="nofollow">收货地址</a></li>
-									<li id="li_jnr"><a href="page/myOrder/mydr-Jnr.jsp">纪念日维护</a></li>
+									<li class="speacil_color" id="li_jnr"><a
+										href="/member/mydr_jnr.html">纪念日维护</a></li>
 									<li id="news" class="no_border"><a
-										href="page/myOrder/myNews.jsp" rel="nofollow">系统消息</a></li>
+										href="/member/mynews.html" rel="nofollow">系统消息</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -114,74 +113,81 @@
 						});
 					</script>
 					<!--右边开始 -->
-
-
-
 					<div class="member_cort-right fr">
-						<!--我的收藏-->
-						<div class="member_ollection">
-							<div class="myorder-xq-news_top">
-								<p class="fl myshou">我的收藏</p>
-								<div class="member_all-nav-right fr">
-									<span>遇到感兴趣的商品时，如果还没决定立即购买，您可以先把它放入我的收藏，以便下次的查找与购买。</span>
+						<!--纪念日-->
+						<div class="member_jnr">
+							<div class="member_ask-tittle">
+								<h4>生日.纪念日</h4>
+							</div>
+							<!--填写纪念日-->
+							<div class="member_jnrcor">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0"
+									class="member_adress-top">
+									<tbody>
+										<tr class="member_adress-trfirst">
+											<td class="member_adress-td1">纪念日</td>
+											<td class="member_adress-td2">日期</td>
+
+											<td class="member_adress-td5">操作</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="member_adress-addtop" onclick="addJnr()" id="tjnr">
+									<span>添加纪念日</span> <i></i>
+								</div>
+								<div id="jnr" class="shop_adress-add" style="display: none;">
+									<div id="addresses" class="shop_adress-Toadd">
+										<label> <em>*</em>纪念日:
+										</label> <input type="text" class="true_number" onblur="checkValue();"
+											id="jday"><em id="addwrong" style="display: none;"
+											class="writer_word">请输入纪念日！</em>
+									</div>
+									<div id="detailadd" class="shop_adress-Toadd">
+										<label class="adress-Toadd_label"> <em>*</em>日期：
+										</label> <input type="text" onfocus="WdatePicker({})" id="txtTime"
+											onblur="checkValue();"><em id="timewrong"
+											style="display: none;" class="writer_word">请输入日期！</em>
+									</div>
+									<div class="add_adress-save">
+										<div class="bt1">
+											<span>保存</span>
+										</div>
+									</div>
 								</div>
 							</div>
-							<!--收藏的table-->
-							<table class="member_ollection-table" border="0" cellpadding="0"
-								cellspacing="0">
-								<tbody>
-									<tr class="ollection-table-trfirst">
-										<td class="ollection-table-td1">商品信息</td>
-										<td class="ollection-table-td2">价格</td>
-										<td class="ollection-table-td3">收藏日期</td>
-										<td class="ollection-table-td4">操作</td>
-									</tr>
+							<!--填写纪念日end-->
+							<!--手机-->
+							<div class="member_jnrtel">
+								<div class="allitmb-tel">
+									<div class="member_telshow" style="display: none;">
+										<span>手机：</span> <span></span> <i class="mbjnr_bj">编辑</i>
+									</div>
+									<div class="member_telbj" style="display: block;">
+										<span>手机：</span> <input type="text" value="" id="phoneCode">
+										<i>保&nbsp;&nbsp;存</i>
+									</div>
 
-									<tr class="ollection-table-trsec" id="myf156878">
-										<td class="ollection-table-td1"><img
-											src="http://img.darryring.com/userfiles/image/product/20160512095843e410458e7d.jpg"
-											class="fl image" height="93" width="93">
-											<div class="ollection-table-word fl">
-												<p>黑骑士</p>
-												<p>[A16018]</p>
-												<p>主钻：20分</p>
-												<p>材质：白18K金</p>
-
-											</div></td>
-										<td class="ollection-table-td2">￥6699.00</td>
-										<td class="ollection-table-td3">
-											<p>2016-08-31 09:48:56 收藏</p>
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')">查看评论(0条)</a>
-											</p>
-										</td>
-										<td class="ollection-table-td4">
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')"
-													class="ollection-join">加入购物车</a>
-											</p>
-											<p>
-												<a href="javascript:GetUrl('C','A16018','Z020000000016')"
-													class="ollection-xq">商品详情</a>
-											</p>
-											<p class="show_hover">
-												<a href="javascript:deleteFavorites(156878);">删除收藏</a>
-											</p>
-										</td>
-									</tr>
-
-								</tbody>
-							</table>
-							<!--收藏的table end-->
+									<p>该号码仅用于接收短信提醒，未填写则无法接收到提醒短信，请您认真填写。</p>
+								</div>
+							</div>
+							<!--手机end-->
 						</div>
-						<!--我的收藏end-->
+						<!--纪念日end-->
 					</div>
-
 					<!-- 右边结束-->
 				</div>
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+		function addJnr() {
+			if ($("#jnr").css("display") == "none") {
+				$("#jnr").css("display", "block");
+			} else if ($("#jnr").css("display") == "block") {
+				$("#jnr").css("display", "none");
+			}
+		}
+	</script>
 	<jsp:include page="../../page/footer.jsp" />
 	<script>
 		// 加载底部入口模块

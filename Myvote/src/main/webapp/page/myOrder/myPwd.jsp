@@ -2,10 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-		<link rel="stylesheet" href="css/left.css" />
-		<link rel="stylesheet" href="css/myappointment.css" />
-		
-		<base href="/MyDarry/">
+<meta charset="UTF-8">
+<title>修改密码</title>
+<link rel="stylesheet" href="css/left.css" />
+<link rel="stylesheet" href="css/mypwd.css" />
+<style type="text/css">
+.person-sp-button {
+	margin-top: 10px;
+	margin-left: 72px;
+	cursor: pointer;
+	height: 30px;
+	line-height: 30px;
+}
+em {
+	font-style: normal;
+}
+.person-cort_left-password em {
+	display: inline-block;
+	width: 44px;
+	height: 11px;
+	border: 1px solid #f2f2f2;
+	padding: 1px;
+	font-size: 12px;
+	color: #fff;
+	margin: 0;
+	background: #ccc;
+	line-height: 11px;
+	text-align: center;
+}
+</style>
+<base href="/MyDarry/">
 		<link rel="stylesheet" href="css/kefu.css" />
 		<link rel="stylesheet" href="css/same.css" />
 		<script type="text/javascript" src="headerJs/header.js"></script>
@@ -38,15 +64,10 @@
 		// 加载头部入口模块
 		seajs.use("MyDarry/headerJs/header.js");
 		</script>
-<meta charset="UTF-8">
-<title>我的预约</title>
-
 </head>
 <body>
-
 	<jsp:include page="../../page/header.jsp"/>
 	<jsp:include page="../../page/nav.jsp"/>
-	
 	<div class="cort">
 		<div class="tobuy cmain">
 			<div class="cmain mb_back">
@@ -79,29 +100,29 @@
 										rel="nofollow">我的购物车</a></li>
 									<li id="collect"><a href="page/myOrder/myFavorites.jsp"
 										rel="nofollow">我的收藏</a></li>
-									<li id="yuyue" class="speacil_color" class="no_border"><a
+									<li id="yuyue" class="no_border"><a
 										href="page/myOrder/myAppointment.jsp" rel="nofollow">我的预约</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>-售后服务-</h3>
 								<ul class="member_ul-dr">
-									<li id="aftersale"><a href="page/myOrder/afterSale.jsp"
+									<li id="aftersale"><a href="/member/aftersale.html"
 										rel="nofollow">售后办理</a></li>
 								</ul>
 							</li>
 							<li>
 								<h3>-帐户管理-</h3>
 								<ul class="member_ul-dr">
-									<li id="myinfo"><a href="page/myOrder/personInfo.jsp"
+									<li id="myinfo"><a href="/member/personinfo.html"
 										rel="nofollow">个人信息</a></li>
-									<li id="password"><a href="page/myOrder/myPwd.jsp"
-										rel="nofollow">修改密码</a></li>
-									<li id="address"><a href="page/myOrder/myAddress.jsp"
+									<li id="password" class="speacil_color"><a
+										href="/member/mypwd.html" rel="nofollow">修改密码</a></li>
+									<li id="address"><a href="/member/myaddress.html"
 										rel="nofollow">收货地址</a></li>
-									<li id="li_jnr"><a href="page/myOrder/mydr-Jnr.jsp">纪念日维护</a></li>
+									<li id="li_jnr"><a href="/member/mydr_jnr.html">纪念日维护</a></li>
 									<li id="news" class="no_border"><a
-										href="page/myOrder/myNews.jsp" rel="nofollow">系统消息</a></li>
+										href="/member/mynews.html" rel="nofollow">系统消息</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -114,33 +135,50 @@
 							$("#order").addClass("speacil_color");
 						});
 					</script>
-
 					<!--右边开始 -->
-
-
 					<div class="member_cort-right fr">
-						<!--我的预约-->
-						<div class="member_ollection">
-							<div class="myorder-xq-news_top">
-								<p class="fl myap">我的预约</p>
+						<!--找回密码-->
+						<div class="member_password">
+							<div class="member_ask-tittle">
+								<h4>修改密码</h4>
+								<p>为保障账户安全，建议避免使用与其他网站相同密码。</p>
 							</div>
-							<!--预约的table-->
-							<table cellspacing="0" cellpadding="0" border="0"
-								class="member_ollection-table">
-								<tbody>
-									<tr class="ollection-table-trfirst">
-										<td class="ollection-table-td1">商品信息</td>
-										<td class="ollection-table-td2">价格</td>
-										<td class="ollection-table-td3">预约日期</td>
-										<td class="ollection-table-td4">操作</td>
-									</tr>
-
-								</tbody>
-							</table>
-							<!--预约的table end-->
-							<span style="display: none" id="span_pid"></span>
+							<!--找回密码-->
+							<div class="member_password-find">
+								<div class="person-cort_left-write person-cort_left-spwrite">
+									<span>原始密码：</span> <input type="password" class="write_text"
+										id="ctl00_content_pwd" name="ctl00$content$pwd"> <a
+										href="http://passport.darryring.com/forget?lang=">忘记密码&gt;&gt;</a>
+								</div>
+								<div style="float: left"
+									class="person-cort_left-write person-cort_left-password person-cort_left-spwrite">
+									<span>&nbsp;新密码：</span> <input type="password"
+										class="write_text" id="ctl00_content_pwd1"
+										name="ctl00$content$pwd1"> <em id="rou">弱</em> <em
+										id="zhong">中</em> <em id="strong">强</em>
+								</div>
+								<div style="display: none;" id="showr"
+									class="person-cort_left-write">
+									<i id="pwdwrong" class="writer_wrong pwd"></i><em class="pwd"
+										id="txtshow"></em>
+								</div>
+								<div style="clear: both"
+									class="person-cort_left-write person-cort_left-spwrite">
+									<span>确认新密码：</span> <input type="password" class="write_text"
+										id="ctl00_content_pwd2" name="ctl00$content$pwd2"> <i
+										id="wrong" style="display: none" class="writer_wrong againpwd"></i><em
+										style="display: none" class="againpwd" id="txtwrong"></em>
+								</div>
+							</div>
+							<div style="margin-left: 90px">
+								<input type="submit" style="border-style: None;"
+									class="bt1 person-sp-button" id="btnsubmit"
+									onclick="return check();" value="立即提交"
+									name="ctl00$content$btnsubmit">
+							</div>
+							<!--找回密码end-->
 						</div>
-						<!--我的预约end-->
+						<!--找回密码end-->
 					</div>
 					<!-- 右边结束-->
 				</div>
@@ -152,7 +190,6 @@
 	    // 加载底部入口模块
 	   		seajs.use("MyDarry/footerJs/footer.js");
 		</script>
-		
 </body>
 </html>
 
