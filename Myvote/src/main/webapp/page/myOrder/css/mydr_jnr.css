@@ -1,0 +1,259 @@
+@charset "utf-8";
+.member_ask-tittle {
+    overflow: hidden;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 10px;
+}
+
+.member_ask-tittle h4 {
+    font-size: 14px;
+    color: #666;
+    float: left;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+.member_jnrcor {
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.member_adress-top {
+    margin-bottom: 30px;
+}
+table {
+    border-collapse: collapse;
+    empty-cells: show;
+    border-spacing: 0;
+}
+
+.member_adress-trfirst .member_adress-td1 {
+    border-left: 1px solid #e6e6e6;
+}
+.member_adress-trfirst td {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    border-right: none;
+}
+.member_adress-top td {
+    padding: 10px 0;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+}
+.member_adress-td1 {
+    width: 112px;
+}
+.member_adress-td2 {
+    width: 288px;
+}
+.member_adress-trfirst .member_adress-td5 {
+    border-right: 1px solid #e6e6e6;
+}
+.member_adress-td5 {
+    width: 170px;
+}
+.member_adress-addtop {
+    background: #fef3f1;
+    height: 36px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.member_adress-addtop span {
+    font-size: 14px;
+    color: #8e4f1b;
+    font-weight: bold;
+    margin-left: 36px;
+    vertical-align: middle;
+}
+
+.member_adress-addtop i {
+    background: url(../images/icon02.png) no-repeat -31px -120px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+}
+em, i {
+    font-style: normal;
+}
+
+.shop_adress-add {
+    margin-left: 5px;
+    margin-top: 16px;
+    font-size: 0;
+    display: none;
+}
+
+.shop_adress-Toadd {
+    margin-top: 16px;
+}
+
+.shop_adress-Toadd label {
+    width: 120px;
+    text-align: right;
+    display: inline-block;
+    font-size: 12px;
+    color: #333;
+}
+.shop_adress-Toadd label,
+ .shop_adress-Toadd input, 
+ .shop_adress-Toadd select, 
+ .shop_adress-Toadd span, 
+ .shop_adress-Toadd i {
+    vertical-align: middle;
+}
+
+.shop_adress-Toadd input {
+    padding: 4px 0;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    padding-left: 10px;
+}
+
+.shop_adress-Toadd em {
+    color: #e60012;
+    padding-right: 4px;
+}
+.writer_word {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+.shop_adress-Toadd input {
+    padding: 4px 0;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    padding-left: 10px;
+}
+
+.add_adress-save {
+    margin-left: 62px;
+}
+
+.member_jnr .bt1 {
+    height: 30px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-left: 0;
+}
+.add_adress-save .bt1 {
+    height: 30px;
+    line-height: 30px;
+    width: 112px;
+    text-align: center;
+}
+.bt1 {
+    background: #d6b870;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+}
+.bt1, .bt2 {
+    padding: 0 22px;
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+.bt1 {
+    background: #d6b870;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+}
+.bt1, .bt2 {
+    padding: 0 22px;
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.add_adress-save span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+    padding-left: 10px;
+}
+.bt1 span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+}
+.bt1 span, .bt2 span, .bt2 a, .bt1 a {
+    padding-left: 14px;
+}
+.bt1 span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+}
+.bt1 span, .bt2 span, .bt2 a, .bt1 a {
+    padding-left: 14px;
+}
+
+.member_jnrtel {
+    margin-top: 20px;
+}
+
+.member_jnrcor-show, .member_telshow {
+    font-size: 0;
+    height: 36px;
+    line-height: 36px;
+}
+
+.member_jnrcor-show i, .member_telshow i {
+    font-size: 12px;
+    color: #c6a34d;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.member_jnrcor-bj, .member_telbj {
+    font-size: 0;
+    height: 36px;
+    line-height: 36px;
+    display: none;
+}
+
+.member_jnrcor-bj span, .member_telbj span {
+    font-size: 12px;
+}
+
+.member_telbj input {
+    padding: 2px 0;
+}
+
+input {
+    outline: none;
+    padding-left: 4px;
+    border: 1px solid #cdcdcd;
+}
+
+.member_jnrcor-bj i, .member_telbj i {
+    font-size: 12px;
+    color: #c6a34d;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.allitmb-tel p {
+    font-size: 12px;
+    color: #333;
+}
+
+
+
+
+
+
+
+

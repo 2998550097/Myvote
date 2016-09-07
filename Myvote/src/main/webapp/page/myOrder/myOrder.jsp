@@ -103,16 +103,15 @@
 							<li>
 								<h3>-帐户管理-</h3>
 								<ul class="member_ul-dr">
-									<li id="myinfo"><a href="/member/personinfo.html"
+									<li id="myinfo"><a href="page/myOrder/personInfo.jsp"
 										rel="nofollow">个人信息</a></li>
-									<li id="password"><a href="/member/mypwd.html"
+									<li id="password"><a href="page/myOrder/myPwd.jsp"
 										rel="nofollow">修改密码</a></li>
-									<li id="address"><a href="/member/myaddress.html"
+									<li id="address"><a href="page/myOrder/myAddress.jsp"
 										rel="nofollow">收货地址</a></li>
-									<li id="li_jnr"><a href="/member/mydr_jnr.html">纪念日维护</a></li>
-									<li id="zhuanshu"><a href="/member/DarryHome.aspx">专属空间</a></li>
+									<li id="li_jnr"><a href="page/myOrder/mydr-Jnr.jsp">纪念日维护</a></li>
 									<li id="news" class="no_border"><a
-										href="/member/mynews.html" rel="nofollow">系统消息</a></li>
+										href="page/myOrder/myNews.jsp" rel="nofollow">系统消息</a></li>
 								</ul>
 							</li>
 						</ul>

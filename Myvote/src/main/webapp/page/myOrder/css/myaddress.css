@@ -1,0 +1,281 @@
+@charset "utf-8";
+.myorder-xq-news_top {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.myorder-xq-news_top p {
+    font-size: 14px;
+    color: #666;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 4px;
+}
+
+.member_adress-top {
+    margin-bottom: 30px;
+}
+table {
+    border-collapse: collapse;
+    empty-cells: show;
+     border-spacing: 0;
+}
+
+.member_adress-trfirst .member_adress-td1 {
+    border-left: 1px solid #e6e6e6;
+}
+.member_adress-trfirst td {
+    background: #fafafa;
+    border: 1px solid #e6e6e6;
+    border-left: none;
+    border-right: none;
+}
+.member_adress-top td {
+    padding: 10px 0;
+    color: #333;
+    font-size: 12px;
+    text-align: center;
+}
+.member_adress-td1 {
+    width: 112px;
+}
+
+.member_adress-td2 {
+    width: 288px;
+}
+
+.member_adress-td3 {
+    width: 116px;
+}
+
+.member_adress-td4 {
+    width: 86px;
+}
+
+.member_adress-td5 {
+    width: 170px;
+}
+
+.member_adress-addtop {
+    background: #fef3f1;
+    height: 36px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.member_adress-addtop span {
+    font-size: 14px;
+    color: #8e4f1b;
+    font-weight: bold;
+    margin-left: 36px;
+    vertical-align: middle;
+}
+
+.member_adress-addtop i {
+    background: url(../images/icon02.png) no-repeat -31px -120px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+}
+
+
+.shop_adress-add {
+    margin-left: 5px;
+    margin-top: 16px;
+    font-size: 0;
+    display: none;
+}
+
+
+
+/*从这里开始添加新地址*/
+.shop_adress-Toadd {
+    margin-top: 16px;
+}
+
+.shop_adress-Toadd label {
+    width: 120px;
+    text-align: right;
+    display: inline-block;
+    font-size: 12px;
+    color: #333;
+}
+.shop_adress-Toadd label, 
+.shop_adress-Toadd input, 
+.shop_adress-Toadd select, 
+.shop_adress-Toadd span, 
+.shop_adress-Toadd i {
+    vertical-align: middle;
+}
+
+.shop_adress-Toadd em {
+    color: #e60012;
+    padding-right: 4px;
+}
+
+em, i {
+    font-style: normal;
+}
+
+.shop_adress-Toadd select {
+    height: 24px;
+    width: 100px;
+}
+
+.shop_adress-Toadd span {
+    font-size: 12px;
+    color: #333;
+    padding: 0 6px;
+}
+
+.shop_adress-Toadd .writer_wrong {
+    height: 12px;
+}
+.shop_adress-Toadd i {
+    display: inline-block;
+    background: url(../images/right_no.png) no-repeat;
+    width: 12px;
+    vertical-align: middle;
+    margin: 0 4px 0 10px;
+}
+
+.writer_word {
+    font-size: 12px;
+    vertical-align: middle;
+}
+
+
+.shop_adress-Toadd .writer_right {
+    height: 12px;
+    background-position: 1px -14px;
+}
+.shop_adress-Toadd i {
+    display: inline-block;
+    background: url(../nimages/dr_member/right_no.png) no-repeat;
+    width: 12px;
+    vertical-align: middle;
+    margin: 0 4px 0 10px;
+}
+
+.shop_adress-Toadd textarea {
+    width: 370px;
+    height: 64px;
+    outline: none;
+    overflow: auto;
+    resize: none;
+    border: 1px solid #ccc;
+}
+
+.shop_adress-Toadd .adress-Toadd_label {
+    vertical-align: top;
+}
+
+.shop_adress-Toadd input {
+    padding: 4px 0;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #888;
+    padding-left: 10px;
+}
+
+input{
+	outline: none;
+	padding-left: 4px;
+	border: 1px solid #cdcdcd;
+}
+
+.shop_adress-Toadd .oth_color {
+    font-size: 12px;
+    color: #888;
+}
+
+.shop_adress-sp {
+    margin: 22px 0 22px 68px;
+}
+
+.shop_adress-sp .add_adress-splabel {
+    color: #8e4f1b;
+}
+.shop_adress-sp label {
+    padding-left: 4px;
+}
+.shop_adress-sp label, .shop_adress-sp input {
+    font-size: 12px;
+    color: #666;
+    vertical-align: middle;
+}
+
+.add_adress-save {
+    margin-left: 62px;
+}
+
+.add_adress-save .bt1 {
+    height: 30px;
+    line-height: 30px;
+    width: 112px;
+    text-align: center;
+}
+.bt1 {
+    background: #d6b870;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+}
+.bt1, .bt2 {
+    padding: 0 22px;
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+.bt1 {
+    background: #d6b870;
+    color: #fff;
+    height: 36px;
+    line-height: 36px;
+}
+.bt1, .bt2 {
+    padding: 0 22px;
+    float: left;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+.add_adress-save span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+    padding-left: 10px;
+}
+.bt1 span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+}
+.bt1 span, .bt2 span, .bt2 a, .bt1 a {
+    padding-left: 14px;
+}
+.bt1 span {
+    background: url(../images/all-right_w.png) no-repeat left center;
+}
+.bt1 span, .bt2 span, .bt2 a, .bt1 a {
+    padding-left: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
