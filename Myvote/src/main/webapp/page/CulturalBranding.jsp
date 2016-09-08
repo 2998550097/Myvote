@@ -4,29 +4,30 @@
 <!DOCTYPE html>
 <html>
 <base href="/MyDarry/">
-<head><link rel="stylesheet" type="text/css" href="CulturalBranding/css/same.css" />
-	<script type="text/javascript" src="CulturalBranding/js/jquery-1.11.3.min.js"></script>
-    <script src="CulturalBranding/js/jquery.js"></script>
-    <script type="text/javascript" src="CulturalBranding/js/index.js"></script>
-    <script type="text/javascript" src="CulturalBranding/js/sea.js"></script>
+<head><link rel="stylesheet" type="text/css" href="css/same.css" />
+<link rel="stylesheet" type="text/css" href="css/kefu.css" />
+	<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+    <script src="headerJs/jquery.js"></script>
+    <script type="text/javascript" src="headerJs/index.js"></script>
+    <script type="text/javascript" src="headerJs/sea.js"></script>
     <script>
         // seajs 配置
         seajs.config({
             debug: true,
             base: "",
             alias: {
-                "jquery": "MyDarry/CulturalBranding/js/jquery.js"
+                "jquery": "MyDarry/headerJs/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("MyDarry/CulturalBranding/js/header.js");
+        seajs.use("MyDarry/headerJs/header.js");
     </script>
-    <script type="text/javascript" src="CulturalBranding/js/header.js"></script>
-    <link rel="stylesheet" href="CulturalBranding/css/common.css" />
+    <script type="text/javascript" src="headerJs/header.js"></script>
+    <link rel="stylesheet" href="css/common.css" />
     
     
     <title>男士凭身份证一生只能买一次的钻戒_Darry Ring品牌理念_戴瑞珠宝官网</title>
-    <link rel="stylesheet" href="CulturalBranding/css/drbrand.css" />
+    <link rel="stylesheet" href="css/drbrand.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="mobile-agent" content="format=html5; url=http://m.darryring.com/brand.aspx" />
     <style type="text/css">
@@ -58,7 +59,7 @@
     <!--白色底面包屑-->
     <div class="dr-bread w1000">
         <div class="drring_all-bread">
-            <span id="ctl00_content_website_SiteMapPath1"><a href="#ctl00_content_website_SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" src="CulturalBranding/images/WebResource.gif" width="0" height="0" style="border-width:0px;" /></a><span>
+            <span id="ctl00_content_website_SiteMapPath1"><a href="#ctl00_content_website_SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" src="images/cultural/WebResource.gif" width="0" height="0" style="border-width:0px;" /></a><span>
                 <a href="/">Darry Ring</a>
                 <span>></span>
             </span><span></span><span>
@@ -76,7 +77,7 @@
             <div class="same_mg60">
                 <!--同样标题背景-->
                 <div class="same_bg-one photo_center">
-                    <img  src="CulturalBranding/images/icon_dr.png" alt="戴瑞珠宝 DarryRing" />
+                    <img  src="images/cultural/icon_dr.png" alt="戴瑞珠宝 DarryRing" />
                 </div>
                 <!--同样标题背景end-->
                 <!--DR文化内容-->
@@ -94,10 +95,10 @@
                     <div class="drculture_topbanner fr">
                          <ul class="dr_bannerul" id="drBrandBan">
                             <li>
-                                <img src="CulturalBranding/images/banner1.jpg" alt="" />
+                                <img src="images/cultural/banner1.jpg" alt="" />
                             </li>
                             <li>
-                                <img src="CulturalBranding/images/banner2.jpg" alt="" />
+                                <img src="images/cultural/banner2.jpg" alt="" />
                             </li>
                         </ul>
                         <div class="drbanner_xdcort">
@@ -239,7 +240,7 @@
                     <li class="drculture_pacolor1">
                                                 <a href="http://www.darryring.com/help_se/80.html"></a>
                         <div class="drculture_paborder">
-                            <img src="CulturalBranding/images/zsby.png" alt="" />
+                            <img src="images/cultural/zsby.png" alt="" />
                             <p>
                                 提供钻戒清洗等<br />
                                 保养服务
@@ -273,7 +274,7 @@
                     <li class="drculture_pacolor3">
                                                 <a href="http://www.darryring.com/help_se/82.html"></a>
                         <div class="drculture_paborder">
-                            <img src="CulturalBranding/images/zjsj.png" alt="" />
+                            <img src="images/cultural/zjsj.png" alt="" />
                             <p>
                                 为您的钻戒提供更换款式<br />
                                 以小换大等升级服务咨询
@@ -283,7 +284,7 @@
                     <li class="drculture_pacolor4">
                                                 <a href="http://www.darryring.com/help/74.html"></a>
                         <div class="drculture_paborder">
-                            <img src="CulturalBranding/images/xsgm.png" alt="" />
+                            <img src="images/cultural/xsgm.png" alt="" />
                             <p>
                                 全国免运费<br />
                                 全程保价速递
@@ -317,7 +318,7 @@
                                         <p class="drculture_test-spmg">送给她一个惊喜吧</p>
                                     </a>
                                     <a target="_blank" href="/darry_ring">
-                                        <img src="CulturalBranding/images/icon_lj.png" alt="" />
+                                        <img src="images/cultural/icon_lj.png" alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -334,7 +335,7 @@
                                         <p class="drculture_test-spmg">送给她一个惊喜吧</p>
                                     </a>
                                     <a href="/jewelry">
-                                        <img src="CulturalBranding/images/icon_lj.png" alt="" />
+                                        <img src="images/cultural/icon_lj.png" alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -402,7 +403,7 @@
             <div class="dr_space same_mg80" id="div_zone">
                 <!--同样标题背景-->
                                 <div class="same_bg-one photo_left nopadding">
-                    <img src="CulturalBranding/images/icon_zskj.png" alt="专属空间" />
+                    <img src="images/cultural/icon_zskj.png" alt="专属空间" />
                 </div>
                 <!--同样标题背景end-->
                 <div class="dr_space-cort">
@@ -419,13 +420,13 @@
                     </div>
                                         <div class="dr_spacecort-right fl">
                         <a">
-                            <img src="CulturalBranding/images/kj1.jpg" alt="" />
+                            <img src="images/cultural/kj1.jpg" alt="" />
                         </a>
                     </div>
                 </div>
                 <!--三张图-->
                 <div class="dr_spacecort-img">
-                    <a target="_blank" href='http://home.darryring.com/index/index/mid/MzMwMzEy'><img src='http://jewely-image.b0.upaiyun.com/images/2015-11-13/1447398007715.jpg' width="326px" height="200px" alt="" /></a><a target="_blank" href='http://home.darryring.com/index/index/mid/MjM5MDY1'><img src='http://jewely-image.b0.upaiyun.com/images/2015-11-13/1447383535339.jpg' width="326px" height="200px" alt="" /></a><a target="_blank" href='http://home.darryring.com/index/index/mid/ODk2Mzg='><img src='http://jewely-image.b0.upaiyun.com/images/2015-11-10/1447151016506.JPG' width="326px" height="200px" alt="" /></a>
+                    <a target="_blank" href='http://home.darryring.com/index/index/mid/MzMwMzEy'><img src='images/cultural/1447398007715.jpg' width="326px" height="200px" alt="" /></a><a target="_blank" href='http://home.darryring.com/index/index/mid/MjM5MDY1'><img src='images/cultural/1447383535339.jpg' width="326px" height="200px" alt="" /></a><a target="_blank" href='http://home.darryring.com/index/index/mid/ODk2Mzg='><img src='images/cultural/1447151016506.JPG' width="326px" height="200px" alt="" /></a>
                 </div>
                 <!--三张图end-->
             </div>
@@ -444,14 +445,14 @@
 <div class="dr_samesellers same_mg80">
     <!--同样标题背景-->
     <div class="same_bg-one photo_left">
-        <img src="CulturalBranding/images/icon_hot.png" />
+        <img src="images/cultural/icon_hot.png" />
     </div>
     <!--同样标题背景end-->
     <ul class="dr_samesellers-ring">
         
                 <li>
                     <a href="/darry_ring/A16016/Z05025400002.html" target="_blank"></a>
-                    <img src="CulturalBranding/images/20160123161041ab98978fa8.jpg" alt="MY HEART 系列 浪漫款" width="235" height="235" />
+                    <img src="images/cultural/20160123161041ab98978fa8.jpg" alt="MY HEART 系列 浪漫款" width="235" height="235" />
                     <div class="dr_samesellers-word">
                         <div class="dr_samesellers-top">
                             <i></i>
@@ -465,7 +466,7 @@
             
                 <li>
                     <a href="/darry_ring/A07001/Z03022478801.html" target="_blank"></a>
-                    <img src="CulturalBranding/images/20150129114316f8a2465758.jpg" alt="BELIEVE系列 典雅" width="235" height="235" />
+                    <img src="images/cultural/20150129114316f8a2465758.jpg" alt="BELIEVE系列 典雅" width="235" height="235" />
                     <div class="dr_samesellers-word">
                         <div class="dr_samesellers-top">
                             <i></i>
@@ -479,7 +480,7 @@
             
                 <li>
                     <a href="/darry_ring/A02001/Z04023478801.html" target="_blank"></a>
-                    <img src="CulturalBranding/images/201409031259093e45b5ecf0.jpg" alt="FOREVER 系列 经典款" width="235" height="235" />
+                    <img src="images/cultural/201409031259093e45b5ecf0.jpg" alt="FOREVER 系列 经典款" width="235" height="235" />
                     <div class="dr_samesellers-word">
                         <div class="dr_samesellers-top">
                             <i></i>
@@ -493,7 +494,7 @@
             
                 <li>
                     <a href="/darry_ring/A14001/Z05019488801.html" target="_blank"></a>
-                    <img src="CulturalBranding/images/20160621100342c2eba8bc0a.jpg" alt="WITH YOU 系列 热恋红宝石" width="235" height="235" />
+                    <img src="images/cultural/20160621100342c2eba8bc0a.jpg" alt="WITH YOU 系列 热恋红宝石" width="235" height="235" />
                     <div class="dr_samesellers-word">
                         <div class="dr_samesellers-top">
                             <i></i>
@@ -517,15 +518,6 @@
     </div>
     <!--粉色底end-->
     <!--JS begin-->
-    <script>
-        //加载相同验证模块
-        seajs.use("CulturalBranding/js/samequery.js");
-        // 加载品牌文化内容入口模块
-        seajs.use("CulturalBranding/js/brand.js");
-    </script>
-    <script type="text/javascript">
-
-    </script>
 
 	<jsp:include page="footer.jsp"/>
 <script>

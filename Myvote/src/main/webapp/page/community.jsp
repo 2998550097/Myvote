@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css"
 	href="DR/css/index.css">
 <link rel="stylesheet" type="text/css"
+	href="css/kefu.css">
+<link rel="stylesheet" type="text/css"
 	href="DR/css/info.css">
 <link rel="stylesheet" type="text/css"
 	href="DR/css/common.css">
@@ -257,7 +259,7 @@
 								post_url="/love/idea/praise" love_id="11"></a></span> <a
 								class="ni-memberInfo fl" href="/user/info/281127"
 								  ><img
-								src="http://jewely-image.b0.upaiyun.com/avatar/2015-08-27/1440639266.jpg"
+								src="DR/images/1440639266.jpg"
 								alt="">流绪微......</a>
 						</div>
 					</div>
@@ -269,25 +271,25 @@
 				<h3>社区频道</h3>
 				<ul class="ni-drChanList fix">
 					<li><a href="/forum?id=15"   > <img
-							src="http://jewely-image.b0.upaiyun.com/images/2016-06-28/1467101047.png"
+							src="DR/images/1467101047.png"
 							alt="">
 							<h4>求婚交流</h4>
 							<p>最近:613文章</p> <span>3885</span>
 					</a></li>
 					<li><a href="/forum?id=22"   > <img
-							src="http://jewely-image.b0.upaiyun.com/images/2016-06-28/1467101055.png"
+							src="DR/images/1467101055.png"
 							alt="">
 							<h4>情感八卦</h4>
 							<p>最近:1238文章</p> <span>8272</span>
 					</a></li>
 					<li><a href="/forum?id=23"   > <img
-							src="http://jewely-image.b0.upaiyun.com/images/2016-06-23/1466652300.png"
+							src="DR/images/1466652300.png"
 							alt="">
 							<h4>最美钻戒</h4>
 							<p>最近:526文章</p> <span>4152</span>
 					</a></li>
 					<li><a href="/forum?id=36"   > <img
-							src="http://jewely-image.b0.upaiyun.com/images/2016-06-23/1466652291.png"
+							src="DR/images/1466652291.png"
 							alt="">
 							<h4>问题反馈</h4>
 							<p>最近:26文章</p> <span>66</span>
@@ -301,31 +303,31 @@
 				<div class="ni-referralShow">
 					<ul class="ni-referralList" id="ni-sidebarBanner">
 						<li><a    href="/forum-3108.html"> <img
-								src="http://img02.tooopen.com/images/20150623/tooopen_sy_131569737913.jpg" />
+								src="DR/images/tooopen_sy_131569737913.jpg" />
 								<p title="EQ测试：你的爱情智商有多高？">EQ测试：你的爱情智商有多高？</p>
 						</a></li>
 						<li><a    href="/forum-3106.html"> <img
-								src="http://jewely-image.b0.upaiyun.com/ueditor/2016-08-25/1472092629.jpg" />
+								src="DR/images/1472092629.jpg" />
 								<p title="还记得那些年的情书吗？">还记得那些年的情书吗？</p>
 						</a></li>
 						<li><a    href="/forum-3075.html"> <img
-								src="http://jewely-image.b0.upaiyun.com/ueditor/2016-08-24/1472027706.jpg" />
+								src="DR/images/1472027706.jpg" />
 								<p title="你家男朋友够细心吗？">你家男朋友够细心吗？</p>
 						</a></li>
 						<li><a    href="/forum-3029.html"> <img
-								src="http://jewely-image.b0.upaiyun.com/ueditor/2016-08-23/1471937853.jpg" />
+								src="DR/images/1471937853.jpg" />
 								<p title="你的爱情现在是什么颜色 ?">你的爱情现在是什么颜色 ?</p>
 						</a></li>
 						<li><a    href="/forum-3024.html"> <img
-								src="http://jewely-image.b0.upaiyun.com/ueditor/2016-08-23/1471932148.jpg" />
+								src="DR/images/1471932148.jpg" />
 								<p title="北京的时光，你在，便无惧风雨">北京的时光，你在，便无惧风雨</p>
 						</a></li>
 						<li><a    href="/forum-2899.html"> <img
-								src="/bundles/acmedefault/images/img_pic5.jpg" />
+								src="DR/images/img_pic5.jpg" />
 								<p title="你是我最重要的决定">你是我最重要的决定</p>
 						</a></li>
 						<li><a    href="/forum-2654.html"> <img
-								src="http://jewely-image.b0.upaiyun.com/ueditor/2016-08-11/1470884213.jpg" />
+								src="DR/images/1470884213.jpg" />
 								<p title="走过来我就嫁给你">走过来我就嫁给你</p>
 						</a></li>
 					</ul>
@@ -667,21 +669,6 @@
 		<!-- end of 文章列表-->
 	
 	</div>
-	
-	<script type="text/javascript">
-        // seajs 配置
-        seajs.config({
-            debug: true,
-            base: "/Three/",
-            alias: {
-                "jquery":"headerJs/jquery.js"
-            }
-        });
-        // 加载头部入口模块
-        seajs.use("footerJs/footer.js");
-</script>
-	<jsp:include page="footer.jsp"/>
-	
 	<script type="text/javascript">
 		//侧边栏分享
 		var url = encodeURIComponent(document.location.href);
