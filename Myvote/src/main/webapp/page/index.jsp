@@ -12,13 +12,13 @@
 <link rel="stylesheet" href="css/common.css" />
 <link rel="stylesheet" href="css/drindex.css">
 <!--实体店应急20160122-->
+<link rel="stylesheet" type="text/css" href="css/kefu.css">
 <link rel="stylesheet" href="css/help.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
 <script src="js/hm(1).js"></script>
 <script async="" src="js/gt.js"></script>
-<script charset="utf-8" src="js/lxb.js"></script>
 <script charset="utf-8" src="js/v.js"></script>
 <script async="" src="js/analytics.js"></script>
 <script async="" src="headerJs/index.js"></script>

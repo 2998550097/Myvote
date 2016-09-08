@@ -6,27 +6,28 @@
 <base href="/MyDarry/">
 <meta charset="utf-8">
 <title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
-<link rel="stylesheet" type="text/css" href="marryring/css/same.css">
-<link rel="stylesheet" type="text/css" href="marryring/css/marryring.css">
-<script type="text/javascript" src="marryring/js/h.js"></script>
-<script type="text/javascript" src="marryring/js/jquery-1.11.3.min.js"></script>
-<script src="marryring/js/jquery.js"></script>
-<script type="text/javascript" src="marryring/js/index.js"></script>
-<script type="text/javascript" src="marryring/js/sea.js"></script>
+<link rel="stylesheet" type="text/css" href="css/same.css">
+<link rel="stylesheet" type="text/css" href="css/marryring.css">
+<link rel="stylesheet" type="text/css" href="css/kefu.css">
+<script type="text/javascript" src="js/h.js"></script>
+<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script src="headerJs/jquery.js"></script>
+<script type="text/javascript" src="headerJs/index.js"></script>
+<script type="text/javascript" src="headerJs/sea.js"></script>
 <script>
         // seajs 配置
         seajs.config({
             debug: true,
             base: "",
             alias: {
-                "jquery": "MyDarry/marryring/js/jquery.js"
+                "jquery": "MyDarry/headerJs/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("MyDarry/marryring/js/header.js");
+        seajs.use("MyDarry/headerJs/header.js");
     </script>
-    <script type="text/javascript" src="CulturalBranding/js/header.js"></script>
-    <link rel="stylesheet" type="text/css" href="marryring/css/common.css">
+    <script type="text/javascript" src="headerJs/header.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
 	
     <div class="middle">
     	<div class="middle_pic">
-        	<img src="marryring/images/20160627145241dc6e9ac911.jpg" />
+        	<img src="images/marryring/20160627145241dc6e9ac911.jpg" />
         </div>
         
         <div class="middle_body">
@@ -108,7 +109,7 @@
                     	<li> <input type="text" id="minPrice"></li>
                          <li id="showrin_same_label"> <label>-</label></li>
                     	<li> <input type="text" id="maxPrice"></li>
-                    	<li> <em onclick="#" id="priceBtn">确定</em></li>
+                    	<li> <em onclick="" id="priceBtn">确定</em></li>
                     </ul>
                 </div>
               </div>
@@ -138,7 +139,7 @@
                 
                         <li class="dring_thing_left">
                             <a href="darry_marry.jsp">
-                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="marryring/images/201409031259093e45b5ecf0.jpg">
+                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">
@@ -158,7 +159,7 @@
                     
                         <li>
                               <a href="darry_marry.jsp">
-                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="marryring/images/2015093019140361614ead1d.jpg">
+                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="images/marryring/2015093019140361614ead1d.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">
@@ -178,7 +179,7 @@
                     
                         <li>
                             <a href="#">
-                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="marryring/images/20160620101350d2f9fcb5a8.jpg">
+                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="images/marryring/20160620101350d2f9fcb5a8.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">
@@ -199,7 +200,7 @@
                   
                    <li class="dring_thing_left">
                             <a href="#">
-                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="marryring/images/201409031259093e45b5ecf0.jpg">
+                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">
@@ -219,7 +220,7 @@
                     
                         <li>
                               <a href="#">
-                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="marryring/images/2015093019140361614ead1d.jpg">
+                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="images/marryring/2015093019140361614ead1d.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">
@@ -239,7 +240,7 @@
                     
                         <li>
                             <a href="#">
-                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="marryring/images/20160620101350d2f9fcb5a8.jpg">
+                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="images/marryring/20160620101350d2f9fcb5a8.jpg">
                             </a>
                             <div class="dring_thing-cort">
                                 <div class="dring_thing-price">

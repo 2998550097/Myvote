@@ -97,7 +97,7 @@
                             <tr class="cp_tr">
                                 <td class="sp_td">
                         	       <a  class="jx_shop" href="/darry_ring/A06004/Z04023278801.html">
-                                   <img src="http://img.darryring.com/userfiles/image/product/2015093019140361614ead1d.jpg" width="85" height="85" />
+                                   <img src="images/2015093019140361614ead1d.jpg" width="85" height="85" />
                         	        <span>
                                     TRUE LOVE系列 典雅</span></a>
                                 </td>
@@ -120,7 +120,7 @@
                             <tr class="cp_tr">
                                 <td class="sp_td">
                         	       <a  class="jx_shop" href="/dr_phonics/P09050/none.html">
-                                   <img src="http://img.darryring.com/userfiles/image/product/20160120151303e777e7da43.jpg" width="85" height="85" />
+                                   <img src="images/20160120151303e777e7da43.jpg" width="85" height="85" />
                         	        <span>
                                     Darry Ring系列 you&me 对戒</span></a>
                                 </td>

@@ -6,46 +6,45 @@
 <head>
 <base href="/MyDarry/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="darry_marry/jiathis_counter.css" rel="stylesheet"
+<link href="css/jiathis_counter.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" href="darry_marry/headerCommon.css">
 
-<link rel="stylesheet" href="darry_marry/common.css">
 
-<link rel="stylesheet" href="darry_marry/dr.css">
-<link href="darry_marry/jiathis_share.css" rel="stylesheet"
+<link rel="stylesheet" href="css/dr.css">
+<link href="css/jiathis_share.css" rel="stylesheet"
 	type="text/css">
-<link rel="stylesheet" type="text/css" href="darry_marry/same.css">
+<link rel="stylesheet" type="text/css" href="css/same.css">
+<link rel="stylesheet" type="text/css" href="css/kefu.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
-<script src="darry_marry/ckepop.js" charset="utf-8"></script>
+<script src="js/ckepop.js" charset="utf-8"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
 <script src="js/hm(1).js"></script>
 <script async="" src="js/gt.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
 <script charset="utf-8" src="js/v.js"></script>
-<script type="text/javascript" src="darry_marry/index.js"></script>
-<script async="" src="darry_marry/banner.js"></script>
+<script type="text/javascript" src="headerJs/index.js"></script>
+<script async="" src="headerJs/banner.js"></script>
 
-<script type="text/javascript" src="darry_marry/sea.js"></script>
+<script type="text/javascript" src="headerJs/sea.js"></script>
 <script>
         // seajs 配置
         seajs.config({
             debug: true,
             base: "",
             alias: {
-                "jquery": "MyDarry/darry_marry/jquery.js"
+                "jquery": "MyDarry/headerJs/jquery.js"
             }
         });
         // 加载头部入口模块
-        seajs.use("MyDarry/darry_marry/header.js");
+        seajs.use("MyDarry/headerJs/header.js");
     </script>
-<script type="text/javascript" src="darry_marry/header.js"></script>
+<script type="text/javascript" src="headerJs/header.js"></script>
+<link rel="stylesheet" href="css/common.css">
 <!--统计系统-->
-<script type="text/javascript" src="darry_marry/Analytics.js"></script>
-<script type="text/javascript" src="darry_marry/Magnifier.js"></script>
-<script type="text/javascript" src="darry_marry/buy_xq.js"></script>
-<script type="text/javascript" src="darry_marry/fd_hd.js"></script>
+<script type="text/javascript" src="js/Magnifier.js"></script>
+<script type="text/javascript" src="js/buy_xq.js"></script>
+<script type="text/javascript" src="js/fd_hd.js"></script>
 <script type="text/javascript">
         var DiamondChanged = function(c){
             CurrentDiamondPrice = parseFloat($(c).attr("value"));
@@ -127,14 +126,14 @@
 <title>MY HEART 系列 奢华款_0.7克拉_H色_价格图片_Darry Ring求婚钻戒 戴瑞珠宝官网</title>
 <meta name="description"
 	content="Darry Ring官网提供Darry Ring MY HEART 系列 奢华款系 列钻戒购买，更有MY HEART 系列 奢华款0.7克拉钻戒价格、H色、切工、SI净度等相关资讯，了解MY HEART 系列 奢华款系列求婚钻戒图片、价格就上戴瑞珠宝官网。">
-<script charset="utf-8" async="" src="darry_marry/footer.js"></script>
+<script charset="utf-8" async="" src="footerJs/footer.js"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="darry_marry/zh_cn.js" data-requiremodule="lang"></script>
+	src="js/zh_cn.js" data-requiremodule="lang"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="darry_marry/chat.in.js" data-requiremodule="chatManage"></script>
+	src="js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="darry_marry/comet.chat.js" data-requiremodule="TChat"></script>
-<script src="darry_marry/_cm.js"></script>
+	src="js/comet.chat.js" data-requiremodule="TChat"></script>
+<script src="js/_cm.js"></script>
 </head>
 <body>
 	<!--头部-->
@@ -167,7 +166,7 @@
 			</div>
 			<div class="jiadiv_02" style="width: 100%;" id="jiathis_sers">
 				<a href="javascript:;"
-					onclick="jiathis_sendto(&#39;qzone&#39;);return false;"
+					onclick="jiathis_sendto();"
 					class="jiatitle"><span class="jtico jtico_qzone">QQ空间</span></a><a
 					href="javascript:;"
 					onclick="jiathis_sendto(&#39;tsina&#39;);return false;"
@@ -190,7 +189,7 @@
 			</div>
 			<div class="ckepopBottom" style="width: 100%;">
 				<div style="float: right; font-size: 11px; margin: 0 5px 0 0;">
-					<img src="darry_marry/img_012.gif" align="absmiddle" border="0"><a
+					<img src="images/darry_marry/img_012.gif" align="absmiddle" border="0"><a
 						href="http://www.jiathis.com/index2"
 						style="color: #333333; padding: 0 3px;" class="link_01"
 						target="_blank">JiaThis</a>
@@ -199,10 +198,8 @@
 			</div>
 		</div>
 	</div>
-	<iframe frameborder="0" src="darry_marry/jiathis_utility.html"
-		style="display: none;"></iframe>
 	<form name="aspnetForm" method="post"
-		action="darry_marry/MY HEART 系列 奢华款_0.7克拉_H色_价格图片_Darry Ring求婚钻戒 戴瑞珠宝官网.html"
+		action="images/darry_marry/MY HEART 系列 奢华款_0.7克拉_H色_价格图片_Darry Ring求婚钻戒 戴瑞珠宝官网.html"
 		id="aspnetForm">
 		<div>
 			<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE"
@@ -225,7 +222,7 @@
 
 						<span id="ctl00_content_website_SiteMapPath1"><a
 							href="http://www.darryring.com/darry_ring/628.html#ctl00_content_website_SiteMapPath1_SkipLink"><img
-								alt="Skip Navigation Links" src="darry_marry/WebResource.axd"
+								alt="Skip Navigation Links" src="images/darry_marry/WebResource.axd"
 								width="0" height="0" style="border-width: 0px;"></a><span>
 								<a href="http://www.darryring.com/" target="_blank">Darry
 									Ring</a>
@@ -239,7 +236,6 @@
 					<div class="buy_cort">
 
 						<!--统计系统-->
-						<script type="text/javascript" src="darry_marry/Analytics.js"></script>
 						<script type="text/javascript">
     /*收藏事件*/
     var favoritesEvent = function () { };
@@ -346,16 +342,16 @@
 							<ul class="bc_left">
 
 								<li class="li_border"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/201606201013425c46d90c91.jpg"></li>
+									src="images/darry_marry/201606201013425c46d90c91.jpg"></li>
 
 								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/2016062010134644945bb6a4.jpg"></li>
+									src="images/darry_marry/2016062010134644945bb6a4.jpg"></li>
 
 								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/201606201013489a22139075.jpg"></li>
+									src="images/darry_marry/201606201013489a22139075.jpg"></li>
 
 								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
+									src="images/darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
 
 							</ul>
 							<!--上下按钮-->
@@ -368,22 +364,22 @@
 							<ul class="ul_center">
 
 								<li id="magnifier0" style="display: list-item;">
-									<img alt="MY HEART 系列 奢华款 0.7 H" src="darry_marry/201606201013425c46d90c91.jpg"> 
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/201606201013425c46d90c91.jpg"> 
 									<span style="position: absolute; left: 192.5px; top: 248px; display: none; width: 150px; height: 150px; border: 1px solid rgb(0, 0, 0); cursor: move; opacity: 0.4; zoom: 1; background: rgb(153, 153, 153);"></span>
 									<div style="position: absolute; overflow: hidden; width: 300px; height: 300px; top: 0px; right: -385px; border: 1px solid rgb(204, 204, 204); z-index: 99998; display: none;">
-										<img src="darry_marry/201606201013425c46d90c91.jpg" style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
+										<img src="images/darry_marry/201606201013425c46d90c91.jpg" style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
 									</div>
 								</li>
 
 								<li id="magnifier1">
-									<img alt="MY HEART 系列 奢华款 0.7 H" src="darry_marry/2016062010134644945bb6a4.jpg">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/2016062010134644945bb6a4.jpg">
 								</li>
 
 								<li id="magnifier2"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/201606201013489a22139075.jpg"></li>
+									src="images/darry_marry/201606201013489a22139075.jpg"></li>
 
 								<li id="magnifier3"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
+									src="images/darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
 
 							</ul>
 							<div class="kzyl"></div>
@@ -409,10 +405,10 @@
 										class="jiathis_button_expanded jiathis_counter jiathis_bubble_style"
 										id="jiathis_counter_132" title="累计分享27次">27</span></a>
 								</div>
-								<script type="text/javascript" src="darry_marry/jia.js"
+								<script type="text/javascript" src="js/jia.js"
 									charset="utf-8"></script>
 								<script type="text/javascript"
-									src="darry_marry/plugin.client.js" charset="utf-8"></script>
+									src="js/plugin.client.js" charset="utf-8"></script>
 								<!-- JiaThis Button END -->
 							</div>
 							<!--收藏分享end-->
@@ -716,13 +712,13 @@
 							<div class="fr">
 								<span class="clear_kong"
 									onclick="HighLevelSearch.dSearchReset();">清空</span> <img
-									src="darry_marry/close.png" width="61" height="15"
+									src="images/darry_marry/close.png" width="61" height="15"
 									class="toclose">
 							</div>
 							<h3 class="fl">钻石个性搭配</h3>
 						</div>
 
-						<script type="text/javascript" src="darry_marry/perice.js"></script>
+						<script type="text/javascript" src="js/perice.js"></script>
 						<div id="ctl00_content_ucdiamonsearch_dsearch_gj_search" class="">
 							<!--高级搜索-->
 
@@ -902,7 +898,7 @@
 							<!--筛选列表end-->
 							<!--分页-->
 
-							<script src="darry_marry/paging.js" type="text/javascript"></script>
+							<script src="js/paging.js" type="text/javascript"></script>
 							<script type="text/javascript">
         var __CurrentPagingDiamond = new Paging("ctl00_content_ucdiamonsearch_zsPaging_pagingDiv");
     $(document.body).ready(function () {
@@ -1024,101 +1020,101 @@
 							<div class="allphoto">
 								<p>
 									<img alt="" height="221"
-										src="darry_marry/2016030318152719953be006.jpg" width="980"><img
-										alt="" src="darry_marry/20160303182019ac7c9c6030.jpg"><img
+										src="images/darry_marry/2016030318152719953be006.jpg" width="980"><img
+										alt="" src="images/darry_marry/20160303182019ac7c9c6030.jpg"><img
 										alt="" height="989"
-										src="darry_marry/20160303182031f46e94c3a8.jpg" width="980"><img
+										src="images/darry_marry/20160303182031f46e94c3a8.jpg" width="980"><img
 										alt="" height="773"
-										src="darry_marry/201603031815336b24c9e743.jpg" width="980"><img
+										src="images/darry_marry/201603031815336b24c9e743.jpg" width="980"><img
 										alt="" height="359"
-										src="darry_marry/201603031815403680933aac.jpg" width="980"><img
+										src="images/darry_marry/201603031815403680933aac.jpg" width="980"><img
 										alt="" height="671"
-										src="darry_marry/2016030318154696400e2ded.jpg" width="980"><img
+										src="images/darry_marry/2016030318154696400e2ded.jpg" width="980"><img
 										alt="" height="769"
-										src="darry_marry/201603031815518f17174331.jpg" width="980"><img
+										src="images/darry_marry/201603031815518f17174331.jpg" width="980"><img
 										alt="" height="580"
-										src="darry_marry/20160303181557c509744d80.jpg" width="980"><img
+										src="images/darry_marry/20160303181557c509744d80.jpg" width="980"><img
 										alt="" height="635"
-										src="darry_marry/2016030318160450b249f607.jpg" width="980"><img
+										src="images/darry_marry/2016030318160450b249f607.jpg" width="980"><img
 										alt="" height="675"
-										src="darry_marry/20160303181610204256af98.jpg" width="980"><img
+										src="images/darry_marry/20160303181610204256af98.jpg" width="980"><img
 										alt="" height="729"
-										src="darry_marry/201603031816154a84270f34.jpg" width="980"><img
+										src="images/darry_marry/201603031816154a84270f34.jpg" width="980"><img
 										alt="" height="734"
-										src="darry_marry/201603031816203b79ad5cdd.jpg" width="980"><img
+										src="images/darry_marry/201603031816203b79ad5cdd.jpg" width="980"><img
 										alt="" height="502"
-										src="darry_marry/20160303181625cd6e4f0759.jpg" width="980"><img
+										src="images/darry_marry/20160303181625cd6e4f0759.jpg" width="980"><img
 										alt="" height="819"
-										src="darry_marry/2016030318163166624c2651.jpg" width="980"><img
-										alt="" src="darry_marry/20150902111714647077b9bf.jpg"><img
+										src="images/darry_marry/2016030318163166624c2651.jpg" width="980"><img
+										alt="" src="images/darry_marry/20150902111714647077b9bf.jpg"><img
 										alt="" height="225"
-										src="darry_marry/201509021152591a91c7667f.jpg" width="980"><img
+										src="images/darry_marry/201509021152591a91c7667f.jpg" width="980"><img
 										alt="" height="187"
-										src="darry_marry/201509021153155cb47d6703.jpg" width="980"><img
+										src="images/darry_marry/201509021153155cb47d6703.jpg" width="980"><img
 										alt="" height="204"
-										src="darry_marry/201509021153261f43559636.jpg" width="980"><img
+										src="images/darry_marry/201509021153261f43559636.jpg" width="980"><img
 										alt="" height="314"
-										src="darry_marry/2015090211533233ac3887fc.jpg" width="980"><img
+										src="images/darry_marry/2015090211533233ac3887fc.jpg" width="980"><img
 										alt="" height="158"
-										src="darry_marry/201509021153464c850cdb81.jpg" width="980"><img
+										src="images/darry_marry/201509021153464c850cdb81.jpg" width="980"><img
 										alt="" height="170"
-										src="darry_marry/20150902115356a0f2371d41.jpg" width="980"><img
+										src="images/darry_marry/20150902115356a0f2371d41.jpg" width="980"><img
 										alt="" height="245"
-										src="darry_marry/20150902115406be1b55c291.jpg" width="980"><img
+										src="images/darry_marry/20150902115406be1b55c291.jpg" width="980"><img
 										alt="" height="134"
-										src="darry_marry/201509021154169d2d97bed8.jpg" width="980"><img
+										src="images/darry_marry/201509021154169d2d97bed8.jpg" width="980"><img
 										alt="" height="118"
-										src="darry_marry/201509021154221bc32f2240.jpg" width="980"><img
+										src="images/darry_marry/201509021154221bc32f2240.jpg" width="980"><img
 										alt="" height="251"
-										src="darry_marry/20150902115429b3ff1e4d67.jpg" width="980"><img
+										src="images/darry_marry/20150902115429b3ff1e4d67.jpg" width="980"><img
 										alt="" height="256"
-										src="darry_marry/20150902115437a886f3dcd9.jpg" width="980"><img
+										src="images/darry_marry/20150902115437a886f3dcd9.jpg" width="980"><img
 										alt="" height="171"
-										src="darry_marry/20150902115443fcb642d81a.jpg" width="980"><img
+										src="images/darry_marry/20150902115443fcb642d81a.jpg" width="980"><img
 										alt="" height="172"
-										src="darry_marry/20150902115450cb7bef9b1d.jpg" width="980"><img
+										src="images/darry_marry/20150902115450cb7bef9b1d.jpg" width="980"><img
 										alt="" height="203"
-										src="darry_marry/20150902115501f0e42625c5.jpg" width="980"><img
+										src="images/darry_marry/20150902115501f0e42625c5.jpg" width="980"><img
 										alt="" height="173"
-										src="darry_marry/2015090211550613b5718578.jpg" width="980"><img
+										src="images/darry_marry/2015090211550613b5718578.jpg" width="980"><img
 										alt="" height="179"
-										src="darry_marry/20150902115512df2a5aa5b8.jpg" width="980"><img
+										src="images/darry_marry/20150902115512df2a5aa5b8.jpg" width="980"><img
 										alt="" height="151"
-										src="darry_marry/20150902115518b9a912a08b.jpg" width="980"><img
+										src="images/darry_marry/20150902115518b9a912a08b.jpg" width="980"><img
 										alt="" height="197"
-										src="darry_marry/20150902115526379c401c46.jpg" width="980"><img
+										src="images/darry_marry/20150902115526379c401c46.jpg" width="980"><img
 										alt="" height="222"
-										src="darry_marry/2015090211553406fb7f7db9.jpg" width="980"><img
+										src="images/darry_marry/2015090211553406fb7f7db9.jpg" width="980"><img
 										alt="" height="110"
-										src="darry_marry/201509021155467768707193.jpg" width="980"><img
+										src="images/darry_marry/201509021155467768707193.jpg" width="980"><img
 										alt="" height="218"
-										src="darry_marry/2015090211555955f4920e0a.jpg" width="980"><img
+										src="images/darry_marry/2015090211555955f4920e0a.jpg" width="980"><img
 										alt="" height="153"
-										src="darry_marry/2015090211565195f29091b7.jpg" width="980"><img
+										src="images/darry_marry/2015090211565195f29091b7.jpg" width="980"><img
 										alt="" height="175"
-										src="darry_marry/201509021157093e5e7561c1.jpg" width="980"><img
+										src="images/darry_marry/201509021157093e5e7561c1.jpg" width="980"><img
 										alt="" height="133"
-										src="darry_marry/201509021157173628c76a7d.jpg" width="980"><img
+										src="images/darry_marry/201509021157173628c76a7d.jpg" width="980"><img
 										alt="" height="154"
-										src="darry_marry/2015090211572457d12c5691.jpg" width="980"><img
-										alt="" src="darry_marry/201509021157330c933ac212.jpg"><img
-										alt="" src="darry_marry/20150902115750f4d48687f3.jpg"><img
+										src="images/darry_marry/2015090211572457d12c5691.jpg" width="980"><img
+										alt="" src="images/darry_marry/201509021157330c933ac212.jpg"><img
+										alt="" src="images/darry_marry/20150902115750f4d48687f3.jpg"><img
 										alt="" height="181"
-										src="darry_marry/20150902115802e4b9f53b68.jpg" width="980"><img
+										src="images/darry_marry/20150902115802e4b9f53b68.jpg" width="980"><img
 										alt="" height="136"
-										src="darry_marry/20150902115809637278bccd.jpg" width="980"><img
+										src="images/darry_marry/20150902115809637278bccd.jpg" width="980"><img
 										alt="" height="259"
-										src="darry_marry/20150902115835829b757067.jpg" width="980"><img
+										src="images/darry_marry/20150902115835829b757067.jpg" width="980"><img
 										alt="" height="135"
-										src="darry_marry/20150902115845f30561a5fe.jpg" width="980"><img
+										src="images/darry_marry/20150902115845f30561a5fe.jpg" width="980"><img
 										alt="" height="117"
-										src="darry_marry/20150902115853ecf1bee330.jpg" width="980"><img
+										src="images/darry_marry/20150902115853ecf1bee330.jpg" width="980"><img
 										alt="" height="222"
-										src="darry_marry/20150902115900862f5f58d8.jpg" width="980"><img
+										src="images/darry_marry/20150902115900862f5f58d8.jpg" width="980"><img
 										alt="" height="144"
-										src="darry_marry/20150902115908ee1f22c30e.jpg" width="980"><img
+										src="images/darry_marry/20150902115908ee1f22c30e.jpg" width="980"><img
 										alt="" height="17"
-										src="darry_marry/20150902110923f8f726118a.jpg" width="980">
+										src="images/darry_marry/20150902110923f8f726118a.jpg" width="980">
 								</p>
 							</div>
 							<!--产品详情图片end-->
@@ -1359,7 +1355,7 @@
 							<!--别人的评论end-->
 							<!--分页-->
 
-							<script src="darry_marry/paging.js" type="text/javascript"></script>
+							<script src="js/paging.js" type="text/javascript"></script>
 							<script type="text/javascript">
         var __CurrentPagingComment = new Paging("ctl00_content_ucrelatedinfo_uccommnet_ucpaging_pagingDiv");
     $(document.body).ready(function () {
@@ -1406,7 +1402,7 @@
 					<div class="xq_it xqbuy_it cmain" id="wrap">
 						<p>
 							<img alt="" height="876"
-								src="darry_marry/20160719150519bee984c77b.jpg" width="980">
+								src="images/darry_marry/20160719150519bee984c77b.jpg" width="980">
 						</p>
 
 					</div>
@@ -1562,9 +1558,9 @@
 												<span style="margin-top: 8px;"><a
 													href="http://darryring.tmall.com/?spm=a220o.1000855.1997427721.d4918089.bGtU16"><img
 														alt="" height="60"
-														src="darry_marry/20150708134939afa264ac2f.jpg" width="163"></a>&nbsp;<a
+														src="images/darry_marry/20150708134939afa264ac2f.jpg" width="163"></a>&nbsp;<a
 													href="http://darryring.jd.com/"><img alt="" height="60"
-														src="darry_marry/201507081351233b24523301.jpg" width="151"></a>&nbsp;&nbsp;</span>
+														src="images/darry_marry/201507081351233b24523301.jpg" width="151"></a>&nbsp;&nbsp;</span>
 											</p>
 
 											<p></p>
@@ -1750,7 +1746,7 @@
 							</div>
 							<!--分页-->
 
-							<script src="darry_marry/paging.js" type="text/javascript"></script>
+							<script src="images/darry_marry/paging.js" type="text/javascript"></script>
 							<script type="text/javascript">
         var __Question = new Paging("ctl00_content_ucrelatedinfo_ucq_ucpaging_pagingDiv");
     $(document.body).ready(function () {
@@ -1794,7 +1790,7 @@
 					<div class="xq_it xqbuy_it cmain" id="wrap">
 						<p>
 							<img alt="" height="669"
-								src="darry_marry/201607191807091f2adfd8c7.jpg" width="980">
+								src="images/darry_marry/201607191807091f2adfd8c7.jpg" width="980">
 						</p>
 
 					</div>
@@ -1807,7 +1803,7 @@
 					<div class="ot_all">
 
 						<div class="ot_left fl">
-							<img src="darry_marry/erwei.png" alt="Darry Ring 微信号" width="196"
+							<img src="images/darry_marry/erwei.png" alt="Darry Ring 微信号" width="196"
 								height="150">
 							<p>加入微信 了解品牌动态</p>
 						</div>
@@ -1963,7 +1959,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/dr_phonics/P09018/none.html"
 										target="_blank"> <img alt="Darry Ring系列 真爱印记"
-										src="darry_marry/201607110923578531d5eea0.jpg">
+										src="images/darry_marry/201607110923578531d5eea0.jpg">
 									</a>
 								</div>
 								<p>
@@ -1984,7 +1980,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/darry_ring/78.html"
 										target="_blank"> <img alt="FOREVER 系列 经典款"
-										src="darry_marry/201409031259093e45b5ecf0.jpg">
+										src="images/darry_marry/201409031259093e45b5ecf0.jpg">
 									</a>
 								</div>
 								<p>
@@ -2001,7 +1997,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/darry_ring/87.html"
 										target="_blank"> <img alt="FOREVER 系列 经典款"
-										src="darry_marry/201409031259093e45b5ecf0.jpg">
+										src="images/darry_marry/201409031259093e45b5ecf0.jpg">
 									</a>
 								</div>
 								<p>
@@ -2018,7 +2014,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/darry_ring/128.html"
 										target="_blank"> <img alt="FOREVER 系列 经典款"
-										src="darry_marry/201409031259093e45b5ecf0.jpg">
+										src="images/darry_marry/201409031259093e45b5ecf0.jpg">
 									</a>
 								</div>
 								<p>
@@ -2035,7 +2031,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/darry_ring/129.html"
 										target="_blank"> <img alt="FOREVER 系列 经典款"
-										src="darry_marry/201409031259093e45b5ecf0.jpg">
+										src="images/darry_marry/201409031259093e45b5ecf0.jpg">
 									</a>
 								</div>
 								<p>
@@ -2052,7 +2048,7 @@
 									<a rel="nofollow"
 										href="http://www.darryring.com/darry_ring/137.html"
 										target="_blank"> <img alt="FOREVER 系列 经典款"
-										src="darry_marry/201409031259093e45b5ecf0.jpg">
+										src="images/darry_marry/201409031259093e45b5ecf0.jpg">
 									</a>
 								</div>
 								<p>
@@ -2074,8 +2070,8 @@
 				<!--浏览过的产品end-->
 				<!--验证身份-->
 
-				<script type="text/javascript" src="darry_marry/click_hide.js"></script>
-				<script type="text/javascript" src="darry_marry/index_clear.js"></script>
+				<script type="text/javascript" src="js/click_hide.js"></script>
+				<script type="text/javascript" src="js/index_clear.js"></script>
 
 				<!--验证身份框-->
 				<div class="yz_password">
@@ -2206,7 +2202,7 @@
 					<a href="javascript:;" class="Popup_close"></a>
 					<!--关闭按钮end-->
 					<iframe id="papLogin" name="papLogin" class="papLogin"
-						src="darry_marry/other.html" width="" height=""></iframe>
+						src="images/darry_marry/other.html" width="" height=""></iframe>
 				</div>
 				<!--登录注册弹窗end-->
 
@@ -2401,9 +2397,8 @@
         });
 </script>
 			</div>
-			<script type="text/javascript" src="darry_marry/ntkfstat.js"
+			<script type="text/javascript" src="js/ntkfstat.js"
 				charset="utf-8"></script>
-		</div>
 
 
 
@@ -2412,7 +2407,6 @@
 new Magnifier('magnifier0',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013425c46d90c91.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier1',{pPath:'http://img.darryring.com/userfiles/image/product/2016062010134644945bb6a4.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier2',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013489a22139075.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier3',{pPath:'http://img.darryring.com/userfiles/image/product/20160620101350d2f9fcb5a8.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});$(function(){favoritesCss(false);});//]]>
 </script>
 	</form>
-
 	<!-- 底部 -->
 	<jsp:include page="footer.jsp" />
 	<script>
