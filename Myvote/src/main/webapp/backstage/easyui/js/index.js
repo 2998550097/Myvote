@@ -80,7 +80,7 @@ $(function(){
 				}else{
 					tabs.tabs('add',{
 						title:"商品管理",
-						href:"commodity.html",
+						href:"goods.html",
 						closable:true
 					});
 				}
