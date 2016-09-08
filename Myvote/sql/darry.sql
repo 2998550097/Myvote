@@ -230,6 +230,7 @@ drop table collection;
 drop table comments;
 drop table article;
 drop table articlecom;
+
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
@@ -238,10 +239,10 @@ alter table goods drop (gcount);
 alter table collection drop (scount);
 
 alter table goods drop (gprice);
+
 alter table paramter add pprice number(10);--价格
 alter table paramter add pcount number(10);--数量
 alter table paramter modify pcarat varchar2(20);
-
 
 --系列表
 insert into series(seriesid,seriesname) values(seq_series_id.nextval,'稀世粉钻'); 
