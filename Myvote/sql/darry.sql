@@ -497,3 +497,4 @@ insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pco
 values(seq_paramter_id.nextval,100005,'99分D',14,'VS1','VG',16,10);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100005,'99分D',15,'VS1','VG',16,10);
+

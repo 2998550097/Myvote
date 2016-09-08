@@ -18,11 +18,12 @@ obj=$('#Comment_data').datagrid({
 			{field:'tids',title:'',width:151,align:'center',checkbox:true}, 
 			{field:'commentid',title:'评论编号',width:151,align:'center',sortable:true}, 
 	        {field:'uname',title:'用户昵称',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'upwd',title:'商品名',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'email',title:'订单编号',width:151,align:'center',editor:{type:"email",options:{requires:true}}},  
-	       	{field:'upwd',title:'商品名',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'upwd',title:'评分',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
-	     	{field:'photo',title:'图片',width:151,align:'center',
+	        {field:'gname',title:'商品名',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'orderid',title:'订单编号',width:151,align:'center',editor:{type:"email",options:{requires:true}}},  
+	       	{field:'commessage',title:'评论消息',width:151,align:'center',editor:{type:"text",options:{requires:true}}},
+	       	{field:'comtime',title:'评论时间',width:151,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'comscore',title:'评分',width:151,align:'center',editor:{type:"text",options:{requires:true}}},  
+	     	{field:'comimage',title:'图片',width:151,align:'center',
 	        	formatter:function(value,rowData,index){
 	        		if(value!=null){
 	        			var str="";
