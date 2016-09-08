@@ -73,6 +73,7 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
+insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
 select * from goods;
 --商品参数表
 create table paramter(
@@ -84,6 +85,7 @@ create table paramter(
 	gcutting varchar2(10), --切工
 	pprice number(10) not null --价格
 );
+insert into paramter values (seq_paramter_id.nextval,100001,1,12,'纯净','完美',10);
 select * from paramter;
 --收货地址
 create table  delivery(
@@ -112,7 +114,7 @@ create table orders(
 );
 
 create table orderdetail(
-       orderdetailid int primary key, --商品明细编号
+       orderdetailid int primary key, --商品明细
        orderid varchar2(50) not null, --订单编号
        goodid int not null --商品编号
        odcount int, --商品数量
@@ -142,7 +144,7 @@ create table comments(
       comscore number(2,1)  --评分
 );
 insert into comments values(seq_comments_id.nextval,1301,1230,'2016-9-5','有毒',null,2.1);
-commit;
+
 --发表文章
 create table article(
        articleid int primary key, --文章编号
@@ -233,14 +235,12 @@ alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
 alter table goods add gcount number(10);--商品数量
 alter table goods drop (gcount);
+alter table collection drop (scount);
 
 alter table goods drop (gprice);
 alter table paramter add pprice number(10);--价格
 alter table paramter add pcount number(10);--数量
 alter table paramter modify pcarat varchar2(20);
-select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
-from goods g,collection c,series s,style sy 
-where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid
 
 
 --系列表
@@ -497,3 +497,10 @@ insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pco
 values(seq_paramter_id.nextval,100005,'99分D',14,'VS1','VG',16,10);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100005,'99分D',15,'VS1','VG',16,10);
+
+
+
+
+select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
+from goods g,collection c,seriesstyle ss,series s,style sy 
+where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
