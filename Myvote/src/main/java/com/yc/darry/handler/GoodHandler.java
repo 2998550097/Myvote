@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yc.darry.entity.Good;
-import com.yc.darry.service.GoodService;
+import com.yc.darry.service.GoodsService;
 
 @Controller
 @RequestMapping("/good")
 public class GoodHandler {
 	@Autowired
-	private GoodService goodService;
+	private GoodsService goodsService;
 	
 	@ResponseBody
 	@RequestMapping("/all")
 	public List<Good> getAllGoods(){
-		System.out.println(goodService.getAll());
-		return goodService.getAll();
+		System.out.println(goodsService.getAll());
+		return goodsService.getAll();
 	}
 }
