@@ -73,7 +73,7 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
-insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
+insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4.0,1,2,3,'钻石一样的永恒',1);
 select * from goods;
 --商品参数表
 create table paramter(
@@ -116,9 +116,9 @@ create table orders(
 create table orderdetail(
        orderdetailid int primary key, --商品明细
        orderid varchar2(50) not null, --订单编号
-       goodid int not null --商品编号
+       goodid int not null, --商品编号
        odcount int, --商品数量
-       discount number(2,1)  --商品折扣
+       discount number(2,1),  --商品折扣
        totalprice number(10)  --总价格
 );
 drop table orderdetail;
@@ -127,11 +127,9 @@ create table collection(
        collectionid int primary key, --收藏编号
        userid int not null, --用户编号
        goodid int not null, --商品编号
-       ctime varchar2(50) not null,  --收藏时间
-       scount int --收藏总数量
-       
+       ctime varchar2(50) not null  --收藏时间
 );
-insert into COLLECTION values(seq_orderdetail_id.nextval,111,100001,'2016-9-5',1);
+insert into COLLECTION values(seq_orderdetail_id.nextval,111,100001,'2016-9-5');
 select * from COLLECTION;
 --评论表
 create table comments(
@@ -234,13 +232,8 @@ drop table articlecom;
 
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
-alter table goods add comnum number(10);--评论次数
-alter table goods add gcount number(10);--商品数量
 alter table goods drop (gcount);
 alter table collection drop (scount);
-
-alter table goods drop (gprice);
-
 alter table paramter add pprice number(10);--价格
 alter table paramter add pcount number(10);--数量
 alter table paramter modify pcarat varchar2(20);
