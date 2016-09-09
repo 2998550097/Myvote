@@ -1,5 +1,8 @@
 package com.yc.darry.handler;
 
+
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.yc.darry.entity.User;
@@ -28,6 +33,7 @@ public class UserHandler {
 	public void getInit(User user,ModelMap map){
 		map.put("users", new User());
 	}
+	
 	
 	@RequestMapping("/reset")
 	public String reset(String uemail,User user,ModelMap map){
@@ -75,6 +81,7 @@ public class UserHandler {
 			map.put("errorMsg", "对不起，您的帐号没有激活,<a href='user/sendemail?uemail="+user.getUemail()+"'>点此激活</a>");
 			return "login";
 		}
+		map.put("users", user);
 		return "index";
 	}
 	
@@ -132,6 +139,25 @@ public class UserHandler {
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
+	}
+	
+
+	/**
+	 * 会员查找
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/usersfind")
+	public List<User>  findUsers(){
+		List<User> users=(List<User>) userService.findUsers();
+		return users;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/deleteUsers",method=RequestMethod.POST)
+	public boolean deleteStore(String userid){
+		String[] userids=userid.split(",");
+		return userService.deleteUsers(userids);
 	}
 	
 }

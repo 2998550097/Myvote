@@ -17,6 +17,7 @@ import com.yc.darry.service.CommentService;
 import com.yc.darry.service.StoreService;
 
 @Controller
+@RequestMapping("/comment")
 public class CommentHandler {
 
 	@Autowired

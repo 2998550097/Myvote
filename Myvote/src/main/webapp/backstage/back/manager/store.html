@@ -43,7 +43,7 @@
 <script>
 var obj;
 obj=$('#Store_data').datagrid({  
-	    url:'../../../store',  
+	    url:'../../../store/findStore',  
 	    //queryParams:{op:'findStore'},
 	    fitColumns:true,
 	    striped:true,
@@ -122,7 +122,7 @@ obj=$('#Store_data').datagrid({
 		    				}
 		    				tids+=rows[i].storeid;
 		    				//发请求到数据库删除
-		    				$.post("../../../deleteStore",{storeid:tids},function(data){
+		    				$.post("../../../store/deleteStore",{storeid:tids},function(data){
 		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
@@ -158,7 +158,7 @@ obj=$('#Store_data').datagrid({
 		"&simagelogo=" + $("#simagelogo").val(); 
 		//var jsonStr=toJsonStr(str);
 		
-		$.post("../../../addStore",str,function(data){
+		$.post("../../../store/addStore",str,function(data){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
@@ -173,7 +173,7 @@ obj=$('#Store_data').datagrid({
 		var str = $("#update").serialize() + 
 			"&simagelogo=" + $("#ussimagelogo").val() + 
 			"&storeid="+ $("#ustoreId").val();
-		$.post("../../../updateStore",str,function(data){
+		$.post("../../../store/updateStore",str,function(data){
 			if(data){
 				$("#update_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格

@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <link rel="stylesheet" href="css/help.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
 <script src="js/hm(1).js"></script>
@@ -36,7 +37,10 @@
         // 加载头部入口模块
         seajs.use("MyDarry/headerJs/header.js");
         
+        
+        
         $(function(){
+        	
         	//导航栏系列显示
         	$.post("series/getname",function(data){
         		var leftstr="";
@@ -59,7 +63,9 @@
         		}
         		$("#leftstyle").append(leftstr);
         	},"json");
-        })
+        });
+        
+      
 </script>
 <script type="text/javascript" src="headerJs/header.js"></script>
 </head>

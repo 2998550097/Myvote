@@ -10,7 +10,7 @@
 
 <script>
 obj=$('#Users_data').datagrid({  
-	    url:'../../../usersfind',  
+	    url:'../../../user/usersfind',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -68,8 +68,8 @@ obj=$('#Users_data').datagrid({
 		    				tids+=rows[i].userid;
 		    				
 		    				//发请求到数据库删除
-		    				$.post("../../../deleteUsers",{userid:tids},function(data){
-		    					if(data>0){
+		    				$.post("../../../user/deleteUsers",{userid:tids},function(data){
+		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
 			    						msg:'会员信息删除成功...',

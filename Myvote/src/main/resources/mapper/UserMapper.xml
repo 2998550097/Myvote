@@ -25,4 +25,17 @@
 	<update id="updatePwdByEmail">
 		update users set upassword=#{upassword} where uemail=#{uemail}
 	</update>
+	
+	<select id="findUsers" resultType="User">
+			select *  from users
+		</select>
+		
+
+		<delete id="deleteUsers" parameterType="string">
+			delete from users where userid in 
+			
+			<foreach collection="array" item="userid" open="(" close=")" separator=",">
+				#{userid}
+			</foreach>
+		</delete>
 </mapper>
