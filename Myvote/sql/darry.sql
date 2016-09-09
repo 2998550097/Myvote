@@ -214,6 +214,7 @@ drop sequence seq_collection_id ;
 drop sequence seq_comments_id ;
 drop sequence seq_article_id ;
 drop sequence seq_articlecom_id ;
+delete from store where storeid in('11','12');
 
 drop table admin;
 drop table users;
