@@ -1,20 +1,15 @@
 package com.yc.darry.handler;
 
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
 import com.yc.darry.entity.Store;
 import com.yc.darry.service.StoreService;
 
@@ -57,9 +52,12 @@ public class StoreHandler {
 		
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="/deleteStore",method=RequestMethod.POST)
-	public boolean deleteStore(int storeid,PrintWriter out){
-		return storeService.deleteStore(storeid);
+	public void deleteStore(String storeid,PrintWriter out){
+		String[] storeids=storeid.split(",");
+		boolean flag=storeService.deleteStore(storeids);
+		out.println(flag);
+		out.flush();
+		out.close();
 	}
 }

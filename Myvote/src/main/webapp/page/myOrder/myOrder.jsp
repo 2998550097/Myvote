@@ -2,43 +2,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/MyDarry/">
 <meta charset="UTF-8">
 <title>订单中心</title>
-<link rel="stylesheet" href="css/left.css" />
-<link rel="stylesheet" href="css/myorder.css" />
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript">
-	function qbd() {
-		$("#qbd").addClass("member_all-nav-click");
-		$("#yqx").removeClass("member_all-nav-click");
-	}
-
-	function yqx() {
-		$("#yqx").addClass("member_all-nav-click");
-		$("#qbd").removeClass("member_all-nav-click");
-	}
-</script>
-	<base href="/MyDarry/">
-		<link rel="stylesheet" href="css/kefu.css" />
-		<link rel="stylesheet" href="css/same.css" />
-		<script type="text/javascript" src="headerJs/header.js"></script>
-		<link rel="stylesheet" href="css/common.css" />
-		<link rel="stylesheet" href="css/valentine_index.css" />
-		<link rel="stylesheet" href="css/drindex.css">
-		<!--实体店应急20160122-->
-		<link rel="stylesheet" href="css/help.css">
-		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
-		<script src="js/hm.js"></script>
-		<script charset="utf-8" src="js/lxb.js"></script>
-		<script src="js/hm(1).js"></script>
-		<script async="" src="js/gt.js"></script>
-		<script charset="utf-8" src="js/lxb.js"></script>
-		<script charset="utf-8" src="js/v.js"></script>
-		<script async="" src="js/analytics.js"></script>
-		<script async="" src="headerJs/index.js"></script>
-		<script async="" src="headerJs/banner.js"></script>
-		<script type="text/javascript" src="headerJs/header.js"></script>
-		<script type="text/javascript" src="headerJs/sea.js"></script>
+<link rel="stylesheet" href="page/myOrder/css/left.css" />
+<link rel="stylesheet" href="page/myOrder/css/myorder.css" />
+<link rel="stylesheet" href="css/kefu.css" />
+<link rel="stylesheet" href="css/same.css" />
+<script type="text/javascript" src="headerJs/header.js"></script>
+<link rel="stylesheet" href="css/common.css" />
+<link rel="stylesheet" href="css/valentine_index.css" />
+<link rel="stylesheet" href="css/drindex.css">
+<!--实体店应急20160122-->
+<link rel="stylesheet" href="css/help.css">
+<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
+<script src="js/hm.js"></script>
+<script charset="utf-8" src="js/lxb.js"></script>
+<script src="js/hm(1).js"></script>
+<script async="" src="js/gt.js"></script>
+<script charset="utf-8" src="js/lxb.js"></script>
+<script charset="utf-8" src="js/v.js"></script>
+<script async="" src="js/analytics.js"></script>
+<script async="" src="headerJs/index.js"></script>
+<script async="" src="headerJs/banner.js"></script>
+<script type="text/javascript" src="headerJs/header.js"></script>
+<script type="text/javascript" src="headerJs/sea.js"></script>
 	<script type="text/javascript">
 		// seajs 配置
 		seajs.config({
@@ -52,9 +41,23 @@
 		seajs.use("MyDarry/headerJs/header.js");
 		</script>
 
+<script type="text/javascript">
+	function qbd() {
+		$("#qbd").addClass("member_all-nav-click");
+		$("#yqx").removeClass("member_all-nav-click");
+	}
+
+	function yqx() {
+		$("#yqx").addClass("member_all-nav-click");
+		$("#qbd").removeClass("member_all-nav-click");
+	}
+</script>
+	
+		
+
 </head>
 <body>
-<jsp:include page="../../page/header.jsp"/>
+	<jsp:include page="../../page/header.jsp"/>
 	<jsp:include page="../../page/nav.jsp"/>
 	<div class="cort">
 		<div class="tobuy cmain">

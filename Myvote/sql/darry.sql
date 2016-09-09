@@ -1,36 +1,3 @@
-drop sequence seq_admin_id ;
-drop sequence seq_user_id;
-drop sequence seq_store_id;
-drop sequence seq_series_id ;
-drop sequence seq_style_id ;
-drop sequence seq_seriesstyle_id ;
-drop sequence seq_goods_id;
-drop sequence seq_paramter_id ;
-drop sequence seq_delivery_id ;
-drop sequence seq_orders_id ;
-drop sequence seq_orderdetail_id ;
-drop sequence seq_collection_id ;
-drop sequence seq_comments_id ;
-drop sequence seq_article_id ;
-drop sequence seq_articlecom_id ;
-
-drop table admin;
-drop table users;
-drop table store;
-drop table series;
-drop table style;
-drop table seriesstyle;
-drop table goods;
-drop table paramter;
-drop table delivery;
-drop table orders;
-drop table orderdetail;
-drop table collection;
-drop table comments;
-drop table article;
-drop table articlecom;
-
-
 --管理员
 create table admin(
      adminid int primary key, --管理员编号
@@ -70,6 +37,7 @@ create table store(
        sendtime varchar2(50) not null  --停业时间
 );
 insert into store values(10,'源城','衡阳',0,'a','a','a');
+select * from store;
 --系列表
 create table series(
        seriesid int primary key,  --系列号
@@ -105,6 +73,7 @@ create table goods(
        comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
+select * from paramter;
 select * from goods;
 --商品参数表
 create table paramter(
@@ -212,7 +181,53 @@ create sequence seq_comments_id start with 1000001;
 create sequence seq_article_id start with 10000001;
 create sequence seq_articlecom_id start with 1000001;
 
+select * from admin;
+select * from users;
+select * from store;
+select * from series;
+select * from style;
+select * from seriesstyle;
+select * from goods;
+select * from paramter;
+select * from delivery;
+select * from orders;
+select * from orderdetail;
+select * from collection;
+select * from comments;
+select * from article;
+select * from articlecom;
 
+drop sequence seq_admin_id ;
+drop sequence seq_user_id;
+drop sequence seq_store_id;
+drop sequence seq_series_id ;
+drop sequence seq_style_id ;
+drop sequence seq_seriesstyle_id ;
+drop sequence seq_goods_id;
+drop sequence seq_paramter_id ;
+drop sequence seq_delivery_id ;
+drop sequence seq_orders_id ;
+drop sequence seq_orderdetail_id ;
+drop sequence seq_collection_id ;
+drop sequence seq_comments_id ;
+drop sequence seq_article_id ;
+drop sequence seq_articlecom_id ;
+
+drop table admin;
+drop table users;
+drop table store;
+drop table series;
+drop table style;
+drop table seriesstyle;
+drop table goods;
+drop table paramter;
+drop table delivery;
+drop table orders;
+drop table orderdetail;
+drop table collection;
+drop table comments;
+drop table article;
+drop table articlecom;
 
 
 
@@ -471,22 +486,6 @@ values(seq_paramter_id.nextval,100005,'99分D',14,'VS1','VG',16,10);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100005,'99分D',15,'VS1','VG',16,10);
 
-
-select * from admin;
-select * from users;
-select * from store;
-select * from series;
-select * from style;
-select * from seriesstyle;
-select * from goods;
-select * from paramter;
-select * from delivery;
-select * from orders;
-select * from orderdetail;
-select * from collection;
-select * from comments;
-select * from article;
-select * from articlecom;
 
 
 
