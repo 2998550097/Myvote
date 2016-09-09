@@ -37,6 +37,7 @@ create table store(
        sendtime varchar2(50) not null  --停业时间
 );
 insert into store values(10,'源城','衡阳',0,'a','a','a');
+select * from store;
 --系列表
 create table series(
        seriesid int primary key,  --系列号
@@ -73,7 +74,6 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
-insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4.0,1,2,3,'钻石一样的永恒',1);
 select * from goods;
 --商品参数表
 create table paramter(
@@ -212,7 +212,6 @@ drop sequence seq_collection_id ;
 drop sequence seq_comments_id ;
 drop sequence seq_article_id ;
 drop sequence seq_articlecom_id ;
-delete from store where storeid in('11','12');
 
 drop table admin;
 drop table users;
@@ -230,13 +229,7 @@ drop table comments;
 drop table article;
 drop table articlecom;
 
-alter table goods add goodnum number(10);--收藏次数
-alter table goods add usercount number(10);--用户购买次数
-alter table goods drop (gcount);
-alter table collection drop (scount);
-alter table paramter add pprice number(10);--价格
-alter table paramter add pcount number(10);--数量
-alter table paramter modify pcarat varchar2(20);
+
 
 --系列表
 insert into series(seriesid,seriesname) values(seq_series_id.nextval,'稀世粉钻'); 
