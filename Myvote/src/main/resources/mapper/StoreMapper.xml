@@ -11,7 +11,7 @@
 			insert into store values(seq_store_id.nextval,#{sname,jdbcType=VARCHAR},#{saddress,jdbcType=VARCHAR},#{sappointcount,jdbcType=INTEGER},#{simagelogo,jdbcType=VARCHAR},#{sstarttime,jdbcType=VARCHAR},#{sendtime,jdbcType=VARCHAR})
 		</insert>
 		<delete id="deleteStore" parameterType="Integer">
-			delete from store where storeid=#{storeid}
+			delete from store where storeid in (#{storeid})
 		</delete>
 		
 		<update id="updateStore" parameterType="Store">

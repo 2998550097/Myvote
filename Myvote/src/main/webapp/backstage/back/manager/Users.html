@@ -1,10 +1,16 @@
 <table id="Users_data"></table>
- 
+
+<div style="position: absolute;top:60px;left:250px;">
+	会员编号:<input id="Users_userid" type="text" name="userid" />&nbsp;
+	会员名:<input id="Users_urealname" type="text" name="urealname" />&nbsp;
+	会员电话:<input id="Users_utel" type="text" name="utel" />&nbsp;
+	会员性别:<input id="Users_usex" type="text" name="usex" />&nbsp;
+	<input id="search_Users" type="button" value="查询" onclick="search()">
+</div>  
 
 <script>
 obj=$('#Users_data').datagrid({  
-	    url:'../../usersServlet',  
-	    queryParams:{op:'findUsers'},
+	    url:'../../../usersfind',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -17,18 +23,19 @@ obj=$('#Users_data').datagrid({
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:27,align:'center',checkbox:true}, 
-			{field:'usid',title:'会员编号',width:96,align:'center',sortable:true}, 
-	        {field:'uname',title:'会员姓名',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'upwd',title:'密码',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
-	        {field:'email',title:'邮件帐号',width:96,align:'center',editor:{type:"email",options:{requires:true}}},  
-	        {field:'email',title:'生日',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'性别',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'电话',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'情感状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'地址',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'邮编',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'email',title:'激活状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
-	        {field:'photo',title:'头像',width:96,align:'center',
+			{field:'userid',title:'会员编号',width:96,align:'center',sortable:true}, 
+			{field:'urealname',title:'会员姓名',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'uname',title:'用户昵称',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'upassword',title:'密码',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
+	        {field:'uemail',title:'邮件帐号',width:96,align:'center',editor:{type:"email",options:{requires:true}}},  
+	        {field:'ubirthday',title:'生日',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'usex',title:'性别',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'utel',title:'电话',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'ustate',title:'情感状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'uaddress',title:'地址',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'upostcode',title:'邮编',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'ustatus',title:'激活状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	        {field:'uimage',title:'头像',width:96,align:'center',
 	        	formatter:function(value,rowData,index){
 	        		if(value!=null){
 	        			var str="";
@@ -56,12 +63,12 @@ obj=$('#Users_data').datagrid({
 		    			if(rs){
 		    				var tids="";
 		    				for(var i=0;i<rows.length-1;i++){
-		    					tids+=rows[i].usid+",";
+		    					tids+=rows[i].userid+",";
 		    				}
-		    				tids+=rows[i].usid;
+		    				tids+=rows[i].userid;
 		    				
 		    				//发请求到数据库删除
-		    				$.post("../../usersServlet",{op:"delUsers",usid:tids},function(data){
+		    				$.post("../../../deleteUsers",{userid:tids},function(data){
 		    					if(data>0){
 			    					$.messager.show({
 			    						title:'成功提示',
@@ -91,36 +98,6 @@ obj=$('#Users_data').datagrid({
 		    }
 		 }]
 	}); 
-
-function addUsersInfo(){
-	var uname=$.trim($("#Users_uname").val());
-	var upwd=$.trim($("#Users_upwd").val());
-	var email=$.trim($("#Users_email").val());
-
-	$.ajaxFileUpload({
-		url:"../../usersServlet?op=addUsers",
-		secureuri:false,
-		fileElementId:"Users_pics",
-		dataType:"json",
-		data:{uname:uname,upwd:upwd,email:email},
-		success:function(data,status){
-			if(data>0){
-				$.messager.show({title:'成功提示',msg:"会员信息添加成功....",timeout:2000,showType:'slide'});
-				$("#Users_uname").val("");
-				$("#Users_upwd").val("");
-				$("#Users_email").val("");
-				$("#Users_pics_show").html("");
-				$('#Users_data').datagrid("reload");
-				$('#add_Users').dialog('close');
-			}else{
-				$.messager.alert("错误提示","会员信息添加失败...\n","error");
-			}
-		},
-		error:function(data,status,e){
-			$.messager.alert("错误提示","会员信息添加失败...\n"+e,"error");
-		}
-	});
-}
 
 
 

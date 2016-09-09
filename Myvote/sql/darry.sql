@@ -74,7 +74,6 @@ create table goods(
 );
 select * from paramter;
 insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
-
 select * from goods;
 --商品参数表
 create table paramter(
@@ -117,9 +116,9 @@ create table orders(
 create table orderdetail(
        orderdetailid int primary key, --商品明细
        orderid varchar2(50) not null, --订单编号
-       goodid int not null --商品编号
+       goodid int not null, --商品编号
        odcount int, --商品数量
-       discount number(2,1)  --商品折扣
+       discount number(2,1),  --商品折扣
        totalprice number(10)  --总价格
 );
 drop table orderdetail;
