@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <script type="text/javascript" src="js/h.js"></script>
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="headerJs/jquery.js"></script>
 <script type="text/javascript" src="headerJs/index.js"></script>
 <script type="text/javascript" src="headerJs/sea.js"></script>
@@ -135,9 +137,9 @@
               </div>  
               
              
-              <ul class="dring_thing">
-                
-                        <li class="dring_thing_left">
+              <ul class="dring_thing" id="dring_thing">
+                		
+                        <!-- <li class="dring_thing_left">
                             <a href="darry_marry.jsp">
                                 <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
                             </a>
@@ -256,7 +258,7 @@
                                 <div class="dring_thing-sold">
                                     <span>已售：18354</span><i>评价：<em>69</em></i></div>
                             </div>
-                        </li>
+                        </li> -->
                     
                     
             </ul>

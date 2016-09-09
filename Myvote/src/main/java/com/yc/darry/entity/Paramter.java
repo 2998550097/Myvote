@@ -3,13 +3,13 @@ package com.yc.darry.entity;
 public class Paramter {
 	private Integer paramterid;
 	private Integer goodid;
-	private Integer pcarat;
+	private String pcarat;
 	private Integer psize;
 	private String gcrystal;
 	private String gcutting;
 	private Integer pprice;
 
-	public Paramter(Integer paramterid, Integer goodid, Integer pcarat, Integer psize, String gcrystal,
+	public Paramter(Integer paramterid, Integer goodid, String pcarat, Integer psize, String gcrystal,
 			String gcutting,Integer pprice) {
 		super();
 		this.paramterid = paramterid;
@@ -41,11 +41,11 @@ public class Paramter {
 		this.goodid = goodid;
 	}
 
-	public Integer getPcarat() {
+	public String getPcarat() {
 		return pcarat;
 	}
 
-	public void setPcarat(Integer pcarat) {
+	public void setPcarat(String pcarat) {
 		this.pcarat = pcarat;
 	}
 
@@ -75,7 +75,7 @@ public class Paramter {
 
 	@Override
 	public String toString() {
-		return "Paramter [paramterid=" + paramterid + ", goodid=" + goodid + ", pcarat=" + pcarat + ", psize=" + psize
+		return "\nParamter [paramterid=" + paramterid + ", goodid=" + goodid + ", pcarat=" + pcarat + ", psize=" + psize
 				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting +  ", pprice=" + pprice + "]";
 	}
 
