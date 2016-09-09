@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.yc.darry.mapper.GoodMapper">
+	<resultMap type="Good" id="GoodMap">
+		<id column="goodid" property="goodid"/>
+		<result property="gname" column="gname"/>
+		<result property="ssid" column="ssid"/>
+		<result property="gmaterial" column="gmaterial"/>
+		<result property="gimage" column="gimage"/>
+		<result property="averagescore" column="averagescore"/>
+		<result property="gother" column="gother"/>
+		<result property="goodnum" column="goodnum"/>
+		<result property="usercount" column="usercount"/>
+		<result property="comcount" column="comcount"/>
+		
+		<collection property="paramters" column="paramterid" ofType="Paramter">
+					<id property="paramterid" column="paramterid"/>
+					<result property="pcarat" column="pcarat"/>
+					<result property="psize" column="psize"/>
+					<result property="gcrystal" column="gcrystal"/>
+					<result property="gcutting" column="gcutting"/>
+					<result property="pprice" column="pprice"/>
+		</collection>			
+	</resultMap>
+	<select id="getAll" resultMap="GoodMap">
+		select g.*,p.paramterid,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g join paramter p on g.goodid=p.goodid 
+	</select>
+	
+	<select id="getParamterById" resultType="Paramter" parameterType="int">
+		select * from paramter where goodid=#{goodid} 
+	</select>
+</mapper>
