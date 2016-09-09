@@ -4,33 +4,34 @@
 <html>
 <head>
 <base href="/MyDarry/">
-<link rel="stylesheet" type="text/css" href="Darrying/css/same.css" />
-<script src="Darrying/js/jquery.js"></script>
-<script type="text/javascript" src="Darrying/js/index.js"></script>
-<script src="Darrying/js/sea.js"></script>
+<link rel="stylesheet" type="text/css" href="css/same.css" />
+<link rel="stylesheet" type="text/css" href="css/kefu.css" />
+<script src="headerJs/jquery.js"></script>
+<script type="text/javascript" src="headerJs/index.js"></script>
+<script src="headerJs/sea.js"></script>
 <script>
 			// seajs 配置
 			seajs.config({
 				debug: true,
 				base: "",
 				alias: {
-					"jquery": "MyDarry/Darrying/js/jquery.js"
+					"jquery": "MyDarry/headerJs/jquery.js"
 				}
 			});
 			// 加载头部入口模块
-			seajs.use("MyDarry/Darrying/js/header.js");
+			seajs.use("MyDarry/headerJs/header.js");
 		</script>
-<link rel="stylesheet" href="Darrying/css/common.css" />
-<script type="text/javascript" src="Darrying/js/header.js"></script>
+<link rel="stylesheet" href="css/common.css" />
+<script type="text/javascript" src="headerJs/header.js"></script>
 
 <title>Darry Ring实体店分布_戴瑞珠宝实体店_戴瑞珠宝官网</title>
 <meta name="Keywords" content="Darry Ring实体店，戴瑞珠宝实体店" />
-<link rel="stylesheet" href="Darrying/css/index.css" />
-<link rel="stylesheet" type="text/css" href="Darrying/css/dr.css" />
-<link rel="stylesheet" type="text/css" href="Darrying/css/dr_tyd.css?v=1.3.5" />
-<link rel="stylesheet" href="Darrying/css/newshop.css" />
-<script type="text/javascript" src="Darrying/js/WdatePicker.js"></script>
-<script type="text/javascript" src="Darrying/js/newshop.js"></script>
+<link rel="stylesheet" href="css/index.css" />
+<link rel="stylesheet" type="text/css" href="css/dr.css" />
+<link rel="stylesheet" type="text/css" href="css/dr_tyd.css?v=1.3.5" />
+<link rel="stylesheet" href="css/newshop.css" />
+<script type="text/javascript" src="js/WdatePicker.js"></script>
+<script type="text/javascript" src="js/newshop.js"></script>
 
 <style>
 .cort {
@@ -65,7 +66,7 @@ body {
 }
 
 #slider-mask {<!--
-	background: url(Darrying/images/slider.png) no-repeat; -->
+	background: url(images/darry/slider.png) no-repeat; -->
 	width: 1043px;
 	height: 374px;
 	margin: 40px auto 0 auto;
@@ -254,13 +255,13 @@ body {
 					<ul class="shopBanPics fix" id="banner">
 
 						<li><a href="http://www.darryring.com/zt/hf.html"><img
-								src="Darrying/images/sh_ad.jpg" alt="" /></a></li>
+								src="images/darry/sh_ad.jpg" alt="" /></a></li>
 						<li><a href="http://www.darryring.com/hkstore"><img
-								src="Darrying/images/201511141709120e71fba419.jpg" alt="" /></a></li>
+								src="images/darry/201511141709120e71fba419.jpg" alt="" /></a></li>
 						<li><a href="http://www.darryring.com/hzxgddstore"><img
-								src="Darrying/images/20160728145229b1a55a2ae7.jpg" alt="" /></a></li>
+								src="images/darry/20160728145229b1a55a2ae7.jpg" alt="" /></a></li>
 						<li><a href="http://www.darryring.com/lzgfbhstore"><img
-								src="Darrying/images/2016-08-24_155417.png" alt="" /></a></li>
+								src="images/darry/2016-08-24_155417.png" alt="" /></a></li>
 					</ul>
 					<div class="shopBanNav" id="shopBanMenu">
 						<div class="shopBanNavBg"></div>
@@ -371,7 +372,7 @@ body {
 			<!--shopMap 店铺地图-->
 			<div class="shopMapMain" id="shopMapMain"
 				style="opacity: 1; display: none;">
-				<div class="shopMapBg" id="shopMapBg"></div
+				<div class="shopMapBg" id="shopMapBg"></div>
 				<div class="shopMap" id="shopMap">
 					<div class="shopMapInfo">
 						<h5 id="h_shopname">Darry Ring北京店</h5>
@@ -409,7 +410,7 @@ body {
 				<ul class="attentionList fix">
 
 					<li><a href="/darry_ring/96.html"> <img
-							src="Darrying/images/20140901160038b957ac6c35.jpg" width="222"
+							src="images/darry/20140901160038b957ac6c35.jpg" width="222"
 							height="222" alt="BELIEVE系列 典雅" />
 							<p>
 								BELIEVE系列 典雅 30分 J色<span><i>￥9999</i>销量：21384</span>
@@ -417,7 +418,7 @@ body {
 					</a></li>
 
 					<li><a href="/darry_ring/171.html"> <img
-							src="Darrying/images/20160620101350d2f9fcb5a8.jpg" width="222"
+							src="images/darry/20160620101350d2f9fcb5a8.jpg" width="222"
 							height="222" alt="MY HEART 系列 奢华款" />
 							<p>
 								MY HEART 系列 奢华款 999分 D色<span><i>￥15200000</i>销量：18354</span>
@@ -425,7 +426,7 @@ body {
 					</a></li>
 
 					<li><a href="/darry_ring/340.html"> <img
-							src="Darrying/images/201509301423462d2e8ea34f.jpg" width="222"
+							src="images/darry/201509301423462d2e8ea34f.jpg" width="222"
 							height="222" alt="I SWEAR系列 简奢款" />
 							<p>
 								I SWEAR系列 简奢款 100分 G色<span><i>￥120499</i>销量：12395</span>
@@ -433,7 +434,7 @@ body {
 					</a></li>
 
 					<li><a href="/darry_ring/349.html"> <img
-							src="Darrying/images/201509301423462d2e8ea34f (1).jpg" width="222"
+							src="images/darry/201509301423462d2e8ea34f (1).jpg" width="222"
 							height="222" alt="TRUE LOVE系列 奢华款" />
 							<p>
 								TRUE LOVE系列 奢华款 200分 E色<span><i>￥9999</i>销量：2356</span>
@@ -667,13 +668,6 @@ body {
 				seajs.use("MyDarry/footerJs/footer.js");
 			</script>
 			
-			<!--JS begin-->
-			<!--友情链接-->
-			<div class="dr_friend-bk">
-				<div class="dr_friendshare w1000"></div>
-				<!--友情链接end-->
-			</div>
-
 			<script type="text/javascript">
 					// 分享
 					function commonShareMethod(obj, baseUrl) {

@@ -1,9 +1,9 @@
 <table id="Collection_data"></table>
-<div style="position: absolute;top:60px;left:50px;">
+<div style="position: absolute;top:60px;left:50px;" id="search" >
 	商品名:<input id="Coll_gname" type="text" name="gname" />&nbsp;
 	商品样式:<select id="Coll_seriesname" name="seriesname" ></select>&nbsp;
 	商品款式:<select id="Coll_stylename" name="stylename" ></select>&nbsp;
-	<input id="search_Coll" type="button" value="查询" onclick="search()">
+	<input id="search_Coll" type="button" value="查询" onclick="search()"/>
 </div> 
 <script>
 obj=$('#Collection_data').datagrid({  
@@ -25,7 +25,7 @@ obj=$('#Collection_data').datagrid({
 	        {field:'ctime',title:'收藏时间',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
 	        {field:'seriesname',title:'商品系列',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
 	       	{field:'stylename',title:'商品款式',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
-	       	{field:'scount',title:'收藏总数量',width:165,align:'center',editor:{type:"text",options:{requires:true}}}, 
+	       	{field:'goodnum',title:'收藏次数',width:165,align:'center',editor:{type:"text",options:{requires:true}}}, 
 	       	{field:'gimage',title:'商品图片',width:165,align:'center',
 	        	formatter:function(value,rowData,index){
 	        		if(value!=null){
@@ -43,23 +43,70 @@ obj=$('#Collection_data').datagrid({
 	        },
 	     ]],
 	     toolbar:[{
-	     }],
+	     }]
 	});
 	$(function(){
 		$.post("../../../series/getname",function(data){
 			var obj=$("#Coll_seriesname");
 			var opt;
-			$.each(data.rows,function(index,item){
-				opt="<option value='"+item.seriesid+"'>"+item.seriesname+"</option>";
+			for(var a=0;a<data.length;a++){
+				opt="<option value='"+data[a].seriesname+"'>"+data[a].seriesname+"</option>";
 				obj.append($(opt));
-			});
+			}
 		},"json");
 		$.post("../../../style/getname",function(data){
 			var obj1=$("#Coll_stylename");
 			var opt;
-			$.each(data.rows,function(index,item){
-				opt="<option value='"+item.styleid+"'>"+item.stylename+"</option>";
-				obj1.append($(opt)); 
-			});
+			for(var a=0;a<data.length;a++){
+				opt="<option value='"+data[a].stylename+"'>"+data[a].stylename+"</option>";
+				obj1.append($(opt));
+			}
 		},"json");
+	});
+	function search(){
+		var gname=$("#Coll_gname").val();
+		var seriesname=$("#Coll_seriesname option:selected").text();
+		var stylename=$("#Coll_stylename option:selected").text();
+		alert(gname+seriesname+stylename);
+		$('#Collection_data').datagrid({ 
+			url:'../../../Coll/search',
+			queryParams:{gname:gname,seriesname:seriesname,stylename:stylename},
+		    fitColumns:true,
+		    striped:true,
+		    loadMsg:"数据加载中",
+		    pagination:true,
+		    fit:true,
+		    pageNumber:1,
+		    pageSize:2,
+		    pageList:[2,5,10,15,20,30,3],
+		    sortName:'tids',
+		    remoteSort:false,
+		    columns:[[  
+				{field:'tids',title:'',width:165,align:'center',checkbox:true}, 
+				{field:'collectionId',title:'收藏编号',width:165,align:'center',sortable:true}, 
+		        {field:'gname',title:'商品名',width:165,align:'center',editor:{type:"text",options:{requires:true}}},  
+		        {field:'ctime',title:'收藏时间',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+		        {field:'seriesname',title:'商品系列',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+		       	{field:'stylename',title:'商品款式',width:165,align:'center',editor:{type:"text",options:{requires:true}}},
+		       	{field:'goodnum',title:'收藏次数',width:165,align:'center',editor:{type:"text",options:{requires:true}}}, 
+		       	{field:'gimage',title:'商品图片',width:165,align:'center',
+		        	formatter:function(value,rowData,index){
+		        		if(value!=null){
+		        			var str="";
+		        			var pics=value.split(",");
+		        			for(var i=0;i<pics.length;i++){
+		        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+		        			}
+		        			return str;
+		        		}else{
+		        			return;
+		        		}
+		        	}	
+		        
+		        },
+		     ]],
+		     toolbar:[{
+		     }]
+		});
+	}
 </script>
