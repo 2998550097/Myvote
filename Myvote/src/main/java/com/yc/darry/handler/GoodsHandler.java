@@ -12,7 +12,7 @@ import com.yc.darry.service.GoodsService;
 
 @Controller
 @RequestMapping("/good")
-public class GoodHandler {
+public class GoodsHandler {
 	@Autowired
 	private GoodsService goodsService;
 	

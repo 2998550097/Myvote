@@ -54,8 +54,8 @@ insert into style values(seq_style_id.nextval,'戒指');
 select * from style;
 --系列款式表
 create table seriesStyle(
-       seriesid int ,
-       styleid int，
+       seriesid int,
+       styleid int,
        goodid int not null
 );
 drop table seriesStyle;
