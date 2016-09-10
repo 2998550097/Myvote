@@ -1,6 +1,5 @@
 package com.yc.darry.handler;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,20 +19,9 @@ public class GoodsHandler {
 	@ResponseBody
 	@RequestMapping("/findAll")
 	public List<Good>  findAll(){
-		List<Good> goods =goodsService.findAll();
-		if(goods.size()>0){
-			return goods;
-		}
-		return null;
+		List<Good> goods =goodsService.getAll();
+		return goods;
 	}
 	
-//	@ResponseBody
-//	@RequestMapping("/search")//组合查询商品 （收藏表&商品表）
-//	public List<Good>  search(HttpServletRequest request){
-//		String gname=request.getParameter("gname");
-//		String seriesname=request.getParameter("seriesname");
-//		String stylename=request.getParameter("stylename");
-//		System.out.println(gname+seriesname+stylename);
-//		return goodsService.search(gname,seriesname,stylename);
-//	}
+	
 }
