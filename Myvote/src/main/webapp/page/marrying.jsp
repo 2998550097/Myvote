@@ -42,7 +42,7 @@
 		<div>
 			<div class="dring-banner">
        			<a href="#">
-       				<img alt="darry ring 求婚钻戒" src="images/20160627145241dc6e9ac911.jpg"/>
+       				<img alt="darry ring 求婚钻戒" src="images/marryring/20160627145241dc6e9ac911.jpg"/>
        			</a>
 			</div>
 			<div class="dr-bread w1000">
@@ -79,28 +79,7 @@
 						<div class="drring_highsearch-same fix">
 							<span class="fl">系列</span>
 							<div id="series" class="drring_series fl">
-								<a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=heart">My Heart 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=forever">Forever
-									系列</a> <a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=believe">Believe 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=loveline">Love
-									Line 系列</a> <a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=love">True Love 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=just">Just You
-									系列</a> <a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=with">With You 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=princess">Princess
-									系列</a> <a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=swear">I Swear 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=sweety">Sweety
-									系列</a> <a rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=endless">Endless Love系列</a> <a
-									rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=flower">Flower Love 系列</a> <a
-									rel="nofollow" style="" dr-type="1"
-									href="/darry_ring?series=wedding">Wedding 系列</a> <a rel="nofollow"
-									style="" dr-type="1" href="/darry_ring?series=other">其他</a>
+							
 							</div>
 							<span id="moreSeries" class="moreSeries fl" onclick="seeMore()" href="javascript:;">更多</span>
 				
@@ -142,14 +121,14 @@
 							class="drring_highsearch-same">
 			
 							<span>价格</span> <a rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_5000">5000以下</a> <a rel="nofollow"
-								style="" dr-type="4" href="/darry_ring?price=price_5001-10000">5001-10000</a>
+								href="/darry_ring?price=price_5000">10以下</a> <a rel="nofollow"
+								style="" dr-type="4" href="/darry_ring?price=price_5001-10000">11-13</a>
 							<a rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_10001-20000">10001-20000</a> <a
+								href="/darry_ring?price=price_10001-20000">14-16</a> <a
 								rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_20001-40000">20001-40000</a> <a
+								href="/darry_ring?price=price_20001-40000">17-20</a> <a
 								rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_40000">40000以上</a> <input type="text"
+								href="/darry_ring?price=price_40000">21以上</a> <input type="text"
 								id="minPrice"> <label>-</label> <input type="text"
 								id="maxPrice"> <em
 								onclick="btnPriceSearch('/darry_ring?page=1&amp;')" id="priceBtn">确定</em>
@@ -179,9 +158,9 @@
 					</div>
 					<!--排序与分页end-->
 					<!--商品-->
-					<ul class="dring_thing">
+					<ul class="dring_thing" id="dring_thing">
 			
-						<li><a target="_blank" href="/darry_ring/160.html"> <img
+						<!-- <li><a target="_blank" href="/darry_ring/160.html"> <img
 								width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色"
 								src="http://img.darryring.com/userfiles/image/Product/201409031259093e45b5ecf0.jpg">
 						</a>
@@ -408,8 +387,8 @@
 									<span>已售：10981</span><i>评价：<em>47</em></i>
 								</div>
 							</div></li>
-			
-					</ul>
+						-->
+					</ul> 
 					<!--商品end-->
 					<!--分页-->
 					<div id="pagein" class="pagin fpagin fr">

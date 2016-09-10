@@ -52,10 +52,10 @@ $(function(){
     	//系列循环
     	$.post("series/getname",function(data){
     		var str="";
-    		for(var i=0; i<7; i++){
-    			str += '<li><a href="#">'+ data[i].seriesname + '</a></li>';
+    		for(var i=0; i<data.length; i++){
+    			str += '<a rel="nofollow" style="" dr-type="1" href="/darry_ring?series=heart">'+data[i].seriesname+'</a> ';
     		}
-    		$("#more").before(str);
+    		$("#series").append(str);
     	},"json");
    
     	
