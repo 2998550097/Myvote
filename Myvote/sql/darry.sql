@@ -76,6 +76,7 @@ select * from paramter;
 insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4.0,1,2,3,'钻石一样的永恒',1);
 select * from goods;
 --商品参数表
+select g.*,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount,s.seriesname,sy.stylename from goods g,paramter p,seriesStyle ss , series s,style sy where g.goodid=p.goodid and g.ssid=ss.ssid and ss.seriesid=s.seriesid and sy.styleid=ss.styleid;
 create table paramter(
 	paramterid int primary key, --参数编号
 	goodid int, --商品编号
@@ -83,7 +84,8 @@ create table paramter(
 	psize int,  --手寸
 	gcrystal varchar2(10), --净度
 	gcutting varchar2(10), --切工
-	pprice number(10) not null --价格
+	pprice number(10) not null, --价格
+	pcount number(10),
 );
 insert into paramter values (seq_paramter_id.nextval,100001,1,12,'纯净','完美',10);
 select * from paramter;
@@ -233,7 +235,6 @@ alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods drop (gcount);
 alter table collection drop (scount);
-alter table paramter add pprice number(10);--价格
 alter table paramter add pcount number(10);--数量
 alter table paramter modify pcarat varchar2(20);
 

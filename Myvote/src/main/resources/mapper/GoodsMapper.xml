@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的
+例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
+ -->
+<mapper namespace="com.yc.darry.mapper.GoodsMapper">
+		<select id="findAll" resultType="Good">
+		select g.*,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount,s.seriesname,sy.stylename from goods g,paramter p,seriesStyle ss , series s,style sy where g.goodid=p.goodid and g.ssid=ss.ssid and ss.seriesid=s.seriesid and sy.styleid=ss.styleid
+		</select>
+		
+		<select id="search" resultType="Collections">
+	   	<!-- prefix:添加前缀字符串
+	   		prefixOverrides:去掉的前缀字符串
+	   		suffix：添加后缀字符换
+	   		suffixOverrides：去掉的后缀字符串
+	   	 -->
+	   	 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename from goods g,collection c,seriesstyle ss,series s,style sy where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid
+				<if test="gname!=null">
+	   				and gname like '%'||#{gname}||'%'
+	   			</if>
+	   			<if test="seriesname!=null">
+	   				and seriesname=#{seriesname}
+	   			</if>
+	   			<if test="stylename!=null">
+	   				and stylename=#{stylename}
+	   			</if>
+   	</select>
+   	
+   <insert id="addItem" parameterType="Item">
+   		 <selectKey keyColumn="goodid" keyProperty="goodid" resultType="int" order="BEFORE">
+   		 	select seq_good_id.nextval goodid from goods
+   		 </selectKey>
+   		 <selectKey keyColumn="ssid" keyProperty="ssid" resultType="int" order="BEFORE">
+   		 	select seq_seriesstyle_id.nextval ssid from seriesstyle
+   		 </selectKey>
+   		 insert into goods values(#{goodid},#{gname},#{vu_user_id})
+   	</insert>
+   	<insert></insert>
+</mapper>
