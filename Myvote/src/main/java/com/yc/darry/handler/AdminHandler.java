@@ -30,7 +30,7 @@ public class AdminHandler {
 			map.put("errorMsg", "用户名或密码错误");
 			return "login";
 		}
-		return "redirect:../backstage/back/manager/index.html";
+		return "redirect:../backstage/back/manager/index.jsp";
 	}
 	@RequestMapping("/findAdmin")
 	public void findAdmin(ModelMap map,HttpServletRequest request,PrintWriter out){

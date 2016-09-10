@@ -1,6 +1,7 @@
 package com.yc.darry.handler;
 
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.mail.MessagingException;
@@ -149,15 +150,23 @@ public class UserHandler {
 	@ResponseBody
 	@RequestMapping("/usersfind")
 	public List<User>  findUsers(){
-		List<User> users=(List<User>) userService.findUsers();
-		return users;
+		List<User> users=userService.findUsers();
+		if(users.size()>0){
+			return users;
+		}else{
+			return null;
+		}
+		
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="/deleteUsers",method=RequestMethod.POST)
-	public boolean deleteStore(String userid){
-		String[] userids=userid.split(",");
-		return userService.deleteUsers(userids);
+	public void deleteStore(PrintWriter out, String uid){
+		String[] userids=uid.split(",");
+		System.out.println(userids);
+		boolean flag=userService.deleteUsers(userids);
+		out.println(flag);
+		out.flush();
+		out.close();
 	}
 	
 }

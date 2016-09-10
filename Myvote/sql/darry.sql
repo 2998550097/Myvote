@@ -23,9 +23,17 @@ create table users(
        uimage varchar2(200)  --头像路径
 );
 insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
-'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a')
+'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a');
+
+insert into users values( seq_user_id.nextval,'430381129603090001','小黑',
+'霸王','19940409','男','月亮镇萌星村','18174747474','124456789@qq.com','a','400400','已激活','未婚','a');
+
+
+insert into users values( seq_user_id.nextval,'430380129603090001','小黑',
+'霸王','19940409','男','月亮镇萌星村','18174747474','124256789@qq.com','a','400400','已激活','未婚','a');
 select * from users;
 drop table users;
+commit
 --店铺表
 create table store(
        storeid int primary key,--店铺编号
@@ -37,6 +45,7 @@ create table store(
        sendtime varchar2(50) not null  --停业时间
 );
 insert into store values(10,'源城','衡阳',0,'a','a','a');
+select * from store;
 --系列表
 create table series(
        seriesid int primary key,  --系列号
@@ -73,7 +82,10 @@ create table goods(
        gother varchar2(20) --其它
 );
 select * from paramter;
+<<<<<<< HEAD
 insert into goods values(seq_goods_id.nextval,'自行车',10001,'粉钻','a',4,1,2,3,'钻石一样的永恒');
+=======
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 select * from goods;
 --商品参数表
 create table paramter(
@@ -214,7 +226,6 @@ drop sequence seq_collection_id ;
 drop sequence seq_comments_id ;
 drop sequence seq_article_id ;
 drop sequence seq_articlecom_id ;
-delete from store where storeid in('11','12');
 
 drop table admin;
 drop table users;
@@ -232,6 +243,7 @@ drop table comments;
 drop table article;
 drop table articlecom;
 
+<<<<<<< HEAD
 alter table goods add goodnum number(10);--收藏次数
 alter table goods add usercount number(10);--用户购买次数
 alter table goods add comnum number(10);--评论次数
@@ -245,6 +257,8 @@ alter table paramter modify pcarat varchar2(20);
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename   
 from goods g,collection c,series s,style sy 
 where g.goodId=c.goodId and sy.styleid=g.styleid and g.seriesid=s.seriesid
+=======
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 
 
 --系列表

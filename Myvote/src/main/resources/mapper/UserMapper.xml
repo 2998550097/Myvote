@@ -27,8 +27,8 @@
 	</update>
 	
 	<select id="findUsers" resultType="User">
-			select *  from users
-		</select>
+			select * from users
+    </select>
 		
 
 		<delete id="deleteUsers" parameterType="string">

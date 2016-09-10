@@ -36,7 +36,8 @@ public class CommentHandler {
 	
 	@ResponseBody
 	@RequestMapping(value="/deleteComment",method=RequestMethod.POST)
-	public boolean deleteComment(int commentid,PrintWriter out){
-		return commentService.deleteComments(commentid);
+	public boolean deleteComment(String commentid,PrintWriter out){
+		String[] commentids=commentid.split(",");
+		return commentService.deleteComments(commentids);
 	}
 }

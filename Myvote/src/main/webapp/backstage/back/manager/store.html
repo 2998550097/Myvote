@@ -27,7 +27,7 @@
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="updateStore" style="float:left;padding-left:20px" id="update">
+   <form action="updateStore" style="float:left;padding-left:20px" id="update" method="post">
   		<label>店铺编号：</label><input type="text" id="ustoreId" name="storeId" required="required" disabled="true" value=""/><br/><br/>
    		<label>店铺名：</label><input type="text" id="usname" name="sname" required="required"/><br/><br/>
    		<label>店铺地址：</label><input type="text" id="usaddress" name="saddress" required="required"/><br/><br/>
@@ -53,7 +53,7 @@ obj=$('#Store_data').datagrid({
 	    pageNumber:1,
 	    pageSize:2,
 	    pageList:[2,5,10,15,20,30,3],
-	    sortName:'tids',
+	    sortName:'storeid',
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 

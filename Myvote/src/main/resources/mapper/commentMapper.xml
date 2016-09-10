@@ -10,8 +10,12 @@
 			where c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid
 		</select>
 		
-		<delete id="deleteStore" parameterType="Integer">
-			delete from store where storeid=#{storeid}
+		<delete id="deleteComments" parameterType="string">
+			delete from comments where commentid=
+			<foreach collection="array" item="commentid" open="(" close=")" separator=",">
+				#{commentid}
+			</foreach>
+
 		</delete>
 		
 </mapper>
