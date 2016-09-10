@@ -14,11 +14,6 @@ public class GoodsServiceImpl implements GoodsService{
 	private GoodsMapper goodsMapper;
 	
 	@Override
-	public List<Good> findAll() {
-		return goodsMapper.findAll();
-	}
-
-	@Override
 	public List<Good> getAll() {
 		return goodsMapper.getAll();
 	}

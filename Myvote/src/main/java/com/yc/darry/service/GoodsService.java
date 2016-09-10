@@ -6,7 +6,6 @@ import com.yc.darry.entity.Good;
 
 public interface GoodsService {
 
-	List<Good> findAll();
 
 	List<Good> getAll();
 
