@@ -1,0 +1,15 @@
+信息 :2016-09-09 19:26:30,294 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: delete from users where userid in ( ? ) 
+信息 :2016-09-09 19:26:30,522 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 1(String)
+信息 :2016-09-09 19:26:30,577 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 0
+信息 :2016-09-09 19:28:35,815 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: delete from users where userid in ( ? ) 
+信息 :2016-09-09 19:28:35,919 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 132(String)
+信息 :2016-09-09 19:28:35,954 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 1
+信息 :2016-09-09 20:50:47,456 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: delete from users where userid in ( ? ) 
+信息 :2016-09-09 20:50:47,646 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 132(String)
+信息 :2016-09-09 20:50:47,704 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 0
+信息 :2016-09-09 20:51:29,843 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: delete from users where userid in ( ? ) 
+信息 :2016-09-09 20:51:29,947 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 132(String)
+信息 :2016-09-09 20:51:29,953 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 0
+信息 :2016-09-09 21:14:55,990 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: delete from users where userid in ( ? , ? ) 
+信息 :2016-09-09 21:14:56,094 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 147(String), 146(String)
+信息 :2016-09-09 21:14:56,338 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==    Updates: 2

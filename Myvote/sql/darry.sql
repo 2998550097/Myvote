@@ -22,15 +22,6 @@ create table users(
        ustate varchar2(20),     --情感状态
        uimage varchar2(200)  --头像路径
 );
-insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
-'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a');
-
-insert into users values( seq_user_id.nextval,'430381129603090001','小黑',
-'霸王','19940409','男','月亮镇萌星村','18174747474','124456789@qq.com','a','400400','已激活','未婚','a');
-
-
-insert into users values( seq_user_id.nextval,'430380129603090001','小黑',
-'霸王','19940409','男','月亮镇萌星村','18174747474','124256789@qq.com','a','400400','已激活','未婚','a');
 select * from users;
 drop table users;
 commit
