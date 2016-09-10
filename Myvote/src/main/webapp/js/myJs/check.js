@@ -57,6 +57,8 @@ $(function(){
     		}
     		$("#more").before(str);
     	},"json");
+   
+    	
     	
 	//用户是否登录
 	$.post("style/check",function(data){
