@@ -1,6 +1,8 @@
 package com.yc.darry.service.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,5 +72,21 @@ public class UserServiceImpl implements UserService {
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	
+	@Override
+	public List<User> findUsers() {
+		return  userMapper.findUsers();
+	}
+
+	@Override
+	public boolean deleteUsers(String...userid) {
+		try {
+			userMapper.deleteUsers(userid);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
 	}
 }

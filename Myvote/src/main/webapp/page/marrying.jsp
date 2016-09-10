@@ -7,38 +7,10 @@
 		<base href="/MyDarry/">
 		<meta charset="utf-8">
 		<title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
-		<link rel="stylesheet" type="text/css" href="css/same.css">
-		<link rel="stylesheet" href="css/marryring.css" />
-		<link rel="stylesheet" type="text/css" href="css/kefu.css">
-		<script type="text/javascript" src="js/h.js"></script>
-		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
-		<script type="text/javascript" src="js/myJs/check.js"></script>
-		<script src="headerJs/jquery.js"></script>
-		<script type="text/javascript" src="headerJs/index.js"></script>
-		<script type="text/javascript" src="headerJs/sea.js"></script>
-		<script>
-        // seajs 配置
-        seajs.config({
-            debug: true,
-            base: "",
-            alias: {
-                "jquery": "MyDarry/headerJs/jquery.js"
-            }
-        });
-        // 加载头部入口模块
-        seajs.use("MyDarry/headerJs/header.js");
-    </script>
-    <script type="text/javascript" src="headerJs/header.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-		
-		
+		<link rel="stylesheet" href="css/marry.css" />
+		<script type="text/javascript" src="js/jquery.min.js"></script>
 	</head>
 	<body>
-		<!-- 头部 -->
-		<jsp:include page="header.jsp"/>
-		
-		<!-- 导航 -->
-		<jsp:include page="nav.jsp"/>
 		<div>
 			<div class="dring-banner">
        			<a href="#">
@@ -403,10 +375,5 @@
 				<!--宽度1000以内end-->
 			</div>
 		</div>
-		<jsp:include page="footer.jsp"/>
-		<script>
-		    // 加载底部入口模块
-		  seajs.use("MyDarry/footerJs/footer.js");
-		</script>
 	</body>
 </html>

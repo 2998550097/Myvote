@@ -1,5 +1,7 @@
 package com.yc.darry.mapper;
 
+import java.util.List;
+
 import com.yc.darry.entity.User;
 
 public interface UserMapper {
@@ -13,5 +15,9 @@ public interface UserMapper {
 	User getUserByEmailAndPwd(User user);
 
 	int updatePwdByEmail(User user);
+	
+	List<User> findUsers();
+
+	int deleteUsers(String...userid);
 
 }

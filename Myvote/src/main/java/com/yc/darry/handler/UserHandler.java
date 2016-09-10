@@ -1,6 +1,9 @@
 package com.yc.darry.handler;
 
 
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +16,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.yc.darry.entity.User;
@@ -135,6 +140,33 @@ public class UserHandler {
 			} catch (MessagingException e) {
 				e.printStackTrace();
 			}
+	}
+	
+
+	/**
+	 * 会员查找
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/usersfind")
+	public List<User>  findUsers(){
+		List<User> users=userService.findUsers();
+		if(users.size()>0){
+			return users;
+		}else{
+			return null;
+		}
+		
+	}
+	
+	@RequestMapping(value="/deleteUsers",method=RequestMethod.POST)
+	public void deleteStore(PrintWriter out, String uid){
+		String[] userids=uid.split(",");
+		System.out.println(userids);
+		boolean flag=userService.deleteUsers(userids);
+		out.println(flag);
+		out.flush();
+		out.close();
 	}
 	
 }

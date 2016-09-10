@@ -1,5 +1,7 @@
 package com.yc.darry.service;
 
+import java.util.List;
+
 import com.yc.darry.entity.User;
 
 public interface UserService {
@@ -13,5 +15,10 @@ public interface UserService {
 	User login(User user);
 
 	boolean reset(User user);
+	
+	List<User> findUsers();
+
+	boolean deleteUsers(String...userids);
+	
 
 }

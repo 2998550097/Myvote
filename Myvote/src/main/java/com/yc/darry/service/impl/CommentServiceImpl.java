@@ -22,7 +22,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public boolean deleteComments(int commentid) {
+	public boolean deleteComments(String...commentid) {
 		try {
 			commentMapper.deleteComments(commentid);
 		} catch (Exception e) {

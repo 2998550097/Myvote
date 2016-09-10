@@ -14,6 +14,7 @@ import com.yc.darry.entity.Store;
 import com.yc.darry.service.StoreService;
 
 @Controller
+@RequestMapping("/store")
 public class StoreHandler {
 	@Autowired
 	private StoreService storeService;
@@ -24,7 +25,7 @@ public class StoreHandler {
 	 * @param out
 	 */
 	@ResponseBody
-	@RequestMapping("/store")
+	@RequestMapping("/findStore")
 	public List<Store>  findStore(){
 		List<Store> stores=(List<Store>) storeService.findStore();
 		return stores;
