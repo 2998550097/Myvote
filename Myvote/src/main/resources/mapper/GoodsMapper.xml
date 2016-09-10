@@ -22,10 +22,11 @@
 					<result property="gcrystal" column="gcrystal"/>
 					<result property="gcutting" column="gcutting"/>
 					<result property="pprice" column="pprice"/>
+					<result property="pcount" column="pcount"/>
 		</collection>			
 	</resultMap>
 	<select id="getAll" resultMap="GoodMap">
-		select g.*,p.paramterid,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g join paramter p on g.goodid=p.goodid 
+		select g.*,p.paramterid,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g join paramter p on g.goodid=p.goodid and gother='求婚钻戒' 
 	</select>
 	
 	<select id="getParamterById" resultType="Paramter" parameterType="int">

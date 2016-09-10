@@ -270,7 +270,7 @@ insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
-
+update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
 
 --商品表
 --女戒

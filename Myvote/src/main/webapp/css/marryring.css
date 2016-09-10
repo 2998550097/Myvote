@@ -100,6 +100,39 @@ i {
 
 .drring_search-left{
 	float: left;
+	margin-left: 180px;
+}
+.middle_body_search_word a {
+	color: #666;
+	text-decoration: none;
+	margin-right: 5px;
+}
+.middle_body_search_bar {
+	float: right;
+	margin-right: 180px;
+}
+.middle_body_search_bar input {
+	vertical-align: middle;
+	width:120px;
+	height:20px;
+	display:inline-block;
+}
+#submit {
+	width:55px;
+	text-align:center;
+	padding-bottom:21px;
+	border: 1px solid #ddd;
+	background-color: #f3f3f3;
+	color: #666;
+	
+}
+.showring {
+	width: 100%;
+	background-color: #F6EFEF;
+}
+.ringIntroducep {
+	height: 30px;
+	line-height: 30px;
     display: inline;
 }
 
