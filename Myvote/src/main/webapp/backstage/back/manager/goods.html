@@ -36,6 +36,7 @@
 <div id="update_Goods" class="easyui-dialog" title="修改商品" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
    <br/>
    <form action="update" style="float:left;padding-left:20px">
+   		<label>商品编号：</label><input type="text" id="goodid1" name="goodid1" required="required" value=""/><br/><br/>
    		<label>商品名称：</label><input type="text" id="gname1" name="gname1" required="required" value=""/><br/><br/>
    		<label>商品系列：</label><select id="seriesname1" name="seriesname1"></select><br/><br/>
    		<label>商品款式：</label><select id="stylename1" name="stylename1"></select><br/><br/>
@@ -49,7 +50,7 @@
    		<a href="javascript:updategoodsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
    </form>
    <div style="float:right;width:360px;margin-right:20px;">
-   		<fieldset id="goods_gimage1_show">
+   		<fieldset id="gimage1_show">
    			<legend>图片预览</legend>
    			<img alt="" src="" id="np" style="width:200px;height:200px;"/>
    		</fieldset>
@@ -108,14 +109,25 @@ obj=$('#goods_data').datagrid({
 	    	iconCls:"icon-add",
 	    	handler:function(){
 	    		$('#add_goods').dialog('open');
-	    		$("#goods_date").datebox('setValue',myformatter(new Date()));
 	    	}
 		 },{
 		    text:"修改",
 		   	iconCls:"icon-edit",
 		    handler:function(){
+		    	var rows=obj.datagrid("getChecked")[0];
+		    	if(rows!=undefined){
 		    		$('#update_goods').dialog('open');
-		    	
+		    		$('#goodid1').val(rows.goodid);
+		    		$('#gname1').val(rows.goodid);
+		    		$('#seriesname1').val(rows.goodid);
+		    		$('#stylename1').val(rows.goodid);
+		    		$('#gmaterial1').val(rows.goodid);
+		    		$('#psize').val(rows.goodid);
+		    		$('#gcrystal1').val(rows.goodid);
+		    		$('#pprice1').val(rows.goodid);
+		    		ue1.content=rows.gother;
+		    		$('#gimage1_show').html(showpic(rows.gimage))
+		    	}
 		    }
 		 },{
 		    text:"删除",
@@ -133,15 +145,14 @@ obj=$('#goods_data').datagrid({
 		    				tids+=rows[i].nid;
 		    				
 		    				//发请求到数据库删除
-		    				$.post("../../goodsServlet",{op:"delgoods",nid:tids},function(data){
-		    					if(data>0){
+		    				$.post("../../../goods/deleteGoods",{goodid:tids},function(data){
+		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
 			    						msg:'商品删除成功...',
 			    						timeout:2000,
 			    						showType:'slide'
 			    					});
-			    						
 			    					rows=null;
 			    					obj.datagrid("reload");//刷新表格
 			    				}else{
@@ -194,7 +205,7 @@ $(function(){
 function addgoodsInfo(){
 	var str = $("#add").serialize() + 
 	"&gimage=" + $("#gimage").val();
-	$.post("../../../addGoods",str,function(data){
+	$.post("../../../goods/addGoods",str,function(data){
 		if(data){
 			$("#add_Goods").dialog('close');
 			obj.datagrid("reload");//刷新表格
@@ -203,6 +214,26 @@ function addgoodsInfo(){
 		}
 	});
 }
-
+function updateStore(){
+	var str = $("#update").serialize() + 
+		"&gimage1=" + $("#gimage1").val() + 
+		"&goodid="+ $("#goodid1").val();
+	$.post("../../../goods/updateGoods",str,function(data){
+		if(data){
+			$("#update_Store").dialog('close');
+			obj.datagrid("reload");//刷新表格
+		}else{
+			$.messager.alert('失败提示','商品信息修改失败...','error');
+		}
+	});
+}
+function showpic(value){
+	var str="";
+	var pics=value.split(",");
+	for(var i=0;i<pics.length;is++){
+		str+="<img src='../images/s"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	}
+	return str;
+}
 
 </script>

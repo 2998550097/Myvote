@@ -31,4 +31,17 @@
 	<select id="getParamterById" resultType="Paramter" parameterType="int">
 		select * from paramter where goodid=#{goodid} 
 	</select>
+	
+	<insert id="addGoods" parameterType="Good">
+   		 <selectKey keyColumn="goodid" keyProperty="goodid" resultType="int" order="BEFORE">
+   		 	select seq_goods_id.nextval goodid from dual
+   		 </selectKey>
+   		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0,0,0,0,#{gother})
+   	</insert>
+	<insert id="addParamter" parameterType="Paramter" >
+		insert into paramter values(seq_paramter_id.nextval,#{goodid},#{pcarat},#{psize},#{gcrystal},{gcutting},#{pprice})
+	</insert>
+	<insert id="addSeriesStyle" >
+		insert into seriesstyle values((select seriesid from series where seriesname=#{seriesname}),(select styleid from style where stylename=#{stylename}),#{goodid})
+	</insert>
 </mapper>
