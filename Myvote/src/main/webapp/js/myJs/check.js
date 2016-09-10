@@ -1,12 +1,11 @@
 $(function(){
 		//显示全部商品
-		$.post("good/all",function(data){
-			alert(data);
+		$.post("goods/findAll",function(data){
 			var str="";
-			for(var i=0;i<data.length;i++){
+			for(var i=0;i<12;i++){
 				str+='<li '+(i%3==0?'class="dring_thing_left"' : '')+'>';
                 str+='<a href="darry_marry.jsp">';
-                str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/darry_marry/'+data[i].gimage.substring(0,data[i].gimage.indexOf(","))+'">';
+                str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data[i].gimage.substring(0,data[i].gimage.indexOf(","))+'">';
                 str+='</a>';
                 str+='<div class="dring_thing-cort">';
                 str+='<div class="dring_thing-price">'+data[i].paramters[0].pprice+'</div>';
@@ -52,11 +51,9 @@ $(function(){
     	
     	//系列循环
     	$.post("series/getname",function(data){
-    		alert(data);
     		var str="";
-    		for(var i=0; i<data.length; i++){
+    		for(var i=0; i<7; i++){
     			str += '<li><a href="#">'+ data[i].seriesname + '</a></li>';
-    			alert(str);
     		}
     		$("#more").before(str);
     	},"json");

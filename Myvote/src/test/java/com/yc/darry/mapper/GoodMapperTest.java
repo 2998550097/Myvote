@@ -15,10 +15,10 @@ import com.yc.darry.service.GoodsService;
 @ContextConfiguration("classpath:spring.xml")
 public class GoodMapperTest {
 	@Autowired
-	private GoodsService goodService;
+	private GoodsService goodsService;
 	@Test
 	public void testGetAll() {
-		List<Good> good=goodService.getAll();
+		List<Good> good=goodsService.getAll();
 		System.out.println(good);
 	}
 }
