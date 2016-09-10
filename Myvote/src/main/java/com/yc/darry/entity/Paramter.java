@@ -8,9 +8,10 @@ public class Paramter {
 	private String gcrystal;
 	private String gcutting;
 	private Integer pprice;
+	private Integer pcount;
 
 	public Paramter(Integer paramterid, Integer goodid, String pcarat, Integer psize, String gcrystal,
-			String gcutting,Integer pprice) {
+			String gcutting,Integer pprice,Integer pcount) {
 		super();
 		this.paramterid = paramterid;
 		this.goodid = goodid;
@@ -19,6 +20,7 @@ public class Paramter {
 		this.gcrystal = gcrystal;
 		this.gcutting = gcutting;
 		this.pprice=pprice;
+		this.pcount=pcount;
 	}
 
 	public Paramter() {
@@ -76,7 +78,7 @@ public class Paramter {
 	@Override
 	public String toString() {
 		return "\nParamter [paramterid=" + paramterid + ", goodid=" + goodid + ", pcarat=" + pcarat + ", psize=" + psize
-				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting +  ", pprice=" + pprice + "]";
+				+ ", gcrystal=" + gcrystal + ", gcutting=" + gcutting +  ", pprice=" + pprice +", pcount=" + pcount + "]";
 	}
 
 	public Integer getPprice() {
@@ -85,6 +87,14 @@ public class Paramter {
 
 	public void setPprice(Integer pprice) {
 		this.pprice = pprice;
+	}
+
+	public Integer getPcount() {
+		return pcount;
+	}
+
+	public void setPcount(Integer pcount) {
+		this.pcount = pcount;
 	}
 
 }
