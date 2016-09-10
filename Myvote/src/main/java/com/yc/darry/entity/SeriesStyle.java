@@ -1,27 +1,19 @@
 package com.yc.darry.entity;
 
 public class SeriesStyle {
-	private Integer ssid;
 	private Integer seriesid;
 	private Integer styleid;
+	private Integer goodid;
 
 	public SeriesStyle() {
 		super();
 	}
 
-	public SeriesStyle(Integer ssid, Integer seriesid, Integer styleid) {
+	public SeriesStyle(Integer seriesid, Integer styleid, Integer goodid) {
 		super();
-		this.ssid = ssid;
 		this.seriesid = seriesid;
 		this.styleid = styleid;
-	}
-
-	public Integer getSsid() {
-		return ssid;
-	}
-
-	public void setSsid(Integer ssid) {
-		this.ssid = ssid;
+		this.goodid = goodid;
 	}
 
 	public Integer getSeriesid() {
@@ -40,9 +32,17 @@ public class SeriesStyle {
 		this.styleid = styleid;
 	}
 
+	public Integer getGoodid() {
+		return goodid;
+	}
+
+	public void setGoodid(Integer goodid) {
+		this.goodid = goodid;
+	}
+
 	@Override
 	public String toString() {
-		return "SeriesStyle [ssid=" + ssid + ", seriesid=" + seriesid + ", styleid=" + styleid + "]";
+		return "SeriesStyle [seriesid=" + seriesid + ", styleid=" + styleid + ", goodid=" + goodid + "]";
 	}
 
 }

@@ -1,32 +1,35 @@
 package com.yc.darry.entity;
 
+import java.util.List;
+
 public class Good {
 	private Integer goodid;
 	private String gname;
+<<<<<<< HEAD
 	private String seriesname;
 	private String stylename;
 	private Integer ssid;
+=======
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 	private String gmaterial;
 	private String gcrystal;
 	private String gcutting;
 	private Integer psize;
 	private String gimage;
-	private Integer gprice;
 	private double averagescore;
 	private String gother;
 	private int goodnum;
 	private int usercount;
 	private int comcount;
+	private List<Paramter> paramters;
 
-	public Good(Integer goodid, String gname, Integer ssid, String gmaterial, String gimage, Integer gprice,
+	public Good(Integer goodid, String gname, String gmaterial, String gimage, Integer gprice,
 			double averagescore, String gother, int goodnum, int usercount, int comcount) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
-		this.ssid = ssid;
 		this.gmaterial = gmaterial;
 		this.gimage = gimage;
-		this.gprice = gprice;
 		this.averagescore = averagescore;
 		this.gother = gother;
 		this.goodnum = goodnum;
@@ -76,13 +79,6 @@ public class Good {
 		this.gname = gname;
 	}
 
-	public Integer getSsid() {
-		return ssid;
-	}
-
-	public void setSsid(Integer ssid) {
-		this.ssid = ssid;
-	}
 
 	public String getGmaterial() {
 		return gmaterial;
@@ -100,13 +96,6 @@ public class Good {
 		this.gimage = gimage;
 	}
 
-	public Integer getGprice() {
-		return gprice;
-	}
-
-	public void setGprice(Integer gprice) {
-		this.gprice = gprice;
-	}
 
 	public double getAveragescore() {
 		return averagescore;
@@ -148,9 +137,25 @@ public class Good {
 		this.comcount = comcount;
 	}
 
+<<<<<<< HEAD
 
 	public String getSeriesname() {
 		return seriesname;
+=======
+	@Override
+	public String toString() {
+		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial
+				+ ", gimage=" + gimage  + ", averagescore=" + averagescore + ", gother=" + gother
+				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount + "\n, paramters=" + paramters +"]";
+	}
+
+	public List<Paramter> getParamters() {
+		return paramters;
+	}
+
+	public void setParamters(List<Paramter> paramters) {
+		this.paramters = paramters;
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 	}
 
 

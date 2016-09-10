@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <link rel="stylesheet" href="css/help.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
 <script src="js/hm(1).js"></script>
@@ -36,30 +37,6 @@
         // 加载头部入口模块
         seajs.use("MyDarry/headerJs/header.js");
         
-        $(function(){
-        	//导航栏系列显示
-        	$.post("series/getname",function(data){
-        		var leftstr="";
-        		var rightstr="";
-        		for(var i=0;i<5;i++){
-        			leftstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
-        		}
-        		$("#leftseries").append(leftstr);
-        		for(var i=5;i<data.length;i++){
-        			rightstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
-        		}
-        		$("#rightseries").before(rightstr);
-        	},"json");
-        	
-        	//导航栏系列显示
-        	$.post("style/getname",function(data){
-        		var leftstr="";
-        		for(var i=0;i<data.length;i++){
-        			leftstr+='<a href="http://www.darryring.com/dr_phonics">'+data[i].stylename+'</a>';
-        		}
-        		$("#leftstyle").append(leftstr);
-        	},"json");
-        })
 </script>
 <script type="text/javascript" src="headerJs/header.js"></script>
 </head>

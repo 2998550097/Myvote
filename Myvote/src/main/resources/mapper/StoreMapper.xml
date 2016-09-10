@@ -10,8 +10,13 @@
 		<insert id="addStores" parameterType="Store" >
 			insert into store values(seq_store_id.nextval,#{sname,jdbcType=VARCHAR},#{saddress,jdbcType=VARCHAR},#{sappointcount,jdbcType=INTEGER},#{simagelogo,jdbcType=VARCHAR},#{sstarttime,jdbcType=VARCHAR},#{sendtime,jdbcType=VARCHAR})
 		</insert>
-		<delete id="deleteStore" parameterType="Integer">
-			delete from store where storeid=#{storeid}
+		
+		<delete id="deleteStore" parameterType="string" >
+			delete from store where storeid in
+			
+			<foreach collection="array" item="storeid" open="(" close=")" separator=",">
+  				#{storeid}
+  			</foreach>
 		</delete>
 		
 		<update id="updateStore" parameterType="Store">

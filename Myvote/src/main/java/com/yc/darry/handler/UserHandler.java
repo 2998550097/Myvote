@@ -1,5 +1,6 @@
 package com.yc.darry.handler;
 
+
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +29,7 @@ public class UserHandler {
 	public void getInit(User user,ModelMap map){
 		map.put("users", new User());
 	}
+	
 	
 	@RequestMapping("/reset")
 	public String reset(String uemail,User user,ModelMap map){
@@ -75,6 +77,7 @@ public class UserHandler {
 			map.put("errorMsg", "对不起，您的帐号没有激活,<a href='user/sendemail?uemail="+user.getUemail()+"'>点此激活</a>");
 			return "login";
 		}
+		map.put("users", user);
 		return "index";
 	}
 	

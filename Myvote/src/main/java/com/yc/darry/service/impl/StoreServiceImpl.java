@@ -42,7 +42,7 @@ public class StoreServiceImpl implements StoreService{
 
 
 	@Override
-	public  boolean deleteStore(int storeid) {
+	public  boolean deleteStore(String...storeid) {
 		try {
 			storeMapper.deleteStore(storeid);
 		} catch (Exception e) {

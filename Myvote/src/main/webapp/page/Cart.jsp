@@ -37,7 +37,7 @@
             </div>
             <div class="shopt_right fr">
                  <span id="ctl00_ltlUname">你好！Gloria_gsl</span>
-               <a href="/member/mydr.html" class="my_dr">我的DR</a>
+               <a href="page/index.jsp" class="my_dr">我的DR</a>
                 <a href="#" class="tc_dr" onclick="javascript:logout()">退出</a>
                <a href="/help.html" class="help_dr">帮助中心</a>
             </div>
