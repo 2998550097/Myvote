@@ -50,7 +50,6 @@
 					location.href="Help/Service/xgsc.jsp";
 				}
 		</script>
-		
 		<script type="text/javascript" src="headerJs/header.js"></script>
 		<link rel="stylesheet" href="css/common.css" />
 	</head>
