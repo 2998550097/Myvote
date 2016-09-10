@@ -80,7 +80,8 @@ i {
 
 .fr {
 	float: right;
-	display: inline
+	display: inline;
+	margin-right: 170px;
 }
 
 .fix:after {
@@ -1128,6 +1129,8 @@ a.userName {
 	font-family: "SimSun";
 	height: 70px;
 	font-size: 0;
+	background-color: #FFF;
+	width: 100%;
 }
 
 .drring_all-bread {

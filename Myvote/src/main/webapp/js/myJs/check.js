@@ -34,7 +34,7 @@ $(function(){
     			leftstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
     		}
     		$("#leftseries").append(leftstr);
-    		for(var i=5;i<data.length;i++){
+    		for(var i=5;i<9;i++){
     			rightstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
     		}
     		$("#rightseries").before(rightstr);

@@ -9,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.yc.darry.entity.Good;
+import com.yc.darry.entity.Pagination;
 import com.yc.darry.service.GoodsService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -21,4 +22,10 @@ public class GoodMapperTest {
 		List<Good> good=goodsService.getAll();
 		System.out.println(good);
 	}
+	@Test
+	public void testGetByPage() {
+		Pagination pagination=goodsService.getGoodByPage(new Pagination(12, 2));
+		System.out.println(pagination);
+	}
+	
 }

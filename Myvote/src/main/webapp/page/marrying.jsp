@@ -139,9 +139,10 @@
 					<!--排序与分页-->
 					<div class="drring_sortall">
 						<!--分页-->
-						<div class="pagin fpagin fr">
-							<a rel="nofollow" class="nextPage" href="/darry_ring?page=2"></a> <a
-								rel="nofollow" class="prevPage" href="/darry_ring?page=1"></a> <span>1/14</span>
+						<div class="pagin fpagin fr1">
+							<a rel="nofollow" class="nextPage1" href="/darry_ring?page=2"><img alt="" src="images/marryring/right.png"></a> 
+							<a rel="nofollow" class="prevPage1" href="/darry_ring?page=1"><img alt="" src="images/marryring/left.png"></a> 
+							<span>1/14</span>
 							<span>共159件 商品</span>
 						</div>
 						<!--分页end-->
@@ -391,9 +392,10 @@
 					</ul> 
 					<!--商品end-->
 					<!--分页-->
-					<div id="pagein" class="pagin fpagin fr">
-						<a rel="nofollow" class="nextPage" href="/darry_ring?page=2"></a> <a
-							rel="nofollow" class="prevPage" href="/darry_ring?page=1"></a> <span>1/14</span>
+					<div id="pagein" class="pagin fpagin fr1">
+						<a rel="nofollow" class="nextPage1" href="/darry_ring?page=2"><img alt="" src="images/marryring/right.png"></a> 
+						<a rel="nofollow" class="prevPage1" href="/darry_ring?page=1"><img alt="" src="images/marryring/left.png"></a>
+						<span>1/14</span>
 						<span>共159件 商品</span>
 					</div>
 					<!--分页end-->
