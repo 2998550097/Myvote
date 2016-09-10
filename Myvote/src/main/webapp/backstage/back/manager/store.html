@@ -154,17 +154,24 @@ obj=$('#Store_data').datagrid({
 	}); 
 	
 	function addStore(){
-		var str = $("#add").serialize() + 
-		"&simagelogo=" + $("#simagelogo").val(); 
-		//var jsonStr=toJsonStr(str);
+		var str = $("#add").serialize(); 
 		
-		$.post("../../../store/addStore",str,function(data){
+		$.ajaxFileUpload({
+		url:"../../../store/addStore",
+		secureuri:false,
+		fileElementId:"simagelogo",
+		dataType:"json",
+		data:str,
+		success:function(data,status){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
 			}else{
 				$.messager.alert('失败提示','店铺信息添加失败...','error');
 			}
+		},error:function(data,status,e){
+			$.messager.alert("错误提示","店铺信息添加失败...\n"+e,"error");
+		}
 		});
 	} 
 	

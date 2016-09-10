@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype>
 <html>
 <head>
@@ -11,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <script type="text/javascript" src="js/h.js"></script>
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="headerJs/jquery.js"></script>
 <script type="text/javascript" src="headerJs/index.js"></script>
 <script type="text/javascript" src="headerJs/sea.js"></script>
@@ -61,15 +63,7 @@
             	<div class="showring_same">
                 	<ul>
                     	<li  class="showring_same_1">系列</li>
-                 	    <li> <a href="#">My Heart 系列</a></li>
-                    	<li> <a href="#">Forever 系列</a></li>
-                    	<li><a href="#">Believe 系列</a></li>
-                        <li><a href="#">Love Line 系列</a></li>
-                        <li><a href="#">True Love 系列</a></li>
-                        <li><a  href="#">Just You 系列</a></li>
-                        <li> <a href="#">With You 系列</a></li>
-                        <li>  <a  href="#">Princess 系列</a></li>
-                        <li class="more"> <a  href="#">更多</a></li>
+                        <li class="more" id="more"> <a  href="#">更多</a></li>
                     </ul>
                 </div>
                 
@@ -101,11 +95,11 @@
                   <div class="showring_same">
                 	<ul>
                     	<li  class="showring_same_1">价格</li>
-                 	   <li> <a href="#">5000以下</a></li>
-                    	<li> <a href="#">5001-10000</a></li>
-                    	<li><a href="#">10001-20000</a></li>
-                         <li> <a href="#">20001-40000</a></li>
-                    	<li> <a href="#">40000以上</a></li>
+                 	   <li> <a href="#">10以下</a></li>
+                    	<li> <a href="#">10-12</a></li>
+                    	<li><a href="#">13-16</a></li>
+                         <li> <a href="#">17-18</a></li>
+                    	<li> <a href="#">19以上</a></li>
                     	<li> <input type="text" id="minPrice"></li>
                          <li id="showrin_same_label"> <label>-</label></li>
                     	<li> <input type="text" id="maxPrice"></li>
@@ -135,9 +129,9 @@
               </div>  
               
              
-              <ul class="dring_thing">
-                
-                        <li class="dring_thing_left">
+              <ul class="dring_thing" id="dring_thing">
+                		
+                        <!-- <li class="dring_thing_left">
                             <a href="darry_marry.jsp">
                                 <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
                             </a>
@@ -256,7 +250,7 @@
                                 <div class="dring_thing-sold">
                                     <span>已售：18354</span><i>评价：<em>69</em></i></div>
                             </div>
-                        </li>
+                        </li> -->
                     
                     
             </ul>
