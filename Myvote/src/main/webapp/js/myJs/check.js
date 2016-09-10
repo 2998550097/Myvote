@@ -50,6 +50,17 @@ $(function(){
     		$("#leftstyle").append(leftstr);
     	},"json");
     	
+    	//系列循环
+    	$.post("series/getname",function(data){
+    		alert(data);
+    		var str="";
+    		for(var i=0; i<data.length; i++){
+    			str += '<li><a href="#">'+ data[i].seriesname + '</a></li>';
+    			alert(str);
+    		}
+    		$("#more").before(str);
+    	},"json");
+    	
 	//用户是否登录
 	$.post("style/check",function(data){
         		var str="";

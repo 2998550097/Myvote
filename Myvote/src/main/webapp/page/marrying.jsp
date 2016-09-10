@@ -63,15 +63,7 @@
             	<div class="showring_same">
                 	<ul>
                     	<li  class="showring_same_1">系列</li>
-                 	    <li> <a href="#">My Heart 系列</a></li>
-                    	<li> <a href="#">Forever 系列</a></li>
-                    	<li><a href="#">Believe 系列</a></li>
-                        <li><a href="#">Love Line 系列</a></li>
-                        <li><a href="#">True Love 系列</a></li>
-                        <li><a  href="#">Just You 系列</a></li>
-                        <li> <a href="#">With You 系列</a></li>
-                        <li>  <a  href="#">Princess 系列</a></li>
-                        <li class="more"> <a  href="#">更多</a></li>
+                        <li class="more" id="more"> <a  href="#">更多</a></li>
                     </ul>
                 </div>
                 
