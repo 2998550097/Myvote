@@ -5,7 +5,6 @@ import java.util.List;
 public class Good {
 	private Integer goodid;
 	private String gname;
-	private Integer ssid;
 	private String gmaterial;
 	private String gimage;
 	private double averagescore;
@@ -15,12 +14,11 @@ public class Good {
 	private int comcount;
 	private List<Paramter> paramters;
 
-	public Good(Integer goodid, String gname, Integer ssid, String gmaterial, String gimage, Integer gprice,
+	public Good(Integer goodid, String gname, String gmaterial, String gimage, Integer gprice,
 			double averagescore, String gother, int goodnum, int usercount, int comcount) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
-		this.ssid = ssid;
 		this.gmaterial = gmaterial;
 		this.gimage = gimage;
 		this.averagescore = averagescore;
@@ -50,13 +48,6 @@ public class Good {
 		this.gname = gname;
 	}
 
-	public Integer getSsid() {
-		return ssid;
-	}
-
-	public void setSsid(Integer ssid) {
-		this.ssid = ssid;
-	}
 
 	public String getGmaterial() {
 		return gmaterial;
@@ -117,7 +108,7 @@ public class Good {
 
 	@Override
 	public String toString() {
-		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", ssid=" + ssid + ", gmaterial=" + gmaterial
+		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial
 				+ ", gimage=" + gimage  + ", averagescore=" + averagescore + ", gother=" + gother
 				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount + "\n, paramters=" + paramters +"]";
 	}

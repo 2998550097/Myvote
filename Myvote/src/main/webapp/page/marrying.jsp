@@ -95,11 +95,11 @@
                   <div class="showring_same">
                 	<ul>
                     	<li  class="showring_same_1">价格</li>
-                 	   <li> <a href="#">5000以下</a></li>
-                    	<li> <a href="#">5001-10000</a></li>
-                    	<li><a href="#">10001-20000</a></li>
-                         <li> <a href="#">20001-40000</a></li>
-                    	<li> <a href="#">40000以上</a></li>
+                 	   <li> <a href="#">10以下</a></li>
+                    	<li> <a href="#">10-12</a></li>
+                    	<li><a href="#">13-16</a></li>
+                         <li> <a href="#">17-18</a></li>
+                    	<li> <a href="#">19以上</a></li>
                     	<li> <input type="text" id="minPrice"></li>
                          <li id="showrin_same_label"> <label>-</label></li>
                     	<li> <input type="text" id="maxPrice"></li>

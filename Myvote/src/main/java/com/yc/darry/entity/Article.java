@@ -11,7 +11,7 @@ public class Article {
 	private Integer afocus;
 	
 	public Article(Integer articleId, Integer userId, String atitle, String aplate, String aprivacy, String atime,
-			Integer areadCount, Integer afocus) {
+			Integer areadcount, Integer afocus) {
 		super();
 		this.articleId = articleId;
 		this.userId = userId;
