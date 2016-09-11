@@ -15,6 +15,12 @@ public class Good {
 	private String seriesname;
 	private String stylename;
 	private int gprice;
+	private String pcarat;
+	private Integer psize;
+	private String gcrystal;
+	private String gcutting;
+	private Integer pprice;
+	private Integer pcount;
 	private List<Paramter> paramters;
 
 	
@@ -144,9 +150,57 @@ public class Good {
 		this.gprice = gprice;
 	}
 
+	public String getPcarat() {
+		return pcarat;
+	}
+
+	public void setPcarat(String pcarat) {
+		this.pcarat = pcarat;
+	}
+
+	public Integer getPsize() {
+		return psize;
+	}
+
+	public void setPsize(Integer psize) {
+		this.psize = psize;
+	}
+
+	public String getGcrystal() {
+		return gcrystal;
+	}
+
+	public void setGcrystal(String gcrystal) {
+		this.gcrystal = gcrystal;
+	}
+
+	public String getGcutting() {
+		return gcutting;
+	}
+
+	public void setGcutting(String gcutting) {
+		this.gcutting = gcutting;
+	}
+
+	public Integer getPprice() {
+		return pprice;
+	}
+
+	public void setPprice(Integer pprice) {
+		this.pprice = pprice;
+	}
+
+	public Integer getPcount() {
+		return pcount;
+	}
+
+	public void setPcount(Integer pcount) {
+		this.pcount = pcount;
+	}
+
 	public Good(Integer goodid, String gname, String gmaterial, String gimage, double averagescore, String gother,
-			int goodnum, int usercount, int comcount, String seriesname, String stylename, int gprice,
-			List<Paramter> paramters) {
+			int goodnum, int usercount, int comcount, String seriesname, String stylename, int gprice, String pcarat,
+			Integer psize, String gcrystal, String gcutting, Integer pprice, Integer pcount, List<Paramter> paramters) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
@@ -160,13 +214,22 @@ public class Good {
 		this.seriesname = seriesname;
 		this.stylename = stylename;
 		this.gprice = gprice;
+		this.pcarat = pcarat;
+		this.psize = psize;
+		this.gcrystal = gcrystal;
+		this.gcutting = gcutting;
+		this.pprice = pprice;
+		this.pcount = pcount;
 		this.paramters = paramters;
 	}
+
 	@Override
 	public String toString() {
 		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
 				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
 				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
-				+ ", gprice=" + gprice + ", paramters=" + paramters + "]";
+				+ ", gprice=" + gprice + ", pcarat=" + pcarat + ", psize=" + psize + ", gcrystal=" + gcrystal
+				+ ", gcutting=" + gcutting + ", pprice=" + pprice + ", pcount=" + pcount + ", paramters=" + paramters
+				+ "]";
 	}
 }

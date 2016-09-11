@@ -7,13 +7,15 @@ import com.yc.darry.entity.Pagination;
 public interface GoodsService {
 	
 	List<Good> getAll();
-
+	
+	List<Good> getGoods();
+	
 	Pagination getGoodByPage(Pagination page);
 
 	int addGoods(Good good);
 	
 	boolean deleteGoods(Integer goodid);
 
-	Good updateGoods(Good good);
+	int updateGoods(Good good);
 
 }
