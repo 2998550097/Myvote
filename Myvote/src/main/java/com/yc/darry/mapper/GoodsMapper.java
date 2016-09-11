@@ -8,9 +8,7 @@ import com.yc.darry.entity.Paramter;
 public interface GoodsMapper {
 	List<Good> getAll();
 
-	Good addGoods(Good good);
+	int addGoods(Good good);
 
-	boolean addParamter(Paramter paramter);
-
-	boolean deleteGoods(String goodid);
+	boolean deleteGoods(Integer goodid);
 }

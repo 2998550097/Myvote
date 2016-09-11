@@ -63,6 +63,10 @@ create table goods(
        comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
+drop table goods
+
+insert into goods values(100028,'小碗','完美','wwww',1.2,0,0,0,'n')
+select * from goods
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号
@@ -158,7 +162,7 @@ create sequence seq_store_id start with 11;
 create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
-create sequence seq_goods_id start with 100001;
+create sequence seq_goods_id start with 1000028;
 create sequence seq_paramter_id start with 1001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;

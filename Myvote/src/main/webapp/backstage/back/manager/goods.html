@@ -3,21 +3,23 @@
 <div style="position: absolute;top:60px;left:250px;">
 	<label>商品系列：</label><select id="seriesnames" name="seriesname"></select>
 	<label>商品款式：</label><select id="stylenames" name="stylename"></select>
-	商品名:<input id="gname" type="text" name="gname" />&nbsp;
+	商品名:<input id="gnames" type="text" name="gname" />&nbsp;
 	<input id="search_goods" type="button" value="查询" onclick="search()">
 </div> 
 	
 <div id="add_Goods" class="easyui-dialog" title="添加商品" data-options="iconCls:'icon-add',resizable:true,modal:true,closed:true,fit:true">  
    <br/>
-   <form action="add" style="float:left;padding-left:20px">
+   <form action="" style="float:left;padding-left:20px" method="post" id="add">
    		<label>商品名：</label><input type="text" id="gname" name="gname" required="required" value=""/><br/><br/>
    		<label>商品系列：</label><select id="seriesname" name="seriesname"></select><br/><br/>
    		<label>商品款式：</label><select id="stylename" name="stylename"></select><br/><br/>
+   		<label>商品重量：</label><input type="text" id="pcarat" name="pcarat" required="required" value=""/><br/><br/>
    		<label>商品材质：</label><input type="text" id="gmaterial" name="gmaterial" required="required" value=""/><br/><br/>
    		<label>商品手寸：</label><input type="text" id="psize" name="psize" required="required" value=""/><br/><br/>
    		<label>商品净度：</label><input type="text" id="gcrystal" name="gcrystal" required="required" value=""/><br/><br/>
    		<label>商品切工：</label><input type="text" id="gcutting" name="gcutting" required="required" value=""/><br/><br/>
    		<label>商品价格：</label><input type="text" id="pprice" name="pprice" required="required" value=""/><br/><br/>
+   		<label>商品数量：</label><input type="text" id="pcount" name="pcount" required="required" value=""/><br/><br/>
    		<label>图片：</label><input type="file" multiple="multiple" id="gimage" name="gimage" onchange="previewMultipleImage(this,'gimage_show')"/><br/><br/>
    		<div>
     		<script id="editor" type="text/plain" style="width:800px;height:300px;"></script>
@@ -35,17 +37,19 @@
 
 <div id="update_Goods" class="easyui-dialog" title="修改商品" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
    <br/>
-   <form action="update" style="float:left;padding-left:20px">
-   		<label>商品编号：</label><input type="text" id="goodid1" name="goodid1" required="required" value=""/><br/><br/>
-   		<label>商品名称：</label><input type="text" id="gname1" name="gname1" required="required" value=""/><br/><br/>
-   		<label>商品系列：</label><select id="seriesname1" name="seriesname1"></select><br/><br/>
-   		<label>商品款式：</label><select id="stylename1" name="stylename1"></select><br/><br/>
-   		<label>商品材质：</label><input type="text" id="gmaterial1" name="gmaterial1" required="required" value=""/><br/><br/>
-   		<label>商品手寸：</label><input type="text" id="psize1" name="psize1" required="required" value=""/><br/><br/>
-   		<label>商品净度：</label><input type="text" id="gcrystal1" name="gcrystal1" required="required" value=""/><br/><br/>
-   		<label>商品切工：</label><input type="text" id="gcutting1" name="gcutting1" required="required" value=""/><br/><br/>
-   		<label>商品价格：</label><input type="text" id="pprice1" name="pprice1" required="required" value=""/><br/><br/>
-   		<label>图片：</label><input type="file" multiple="multiple" id="gimage1" name="gimage1" onchange="previewMultipleImage(this,'goods_gimage1_show')"/><br/><br/>
+   <form action=" " style="float:left;padding-left:20px" method="post">
+   		<label>商品编号：</label><input type="text" id="goodid1" name="goodid" required="required" value=""/><br/><br/>
+   		<label>商品名称：</label><input type="text" id="gname1" name="gname" required="required" value=""/><br/><br/>
+   		<label>商品系列：</label><select id="seriesname1" name="seriesname"></select><br/><br/>
+   		<label>商品款式：</label><select id="stylename1" name="stylename"></select><br/><br/>
+   		<label>商品材质：</label><input type="text" id="gmaterial1" name="gmaterial" required="required" value=""/><br/><br/>
+   		<label>商品重量：</label><input type="text" id="pcarat1" name="pcarat" required="required" value=""/><br/><br/>
+   		<label>商品手寸：</label><input type="text" id="psize1" name="psize" required="required" value=""/><br/><br/>
+   		<label>商品净度：</label><input type="text" id="gcrystal1" name="gcrystal" required="required" value=""/><br/><br/>
+   		<label>商品切工：</label><input type="text" id="gcutting1" name="gcutting" required="required" value=""/><br/><br/>
+   		<label>商品价格：</label><input type="text" id="pprice1" name="pprice" required="required" value=""/><br/><br/>
+   		<label>商品数量：</label><input type="text" id="pcount1" name="pprice" required="required" value=""/><br/><br/>
+   		<label>图片：</label><input type="file" multiple="multiple" id="gimage1" name="gimage" onchange="previewMultipleImage(this,'goods_gimage1_show')"/><br/><br/>
     		<script id="editor1" type="text/plain" style="width:800px;height:300px;"></script>
    		<a href="javascript:updategoodsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
    </form>
@@ -79,6 +83,7 @@ obj=$('#goods_data').datagrid({
 	        {field:'gname',title:'商品名',width:88.5,align:'center'},
 	        {field:'seriesname',title:'商品系列',width:88.5,align:'center'},
 	        {field:'stylename',title:'商品款式',width:88.5,align:'center'},
+	        {field:'pcarat',title:'商品重量',width:88.5,align:'center'},
 	        {field:'gmaterial',title:'商品材质',width:88.5,align:'center'},
 	        {field:'psize',title:'商品手寸',width:88.5,align:'center'},
 	        {field:'gcutting',title:'商品切工',width:88.5,align:'center'},
@@ -88,6 +93,7 @@ obj=$('#goods_data').datagrid({
 	        {field:'usercount',title:'购买次数',width:88.5,align:'center'},
 	        {field:'goodnum',title:'收藏次数',width:88.5,align:'center'},
 	        {field:'comcount',title:'评论次数',width:88.5,align:'center'},
+	        {field:'pcount',title:'商品数量',width:88.5,align:'center'},
 	        {field:'gother',title:'其他',width:88.5,align:'center'},
 	        {field:'gimage',title:'图片',width:89,align:'center',
 	        	formatter:function(value,rowData,index){
@@ -108,7 +114,7 @@ obj=$('#goods_data').datagrid({
 	    	text:"添加",
 	    	iconCls:"icon-add",
 	    	handler:function(){
-	    		$('#add_goods').dialog('open');
+	    		$('#add_Goods').dialog('open');
 	    	}
 		 },{
 		    text:"修改",
@@ -116,15 +122,18 @@ obj=$('#goods_data').datagrid({
 		    handler:function(){
 		    	var rows=obj.datagrid("getChecked")[0];
 		    	if(rows!=undefined){
-		    		$('#update_goods').dialog('open');
+		    		$('#update_Goods').dialog('open');
 		    		$('#goodid1').val(rows.goodid);
-		    		$('#gname1').val(rows.goodid);
-		    		$('#seriesname1').val(rows.goodid);
-		    		$('#stylename1').val(rows.goodid);
-		    		$('#gmaterial1').val(rows.goodid);
-		    		$('#psize').val(rows.goodid);
-		    		$('#gcrystal1').val(rows.goodid);
-		    		$('#pprice1').val(rows.goodid);
+		    		$('#gname1').val(rows.gname);
+		    		$('#seriesname1').val(rows.seriesname);
+		    		$('#stylename1').val(rows.stylename);
+		    		$('#pcarat1').val(rows.pcarat);
+		    		$('#gmaterial1').val(rows.gmaterial);
+		    		$('#psize1').val(rows.psize);
+		    		$('#gcrystal1').val(rows.gcrystal);
+		    		$('#pprice1').val(rows.pprice);
+		    		$('#gcutting1').val(rows.gcutting);
+		    		$('#gcount1').val(rows.gcount);
 		    		ue1.content=rows.gother;
 		    		$('#gimage1_show').html(showpic(rows.gimage))
 		    	}
@@ -177,9 +186,9 @@ obj=$('#goods_data').datagrid({
 
 $(function(){
 	$.post("../../../series/getname",function(data){
-		var obj=$("#goods_seriesnames");
-		var obj1=$("#goods_seriesname");
-		var obj2=$("#goods_seriesname1");
+		var obj=$("#seriesnames");
+		var obj1=$("#seriesname");
+		var obj2=$("#seriesname1");
 		var opt;
 		for(var a=0;a<data.length;a++){
 			opt="<option value='"+data[a].seriesname+"'>"+data[a].seriesname+"</option>";
@@ -189,9 +198,9 @@ $(function(){
 		}
 	},"json");
 	$.post("../../../style/getname",function(data){
-		var obj1=$("#goods_stylenames");
-		var obj=$("#goods_stylename");
-		var obj2=$("#goods_stylename1");
+		var obj1=$("#stylenames");
+		var obj=$("#stylename");
+		var obj2=$("#stylename1");
 		var opt;
 		for(var a=0;a<data.length;a++){
 			opt="<option value='"+data[a].stylename+"'>"+data[a].stylename+"</option>";
@@ -203,9 +212,20 @@ $(function(){
 })
 
 function addgoodsInfo(){
-	var str = $("#add").serialize() + 
-	"&gimage=" + $("#gimage").val();
-	$.post("../../../goods/addGoods",str,function(data){
+	var gimage=$("#gimage").val();
+	var gname=$('#gname').val();
+	var seriesname=$('#seriesname').val();
+	var stylename=$('#stylename').val();
+	var pcarat=$('#pcarat').val();
+	var gmaterial=$('#gmaterial').val();
+	var psize=$('#psize').val();
+	var gcrystal=$('#gcrystal').val();
+	var gcutting=$('#gcutting').val();
+	var pprice=$('#pprice').val();
+	var pcount=$('#pcount').val();
+	var gother=ue.getContent();
+	$.post("../../../goods/addGoods",{pcount:pcount,gname:gname,seriesname:seriesname,
+		stylename:stylename,pcarat:pcarat,gmaterial:gmaterial,psize:psize,gcrystal:gcrystal,pprice:pprice,gimage:gimage,gother:gother,gcutting:gcutting},function(data){
 		if(data){
 			$("#add_Goods").dialog('close');
 			obj.datagrid("reload");//刷新表格
@@ -215,10 +235,21 @@ function addgoodsInfo(){
 	});
 }
 function updateStore(){
-	var str = $("#update").serialize() + 
-		"&gimage1=" + $("#gimage1").val() + 
-		"&goodid="+ $("#goodid1").val();
-	$.post("../../../goods/updateGoods",str,function(data){
+	var goodid=$("#goodid1").val();
+	var gname=$('#gname1').val();
+	var seriesname=$('#seriesname1').val();
+	var stylename=$('#stylename1').val();
+	var pcarat=$('#pcarat1').val();
+	var gmaterial=$('#gmaterial1').val();
+	var psize=$('#psize1').val();
+	var gcrystal=$('#gcrystal1').val();
+	var pprice=$('#pprice1').val();
+	var gimage=$("#gimage1").val();
+	var pcount=$('#pcount1').val();
+	var gother=ue1.getContent();
+	var gcutting=$('#gcutting1').val();
+	$.post("../../../goods/updateGoods",{pcount:pcount,gother:gother,gcutting:gcutting,gname:gname,seriesname:seriesname,
+		stylename:stylename,pcarat:pcarat,gmaterial:gmaterial,psize:psize,gcrystal:gcrystal,pprice:pprice,gimage:gimage},function(data){
 		if(data){
 			$("#update_Store").dialog('close');
 			obj.datagrid("reload");//刷新表格

@@ -20,19 +20,21 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public Good addGoods(Good good) {
+	public int addGoods(Good good) {
 		return goodsMapper.addGoods( good);
 	}
-
-	@Override
-	public boolean addParamter(Paramter paramter) {
-		return goodsMapper.addParamter(paramter);
-	}
-
-	@Override
-	public boolean deleteGoods(String goodid) {
+	
+	public boolean deleteGoods(Integer goodid) {
 		return goodsMapper.deleteGoods(goodid);
 		
+	}
+
+	
+
+	@Override
+	public Good updateGoods(Good good) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

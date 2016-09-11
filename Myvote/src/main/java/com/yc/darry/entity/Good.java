@@ -12,6 +12,9 @@ public class Good {
 	private int goodnum;
 	private int usercount;
 	private int comcount;
+	private String seriesname;
+	private String stylename;
+	
 	private List<Paramter> paramters;
 
 	public Good(Integer goodid, String gname, String gmaterial, String gimage, Integer gprice,
@@ -106,19 +109,53 @@ public class Good {
 		this.comcount = comcount;
 	}
 
-	@Override
-	public String toString() {
-		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial
-				+ ", gimage=" + gimage  + ", averagescore=" + averagescore + ", gother=" + gother
-				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount + "\n, paramters=" + paramters +"]";
-	}
-
 	public List<Paramter> getParamters() {
 		return paramters;
 	}
 
 	public void setParamters(List<Paramter> paramters) {
 		this.paramters = paramters;
+	}
+
+	public String getSeriesname() {
+		return seriesname;
+	}
+
+	public void setSeriesname(String seriesname) {
+		this.seriesname = seriesname;
+	}
+
+	public String getStylename() {
+		return stylename;
+	}
+
+	public void setStylename(String stylename) {
+		this.stylename = stylename;
+	}
+
+	public Good(Integer goodid, String gname, String gmaterial, String gimage, double averagescore, String gother,
+			int goodnum, int usercount, int comcount, String seriesname, String stylename, List<Paramter> paramters) {
+		super();
+		this.goodid = goodid;
+		this.gname = gname;
+		this.gmaterial = gmaterial;
+		this.gimage = gimage;
+		this.averagescore = averagescore;
+		this.gother = gother;
+		this.goodnum = goodnum;
+		this.usercount = usercount;
+		this.comcount = comcount;
+		this.seriesname = seriesname;
+		this.stylename = stylename;
+		this.paramters = paramters;
+	}
+
+	@Override
+	public String toString() {
+		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
+				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
+				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
+				+ ", paramters=" + paramters + "]";
 	}
 
 }

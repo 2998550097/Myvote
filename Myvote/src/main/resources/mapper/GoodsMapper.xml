@@ -14,6 +14,8 @@
 		<result property="goodnum" column="goodnum"/>
 		<result property="usercount" column="usercount"/>
 		<result property="comcount" column="comcount"/>
+		<result property="seriesname" column="seriesname"/>
+		<result property="stylename" column="stylename"/>
 		
 		<collection property="paramters" column="paramterid" ofType="Paramter">
 					<id property="paramterid" column="paramterid"/>
@@ -22,26 +24,21 @@
 					<result property="gcrystal" column="gcrystal"/>
 					<result property="gcutting" column="gcutting"/>
 					<result property="pprice" column="pprice"/>
-		</collection>			
+		</collection>
+					
 	</resultMap>
 	<select id="getAll" resultMap="GoodMap">
-		select g.*,p.paramterid,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g join paramter p on g.goodid=p.goodid 
+		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
 	</select>
 	
 	<select id="getParamterById" resultType="Paramter" parameterType="int">
 		select * from paramter where goodid=#{goodid} 
 	</select>
 	
-	<insert id="addGoods" parameterType="Good">
+	<insert id="addGoods" parameterType="Good" >
    		 <selectKey keyColumn="goodid" keyProperty="goodid" resultType="int" order="BEFORE">
    		 	select seq_goods_id.nextval goodid from dual
    		 </selectKey>
-   		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0,0,0,0,#{gother})
+   		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0.0,0,0,0,#{gother})
    	</insert>
-	<insert id="addParamter" parameterType="Paramter" >
-		insert into paramter values(seq_paramter_id.nextval,#{goodid},#{pcarat},#{psize},#{gcrystal},{gcutting},#{pprice})
-	</insert>
-	<insert id="addSeriesStyle" >
-		insert into seriesstyle values((select seriesid from series where seriesname=#{seriesname}),(select styleid from style where stylename=#{stylename}),#{goodid})
-	</insert>
 </mapper>

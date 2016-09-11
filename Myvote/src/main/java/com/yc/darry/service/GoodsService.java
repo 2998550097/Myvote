@@ -1,19 +1,16 @@
 package com.yc.darry.service;
 
 import java.util.List;
-
 import com.yc.darry.entity.Good;
-import com.yc.darry.entity.Paramter;
 
 public interface GoodsService {
-
-
+	
 	List<Good> getAll();
 
-	Good addGoods(Good good);
+	int addGoods(Good good);
+	
+	boolean deleteGoods(Integer goodid);
 
-	boolean addParamter(Paramter paramter);
-
-	boolean deleteGoods(String goodid);
+	Good updateGoods(Good good);
 
 }
