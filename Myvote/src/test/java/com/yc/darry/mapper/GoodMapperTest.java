@@ -24,7 +24,7 @@ public class GoodMapperTest {
 	}
 	@Test
 	public void testGetByPage() {
-		Pagination pagination=goodsService.getGoodByPage(new Pagination(15, 1));
+		Pagination pagination=goodsService.getGoodByPage(new Pagination(15, 1,15,0));
 		System.out.println(pagination);
 	}
 	

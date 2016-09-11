@@ -9,6 +9,7 @@
 		<title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
 		<link rel="stylesheet" type="text/css" href="css/same.css">
 		<link rel="stylesheet" type="text/css" href="css/marryring.css">
+		<link rel="stylesheet" type="text/css" href="css/kefu.css">
 		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="js/h.js"></script>
 		<script type="text/javascript" src="js/myJs/check.js"></script>
@@ -124,10 +125,10 @@
 								rel="nofollow" style="" dr-type="4"
 								href="/darry_ring?price=price_20001-40000">17-20</a> <a
 								rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_40000">21以上</a> <input type="text"
-								id="minPrice"> <label>-</label> <input type="text"
-								id="maxPrice"> <em
-								onclick="btnPriceSearch('/darry_ring?page=1&amp;')" id="priceBtn">确定</em>
+								href="/darry_ring?price=price_40000">21以上</a>
+								<input type="text" id="minPrice"> <label>-</label>
+								<input type="text" id="maxPrice"> 
+								<em onclick="getGoodByPage(0)" id="priceBtn">确定</em>
 						</div>
 						<!--更多条件end-->
 					</div>

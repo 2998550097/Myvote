@@ -56,9 +56,23 @@
 		</collection>
 	</resultMap>
 	<select id="getGoodByPage" resultMap="PaginationMap" parameterType="Pagination">
-		select(select count(1) from goods where gother='求婚钻戒') totalSize, ${pagesize} pagesize, ${pagenum}
+		select(select count(1) from goods where gother='求婚钻戒' 
+		<if test="min!=0">
+			and gprice>=#{min}
+		</if>
+		<if test="max!=0">
+			and #{max}>=gprice
+		</if>
+		) totalSize, ${pagesize} pagesize, ${pagenum}
 		pagenum, nn.* from (select n.*, rownum rn from
-		(select * from goods where gother='求婚钻戒' order by goodid) n where ${pagesize} * ${pagenum} >= rownum)
+		(select * from goods where gother='求婚钻戒' 
+		<if test="min!=0">
+			and gprice>=#{min}
+		</if>
+		<if test="max!=0">
+			and #{max}>=gprice
+		</if>
+		 order by goodid) n where ${pagesize} * ${pagenum} >= rownum)
 		nn where rn > ${pagesize} * (${pagenum} - 1)
 	</select>
 	<!-- 分页end -->

@@ -80,7 +80,10 @@ var num=1;
 var totalSize=12;
 //显示分页商品
 function getGoodByPage(page){
-	$.post("goods/findByPage?page="+page+"&num="+num+"&totalSize="+totalSize,function(data){
+	var minPrice=$("#minPrice").val();
+	var maxPrice=$("#maxPrice").val();
+	$.post("goods/findByPage?page="+page+"&num="+num+"&totalSize="+totalSize
+			+"&minPrice="+minPrice+"&maxPrice="+maxPrice,function(data){
 		$("#dring_thing").html("");
 		$("#pagein").html("");
 		$("#pagein1").html("");
@@ -119,4 +122,14 @@ function getGoodByPage(page){
 		totalSize=data.totalSize;
 		$("#dring_thing").append(str);
 	});
+	
+	//按价格搜索
+	function btnPriceSearch(){
+		var minPrice=$("#minPrice").val();
+		var maxPrice=$("#maxPrice").val();
+		
+		$.post("goods/findByPageAndPrice?minPrice="+minPrice+"&maxPrice="+maxPrice,function(data){
+			
+		})
+	}
 }

@@ -26,18 +26,25 @@ public class GoodsHandler {
 	
 	@ResponseBody
 	@RequestMapping("/findByPage")
-	public Pagination  findByPage(int page,int num,int totalSize){
-		Pagination paginations=new Pagination(12, num);
+	public Pagination  findByPage(int page,int num,int totalSize,String minPrice,String maxPrice){
+		System.out.println(minPrice+"--"+maxPrice);
+		int min=0;
+		int max=0;
+		if(!"".equals(minPrice)){
+			min=Integer.parseInt(minPrice);
+		}
+		if(!"".equals(maxPrice)){
+			max=Integer.parseInt(maxPrice);
+		}
+		Pagination paginations=new Pagination(12, num,min,max);
 		paginations.setTotalSize(totalSize);
 		if(page==0){
-			paginations=goodsService.getGoodByPage(new Pagination(12, page+1));
+			paginations=goodsService.getGoodByPage(new Pagination(12, page+1,min,max));
 		}else if(page==1){
-			System.out.println(paginations.getnextPageNo());
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo()));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo(),min,max));
 		}else if(page==2){
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo()));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max));
 		}
 		return paginations;
 	}
-	
 }

@@ -23,15 +23,26 @@ public class Pagination implements Serializable {
 	
 	private List<Good> goods;
 	
+	private int min; 
+	private int max;
+	
 	public Pagination() {
 		super();
 	}
 	
-	public Pagination(int pagesize, int pagenum) {
+
+	public Pagination(int pagesize, int pagenum, int min, int max) {
 		super();
 		this.pagesize = pagesize;
 		this.pagenum = pagenum;
+		this.min = min;
+		this.max = max;
 	}
+
+
+
+
+
 
 	public int getPagesize() {
 		return pagesize;
@@ -98,7 +109,8 @@ public class Pagination implements Serializable {
 	@Override
 	public String toString() {
 		return "入参==>pagesize=" + pagesize + ", pagenum=" + pagenum +
-		"\n出参==> totalSize=" + totalSize + ", maxpage=" + maxpage+", goods=" + goods ;
+		"\n出参==> totalSize=" + totalSize + ", maxpage=" + maxpage+
+		", min=" + min+", max=" + max+", goods=" + goods ;
 	}
 
 	public List<Good> getGoods() {
@@ -109,4 +121,20 @@ public class Pagination implements Serializable {
 		this.goods = goods;
 	}
 
+	public int getMin() {
+		return min;
+	}
+
+	public void setMin(int min) {
+		this.min = min;
+	}
+
+	public int getMax() {
+		return max;
+	}
+
+	public void setMax(int max) {
+		this.max = max;
+	}
+	
 }
