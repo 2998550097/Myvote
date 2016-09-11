@@ -33,8 +33,13 @@ public class GoodsHandler {
 	@ResponseBody
 	@RequestMapping("/findAll")
 	public List<Good>  findAll(){
-		List<Good> goods =goodsService.getAll();
-		return goods;
+		return goodsService.getAll();
+	}
+	//后端取值
+	@ResponseBody
+	@RequestMapping("/getGoods")
+	public List<Good>  getGoods(){
+		return goodsService.getGoods();
 	}
 	/**
 	 * 分页查询
@@ -111,24 +116,26 @@ public class GoodsHandler {
 		 paramter.setGoodid(goodid);
 		 paramterService.updateParamter(paramter);
 		 flag=seriesstyleService.updateSeriesStyle(goodid, seriesname, stylename);
-		return flag;
+		 return flag;
 	}
 	/**
 	 * 删除后台商品操作  根据goodid
 	 * @param goodid
 	 * @param out
 	 */
-	@RequestMapping(value="/deleteGoods",method=RequestMethod.POST)
-	public void  deleteGoods(String goodid,PrintWriter out){
+	@ResponseBody
+	@RequestMapping("/deleteGoods")
+	public boolean  deleteGoods(String goodid,PrintWriter out){
 		boolean flag = false;
+		System.out.println(goodid+"***");
 		String[] goodids=goodid.split(",");
+		System.out.println(goodids.length+"*");
+		System.out.println("!!!!!");
 		for(int i=0;i<goodids.length;i++){
 			paramterService.deleteParamter(Integer.valueOf(goodids[i]));
 			seriesstyleService.deleteSeriesStyle(Integer.valueOf(goodids[i]));
 			flag=goodsService.deleteGoods(Integer.valueOf(goodids[i]));
 		}
-		out.println(flag);
-		out.flush();
-		out.close();
+		return flag;
 	}
 }

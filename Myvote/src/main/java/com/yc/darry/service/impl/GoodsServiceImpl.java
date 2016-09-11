@@ -35,9 +35,13 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
-	public Good updateGoods(Good good) {
-		
-		return null;
+	public int updateGoods(Good good) {
+		return goodsMapper.updateGoods(good);
+	}
+
+	@Override
+	public List<Good> getGoods() {
+		return  goodsMapper.getGoods();
 	}
 
 }

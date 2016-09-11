@@ -31,11 +31,32 @@
 	<select id="getAll" resultMap="GoodMap">
 		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
 	</select>
-	
+	<!-- 前台查询所有商品SQL -->
+	<select id="getGoods" resultType="Good">
+		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
+	</select>
+	<!-- 后台查询所有SQL -->
 	<select id="getParamterById" resultType="Paramter" parameterType="int">
 		select * from paramter where goodid=#{goodid} 
 	</select>
-	
+	<!-- 嵌套结果的分页处理 -->
+	<resultMap type="Pagination" id="PaginationMap">
+		<id column="pagesize" property="pagesize" />
+		<result column="pagenum" property="pagenum" />
+		<result column="totalSize" property="totalSize" />
+		<collection property="goods" column="goodid" ofType="Good">
+			<id column="goodid" property="goodid" />
+			<result property="gname" column="gname" />
+			<result property="gmaterial" column="gmaterial" />
+			<result property="gimage" column="gimage" />
+			<result property="averagescore" column="averagescore" />
+			<result property="gother" column="gother" />
+			<result property="goodnum" column="goodnum" />
+			<result property="usercount" column="usercount" />
+			<result property="comcount" column="comcount" />
+			<result property="gprice" column="gprice" />
+		</collection>
+	</resultMap>
 	<select id="getGoodByPage" resultMap="PaginationMap" parameterType="Pagination">
 		select(select count(1) from goods where gother='求婚钻戒' 
 		<if test="min!=0">
@@ -64,5 +85,31 @@
    		 </selectKey>
    		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0.0,0,0,0,#{gother})
    	</insert>
-   	
+   	<!-- 添加数据end -->
+   	<update id="updateGoods" parameterType="Good">
+	   	<!-- prefix:添加前缀字符串
+	   		prefixOverrides:去掉的前缀字符串
+	   		suffix：添加后缀字符换
+	   		suffixOverrides：去掉的后缀字符串
+	   	 -->
+	   	 <trim prefix="update goods set" prefixOverrides="," suffix="where goodid=#{goodid}">
+				<if test="gname!=null">
+	   				gname=#{gname}
+	   			</if>
+	   			<if test="gmaterial!=null">
+	   				,gmaterial=#{gmaterial}
+	   			</if>
+	   			<if test="gimage!=null">
+	   				,gimage=#{gimage}
+	   			</if>
+	   			<if test="gother!=null">
+	   				,gother=#{gother}
+	   			</if>
+	   	 </trim>
+   	</update>
+   	<!-- 更新数据end  -->
+   	<delete id="deleteGoods" parameterType="int" >
+			delete from goods where goodid =#{goodid}
+	</delete>
+	<!-- 删除数据end  -->
 </mapper>
