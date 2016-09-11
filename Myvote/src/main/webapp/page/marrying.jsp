@@ -7,11 +7,34 @@
 		<base href="/MyDarry/">
 		<meta charset="utf-8">
 		<title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
-		<link rel="stylesheet" href="css/marry.css" />
-		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/same.css">
+		<link rel="stylesheet" type="text/css" href="css/marryring.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/h.js"></script>
+		<script type="text/javascript" src="js/myJs/check.js"></script>
+		<script src="headerJs/jquery.js"></script>
+		<script type="text/javascript" src="headerJs/index.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
+<script>
+        // seajs 配置
+        seajs.config({
+            debug: true,
+            base: "",
+            alias: {
+                "jquery": "MyDarry/headerJs/jquery.js"
+            }
+        });
+        // 加载头部入口模块
+        seajs.use("MyDarry/headerJs/header.js");
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/common.css">
 	</head>
 	<body>
 	
+		<jsp:include page="header.jsp"/>
+		
+		<jsp:include page="nav.jsp"/>
+
 		<div>
 			<div class="dring-banner">
        			<a href="#">
@@ -112,11 +135,8 @@
 					<!--排序与分页-->
 					<div class="drring_sortall">
 						<!--分页-->
-						<div class="pagin fpagin fr1">
-							<a rel="nofollow" class="nextPage1" href="/darry_ring?page=2"><img alt="" src="images/marryring/right.png"></a> 
-							<a rel="nofollow" class="prevPage1" href="/darry_ring?page=1"><img alt="" src="images/marryring/left.png"></a> 
-							<span>1/14</span>
-							<span>共159件 商品</span>
+						<div class="pagin fpagin fr1" id="pagein1">
+							
 						</div>
 						<!--分页end-->
 						<!--排序-->
@@ -133,248 +153,22 @@
 					<!--排序与分页end-->
 					<!--商品-->
 					<ul class="dring_thing" id="dring_thing">
-			
-						<!-- <li><a target="_blank" href="/darry_ring/160.html"> <img
-								width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色"
-								src="http://img.darryring.com/userfiles/image/Product/201409031259093e45b5ecf0.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥11399</div>
-								<p class="dring_thing-word">FOREVER 系列 经典款&nbsp;30分&nbsp;F色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('FOREVER 系列 经典款','false','A02001','Z03023478801')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/160.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：26792</span><i>评价：<em>2710</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/387.html"> <img
-								width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色"
-								src="http://img.darryring.com/userfiles/image/product/2015093019140361614ead1d.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥19099</div>
-								<p class="dring_thing-word">TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('TRUE LOVE系列 典雅','false','A06004','Z04023278801')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/387.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：12341</span><i>评价：<em>76</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/628.html"> <img
-								width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色"
-								src="http://img.darryring.com/userfiles/image/product/20160620101350d2f9fcb5a8.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥39699</div>
-								<p class="dring_thing-word">MY HEART 系列 奢华款&nbsp;70分&nbsp;H色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('MY HEART 系列 奢华款','false','A03003','Z07021300002')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/628.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：18354</span><i>评价：<em>69</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/694.html"> <img
-								width="320" height="320" alt="BELIEVE系列 典雅&nbsp;50分&nbsp;G色"
-								src="http://img.darryring.com/userfiles/image/Product/20150129114316f8a2465758.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥23299</div>
-								<p class="dring_thing-word">BELIEVE系列 典雅&nbsp;50分&nbsp;G色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('BELIEVE系列 典雅','false','A07001','Z050222788011')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/694.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：21384</span><i>评价：<em>1606</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/335.html"> <img
-								width="320" height="320" alt="JUST YOU 系列 经典款&nbsp;20分&nbsp;I-J色"
-								src="http://img.darryring.com/userfiles/image/Product/201409031759476e8527cccb.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥5098</div>
-								<p class="dring_thing-word">JUST YOU 系列 经典款&nbsp;20分&nbsp;I-J色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('JUST YOU 系列 经典款','false','A05001','Z02004260001')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/335.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：18965</span><i>评价：<em>1619</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/443.html"> <img
-								width="320" height="320" alt="Love Line 系列 简奢款&nbsp;30分&nbsp;F色"
-								src="http://img.darryring.com/userfiles/image/Product/2015081318151576e08c7f5c.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥17699</div>
-								<p class="dring_thing-word">Love Line 系列 简奢款&nbsp;30分&nbsp;F色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('Love Line 系列 简奢款','false','A16001','Z03023278801')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/443.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：14192</span><i>评价：<em>13</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/375.html"> <img
-								width="320" height="320" alt="FOREVER 系列 奢华款&nbsp;50分&nbsp;J色"
-								src="http://img.darryring.com/userfiles/image/product/20150930142541594d0d7e3e.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥26199</div>
-								<p class="dring_thing-word">FOREVER 系列 奢华款&nbsp;50分&nbsp;J色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('FOREVER 系列 奢华款','false','A02003','Z05019478801')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/375.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：16524</span><i>评价：<em>43</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/593.html"> <img
-								width="320" height="320" alt="Sweety系列  心蓝&nbsp;23分&nbsp;I-J色"
-								src="http://img.darryring.com/userfiles/image/Product/20150203143036eaa35b6543.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥8398</div>
-								<p class="dring_thing-word">Sweety系列 心蓝&nbsp;23分&nbsp;I-J色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('Sweety系列  心蓝','false','A09003','Z023042000011')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/593.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：10563</span><i>评价：<em>107</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/172.html"> <img
-								width="320" height="320" alt="WITH YOU 系列 热恋红宝石&nbsp;30分&nbsp;D色"
-								src="http://img.darryring.com/userfiles/image/product/20160621100342c2eba8bc0a.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥27320</div>
-								<p class="dring_thing-word">WITH YOU 系列 热恋红宝石&nbsp;30分&nbsp;D色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('WITH YOU 系列 热恋红宝石','false','A14001','Z03025989991')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/172.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：18965</span><i>评价：<em>62</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/353.html"> <img
-								width="320" height="320" alt="PRINCESS系列 花冠&nbsp;3分&nbsp;H色"
-								src="http://img.darryring.com/userfiles/image/Product/201409011559313d34c1c807.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥4399</div>
-								<p class="dring_thing-word">PRINCESS系列 花冠&nbsp;3分&nbsp;H色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('PRINCESS系列 花冠','false','A08002','Z003212700001')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/353.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：9302</span><i>评价：<em>101</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/693.html"> <img
-								width="320" height="320" alt="BELIEVE系列 典雅&nbsp;70分&nbsp;G色"
-								src="http://img.darryring.com/userfiles/image/Product/20150129114316f8a2465758.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥30899</div>
-								<p class="dring_thing-word">BELIEVE系列 典雅&nbsp;70分&nbsp;G色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('BELIEVE系列 典雅','false','A07001','Z070222788011')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/693.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：21384</span><i>评价：<em>1606</em></i>
-								</div>
-							</div></li>
-			
-						<li><a target="_blank" href="/darry_ring/588.html"> <img
-								width="320" height="320" alt="JUST YOU 系列 耀世&nbsp;23分&nbsp;H色"
-								src="http://img.darryring.com/userfiles/image/product/201509301850222dacb06350.jpg">
-						</a>
-							<div class="dring_thing-cort">
-								<div class="dring_thing-price">￥8198</div>
-								<p class="dring_thing-word">JUST YOU 系列 耀世&nbsp;23分&nbsp;H色</p>
-								<div class="dring_thing-button">
-			
-									<span
-										onclick="addFaorites('JUST YOU 系列 耀世','false','A05002','Z023212000011')">收藏</span>
-									<i><a rel="nofollow" target="_blank"
-										href="/darry_ring/588.html">立即购买</a></i>
-								</div>
-								<div class="dring_thing-sold">
-									<span>已售：10981</span><i>评价：<em>47</em></i>
-								</div>
-							</div></li>
-						-->
+					
 					</ul> 
 					<!--商品end-->
 					<!--分页-->
 					<div id="pagein" class="pagin fpagin fr1">
-						<a rel="nofollow" class="nextPage1" href="/darry_ring?page=2"><img alt="" src="images/marryring/right.png"></a> 
-						<a rel="nofollow" class="prevPage1" href="/darry_ring?page=1"><img alt="" src="images/marryring/left.png"></a>
-						<span>1/14</span>
-						<span>共159件 商品</span>
+					
 					</div>
 					<!--分页end-->
 				</div>
 				<!--宽度1000以内end-->
 			</div>
 		</div>
+		<jsp:include page="footer.jsp"/>
+		<script type="text/javascript">
+			seajs.use("MyDarry/footerJs/footer.js");
+		</script>
+		
 	</body>
 </html>
