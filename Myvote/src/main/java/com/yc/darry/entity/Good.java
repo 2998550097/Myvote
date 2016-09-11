@@ -13,6 +13,7 @@ public class Good {
 	private int usercount;
 	private int comcount;
 	private List<Paramter> paramters;
+	private int gprice;
 
 	public Good(Integer goodid, String gname, String gmaterial, String gimage, Integer gprice,
 			double averagescore, String gother, int goodnum, int usercount, int comcount) {
@@ -110,7 +111,8 @@ public class Good {
 	public String toString() {
 		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial
 				+ ", gimage=" + gimage  + ", averagescore=" + averagescore + ", gother=" + gother
-				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount + "\n, paramters=" + paramters +"]";
+				+ ", goodnum=" + goodnum + ", usercount=" + usercount + ", comcount=" + comcount +
+				", gprice=" + gprice +"\n, paramters=" + paramters +"]";
 	}
 
 	public List<Paramter> getParamters() {
@@ -119,6 +121,14 @@ public class Good {
 
 	public void setParamters(List<Paramter> paramters) {
 		this.paramters = paramters;
+	}
+
+	public int getGprice() {
+		return gprice;
+	}
+
+	public void setGprice(int gprice) {
+		this.gprice = gprice;
 	}
 
 }
