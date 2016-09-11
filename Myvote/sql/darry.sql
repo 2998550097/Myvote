@@ -243,36 +243,36 @@ insert into style(styleid,stylename) values(seq_style_id.nextval,'手链/手镯'
 
 --系列款式表
 --系列
-insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100001);
-insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100002);
-insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100003);
-insert into seriesstyle(goodid,seriesid,styleid) values(103,null,100004);
-insert into seriesstyle(goodid,seriesid,styleid) values(103,null,100005);
-insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100006);
-insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100007);
-insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100008);
-insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100009);
-insert into seriesstyle(goodid,seriesid,styleid) values(105,null,100010);      
-insert into seriesstyle(goodid,seriesid,styleid) values(105,null,100011);      
-insert into seriesstyle(goodid,seriesid,styleid) values(106,null,100012);      
-insert into seriesstyle(goodid,seriesid,styleid) values(107,null,100013);
-insert into seriesstyle(goodid,seriesid,styleid) values(107,null,100014);      
-insert into seriesstyle(goodid,seriesid,styleid) values(108,null,100015);
+insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100001);
+insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100002);
+insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100003);
+insert into seriesstyle(seriesid,styleid,goodid) values(103,null,100004);
+insert into seriesstyle(seriesid,styleid,goodid) values(103,null,100005);
+insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100006);
+insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100007);
+insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100008);
+insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100009);
+insert into seriesstyle(seriesid,styleid,goodid) values(105,null,100010);      
+insert into seriesstyle(seriesid,styleid,goodid) values(105,null,100011);      
+insert into seriesstyle(seriesid,styleid,goodid) values(106,null,100012);      
+insert into seriesstyle(seriesid,styleid,goodid) values(107,null,100013);
+insert into seriesstyle(seriesid,styleid,goodid) values(107,null,100014);      
+insert into seriesstyle(seriesid,styleid,goodid) values(108,null,100015);
 --对戒
-insert into seriesstyle(goodid,seriesid,styleid) values(109,1001,100016);      
-insert into seriesstyle(goodid,seriesid,styleid) values(109,1001,100017);
-insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100018);
-insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100019);      
-insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100020);
+insert into seriesstyle(seriesid,styleid,goodid) values(109,1001,100016);      
+insert into seriesstyle(seriesid,styleid,goodid) values(109,1001,100017);
+insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100018);
+insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100019);      
+insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100020);
 --吊坠
-insert into seriesstyle(goodid,seriesid,styleid) values(111,1003,100021);
-insert into seriesstyle(goodid,seriesid,styleid) values(109,1003,100022);      
-insert into seriesstyle(goodid,seriesid,styleid) values(109,1003,100023);
-insert into seriesstyle(goodid,seriesid,styleid) values(112,1003,100024);
+insert into seriesstyle(seriesid,styleid,goodid) values(111,1003,100021);
+insert into seriesstyle(seriesid,styleid,goodid) values(109,1003,100022);      
+insert into seriesstyle(seriesid,styleid,goodid) values(109,1003,100023);
+insert into seriesstyle(seriesid,styleid,goodid) values(112,1003,100024);
 --耳饰
-insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);      
-insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
-insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
+insert into seriesstyle(seriesid,styleid,goodid) values(104,1004,100025);      
+insert into seriesstyle(seriesid,styleid,goodid) values(104,1004,100025);
+insert into seriesstyle(seriesid,styleid,goodid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
 update goods set gname='Love Line系列 [A10001],30,H',gprice=11 where goodid=100001;
