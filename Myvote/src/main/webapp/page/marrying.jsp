@@ -1,21 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!doctype>
+<!DOCTYPE html>
 <html>
-<head>
-<base href="/MyDarry/">
-<meta charset="utf-8">
-<title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
-<link rel="stylesheet" type="text/css" href="css/same.css">
-<link rel="stylesheet" type="text/css" href="css/marryring.css">
-<link rel="stylesheet" type="text/css" href="css/kefu.css">
-<script type="text/javascript" src="js/h.js"></script>
-<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/myJs/check.js"></script>
-<script src="headerJs/jquery.js"></script>
-<script type="text/javascript" src="headerJs/index.js"></script>
-<script type="text/javascript" src="headerJs/sea.js"></script>
+	<head>
+		<base href="/MyDarry/">
+		<meta charset="utf-8">
+		<title> Darry Ring钻戒价格_DR戒指官网价格表_钻石报价表 - DR官网 </title>
+		<link rel="stylesheet" type="text/css" href="css/same.css">
+		<link rel="stylesheet" type="text/css" href="css/marryring.css">
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/h.js"></script>
+		<script type="text/javascript" src="js/myJs/check.js"></script>
+		<script src="headerJs/jquery.js"></script>
+		<script type="text/javascript" src="headerJs/index.js"></script>
+		<script type="text/javascript" src="headerJs/sea.js"></script>
 <script>
         // seajs 配置
         seajs.config({
@@ -28,249 +27,148 @@
         // 加载头部入口模块
         seajs.use("MyDarry/headerJs/header.js");
     </script>
-    <script type="text/javascript" src="headerJs/header.js"></script>
     <link rel="stylesheet" type="text/css" href="css/common.css">
-</head>
+	</head>
+	<body>
+	
+		<jsp:include page="header.jsp"/>
+		
+		<jsp:include page="nav.jsp"/>
+		
+		<div>
+			<div class="dring-banner">
+       			<a href="#">
+       				<img alt="darry ring 求婚钻戒" src="images/marryring/20160627145241dc6e9ac911.jpg"/>
+       			</a>
+			</div>
+			<div class="dr-bread w1000">
+				<!--右边-->
+				<div style="display: block" class="drring_search-right fr">
+			
+					<input type="text" placeholder="请输入关键字搜索" id="txtkey"> <i
+						onclick="btnSearch( '/darry_ring?page=1&amp;')">确定</i>
+				</div>
+				<!--右边end-->
+				<!--左边-->
+				<div class="drring_search-left fl">
+					<!--面包屑-->
+					<div class="drring_all-bread fl">
+						<a href="/">Darry Ring </a><span>&gt; 求婚钻戒</span>
+					</div>
+					<!--面包屑end-->
+					<!--筛选-->
+					<div id="searchList" class="drring_search-choose fl"></div>
+					<!--筛选end-->
+				</div>
+				<!--左边end-->
+			</div>
+			
+			
+			
+			
 
-<body>
-	
-	<!-- 头部 -->
-	<jsp:include page="header.jsp"/>
-	
-	<!-- 导航 -->
-	<jsp:include page="nav.jsp"/>
-	
-    <div class="middle">
-    	<div class="middle_pic">
-        	<img src="images/marryring/20160627145241dc6e9ac911.jpg" />
-        </div>
-        
-        <div class="middle_body">
-          	<div class="middle_body_search">
-                <div class="middle_body_search_word">
-                    <a href="/">Darry Ring </a>
-                    <span>> 求婚钻戒</span>
-                </div>
-                <div class="middle_body_search_bar">
-                	<input type="text" id="searchname" placeholder="请输入关键字搜索"/>
-                    <input type="submit"  value="确定" id="submit"/> 
-                </div>
-            </div>
-            
-         
-            <div class="showring">
-            	<div class="showring_all">
-            	<div class="showring_same">
-                	<ul>
-                    	<li  class="showring_same_1">系列</li>
-                        <li class="more" id="more"> <a  href="#">更多</a></li>
-                    </ul>
-                </div>
-                
-                
-                
-                <div class="showring_same">
-                	<ul>
-                    	<li  class="showring_same_1">重量（克拉）</li>
-                 	    <li> <a href="#">10分以下</a></li>
-                    	<li> <a href="#">10分-30分</a></li>
-                    	<li><a href="#">30分-50分</a></li>
-                        <li><a href="#">50分-1克拉</a></li>
-                        <li ><a href="#">1克拉以上</a></li>
-                    </ul>
-               </div>
-                
-             
-                <div class="showring_same">
-                	
-                	<ul>
-                    	<li class="showring_same_1">钻石形状</li>
-                 	    <li> <a href="#">传统圆形</a></li>
-                    	<li> <a href="#">心形</a></li>
-                    	<li><a href="#">公主方</a></li>
-                    </ul>
-                </div>
-         
-                
-                  <div class="showring_same">
-                	<ul>
-                    	<li  class="showring_same_1">价格</li>
-                 	   <li> <a href="#">10以下</a></li>
-                    	<li> <a href="#">10-12</a></li>
-                    	<li><a href="#">13-16</a></li>
-                         <li> <a href="#">17-18</a></li>
-                    	<li> <a href="#">19以上</a></li>
-                    	<li> <input type="text" id="minPrice"></li>
-                         <li id="showrin_same_label"> <label>-</label></li>
-                    	<li> <input type="text" id="maxPrice"></li>
-                    	<li> <em onclick="" id="priceBtn">确定</em></li>
-                    </ul>
-                </div>
-              </div>
-              
-              <div class="drring_sortall">
-              	<div class="drring_sort_fl">
-                	<ul>
-                   		<li>排序</li>
-                   		<li class="a"><a href="#">按人气</a></li>
-                   		<li class="a"><a href="#">按销量</a></li>
-                    	<li class="a"><a  href="#">按价格</a></li>
-                   </ul>
-                </div>
-                	
-                <div class="pagin_fpagin_fr">
-                	<ul>
-                       <li>共156件 商品</li>
-                       <li>1/13</li>
-                       <li class="b"><a href="#"><</a></li>
-                       <li class="b"><a href="#">></a></li>
-                    </ul>
-                </div>
-              </div>  
-              
-             
-              <ul class="dring_thing" id="dring_thing">
-                		
-                        <!-- <li class="dring_thing_left">
-                            <a href="darry_marry.jsp">
-                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥11399
-                                </div>
-                                <p class="dring_thing-word">
-                                    FOREVER 系列 经典款&nbsp;30分&nbsp;F色</p>
-                                <div class="dring_thing-button">
-                                    
-                                    <span onclick="addFaorites('FOREVER 系列 经典款','false','A02001','Z03023478801')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/160.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：26792</span><i>评价：<em>2705</em></i></div>
-                            </div>
-                        </li>
-                    
-                        <li>
-                              <a href="darry_marry.jsp">
-                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="images/marryring/2015093019140361614ead1d.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥19099
-                                </div>
-                                <p class="dring_thing-word">
-                                    TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色</p>
-                                <div class="dring_thing-button">
-                                    
-                                    <span onclick="addFaorites('TRUE LOVE系列 典雅','false','A06004','Z04023278801')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/387.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：12341</span><i>评价：<em>74</em></i></div>
-                            </div>
-                        </li>
-                    
-                        <li>
-                            <a href="#">
-                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="images/marryring/20160620101350d2f9fcb5a8.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥39699
-                                </div>
-                                <p class="dring_thing-word">
-                                    MY HEART 系列 奢华款&nbsp;70分&nbsp;H色</p>
-                                <div class="dring_thing-button">
-                                    
-                                    <span onclick="addFaorites('MY HEART 系列 奢华款','false','A03003','Z07021300002')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/628.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：18354</span><i>评价：<em>69</em></i></div>
-                            </div>
-                        </li>
-                    
-                  
-                   <li class="dring_thing_left">
-                            <a href="#">
-                                <img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/marryring/201409031259093e45b5ecf0.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥11399
-                                </div>
-                                <p class="dring_thing-word">
-                                    FOREVER 系列 经典款&nbsp;30分&nbsp;F色</p>
-                                <div class="dring_thing-button">
-                                    
-                                    <span onclick="addFaorites('FOREVER 系列 经典款','false','A02001','Z03023478801')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/160.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：26792</span><i>评价：<em>2705</em></i></div>
-                            </div>
-                        </li>
-                    
-                        <li>
-                              <a href="#">
-                                <img width="320" height="320" alt="TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色" src="images/marryring/2015093019140361614ead1d.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥19099
-                                </div>
-                                <p class="dring_thing-word">
-                                    TRUE LOVE系列 典雅&nbsp;40分&nbsp;F色</p>
-                                <div class="dring_thing-button">
-                                    
-                                    <span onclick="addFaorites('TRUE LOVE系列 典雅','false','A06004','Z04023278801')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/387.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：12341</span><i>评价：<em>74</em></i></div>
-                            </div>
-                        </li>
-                    
-                        <li>
-                            <a href="#">
-                                <img width="320" height="320" alt="MY HEART 系列 奢华款&nbsp;70分&nbsp;H色" src="images/marryring/20160620101350d2f9fcb5a8.jpg">
-                            </a>
-                            <div class="dring_thing-cort">
-                                <div class="dring_thing-price">
-                                    ￥39699
-                                </div>
-                                <p class="dring_thing-word">
-                                    MY HEART 系列 奢华款&nbsp;70分&nbsp;H色</p>
-                                <div class="dring_thing-button">
-                                    
-                                   <span onclick="addFaorites('MY HEART 系列 奢华款','false','A03003','Z07021300002')">收藏</span>
-                                    <i><a rel="nofollow" target="_blank" href="/darry_ring/628.html">立即购买</a></i>
-                                </div>
-                                <div class="dring_thing-sold">
-                                    <span>已售：18354</span><i>评价：<em>69</em></i></div>
-                            </div>
-                        </li> -->
-                    
-                    
-            </ul>
-          	 <div class="pagin_fpagin_fr_1">
-                	<ul>
-                       <li>共156件 商品</li>
-                       <li>1/13</li>
-                       <li class="b"><a href="#"><</a></li>
-                       <li class="b"><a href="#">></a></li>
-                    </ul>
-                </div>
-           </div>
-        </div>
-    </div>
-    
-<jsp:include page="footer.jsp"/>
-<script>
-    // 加载底部入口模块
-  seajs.use("MyDarry/footerJs/footer.js");
-</script>
-   
-</body>
+			<div class="dr_pink pad-76">
+				<!--宽度1000以内-->
+				<div class="w1000">
+					<!--高级搜索栏-->
+					<div id="highsearch" class="drring_highsearch">
+						<div class="drring_highsearch-same fix">
+							<span class="fl">系列</span>
+							<div id="series" class="drring_series fl">
+							
+							</div>
+							<span id="moreSeries" class="moreSeries fl" onclick="seeMore()" href="javascript:;">更多</span>
+				
+				
+					<script type="text/javascript">
+						function seeMore(){
+							
+							if( $("#moreSeries").attr("class") == "moreSeries fl"){
+								$("#moreSeries").addClass("select");
+								$("#series").addClass("drring_seriesShow");
+							}else{
+								$("#moreSeries").removeClass("select");
+								$("#series").removeClass("drring_seriesShow");
+							}
+						}
+					</script>
+				
+				
+						</div>
+						<div class="drring_highsearch-same">
+							<span>重量（克拉）</span> <a rel="nofollow" style="" dr-type="2"
+								href="/darry_ring?carat=10">10分以下</a> <a rel="nofollow" style=""
+								dr-type="2" href="/darry_ring?carat=1030">10分-30分</a> <a
+								rel="nofollow" style="" dr-type="2" href="/darry_ring?carat=3050">30分-50分</a>
+							<a rel="nofollow" style="" dr-type="2"
+								href="/darry_ring?carat=50100">50分-1克拉</a> <a rel="nofollow"
+								style="" dr-type="2" href="/darry_ring?carat=100">1克拉以上</a>
+						</div>
+						<div class="drring_highsearch-same">
+			
+							<span>钻石形状</span> <a rel="nofollow" style="" dr-type="3"
+								href="/darry_ring?shape=roundShape">传统圆形</a> <a rel="nofollow"
+								style="" dr-type="3" href="/darry_ring?shape=heartShape">心形</a> <a
+								rel="nofollow" style="" dr-type="3"
+								href="/darry_ring?shape=squareShape">公主方</a>
+						</div>
+						<!--更多条件-->
+						<div style="display: block;" id="priceCond"
+							class="drring_highsearch-same">
+			
+							<span>价格</span> <a rel="nofollow" style="" dr-type="4"
+								href="/darry_ring?price=price_5000">10以下</a> <a rel="nofollow"
+								style="" dr-type="4" href="/darry_ring?price=price_5001-10000">11-13</a>
+							<a rel="nofollow" style="" dr-type="4"
+								href="/darry_ring?price=price_10001-20000">14-16</a> <a
+								rel="nofollow" style="" dr-type="4"
+								href="/darry_ring?price=price_20001-40000">17-20</a> <a
+								rel="nofollow" style="" dr-type="4"
+								href="/darry_ring?price=price_40000">21以上</a> <input type="text"
+								id="minPrice"> <label>-</label> <input type="text"
+								id="maxPrice"> <em
+								onclick="btnPriceSearch('/darry_ring?page=1&amp;')" id="priceBtn">确定</em>
+						</div>
+						<!--更多条件end-->
+					</div>
+					<!--高级搜索栏end-->
+					<!--排序与分页-->
+					<div class="drring_sortall">
+						<!--分页-->
+						<div class="pagin fpagin fr1" id="pagein1">
+							
+						</div>
+						<!--分页end-->
+						<!--排序-->
+						<div class="drring_sort fl">
+							<span>排序</span> <i id="ctl00_content_rq"><a rel="nofollow"
+								href="/darry_ring?page=1&amp;sort=s1">按人气</a></i> <i
+								id="ctl00_content_xl"><a rel="nofollow"
+								href="/darry_ring?page=1&amp;sort=s3">按销量</a></i> <i
+								id="ctl00_content_pr"><a rel="nofollow"
+								href="/darry_ring?page=1&amp;sort=s5">按价格</a></i>
+						</div>
+						<!--排序end-->
+					</div>
+					<!--排序与分页end-->
+					<!--商品-->
+					<ul class="dring_thing" id="dring_thing">
+					
+					</ul> 
+					<!--商品end-->
+					<!--分页-->
+					<div id="pagein" class="pagin fpagin fr1">
+					
+					</div>
+					<!--分页end-->
+				</div>
+				<!--宽度1000以内end-->
+			</div>
+		</div>
+		<jsp:include page="footer.jsp"/>
+		<script type="text/javascript">
+			seajs.use("MyDarry/footerJs/footer.js");
+		</script>
+		
+	</body>
 </html>

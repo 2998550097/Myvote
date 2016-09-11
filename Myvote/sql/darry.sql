@@ -274,8 +274,23 @@ insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
-
-
+update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
+update goods set gname='Love Line系列 [A10001],30,H',gprice=11 where goodid=100001;
+update goods set gname='Love Line系列 [A10002],50,H',gprice=12 where goodid=100002;
+update goods set gname='Love Line系列 [A10003],99,H',gprice=16 where goodid=100003;
+update goods set gname='Love Line系列 [A10004],30,H',gprice=14 where goodid=100004;
+update goods set gname='Love Line系列 [A10005],30,H',gprice=10 where goodid=100005;
+update goods set gname='Love Line系列 [A10006],30,H',gprice=10 where goodid=100006;
+update goods set gname='Love Line系列 [A10007],30,J',gprice=10 where goodid=100007;
+update goods set gname='Love Line系列 [A10008],30,H',gprice=10 where goodid=100008;
+update goods set gname='Love Line系列 [A10009],30,H',gprice=10 where goodid=100009;
+update goods set gname='Love Line系列 [A10010],30,H',gprice=10 where goodid=100010;
+update goods set gname='Love Line系列 [A10011],30,H',gprice=10 where goodid=100011;
+update goods set gname='Love Line系列 [A10012],30,H',gprice=10 where goodid=100012;
+update goods set gname='Love Line系列 [A10013],50,H',gprice=14 where goodid=100013;
+update goods set gname='Love Line系列 [A10014],30,H',gprice=11 where goodid=100014;
+update goods set gname='Love Line系列 [A10015],30,H',gprice=10 where goodid=100015;
+alter table goods add gprice number(10);
 --商品表
 --女戒
 insert into goods(goodid,gname,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
@@ -3291,3 +3306,8 @@ values(seq_paramter_id.nextval,100027,'4分J',null,'SI',null,4,30);
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 
 where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
+alter table goods modify gname varchar2(50); 
+
+select * from goods where 
+
+select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 2 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 2 >= rownum) nn where rn > 12 * (2 - 1)

@@ -27,6 +27,7 @@
 		</collection>
 					
 	</resultMap>
+	
 	<select id="getAll" resultMap="GoodMap">
 		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
 	</select>
@@ -35,10 +36,19 @@
 		select * from paramter where goodid=#{goodid} 
 	</select>
 	
+	<select id="getGoodByPage" resultMap="PaginationMap" parameterType="Pagination">
+		select(select count(1) from goods where gother='求婚钻戒') totalSize, ${pagesize} pagesize, ${pagenum}
+		pagenum, nn.* from (select n.*, rownum rn from
+		(select * from goods where gother='求婚钻戒' order by goodid) n where ${pagesize} * ${pagenum} >= rownum)
+		nn where rn > ${pagesize} * (${pagenum} - 1)
+	</select>
+	<!-- 分页end -->
+	
 	<insert id="addGoods" parameterType="Good" >
    		 <selectKey keyColumn="goodid" keyProperty="goodid" resultType="int" order="BEFORE">
    		 	select seq_goods_id.nextval goodid from dual
    		 </selectKey>
    		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0.0,0,0,0,#{gother})
    	</insert>
+   	
 </mapper>

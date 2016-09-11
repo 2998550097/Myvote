@@ -27,7 +27,7 @@
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="updateStore" style="float:left;padding-left:20px" id="update">
+   <form action="updateStore" style="float:left;padding-left:20px" id="update" method="post">
   		<label>店铺编号：</label><input type="text" id="ustoreId" name="storeId" required="required" disabled="true" value=""/><br/><br/>
    		<label>店铺名：</label><input type="text" id="usname" name="sname" required="required"/><br/><br/>
    		<label>店铺地址：</label><input type="text" id="usaddress" name="saddress" required="required"/><br/><br/>
@@ -43,7 +43,7 @@
 <script>
 var obj;
 obj=$('#Store_data').datagrid({  
-	    url:'../../../store',  
+	    url:'../../../store/findStore',  
 	    //queryParams:{op:'findStore'},
 	    fitColumns:true,
 	    striped:true,
@@ -53,7 +53,7 @@ obj=$('#Store_data').datagrid({
 	    pageNumber:1,
 	    pageSize:2,
 	    pageList:[2,5,10,15,20,30,3],
-	    sortName:'tids',
+	    sortName:'storeid',
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
@@ -122,7 +122,7 @@ obj=$('#Store_data').datagrid({
 		    				}
 		    				tids+=rows[i].storeid;
 		    				//发请求到数据库删除
-		    				$.post("../../../deleteStore",{storeid:tids},function(data){
+		    				$.post("../../../store/deleteStore",{storeid:tids},function(data){
 		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
@@ -154,17 +154,24 @@ obj=$('#Store_data').datagrid({
 	}); 
 	
 	function addStore(){
-		var str = $("#add").serialize() + 
-		"&simagelogo=" + $("#simagelogo").val(); 
-		//var jsonStr=toJsonStr(str);
+		var str = $("#add").serialize(); 
 		
-		$.post("../../../addStore",str,function(data){
+		$.ajaxFileUpload({
+		url:"../../../store/addStore",
+		secureuri:false,
+		fileElementId:"simagelogo",
+		dataType:"json",
+		data:str,
+		success:function(data,status){
 			if(data){
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
 			}else{
 				$.messager.alert('失败提示','店铺信息添加失败...','error');
 			}
+		},error:function(data,status,e){
+			$.messager.alert("错误提示","店铺信息添加失败...\n"+e,"error");
+		}
 		});
 	} 
 	
@@ -173,7 +180,7 @@ obj=$('#Store_data').datagrid({
 		var str = $("#update").serialize() + 
 			"&simagelogo=" + $("#ussimagelogo").val() + 
 			"&storeid="+ $("#ustoreId").val();
-		$.post("../../../updateStore",str,function(data){
+		$.post("../../../store/updateStore",str,function(data){
 			if(data){
 				$("#update_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格

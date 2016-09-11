@@ -17,6 +17,7 @@ import com.yc.darry.service.CommentService;
 import com.yc.darry.service.StoreService;
 
 @Controller
+@RequestMapping("/comment")
 public class CommentHandler {
 
 	@Autowired
@@ -35,7 +36,8 @@ public class CommentHandler {
 	
 	@ResponseBody
 	@RequestMapping(value="/deleteComment",method=RequestMethod.POST)
-	public boolean deleteComment(int commentid,PrintWriter out){
-		return commentService.deleteComments(commentid);
+	public boolean deleteComment(String commentid,PrintWriter out){
+		String[] commentids=commentid.split(",");
+		return commentService.deleteComments(commentids);
 	}
 }

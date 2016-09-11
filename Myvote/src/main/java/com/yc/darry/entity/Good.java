@@ -14,11 +14,13 @@ public class Good {
 	private int comcount;
 	private String seriesname;
 	private String stylename;
-	
+	private int gprice;
 	private List<Paramter> paramters;
 
-	public Good(Integer goodid, String gname, String gmaterial, String gimage, Integer gprice,
-			double averagescore, String gother, int goodnum, int usercount, int comcount) {
+	
+
+	public Good(Integer goodid, String gname, String gmaterial, String gimage, double averagescore, String gother,
+			int goodnum, int usercount, int comcount, int gprice) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
@@ -29,6 +31,7 @@ public class Good {
 		this.goodnum = goodnum;
 		this.usercount = usercount;
 		this.comcount = comcount;
+		this.gprice = gprice;
 	}
 
 	public Good() {
@@ -133,8 +136,17 @@ public class Good {
 		this.stylename = stylename;
 	}
 
+	public int getGprice() {
+		return gprice;
+	}
+
+	public void setGprice(int gprice) {
+		this.gprice = gprice;
+	}
+
 	public Good(Integer goodid, String gname, String gmaterial, String gimage, double averagescore, String gother,
-			int goodnum, int usercount, int comcount, String seriesname, String stylename, List<Paramter> paramters) {
+			int goodnum, int usercount, int comcount, String seriesname, String stylename, int gprice,
+			List<Paramter> paramters) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
@@ -147,15 +159,14 @@ public class Good {
 		this.comcount = comcount;
 		this.seriesname = seriesname;
 		this.stylename = stylename;
+		this.gprice = gprice;
 		this.paramters = paramters;
 	}
-
 	@Override
 	public String toString() {
 		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
 				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
 				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
-				+ ", paramters=" + paramters + "]";
+				+ ", gprice=" + gprice + ", paramters=" + paramters + "]";
 	}
-
 }

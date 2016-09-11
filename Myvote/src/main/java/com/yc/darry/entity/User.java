@@ -1,7 +1,10 @@
 package com.yc.darry.entity;
 
-public class User {
-	private Integer useid;
+import java.io.Serializable;
+
+public class User implements Serializable{
+	private static final long serialVersionUID = 1L;
+	private Integer userid;
 	private String ucardid;
 	private String urealname;
 	private String uname;
@@ -17,11 +20,11 @@ public class User {
 	private String uimage;
 	private String emailCode;
 
-	public User(Integer useid, String ucardid, String urealname, String uname, String ubirthday, String usex,
+	public User(Integer userid, String ucardid, String urealname, String uname, String ubirthday, String usex,
 			String uaddress, String utel, String uemail, String upassword, String upostcode, String ustatus,String ustate,
 			String uimage, String emailCode) {
 		super();
-		this.useid = useid;
+		this.userid = userid;
 		this.ucardid = ucardid;
 		this.urealname = urealname;
 		this.uname = uname;
@@ -48,12 +51,12 @@ public class User {
 		super();
 	}
 
-	public Integer getUseid() {
-		return useid;
+	public Integer getuserid() {
+		return userid;
 	}
 
-	public void setUseid(Integer useid) {
-		this.useid = useid;
+	public void setuserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	public String getUcardid() {
@@ -162,7 +165,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [useid=" + useid + ", ucardid=" + ucardid + ", urealname=" + urealname + ", uname=" + uname
+		return "User [userid=" + userid + ", ucardid=" + ucardid + ", urealname=" + urealname + ", uname=" + uname
 				+ ", ubirthday=" + ubirthday + ", usex=" + usex + ", uaddress=" + uaddress + ", utel=" + utel
 				+ ", uemail=" + uemail + ", upassword=" + upassword + ", upostcode=" + upostcode + ", ustatus="
 				+ ustatus + ", ustate=" + ustate +", uimage=" + uimage + ", emailCode=" + emailCode + "]";

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import com.yc.darry.entity.Good;
 import com.yc.darry.entity.Paramter;
+import com.yc.darry.entity.Pagination;
 import com.yc.darry.service.GoodsService;
 import com.yc.darry.service.ParamterService;
 import com.yc.darry.service.SeriesStyleService;
@@ -25,13 +26,44 @@ public class GoodsHandler {
 	@Autowired
 	private SeriesStyleService seriesstyleService;
 	
-	
+	/**
+	 * 查询所有商品
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/findAll")
 	public List<Good>  findAll(){
 		List<Good> goods =goodsService.getAll();
 		return goods;
 	}
+	/**
+	 * 分页查询
+	 * @param page
+	 * @param num
+	 * @param totalSize
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("/findByPage")
+	public Pagination  findByPage(int page,int num,int totalSize){
+		Pagination paginations=new Pagination(12, num);
+		paginations.setTotalSize(totalSize);
+		if(page==0){
+			paginations=goodsService.getGoodByPage(new Pagination(12, page+1));
+		}else if(page==1){
+			System.out.println(paginations.getnextPageNo());
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo()));
+		}else if(page==2){
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo()));
+		}
+		return paginations;
+	}
+	/**
+	 * 后台的商品添加操作
+	 * @param good
+	 * @param paramter
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/addGoods")
 	public boolean  addGoods(Good good,Paramter paramter){
@@ -53,6 +85,12 @@ public class GoodsHandler {
 		 }
 		return flag;
 	}
+	/**
+	 * 更新后台商品数据操作
+	 * @param good
+	 * @param paramter
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping("/updateGoods")
 	public boolean  updateGoods(Good good,Paramter paramter){
@@ -66,6 +104,11 @@ public class GoodsHandler {
 		 flag=seriesstyleService.updateSeriesStyle(goodid, seriesname, stylename);
 		return flag;
 	}
+	/**
+	 * 删除后台商品操作  根据goodid
+	 * @param goodid
+	 * @param out
+	 */
 	@RequestMapping(value="/deleteGoods",method=RequestMethod.POST)
 	public void  deleteGoods(String goodid,PrintWriter out){
 		boolean flag = false;

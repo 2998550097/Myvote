@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <table id="goods_data"></table>
 
 <div style="position: absolute;top:60px;left:250px;">
@@ -267,4 +268,213 @@ function showpic(value){
 	return str;
 }
 
+=======
+<table id="goods_data"></table>
+
+<div style="position: absolute;top:60px;left:250px;">
+	<label>商品系列：</label><select id="seriesnames" name="seriesname"></select>
+	<label>商品款式：</label><select id="stylenames" name="stylename"></select>
+	商品名:<input id="gname" type="text" name="gname" />&nbsp;
+	<input id="search_goods" type="button" value="查询" onclick="search()">
+</div> 
+	
+<div id="add_Goods" class="easyui-dialog" title="添加商品" data-options="iconCls:'icon-add',resizable:true,modal:true,closed:true,fit:true">  
+   <br/>
+   <form action="add" style="float:left;padding-left:20px">
+   		<label>商品名：</label><input type="text" id="gname" name="gname" required="required" value=""/><br/><br/>
+   		<label>商品系列：</label><select id="seriesname" name="seriesname"></select><br/><br/>
+   		<label>商品款式：</label><select id="stylename" name="stylename"></select><br/><br/>
+   		<label>商品材质：</label><input type="text" id="gmaterial" name="gmaterial" required="required" value=""/><br/><br/>
+   		<label>商品手寸：</label><input type="text" id="psize" name="psize" required="required" value=""/><br/><br/>
+   		<label>商品净度：</label><input type="text" id="gcrystal" name="gcrystal" required="required" value=""/><br/><br/>
+   		<label>商品切工：</label><input type="text" id="gcutting" name="gcutting" required="required" value=""/><br/><br/>
+   		<label>商品价格：</label><input type="text" id="pprice" name="pprice" required="required" value=""/><br/><br/>
+   		<label>图片：</label><input type="file" multiple="multiple" id="gimage" name="gimage" onchange="previewMultipleImage(this,'gimage_show')"/><br/><br/>
+   		<div>
+    		<script id="editor" type="text/plain" style="width:800px;height:300px;"></script>
+		</div>
+   		<a href="javascript:addgoodsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+   </form> 
+   
+   <div style="float:right;width:360px;margin-right:20px;">
+   		<fieldset id="gimage_show">
+   			<legend>图片预览</legend>
+   		</fieldset>
+   </div>
+</div>  
+
+
+<div id="update_Goods" class="easyui-dialog" title="修改商品" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
+   <br/>
+   <form action="update" style="float:left;padding-left:20px">
+   		<label>商品名称：</label><input type="text" id="gname1" name="gname1" required="required" value=""/><br/><br/>
+   		<label>商品系列：</label><select id="seriesname1" name="seriesname1"></select><br/><br/>
+   		<label>商品款式：</label><select id="stylename1" name="stylename1"></select><br/><br/>
+   		<label>商品材质：</label><input type="text" id="gmaterial1" name="gmaterial1" required="required" value=""/><br/><br/>
+   		<label>商品手寸：</label><input type="text" id="psize1" name="psize1" required="required" value=""/><br/><br/>
+   		<label>商品净度：</label><input type="text" id="gcrystal1" name="gcrystal1" required="required" value=""/><br/><br/>
+   		<label>商品切工：</label><input type="text" id="gcutting1" name="gcutting1" required="required" value=""/><br/><br/>
+   		<label>商品价格：</label><input type="text" id="pprice1" name="pprice1" required="required" value=""/><br/><br/>
+   		<label>图片：</label><input type="file" multiple="multiple" id="gimage1" name="gimage1" onchange="previewMultipleImage(this,'goods_gimage1_show')"/><br/><br/>
+    		<script id="editor1" type="text/plain" style="width:800px;height:300px;"></script>
+   		<a href="javascript:updategoodsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
+   </form>
+   <div style="float:right;width:360px;margin-right:20px;">
+   		<fieldset id="goods_gimage1_show">
+   			<legend>图片预览</legend>
+   			<img alt="" src="" id="np" style="width:200px;height:200px;"/>
+   		</fieldset>
+   </div>
+</div>
+<script>
+
+//实例化编辑器
+//建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
+var ue = UE.getEditor('editor');
+var ue1 = UE.getEditor('editor1');
+obj=$('#goods_data').datagrid({  
+	    url:'../../../goods/findAll',  
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:5,
+	    pageList:[5,10,15,20,30,3],
+	    remoteSort:false,
+	    columns:[[  
+			{field:'tid',title:'',width:27,align:'center',checkbox:true}, 
+	        {field:'goodid',title:'商品编号',width:88.5,align:'center',sortable:true},  
+	        {field:'gname',title:'商品名',width:88.5,align:'center'},
+	        {field:'seriesname',title:'商品系列',width:88.5,align:'center'},
+	        {field:'stylename',title:'商品款式',width:88.5,align:'center'},
+	        {field:'gmaterial',title:'商品材质',width:88.5,align:'center'},
+	        {field:'psize',title:'商品手寸',width:88.5,align:'center'},
+	        {field:'gcutting',title:'商品切工',width:88.5,align:'center'},
+	        {field:'gcrystal',title:'商品净度',width:88.5,align:'center'},
+	        {field:'pprice',title:'商品价格',width:88.5,align:'center'},
+	        {field:'averagescore',title:'平均评分',width:88.5,align:'center'},
+	        {field:'usercount',title:'购买次数',width:88.5,align:'center'},
+	        {field:'goodnum',title:'收藏次数',width:88.5,align:'center'},
+	        {field:'comcount',title:'评论次数',width:88.5,align:'center'},
+	        {field:'gother',title:'其他',width:88.5,align:'center'},
+	        {field:'gimage',title:'图片',width:89,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		if(value!=null){
+	        			var str="";
+	        			var pics=value.split(",");
+	        			for(var i=0;i<pics.length;i++){
+	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        			}
+	        			return str;
+	        		}else{
+	        			return;
+	        		}
+	        	}	
+	        }
+	     ]],
+	    toolbar:[{
+	    	text:"添加",
+	    	iconCls:"icon-add",
+	    	handler:function(){
+	    		$('#add_goods').dialog('open');
+	    		$("#goods_date").datebox('setValue',myformatter(new Date()));
+	    	}
+		 },{
+		    text:"修改",
+		   	iconCls:"icon-edit",
+		    handler:function(){
+		    		$('#update_goods').dialog('open');
+		    	
+		    }
+		 },{
+		    text:"删除",
+		    iconCls:"icon-remove",
+		    handler:function(){
+		    	//获取选中的行
+		   		var rows=obj.datagrid("getChecked");
+		    	if(rows!=undefined){
+		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
+		    			if(rs){
+		    				var tids="";
+		    				for(var i=0;i<rows.length-1;i++){
+		    					tids+=rows[i].nid+",";
+		    				}
+		    				tids+=rows[i].nid;
+		    				
+		    				//发请求到数据库删除
+		    				$.post("../../goodsServlet",{op:"delgoods",nid:tids},function(data){
+		    					if(data>0){
+			    					$.messager.show({
+			    						title:'成功提示',
+			    						msg:'商品删除成功...',
+			    						timeout:2000,
+			    						showType:'slide'
+			    					});
+			    						
+			    					rows=null;
+			    					obj.datagrid("reload");//刷新表格
+			    				}else{
+			    					$.messager.alert('失败提示','商品删除失败...','error');
+			    				}
+		    				});
+		    			}else{
+		    				return;
+		    			}
+		    		});
+		    	}else{
+		    		$.messager.show({
+						title:'温馨提示',
+						msg:'请选中您要删除的数据...',
+						timeout:2000,
+						showType:'slide'
+					});
+		    	}
+		    }
+		 }]
+	}); 
+
+$(function(){
+	$.post("../../../series/getname",function(data){
+		var obj=$("#goods_seriesnames");
+		var obj1=$("#goods_seriesname");
+		var obj2=$("#goods_seriesname1");
+		var opt;
+		for(var a=0;a<data.length;a++){
+			opt="<option value='"+data[a].seriesname+"'>"+data[a].seriesname+"</option>";
+			obj.append($(opt));
+			obj1.append($(opt));
+			obj2.append($(opt));
+		}
+	},"json");
+	$.post("../../../style/getname",function(data){
+		var obj1=$("#goods_stylenames");
+		var obj=$("#goods_stylename");
+		var obj2=$("#goods_stylename1");
+		var opt;
+		for(var a=0;a<data.length;a++){
+			opt="<option value='"+data[a].stylename+"'>"+data[a].stylename+"</option>";
+			obj1.append($(opt));
+			obj.append($(opt));
+			obj2.append($(opt));
+		}
+	},"json");
+})
+
+function addgoodsInfo(){
+	var str = $("#add").serialize() + 
+	"&gimage=" + $("#gimage").val();
+	$.post("../../../addGoods",str,function(data){
+		if(data){
+			$("#add_Goods").dialog('close');
+			obj.datagrid("reload");//刷新表格
+		}else{
+			$.messager.alert('失败提示','商品信息添加失败...','error');
+		}
+	});
+}
+
+
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 </script>

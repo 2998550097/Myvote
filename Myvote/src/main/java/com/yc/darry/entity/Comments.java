@@ -1,52 +1,94 @@
 package com.yc.darry.entity;
 
 public class Comments {
-	private Integer commentId;
-	private Integer orderId;
-	private Integer goodId;
+	private Integer commentid;
+	private Integer orderid;
+	private Integer goodid;
 	private String comtime;
 	private String commessage;
 	private String comimage;
 	private String comscore;
+	
+	private String uname;
+	private String gname;
+//	commentid,uname,gname,orderid,commessage,comscore,comimage
 
-	public Comments(Integer commentId, Integer orderId, Integer goodId, String comtime, String commessage,
+	
+	
+	public Comments(Integer commentid, Integer orderid, Integer goodid, String comtime, String commessage,
 			String comimage, String comscore) {
 		super();
-		this.commentId = commentId;
-		this.orderId = orderId;
-		this.goodId = goodId;
+		this.commentid = commentid;
+		this.orderid = orderid;
+		this.goodid = goodid;
 		this.comtime = comtime;
 		this.commessage = commessage;
 		this.comimage = comimage;
 		this.comscore = comscore;
 	}
+	
+	
+
+	public Comments(Integer commentid, Integer orderid, String comtime, String commessage, String comimage,
+			String comscore, String uname, String gname) {
+		super();
+		this.commentid = commentid;
+		this.orderid = orderid;
+		this.comtime = comtime;
+		this.commessage = commessage;
+		this.comimage = comimage;
+		this.comscore = comscore;
+		this.uname = uname;
+		this.gname = gname;
+	}
+
+
 
 	public Comments() {
 		super();
 	}
+	
+	
+	
 
-	public Integer getCommentId() {
-		return commentId;
+	public String getUname() {
+		return uname;
 	}
 
-	public void setCommentId(Integer commentId) {
-		this.commentId = commentId;
+	public void setUname(String uname) {
+		this.uname = uname;
 	}
 
-	public Integer getOrderId() {
-		return orderId;
+	public String getGname() {
+		return gname;
 	}
 
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
+	public void setGname(String gname) {
+		this.gname = gname;
 	}
 
-	public Integer getGoodId() {
-		return goodId;
+	public Integer getcommentid() {
+		return commentid;
 	}
 
-	public void setGoodId(Integer goodId) {
-		this.goodId = goodId;
+	public void setcommentid(Integer commentid) {
+		this.commentid = commentid;
+	}
+
+	public Integer getorderid() {
+		return orderid;
+	}
+
+	public void setorderid(Integer orderid) {
+		this.orderid = orderid;
+	}
+
+	public Integer getgoodid() {
+		return goodid;
+	}
+
+	public void setgoodid(Integer goodid) {
+		this.goodid = goodid;
 	}
 
 	public String getComtime() {
@@ -81,10 +123,14 @@ public class Comments {
 		this.comscore = comscore;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Comments [commentId=" + commentId + ", orderId=" + orderId + ", goodId=" + goodId + ", comtime="
-				+ comtime + ", commessage=" + commessage + ", comimage=" + comimage + ", comscore=" + comscore + "]";
+		return "Comments [commentid=" + commentid + ", orderid=" + orderid + ", goodid=" + goodid + ", comtime="
+				+ comtime + ", commessage=" + commessage + ", comimage=" + comimage + ", comscore=" + comscore
+				+ ", uname=" + uname + ", gname=" + gname + "]";
 	}
+
 
 }

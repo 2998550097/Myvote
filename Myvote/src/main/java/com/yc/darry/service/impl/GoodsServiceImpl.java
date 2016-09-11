@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yc.darry.entity.Good;
-import com.yc.darry.entity.Paramter;
+import com.yc.darry.entity.Pagination;
 import com.yc.darry.mapper.GoodsMapper;
 import com.yc.darry.service.GoodsService;
 
@@ -20,6 +20,11 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
+	public Pagination getGoodByPage(Pagination page) {
+		return goodsMapper.getGoodByPage(page);
+	}
+	
+	@Override
 	public int addGoods(Good good) {
 		return goodsMapper.addGoods( good);
 	}
@@ -29,11 +34,9 @@ public class GoodsServiceImpl implements GoodsService{
 		
 	}
 
-	
-
 	@Override
 	public Good updateGoods(Good good) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
