@@ -23,5 +23,21 @@ public class GoodsServiceImpl implements GoodsService{
 	public Pagination getGoodByPage(Pagination page) {
 		return goodsMapper.getGoodByPage(page);
 	}
+	
+	@Override
+	public int addGoods(Good good) {
+		return goodsMapper.addGoods( good);
+	}
+	
+	public boolean deleteGoods(Integer goodid) {
+		return goodsMapper.deleteGoods(goodid);
+		
+	}
+
+	@Override
+	public Good updateGoods(Good good) {
+		
+		return null;
+	}
 
 }

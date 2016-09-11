@@ -1,0 +1,21 @@
+信息 :2016-09-11 10:07:33,437 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 1 >= rownum) nn where rn > 12 * (1 - 1) 
+信息 :2016-09-11 10:07:33,878 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 10:07:34,125 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 12
+信息 :2016-09-11 10:07:59,885 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 1 >= rownum) nn where rn > 12 * (1 - 1) 
+信息 :2016-09-11 10:08:00,229 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 10:08:00,427 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 12
+信息 :2016-09-11 10:13:47,608 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 15 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 15 * 1 >= rownum) nn where rn > 15 * (1 - 1) 
+信息 :2016-09-11 10:13:47,905 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 10:13:48,068 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 15
+信息 :2016-09-11 15:31:02,641 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 15 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 15 >= rownum) nn where rn > 12 * (15 - 1) 
+信息 :2016-09-11 15:31:03,011 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 15:31:03,208 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 0
+信息 :2016-09-11 15:32:59,638 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 15 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 15 >= rownum) nn where rn > 12 * (15 - 1) 
+信息 :2016-09-11 15:32:59,971 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 15:33:00,128 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 0
+信息 :2016-09-11 15:35:13,213 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 15 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 15 * 1 >= rownum) nn where rn > 15 * (1 - 1) 
+信息 :2016-09-11 15:35:13,455 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-11 15:35:13,619 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 15
+信息 :2016-09-11 15:36:42,138 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒') totalSize, 15 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' and gprice>=? order by goodid) n where 15 * 1 >= rownum) nn where rn > 15 * (1 - 1) 
+信息 :2016-09-11 15:36:42,403 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 15(Integer)
+信息 :2016-09-11 15:36:42,552 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1

@@ -9,4 +9,8 @@ public interface GoodsMapper {
 	List<Good> getAll();
 	
 	Pagination getGoodByPage(Pagination page);
+	
+	int addGoods(Good good);
+
+	boolean deleteGoods(Integer goodid);
 }
