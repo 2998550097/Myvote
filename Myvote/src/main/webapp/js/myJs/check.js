@@ -1,30 +1,6 @@
 $(function(){
-		//显示全部商品
-		$.post("goods/findAll",function(data){
-			var str="";
-			for(var i=0;i<12;i++){
-				str+='<li '+(i%3==0?'class="dring_thing_left"' : '')+'>';
-                str+='<a href="darry_marry.jsp">';
-                str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data[i].gimage.substring(0,data[i].gimage.indexOf(","))+'">';
-                str+='</a>';
-                str+='<div class="dring_thing-cort">';
-                str+='<div class="dring_thing-price">'+data[i].paramters[0].pprice+'</div>';
-                if(data[i].paramters[0].pcarat!=null){
-                	str+='<p class="dring_thing-word">'+data[i].gname+'&nbsp;'+data[i].paramters[0].pcarat.split("分")[0]+'分&nbsp;'+data[i].paramters[0].pcarat.split("分")[1]+'色</p>';
-                }else{
-                	str+='<p class="dring_thing-word">'+data[i].gname+'</p>';
-                }
-                str+='<div class="dring_thing-button">';
-                str+='<span>收藏</span>';
-                str+='<i><a rel="nofollow" target="_blank" href="/darry_ring/160.html">立即购买</a></i>';
-                str+='</div>';
-                str+='<div class="dring_thing-sold">';
-                str+='<span>已售：26792</span><i>评价：<em>2705</em></i></div>';
-                str+='</div>';
-                str+='</li>';
-			}
-			$("#dring_thing").append(str);
-		});
+		//第一页
+		getGoodByPage(0);
 		
     	//导航栏系列显示
     	$.post("series/getname",function(data){
@@ -52,7 +28,7 @@ $(function(){
     	//系列循环
     	$.post("series/getname",function(data){
     		var str="";
-    		for(var i=0; i<data.length; i++){
+    		for(i=data.length-1; i>=0;i--){
     			str += '<a rel="nofollow" style="" dr-type="1" href="/darry_ring?series=heart">'+data[i].seriesname+'</a> ';
     		}
     		$("#series").append(str);
@@ -100,3 +76,47 @@ $("#loginInaAtion").bind({
 			$(this).css("display","none");
 		},
 });
+var num=1;
+var totalSize=12;
+//显示分页商品
+function getGoodByPage(page){
+	$.post("goods/findByPage?page="+page+"&num="+num+"&totalSize="+totalSize,function(data){
+		$("#dring_thing").html("");
+		$("#pagein").html("");
+		$("#pagein1").html("");
+		var str="";
+		var span="";
+		var span1="";
+		for(var i=0;i<data.goods.length;i++){
+			str+='<li '+(i%3==0?'class="dring_thing_left"' : '')+'>';
+            str+='<a href="darry_marry.jsp">';
+            str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data.goods[i].gimage.substring(0,data.goods[i].gimage.indexOf(","))+'">';
+            str+='</a>';
+            str+='<div class="dring_thing-cort">';
+            str+='<div class="dring_thing-price">'+data.goods[i].gname.split(",")[3]+'</div>';
+            str+='<p class="dring_thing-word">'+data.goods[i].gname.split(",")[0]+'&nbsp;'+data.goods[i].gname.split(",")[1]+'分&nbsp;'+data.goods[i].gname.split(",")[2]+'色</p>';
+            str+='<div class="dring_thing-button">';
+            str+='<span>收藏</span>';
+            str+='<i><a rel="nofollow" target="_blank" href="/darry_ring/160.html">立即购买</a></i>';
+            str+='</div>';
+            str+='<div class="dring_thing-sold">';
+            str+='<span>已售：26792</span><i>评价：<em>2705</em></i></div>';
+            str+='</div>';
+            str+='</li>';
+		}
+		span+='<a rel="nofollow" class="nextPage1" href="javascript:void(0)" onclick="getGoodByPage(1)"><img alt="" src="images/marryring/right.png"></a>';
+		span+='<a rel="nofollow" class="prevPage1" href="javascript:void(0)" onclick="getGoodByPage(2)"><img alt="" src="images/marryring/left.png"></a>';
+		span+='<span>'+data.pagenum+'/'+data.maxpage+'</span>';
+		span+='<span>共'+data.totalSize+'件 商品</span>';
+		
+		span1+='<a rel="nofollow" class="nextPage1" href="javascript:void(0)" onclick="getGoodByPage(1)"><img alt="" src="images/marryring/right.png"></a>';
+		span1+='<a rel="nofollow" class="prevPage1" href="javascript:void(0)" onclick="getGoodByPage(2)"><img alt="" src="images/marryring/left.png"></a>';
+		span1+='<span>'+data.pagenum+'/'+data.maxpage+'</span>';
+		span1+='<span>共'+data.totalSize+'件 商品</span>';
+		$("#pagein").append(span);
+		$("#pagein1").append(span1);
+		num=data.pagenum;
+		totalSize=data.totalSize;
+		$("#dring_thing").append(str);
+	});
+}

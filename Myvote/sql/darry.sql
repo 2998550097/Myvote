@@ -271,11 +271,11 @@ insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
-update goods set gname='Love Line系列 [A10001],30,H' where goodid=100001;
-update goods set gname='Love Line系列 [A10002],50,H' where goodid=100002;
-update goods set gname='Love Line系列 [A10003],99,H' where goodid=100003;
-update goods set gname='Love Line系列 [A10004],30,H' where goodid=100004;
-update goods set gname='Love Line系列 [A10005],30,H' where goodid=100005;
+update goods set gname='Love Line系列 [A10001],30,H,10' where goodid=100001;
+update goods set gname='Love Line系列 [A10002],50,H,12' where goodid=100002;
+update goods set gname='Love Line系列 [A10003],99,H,14' where goodid=100003;
+update goods set gname='Love Line系列 [A10004],30,H,12' where goodid=100004;
+update goods set gname='Love Line系列 [A10005],30,H,' where goodid=100005;
 update goods set gname='Love Line系列 [A10006],30,H' where goodid=100006;
 update goods set gname='Love Line系列 [A10007],99,D' where goodid=100007;
 update goods set gname='Love Line系列 [A10008],30,H' where goodid=100008;
@@ -3301,6 +3301,7 @@ values(seq_paramter_id.nextval,100027,'4分J',null,'SI',null,4,30);
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 
 where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
+alter table goods modify gname varchar2(50); 
 
 select * from goods where 
 

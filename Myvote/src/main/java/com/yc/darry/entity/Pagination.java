@@ -60,11 +60,33 @@ public class Pagination implements Serializable {
 			maxpage = (totalSize / pagesize) + (totalSize % pagesize == 0 ? 0 : 1);
 		}
 	}
-
+	
+	/*
+	 * 上一页
+	 */
+	public int getProPageNo(){
+		int proPageNo = 1;
+		if(pagenum>1){
+			proPageNo= pagenum-1;
+		}
+		return proPageNo;
+	}
+	
+	/*
+	 * 下一页
+	 */
+	public int getnextPageNo(){
+		int nextPageNo = 1;
+		if(pagenum<this.getMaxpage()){//没有到最后一页
+			nextPageNo= pagenum+1;
+		}else{
+			nextPageNo= this.getMaxpage();
+		}
+		return nextPageNo;
+	}
+	
 	public int getMaxpage() {
-
 		return maxpage;
-
 	}
 
 	public void setMaxpage(int maxpage) {
@@ -74,13 +96,9 @@ public class Pagination implements Serializable {
 	}
 
 	@Override
-
 	public String toString() {
-
 		return "入参==>pagesize=" + pagesize + ", pagenum=" + pagenum +
-
 		"\n出参==> totalSize=" + totalSize + ", maxpage=" + maxpage+", goods=" + goods ;
-
 	}
 
 	public List<Good> getGoods() {
