@@ -93,7 +93,7 @@ function getGoodByPage(page){
             str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data.goods[i].gimage.substring(0,data.goods[i].gimage.indexOf(","))+'">';
             str+='</a>';
             str+='<div class="dring_thing-cort">';
-            str+='<div class="dring_thing-price">'+data.goods[i].gname.split(",")[3]+'</div>';
+            str+='<div class="dring_thing-price">'+data.goods[i].gprice+'</div>';
             str+='<p class="dring_thing-word">'+data.goods[i].gname.split(",")[0]+'&nbsp;'+data.goods[i].gname.split(",")[1]+'分&nbsp;'+data.goods[i].gname.split(",")[2]+'色</p>';
             str+='<div class="dring_thing-button">';
             str+='<span>收藏</span>';

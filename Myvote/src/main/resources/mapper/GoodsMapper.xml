@@ -52,6 +52,7 @@
 			<result property="goodnum" column="goodnum" />
 			<result property="usercount" column="usercount" />
 			<result property="comcount" column="comcount" />
+			<result property="gprice" column="gprice" />
 		</collection>
 	</resultMap>
 	<select id="getGoodByPage" resultMap="PaginationMap" parameterType="Pagination">
