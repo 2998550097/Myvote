@@ -6,12 +6,12 @@ $(function(){
     	$.post("series/getname",function(data){
     		var leftstr="";
     		var rightstr="";
-    		for(var i=0;i<5;i++){
-    			leftstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
+    		for(var i=data.length-1;i>data.length-6;i--){
+    			leftstr+='<a href="javascript:getSeriesName(\''+data[i].seriesname+'\','+((i+1)*100)+')">'+data[i].seriesname+'</a>';
     		}
     		$("#leftseries").append(leftstr);
-    		for(var i=5;i<9;i++){
-    			rightstr+='<a href="http://www.darryring.com/darry_ring?series=loveline">'+data[i].seriesname+'</a>';
+    		for(var i=data.length-6;i>data.length-10;i--){
+    			rightstr+='<a href="javascript:getSeriesName(\''+data[i].seriesname+'\','+((i+1)*100)+')">'+data[i].seriesname+'</a>';
     		}
     		$("#rightseries").before(rightstr);
     	},"json");
@@ -29,13 +29,13 @@ $(function(){
     	$.post("series/getname",function(data){
     		var str="";
     		for(i=data.length-1; i>=0;i--){
-    			str += '<a rel="nofollow" style="" dr-type="1" href="/darry_ring?series=heart">'+data[i].seriesname+'</a> ';
+    			str += '<a rel="nofollow"  id="series_'+i+'" dr-type="1" href="javascript:getSeriesName(\''+data[i].seriesname+'\','+i+')" >'+data[i].seriesname+'</a> ';
     		}
     		$("#series").append(str);
     	},"json");
    
     	
-    	
+    	//javascript:getSeriesName(\''+data[i].seriesname+'\','+i+')
 	//用户是否登录
 	$.post("style/check",function(data){
         		var str="";
@@ -58,8 +58,23 @@ $(function(){
         		}
         		$("#telphone").before(str);
         	},"json");
+	
+		$("#series a").bind("click",function(){
+			$(this).parent().children().css("color","none");
+			$(this).css("color","pink");
+			alert($(this).html());
+		});
+		
+		$("#loginInaAtion").bind({
+			mousemove:function(){
+					$(this).css("display","block");
+			},
+			mouseout:function(){
+				$(this).css("display","none");
+			}
+	});
 });
-
+//退出
 function logout(){
 	$.post("style/exit",function(data){
 		if(data){
@@ -68,31 +83,36 @@ function logout(){
 	});
 }
 
-$("#loginInaAtion").bind({
-		mousemove:function(){
-				$(this).css("display","block");
-		},
-		mouseout:function(){
-			$(this).css("display","none");
-		},
-});
+
+
+
+var seriesname="";
+var j=0;
+//获取系列名
+function getSeriesName(sname,i){
+	//alert(j);
+	$("#series_10").css("color","none");
+	j=i;
+	$("#series_"+i).css("color","pink");
+	seriesname=sname;
+	getGoodByPage(0);
+}
+
 var num=1;
 var totalSize=12;
-//显示分页商品
+
+//显示分页商品并且可以按价格查找
 function getGoodByPage(page){
 	var minPrice=$("#minPrice").val();
 	var maxPrice=$("#maxPrice").val();
 	$.post("goods/findByPage?page="+page+"&num="+num+"&totalSize="+totalSize
-			+"&minPrice="+minPrice+"&maxPrice="+maxPrice,function(data){
-		$("#dring_thing").html("");
-		$("#pagein").html("");
-		$("#pagein1").html("");
+			+"&minPrice="+minPrice+"&maxPrice="+maxPrice+"&seriesname="+seriesname,function(data){
 		var str="";
 		var span="";
 		var span1="";
 		for(var i=0;i<data.goods.length;i++){
 			str+='<li '+(i%3==0?'class="dring_thing_left"' : '')+'>';
-            str+='<a href="darry_marry.jsp">';
+            str+='<a href="">';
             str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data.goods[i].gimage.substring(0,data.goods[i].gimage.indexOf(","))+'">';
             str+='</a>';
             str+='<div class="dring_thing-cort">';
@@ -116,20 +136,12 @@ function getGoodByPage(page){
 		span1+='<a rel="nofollow" class="prevPage1" href="javascript:void(0)" onclick="getGoodByPage(2)"><img alt="" src="images/marryring/left.png"></a>';
 		span1+='<span>'+data.pagenum+'/'+data.maxpage+'</span>';
 		span1+='<span>共'+data.totalSize+'件 商品</span>';
-		$("#pagein").append(span);
-		$("#pagein1").append(span1);
+		$("#pagein").html("").append(span);
+		$("#pagein1").html("").append(span1);
+		$("#dring_thing").html("").append(str);
 		num=data.pagenum;
 		totalSize=data.totalSize;
-		$("#dring_thing").append(str);
+		serisename=name;
 	});
 	
-	//按价格搜索
-	function btnPriceSearch(){
-		var minPrice=$("#minPrice").val();
-		var maxPrice=$("#maxPrice").val();
-		
-		$.post("goods/findByPageAndPrice?minPrice="+minPrice+"&maxPrice="+maxPrice,function(data){
-			
-		})
-	}
 }

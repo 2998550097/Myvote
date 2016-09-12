@@ -117,15 +117,12 @@
 						<div style="display: block;" id="priceCond"
 							class="drring_highsearch-same">
 			
-							<span>价格</span> <a rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_5000">10以下</a> <a rel="nofollow"
-								style="" dr-type="4" href="/darry_ring?price=price_5001-10000">11-13</a>
-							<a rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_10001-20000">14-16</a> <a
-								rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_20001-40000">17-20</a> <a
-								rel="nofollow" style="" dr-type="4"
-								href="/darry_ring?price=price_40000">21以上</a>
+							<span>价格</span> 
+								<a rel="nofollow" style="" dr-type="4" href="javascript:void(0)" onclick="getGoodByPage(10)">10以下</a> 
+								<a rel="nofollow" style="" dr-type="4" href="javascript:void(0)" onclick="getGoodByPage(11)">11-13</a>
+								<a rel="nofollow" style="" dr-type="4" href="javascript:void(0)" onclick="getGoodByPage(14)">14-16</a> 
+								<a rel="nofollow" style="" dr-type="4" href="javascript:void(0)" onclick="getGoodByPage(17)">17-20</a>
+								<a rel="nofollow" style="" dr-type="4" href="javascript:void(0)" onclick="getGoodByPage(21)">21以上</a>
 								<input type="text" id="minPrice"> <label>-</label>
 								<input type="text" id="maxPrice"> 
 								<em onclick="getGoodByPage(0)" id="priceBtn">确定</em>
