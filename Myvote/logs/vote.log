@@ -58,3 +58,9 @@
 信息 :2016-09-13 19:15:47,913 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
 信息 :2016-09-13 19:15:48,152 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
 信息 :2016-09-13 19:15:48,244 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 20:20:13,443 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-13 20:20:13,742 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 20:20:13,969 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 20:25:49,895 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from article 
+信息 :2016-09-13 20:25:50,054 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 20:25:50,156 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
