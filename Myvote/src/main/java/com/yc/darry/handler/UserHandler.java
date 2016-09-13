@@ -3,6 +3,7 @@ package com.yc.darry.handler;
 
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -168,6 +169,14 @@ public class UserHandler {
 		out.flush();
 		out.close();
 	}
+	
+	@ResponseBody
+	@RequestMapping(value="/usercount",method=RequestMethod.POST)
+	public int getUserCount(){
+		int userCount = userService.getUserCount();
+		return userCount;
+	}
+	
 	
 	@ResponseBody
 	@RequestMapping("/search")

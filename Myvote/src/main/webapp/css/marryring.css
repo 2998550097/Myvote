@@ -228,7 +228,6 @@ i {
     margin-left: 20px;
     display: inline-block;
     cursor: pointer;
-    color: #666;
 }
 
 .drring_highsearch-same a:hover {
@@ -330,18 +329,18 @@ em, i {
     text-align: right;
     font-size: 12px;
 }
-.fr {
+.fr1 {
     float: right;
     display: inline;
 }
 
 
-.pagin a.prevPage, .pagin a.nextPage {
+.pagin a.prevPage1, .pagin a.nextPage1 {
     float: right;
     width: 30px;
     height: 18px;
     line-height: 18px;
-    background: #dbc7ba url(../images/ico-pagin.png) no-repeat;
+    background: #dbc7ba;
     margin-left: 10px;
 }
 

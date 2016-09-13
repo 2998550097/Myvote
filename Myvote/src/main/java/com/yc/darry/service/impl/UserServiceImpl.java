@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService {
 		try {
 			return userMapper.getUserByEmail(uemail)==0;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -95,4 +94,11 @@ public class UserServiceImpl implements UserService {
 		User user=new User(userid,urealname,utel,usex);
 		return userMapper.search(user);
 	}
+	
+	
+	@Override
+	public int getUserCount() {
+		return userMapper.getUserCount();
+	}
+
 }

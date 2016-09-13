@@ -22,5 +22,6 @@ public interface UserService {
 
 	List<User> search(int userid, String urealname, String utel, String usex);
 	
+	int getUserCount();
 
 }
