@@ -20,5 +20,6 @@ public interface UserService {
 
 	boolean deleteUsers(String...userids);
 	
+	int getUserCount();
 
 }

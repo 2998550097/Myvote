@@ -3301,13 +3301,9 @@ values(seq_paramter_id.nextval,100026,'5分H',null,'SI',null,6,30);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100027,'4分J',null,'SI',null,4,30);
 
-
-
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 
 where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
 alter table goods modify gname varchar2(50); 
-
-select * from goods where 
 
 select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 2 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 2 >= rownum) nn where rn > 12 * (2 - 1)

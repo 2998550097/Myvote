@@ -34,3 +34,27 @@
 信息 :2016-09-12 14:44:32,046 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒' and gname like '%'||?||'%' ) totalSize, 15 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' and gname like '%'||?||'%' order by goodid) n where 15 * 1 >= rownum) nn where rn > 15 * (1 - 1) 
 信息 :2016-09-12 14:44:32,302 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: Princess系列(String), Princess系列(String)
 信息 :2016-09-12 14:44:32,455 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 2
+信息 :2016-09-12 20:25:36,104 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select(select count(1) from goods where gother='求婚钻戒' and gname like '%'||?||'%' ) totalSize, 15 pagesize, 1 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' and gname like '%'||?||'%' order by goodid) n where 15 * 1 >= rownum) nn where rn > 15 * (1 - 1) 
+信息 :2016-09-12 20:25:36,260 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: Princess系列(String), Princess系列(String)
+信息 :2016-09-12 20:25:36,470 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 2
+信息 :2016-09-12 21:09:58,675 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-12 21:09:58,860 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-12 21:09:59,024 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-12 21:12:27,848 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-12 21:12:28,049 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-12 21:12:28,210 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-12 21:14:46,751 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-12 21:14:46,924 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-12 21:14:47,010 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 16:47:12,429 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-13 16:47:12,596 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 16:47:12,713 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 17:03:32,559 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-13 17:03:32,701 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 17:03:32,793 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 17:13:13,673 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-13 17:13:13,834 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 17:13:13,925 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1
+信息 :2016-09-13 19:15:47,913 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==>  Preparing: select count(*) from users 
+信息 :2016-09-13 19:15:48,152 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - ==> Parameters: 
+信息 :2016-09-13 19:15:48,244 DEBUG BaseJdbcLogger (BaseJdbcLogger.java:145) - <==      Total: 1

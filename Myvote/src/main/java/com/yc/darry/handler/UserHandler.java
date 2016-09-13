@@ -3,6 +3,7 @@ package com.yc.darry.handler;
 
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -156,7 +157,6 @@ public class UserHandler {
 		}else{
 			return null;
 		}
-		
 	}
 	
 	@RequestMapping(value="/deleteUsers",method=RequestMethod.POST)
@@ -164,9 +164,17 @@ public class UserHandler {
 		String[] userids=uid.split(",");
 		System.out.println(userids);
 		boolean flag=userService.deleteUsers(userids);
+		
 		out.println(flag);
 		out.flush();
 		out.close();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/usercount",method=RequestMethod.POST)
+	public int getUserCount(){
+		int userCount = userService.getUserCount();
+		return userCount;
 	}
 	
 }

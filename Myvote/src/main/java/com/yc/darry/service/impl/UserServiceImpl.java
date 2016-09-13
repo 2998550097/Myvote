@@ -34,7 +34,6 @@ public class UserServiceImpl implements UserService {
 		try {
 			return userMapper.getUserByEmail(uemail)==0;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -45,7 +44,6 @@ public class UserServiceImpl implements UserService {
 		try {
 			return userMapper.updateStatus(uemail)>0;
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return false;
@@ -57,7 +55,6 @@ public class UserServiceImpl implements UserService {
 		try {
 			return userMapper.getUserByEmailAndPwd(user);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
@@ -88,5 +85,10 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public int getUserCount() {
+		return userMapper.getUserCount();
 	}
 }

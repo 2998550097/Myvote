@@ -29,6 +29,10 @@
 	<select id="findUsers" resultType="User">
 			select * from users
     </select>
+    
+    <select id="getUserCount" resultType="int">
+    	select count(*) from users
+    </select>
 		
 
 		<delete id="deleteUsers" parameterType="string">
@@ -38,4 +42,6 @@
 				#{userid}
 			</foreach>
 		</delete>
+		
+	
 </mapper>
