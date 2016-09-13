@@ -7,12 +7,12 @@
    			<legend>图片预览</legend>
    		</fieldset>
    </div>
-   <form action="" style="float:left;padding-left:20px" id="add">
+   <form action="" style="float:left;padding-left:20px" id="add" enctype="multipart/form-data" method="post">
    		<label>店铺名：</label><input type="text" id="sname" name="sname" required="required"/><br/><br/>
    		<label>店铺地址：</label><input type="text" id="saddress" name="saddress" required="required"/><br/><br/>
    		<label>预约计数：</label><input type="text" id="sappointcount" name="sappointcount" required="required"/><br/><br/>
    		<label>营业时间：</label><input type="text" id="sstarttime" name="sstarttime" required="required"/>-<input type="text" id="sendtime" name="sendtime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simagelogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="simagelogo" name="imagelogo" onchange="previewMultipleImage(this,'Store_pics_show')"/><br/><br/>
   		<a href="javascript:addStore()" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
    </form> 
    
@@ -33,7 +33,7 @@
    		<label>店铺地址：</label><input type="text" id="usaddress" name="saddress" required="required"/><br/><br/>
    		<label>预约计数：</label><input type="text" id="usappointcount" name="sappointcount" required="required"/><br/><br/>
    		<label>营业时间：</label><input type="text" id="usstarttime" name="sstarttime" required="required"/>-<input type="text" id="ussendtime" name="sendtime" required="required"/><br/><br/>
-   		<label>店铺图片：</label><input type="file" multiple="multiple" id="usimagelogo" name="simagelogo" onchange="previewMultipleImage(this,'Store_pics_show1')"/><br/><br/>
+   		<label>店铺图片：</label><input type="file" multiple="multiple" id="usimagelogo" name="imagelogo" onchange="previewMultipleImage(this,'Store_pics_show1')"/><br/><br/>
   		<a href="javascript:updateStore()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
    </form> 
    
@@ -69,7 +69,7 @@ obj=$('#Store_data').datagrid({
 	        			var str="";
 	        			var pics=value.split(",");
 	        			for(var i=0;i<pics.length;i++){
-	        				str+="<img src='../images/"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        				str+="<img src='"+pics[i]+"' width='60px' height='60px'/>&nbsp;";
 	        			}
 	        			return str;
 	        		}else{
@@ -154,16 +154,14 @@ obj=$('#Store_data').datagrid({
 	}); 
 	
 	function addStore(){
-		var str = $("#add").serialize(); 
-		
 		$.ajaxFileUpload({
-		url:"../../../store/addStore",
+		url:"../../../store/addStore?" + $("#add").serialize(),
 		secureuri:false,
 		fileElementId:"simagelogo",
 		dataType:"json",
-		data:str,
 		success:function(data,status){
 			if(data){
+				alert($("#simagelogo").val());
 				$("#add_Store").dialog('close');
 				obj.datagrid("reload");//刷新表格
 			}else{
@@ -176,18 +174,24 @@ obj=$('#Store_data').datagrid({
 	} 
 	
 
-	function updateStore(){
-		var str = $("#update").serialize() + 
-			"&simagelogo=" + $("#ussimagelogo").val() + 
-			"&storeid="+ $("#ustoreId").val();
-		$.post("../../../store/updateStore",str,function(data){
-			if(data){
-				$("#update_Store").dialog('close');
-				obj.datagrid("reload");//刷新表格
-			}else{
-				$.messager.alert('失败提示','店铺信息修改失败...','error');
+function updateStore(){
+	 var storeid=$("#ustoreId").val();
+		$.ajaxFileUpload({
+			url:"../../../store/updateStore?"+ $("#update").serialize()+"&storeid=s"+storeid,
+			secureuri:false,
+			fileElementId:"usimagelogo",
+			dataType:"json",
+			success:function(data,status){
+				if(data){
+					$("#update_Store").dialog('close');
+					obj.datagrid("reload");//刷新表格
+				}else{
+					$.messager.alert('失败提示','店铺信息修改失败...','error');
+				}
+			},error:function(data,status,e){
+				$.messager.alert("错误提示","店铺信息修改失败...\n"+e,"error");
 			}
-		});
+			});
 	} 
 	
 	

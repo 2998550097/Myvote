@@ -24,6 +24,15 @@ create table users(
 );
 insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
 '霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a')
+
+insert into users values( seq_user_id.nextval,'432522199509015757','向尚',
+'撒','19900823','男','月亮镇萌星村','18273474950','123456789@qq.com','a','400400','已激活','未婚','a')
+
+insert into users values( seq_user_id.nextval,'430381199603090001','小黑',
+'霸王','19940409','男','月亮镇萌星村','18174747474','123456789@qq.com','a','400400','已激活','未婚','a')
+
+
+
 --店铺表
 create table store(
        storeid int primary key,--店铺编号
@@ -34,7 +43,7 @@ create table store(
        sstarttime varchar2(50) not null,  --开业时间
        sendtime varchar2(50) not null  --停业时间
 );
-
+select * from STORE
 --系列表
 create table series(
        seriesid int primary key,  --系列号
@@ -63,6 +72,8 @@ create table goods(
        comcount number(10),--评论次数
        gother varchar2(20) --其它
 );
+
+select * from store;
 --商品参数表
 create table paramter(
 	paramterid int primary key, --参数编号

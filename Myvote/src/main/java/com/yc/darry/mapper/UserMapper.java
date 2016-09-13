@@ -20,4 +20,6 @@ public interface UserMapper {
 
 	int deleteUsers(String...userid);
 
+	List<User> search(User user);
+
 }

@@ -89,4 +89,10 @@ public class UserServiceImpl implements UserService {
 		}
 		return true;
 	}
+
+	@Override
+	public List<User> search(int userid, String urealname, String utel, String usex) {
+		User user=new User(userid,urealname,utel,usex);
+		return userMapper.search(user);
+	}
 }
