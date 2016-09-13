@@ -16,9 +16,16 @@
 		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				//用户总数
 				$.post("user/usercount",function(data){
 					$(".user_number").html("").html(data);
 				})
+				
+				//文章总数
+				$.post("article/articlecount",function(data){
+					$(".article_num").html("").html(data);
+				})
+				
 			});
 		</script>
 		<script type="text/javascript" src="DR/js/commonNew.js"></script>
@@ -199,7 +206,7 @@
 
 					<ul class="ni-drDataList fix">
 						<li class="jrdrz"><i class="user_number"></i>位用户已加入DR族</li>
-						<li class="sqht">爱的路上留下了<i>10397</i>个真挚文章
+						<li class="sqht">爱的路上留下了<i class="article_num"></i>个真挚文章
 						</li>
 						<li class="drqh">见证了<i class="qiu_hun">372</i>位DR人求婚
 						</li>
