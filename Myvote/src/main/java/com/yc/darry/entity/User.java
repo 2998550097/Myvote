@@ -46,6 +46,15 @@ public class User implements Serializable{
 		this.uemail = uemail;
 		this.upassword = upassword;
 	}
+	
+
+	public User(Integer userid, String urealname, String utel, String usex) {
+		super();
+		this.userid = userid;
+		this.urealname = urealname;
+		this.utel = utel;
+		this.usex = usex;
+	}
 
 	public User() {
 		super();

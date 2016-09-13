@@ -19,6 +19,8 @@ public interface UserService {
 	List<User> findUsers();
 
 	boolean deleteUsers(String...userids);
+
+	List<User> search(int userid, String urealname, String utel, String usex);
 	
 	int getUserCount();
 

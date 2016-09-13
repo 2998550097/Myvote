@@ -67,12 +67,10 @@
 		<property name="prefix" value="/page/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	<!-- 配置默认静态资源-->
-	<mvc:default-servlet-handler/>
 	
-	<mvc:annotation-driven /> 
-	
-	
+	 <!-- 支持上传文件 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
+    
 	<!-- <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
 			<set>
@@ -88,4 +86,7 @@
 		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 	
+	<!-- 配置默认静态资源-->
+	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven /> 
 </beans>

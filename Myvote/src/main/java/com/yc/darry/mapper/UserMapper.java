@@ -19,6 +19,9 @@ public interface UserMapper {
 	List<User> findUsers();
 
 	int deleteUsers(String...userid);
-	
+
 	int getUserCount();
+	
+	List<User> search(User user);
+
 }
