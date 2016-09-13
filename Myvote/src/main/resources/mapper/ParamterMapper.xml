@@ -7,10 +7,36 @@
 		<insert id="addParamter" parameterType="Paramter" >
 			insert into paramter values(seq_paramter_id.nextval,#{goodid},#{pcarat},#{psize},#{gcrystal},#{gcutting},#{pprice},#{pcount})
 		</insert>
+		
 		<update id="updateParamter" parameterType="Paramter">
-			update paramter set seriesname=#{seriesname},stylename=#{stylename},pcount=#{pcount} where goodid=#{goodid}
-		</update>
+	   	<!-- prefix:添加前缀字符串
+	   		prefixOverrides:去掉的前缀字符串
+	   		suffix：添加后缀字符换
+	   		suffixOverrides：去掉的后缀字符串
+	   	 -->
+	   	 <trim prefix="update paramter set" prefixOverrides="," suffix="where goodid=#{goodid} and paramterid=#{paramterid}">
+				<if test="pcarat!=null">
+	   				pcarat=#{pcarat}
+	   			</if>
+	   			<if test="psize!=null">
+	   				,psize=#{psize}
+	   			</if>
+	   			<if test="gcrystal!=null">
+	   				,gcrystal=#{gcrystal}
+	   			</if>
+	   			<if test="gcutting!=null">
+	   				,gcutting=#{gcutting}
+	   			</if>
+	   			<if test="pprice!=null">
+	   				,pprice=#{pprice}
+	   			</if>
+	   			<if test="pcount!=null">
+	   				,pcount=#{pcount}
+	   			</if>
+	   	 </trim>
+   	</update>
+		
 		<delete id="deleteParamter" parameterType="int">
-			delete from paramter where goodid=#{goodid}
+			delete from paramter where goodid=#{goodid} and paramterid=#{paramterid}
 		</delete>
 </mapper>

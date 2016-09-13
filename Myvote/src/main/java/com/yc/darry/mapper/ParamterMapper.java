@@ -1,5 +1,7 @@
 package com.yc.darry.mapper;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.yc.darry.entity.Paramter;
 
 public interface ParamterMapper {
@@ -7,6 +9,5 @@ public interface ParamterMapper {
 
 	boolean updateParamter(Paramter paramter);
 
-	boolean deleteParamter(Integer goodid);
-
+	boolean deleteParamter(@Param("goodid")Integer goodid,@Param("paramterid")Integer paramterid);
 }

@@ -8,7 +8,7 @@
 			insert into seriesstyle values((select seriesid from series where seriesname=#{seriesname}),(select styleid from style where stylename=#{stylename}),#{goodid})
 		</insert>
 		<update id="updateSeriesStyle">
-			update SeriesStyle set seriesname=#{seriesname},stylename=#{stylename} where goodid=#{goodid} 
+			update SeriesStyle set seriesid=(select seriesid from series where seriesname=#{seriesname}),styleid=(select styleid from style where stylename=#{stylename}) where goodid=#{goodid} 
 		</update>
 		<delete id="deleteSeriesStyle" parameterType="Integer">
 			delete from seriesstyle where goodid=#{goodid}

@@ -61,9 +61,6 @@
 	</resultMap>
 	<select id="getGoodByPage" resultMap="PaginationMap" parameterType="Pagination">
 		select(select count(1) from goods where gother='求婚钻戒' 
-		<if test="seriesname!=''">
-			and gname like '%'||#{seriesname}||'%'
-		</if>
 		<if test="min!=0">
 			and gprice>=#{min}
 		</if>
@@ -72,10 +69,7 @@
 		</if>
 		) totalSize, ${pagesize} pagesize, ${pagenum}
 		pagenum, nn.* from (select n.*, rownum rn from
-		(select * from goods where gother='求婚钻戒'
-		<if test="seriesname!=''">
-			and gname like '%'||#{seriesname}||'%'
-		</if> 
+		(select * from goods where gother='求婚钻戒' 
 		<if test="min!=0">
 			and gprice>=#{min}
 		</if>
@@ -91,7 +85,7 @@
    		 <selectKey keyColumn="goodid" keyProperty="goodid" resultType="int" order="BEFORE">
    		 	select seq_goods_id.nextval goodid from dual
    		 </selectKey>
-   		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0.0,0,0,0,#{gother})
+   		 insert into goods values(#{goodid},#{gname},#{gmaterial},#{gimage},0.0,0,0,0,#{gother},#{gprice})
    	</insert>
    	<!-- 添加数据end -->
    	<update id="updateGoods" parameterType="Good">
@@ -100,24 +94,27 @@
 	   		suffix：添加后缀字符换
 	   		suffixOverrides：去掉的后缀字符串
 	   	 -->
-	   	 <trim prefix="update goods set" prefixOverrides="," suffix="where goodid=#{goodid}">
+	   	 <trim prefix="update goods set " suffix="where goodid=#{goodid}">
 				<if test="gname!=null">
-	   				gname=#{gname}
+	   				gname= #{gname} 
 	   			</if>
 	   			<if test="gmaterial!=null">
-	   				,gmaterial=#{gmaterial}
+	   				,gmaterial=#{gmaterial} 
 	   			</if>
 	   			<if test="gimage!=null">
-	   				,gimage=#{gimage}
+	   				,gimage=#{gimage} 
 	   			</if>
 	   			<if test="gother!=null">
-	   				,gother=#{gother}
+	   				,gother=#{gother} 
+	   			</if>
+	   			<if test="gprice!=0">
+	   				,gprice=#{gprice} 
 	   			</if>
 	   	 </trim>
    	</update>
    	<!-- 更新数据end  -->
    	<delete id="deleteGoods" parameterType="int" >
-			delete from goods where goodid =#{goodid}
+			delete from goods where goodid = #{goodid}
 	</delete>
 	<!-- 删除数据end  -->
 </mapper>

@@ -21,6 +21,7 @@ public class Good {
 	private String gcutting;
 	private Integer pprice;
 	private Integer pcount;
+	private Integer paramterid;
 	private List<Paramter> paramters;
 
 	
@@ -198,9 +199,28 @@ public class Good {
 		this.pcount = pcount;
 	}
 
+	public Integer getParamterid() {
+		return paramterid;
+	}
+
+	public void setParamterid(Integer paramterid) {
+		this.paramterid = paramterid;
+	}
+
+	@Override
+	public String toString() {
+		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
+				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
+				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
+				+ ", gprice=" + gprice + ", pcarat=" + pcarat + ", psize=" + psize + ", gcrystal=" + gcrystal
+				+ ", gcutting=" + gcutting + ", pprice=" + pprice + ", pcount=" + pcount + ", paramterid=" + paramterid
+				+ ", paramters=" + paramters + "]";
+	}
+
 	public Good(Integer goodid, String gname, String gmaterial, String gimage, double averagescore, String gother,
 			int goodnum, int usercount, int comcount, String seriesname, String stylename, int gprice, String pcarat,
-			Integer psize, String gcrystal, String gcutting, Integer pprice, Integer pcount, List<Paramter> paramters) {
+			Integer psize, String gcrystal, String gcutting, Integer pprice, Integer pcount, Integer paramterid,
+			List<Paramter> paramters) {
 		super();
 		this.goodid = goodid;
 		this.gname = gname;
@@ -220,16 +240,7 @@ public class Good {
 		this.gcutting = gcutting;
 		this.pprice = pprice;
 		this.pcount = pcount;
+		this.paramterid = paramterid;
 		this.paramters = paramters;
-	}
-
-	@Override
-	public String toString() {
-		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
-				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
-				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
-				+ ", gprice=" + gprice + ", pcarat=" + pcarat + ", psize=" + psize + ", gcrystal=" + gcrystal
-				+ ", gcutting=" + gcutting + ", pprice=" + pprice + ", pcount=" + pcount + ", paramters=" + paramters
-				+ "]";
 	}
 }
