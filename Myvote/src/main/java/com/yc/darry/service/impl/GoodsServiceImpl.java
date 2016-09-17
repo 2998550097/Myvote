@@ -44,4 +44,10 @@ public class GoodsServiceImpl implements GoodsService{
 		return  goodsMapper.getGoods();
 	}
 
+	@Override
+	public Good getGoodsById(int goodid,String pcarat) {
+		// TODO Auto-generated method stub
+		return goodsMapper.getGoodsById(goodid,pcarat);
+	}
+
 }

@@ -32,5 +32,11 @@ public class ParamterServiceImpl implements ParamterService{
 		
 	}
 
+	@Override
+	public List<String> getPcaratById(int goodid) {
+		// TODO Auto-generated method stub
+		return paramterMapper.getDifPcaratById(goodid);
+	}
+
 	
 }

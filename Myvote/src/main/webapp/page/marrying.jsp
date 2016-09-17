@@ -44,7 +44,7 @@
 			</div>
 			<div class="dr-bread w1000">
 				<!--右边-->
-				<div style="display: block" class="drring_search-right fr">
+				<div style="display: block" class="drring_search-right fr1">
 			
 					<input type="text" placeholder="请输入关键字搜索" id="txtkey"> <i
 						onclick="btnSearch( '/darry_ring?page=1&amp;')">确定</i>

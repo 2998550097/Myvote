@@ -18,4 +18,6 @@ public interface GoodsService {
 
 	int updateGoods(Good good);
 
+	Good getGoodsById(int goodid,String pcarat);
+
 }

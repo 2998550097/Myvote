@@ -5,6 +5,6 @@
  -->
 <mapper namespace="com.yc.darry.mapper.SeriesMapper">
 	<select id="getAll" resultType="Series">
-		select * from series
+		select * from series order by seriesid
 	</select>
 </mapper>

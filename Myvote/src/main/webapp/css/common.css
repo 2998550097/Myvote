@@ -81,9 +81,13 @@ i {
 .fr {
 	float: right;
 	display: inline;
-	margin-right: 170px;
 }
 
+.fr1 {
+	float: right;
+	display: inline;
+	margin-right: 170px;
+}
 .fix:after {
 	content: " ";
 	display: block;

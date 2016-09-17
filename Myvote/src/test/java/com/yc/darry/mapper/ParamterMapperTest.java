@@ -11,26 +11,16 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.yc.darry.entity.Good;
 import com.yc.darry.entity.Pagination;
 import com.yc.darry.service.GoodsService;
+import com.yc.darry.service.ParamterService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring.xml")
-public class GoodMapperTest {
+public class ParamterMapperTest {
 	@Autowired
-	private GoodsService goodsService;
+	private ParamterService paramterService;
 	@Test
 	public void testGetAll() {
-		List<Good> good=goodsService.getAll();
-		System.out.println(good);
-	}
-	@Test
-	public void testGetByPage() {
-		Pagination pagination=goodsService.getGoodByPage(new Pagination(15, 1,0,0,"Princess系列"));
-		System.out.println(pagination);
-	}
-	
-	@Test
-	public void testGetGoodById() {
-		Good good=goodsService.getGoodsById(100001,"30分H");
-		System.out.println(good);
+		List<String> pcarat=paramterService.getPcaratById(100001);
+		System.out.println(pcarat);
 	}
 }

@@ -13,4 +13,9 @@
 		<delete id="deleteParamter" parameterType="int">
 			delete from paramter where goodid=#{goodid}
 		</delete>
+		
+		<!-- 查询不同的pcarat -->
+		<select id="getDifPcaratById" resultType="string" parameterType="int">
+			select distinct(pcarat) from paramter where goodid=#{goodid} order by pcarat
+		</select>
 </mapper>

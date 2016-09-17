@@ -275,8 +275,8 @@ insert into seriesstyle(seriesid,styleid,goodid) values(104,1004,100025);
 insert into seriesstyle(seriesid,styleid,goodid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
-update goods set gname='Love Line系列 [A10001],30,H',gprice=11 where goodid=100001;
-update goods set gname='Love Line系列 [A10002],50,H',gprice=12 where goodid=100002;
+update goods set gname='Love Line系列 [A10001],30,H',gprice=12 where goodid=100001;
+update goods set gname='Love Line系列 [A10002],50,H',gprice=14 where goodid=100002;
 update goods set gname='Love Line系列 [A10003],99,H',gprice=16 where goodid=100003;
 update goods set gname='Forever系列 [A10004],30,H',gprice=14 where goodid=100004;
 update goods set gname='Forever系列 [A10005],30,H',gprice=10 where goodid=100005;
@@ -3308,6 +3308,7 @@ from goods g,collection c,seriesstyle ss,series s,style sy
 where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
 alter table goods modify gname varchar2(50); 
 
-select * from goods where 
+select distinct(pcarat) from paramter where goodid=100001 order by pcarat;
 
+select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid and g.goodid=100001
 select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 2 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 2 >= rownum) nn where rn > 12 * (2 - 1)

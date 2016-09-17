@@ -1,11 +1,17 @@
 package com.yc.darry.handler;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.yc.darry.entity.Good;
 import com.yc.darry.entity.Paramter;
 import com.yc.darry.entity.Pagination;
@@ -16,6 +22,7 @@ import com.yc.darry.service.SeriesStyleService;
 
 @Controller
 @RequestMapping("/goods")
+
 public class GoodsHandler {
 	
 	@Autowired
@@ -24,6 +31,7 @@ public class GoodsHandler {
 	private ParamterService paramterService;
 	@Autowired
 	private SeriesStyleService seriesstyleService;
+
 	
 	/**
 	 * 查询所有商品
@@ -34,6 +42,24 @@ public class GoodsHandler {
 	public List<Good>  findAll(){
 		return goodsService.getAll();
 	}
+	
+	@RequestMapping("/findGoodsById")
+	public String findGoodsById(int goodid,String pcarat,HttpSession session){
+		 System.out.println(pcarat+"--");
+		 Good goods=goodsService.getGoodsById(goodid,pcarat);
+		 List<String> pcarats=paramterService.getPcaratById(goodid);
+		 session.setAttribute(String.valueOf(goodid)+"_carat", pcarats);
+		 session.setAttribute(String.valueOf(goodid), goods);
+		 String carat=null;
+		 try {
+			 carat=URLDecoder.decode(pcarat,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:../page/darry_marry.jsp?goodid="+goodid+"&pcarat="+carat;
+	}
+	
 	//后端取值
 	@ResponseBody
 	@RequestMapping("/getGoods")
