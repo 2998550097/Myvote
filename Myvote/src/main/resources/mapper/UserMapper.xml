@@ -29,7 +29,10 @@
 	<select id="findUsers" resultType="User">
 			select * from users
     </select>
-		
+		    
+    <select id="getUserCount" resultType="int">
+    	select count(*) from users
+    </select>
 
 		<delete id="deleteUsers" parameterType="string">
 			delete from users where userid in 
@@ -38,4 +41,28 @@
 				#{userid}
 			</foreach>
 		</delete>
+		
+		
+		<select id="search" resultType="User" parameterType="User">
+	   	<!-- prefix:添加前缀字符串
+	   		prefixOverrides:去掉的前缀字符串
+	   		suffix：添加后缀字符换
+	   		suffixOverrides：去掉的后缀字符串
+	   	 -->
+	   	 
+	   	 <trim prefix="select * from users where" prefixOverrides="and">
+	   			<if test="userid!=0">
+	   				and userid=#{userid}
+	   			</if>
+				<if test="urealname!=null">
+	   				and urealname like '%'||#{urealname}||'%'
+	   			</if>
+	   			<if test="utel!=null">
+	   				and utel like '%'||#{utel}||'%'
+	   			</if>
+	   			<if test="usex!=null">
+	   				and usex=#{usex}
+	   			</if>
+	   	</trim>
+   	</select>
 </mapper>

@@ -4,6 +4,7 @@ create table admin(
      aname varchar2(20) not null,  --管理员姓名
      apassword varchar2(50)  --密码
 );
+select adminid from admin
 insert into admin values(1,'a','a');
 
 create table users(
@@ -34,7 +35,7 @@ create table store(
        sstarttime varchar2(50) not null,  --开业时间
        sendtime varchar2(50) not null  --停业时间
 );
-
+select * from STORE
 --系列表
 create table series(
        seriesid int primary key,  --系列号
@@ -162,7 +163,7 @@ create sequence seq_store_id start with 11;
 create sequence seq_series_id start with 101;
 create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
-create sequence seq_goods_id start with 1000028;
+create sequence seq_goods_id start with 100001;
 create sequence seq_paramter_id start with 1001;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
@@ -243,38 +244,39 @@ insert into style(styleid,stylename) values(seq_style_id.nextval,'手链/手镯'
 
 --系列款式表
 --系列
-insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100001);
-insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100002);
-insert into seriesstyle(seriesid,styleid,goodid) values(102,null,100003);
-insert into seriesstyle(seriesid,styleid,goodid) values(103,null,100004);
-insert into seriesstyle(seriesid,styleid,goodid) values(103,null,100005);
-insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100006);
-insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100007);
-insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100008);
-insert into seriesstyle(seriesid,styleid,goodid) values(104,null,100009);
-insert into seriesstyle(seriesid,styleid,goodid) values(105,null,100010);      
-insert into seriesstyle(seriesid,styleid,goodid) values(105,null,100011);      
-insert into seriesstyle(seriesid,styleid,goodid) values(106,null,100012);      
-insert into seriesstyle(seriesid,styleid,goodid) values(107,null,100013);
-insert into seriesstyle(seriesid,styleid,goodid) values(107,null,100014);      
-insert into seriesstyle(seriesid,styleid,goodid) values(108,null,100015);
+insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100001);
+insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100002);
+insert into seriesstyle(goodid,seriesid,styleid) values(102,null,100003);
+insert into seriesstyle(goodid,seriesid,styleid) values(103,null,100004);
+insert into seriesstyle(goodid,seriesid,styleid) values(103,null,100005);
+insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100006);
+insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100007);
+insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100008);
+insert into seriesstyle(goodid,seriesid,styleid) values(104,null,100009);
+insert into seriesstyle(goodid,seriesid,styleid) values(105,null,100010);      
+insert into seriesstyle(goodid,seriesid,styleid) values(105,null,100011);      
+insert into seriesstyle(goodid,seriesid,styleid) values(106,null,100012);      
+insert into seriesstyle(goodid,seriesid,styleid) values(107,null,100013);
+insert into seriesstyle(goodid,seriesid,styleid) values(107,null,100014);      
+insert into seriesstyle(goodid,seriesid,styleid) values(108,null,100015);
 --对戒
-insert into seriesstyle(seriesid,styleid,goodid) values(109,1001,100016);      
-insert into seriesstyle(seriesid,styleid,goodid) values(109,1001,100017);
-insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100018);
-insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100019);      
-insert into seriesstyle(seriesid,styleid,goodid) values(110,1001,100020);
+insert into seriesstyle(goodid,seriesid,styleid) values(109,1001,100016);      
+insert into seriesstyle(goodid,seriesid,styleid) values(109,1001,100017);
+insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100018);
+insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100019);      
+insert into seriesstyle(goodid,seriesid,styleid) values(110,1001,100020);
 --吊坠
-insert into seriesstyle(seriesid,styleid,goodid) values(111,1003,100021);
-insert into seriesstyle(seriesid,styleid,goodid) values(109,1003,100022);      
-insert into seriesstyle(seriesid,styleid,goodid) values(109,1003,100023);
-insert into seriesstyle(seriesid,styleid,goodid) values(112,1003,100024);
+insert into seriesstyle(goodid,seriesid,styleid) values(111,1003,100021);
+insert into seriesstyle(goodid,seriesid,styleid) values(109,1003,100022);      
+insert into seriesstyle(goodid,seriesid,styleid) values(109,1003,100023);
+insert into seriesstyle(goodid,seriesid,styleid) values(112,1003,100024);
 --耳饰
-insert into seriesstyle(seriesid,styleid,goodid) values(104,1004,100025);      
-insert into seriesstyle(seriesid,styleid,goodid) values(104,1004,100025);
-insert into seriesstyle(seriesid,styleid,goodid) values(103,1004,100026);
+insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);      
+insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
+insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
+<<<<<<< HEAD
 update goods set gname='Love Line系列 [A10001],30,H',gprice=12 where goodid=100001;
 update goods set gname='Love Line系列 [A10002],50,H',gprice=14 where goodid=100002;
 update goods set gname='Love Line系列 [A10003],99,H',gprice=16 where goodid=100003;
@@ -291,6 +293,9 @@ update goods set gname='Princess系列 [A10013],50,H',gprice=14 where goodid=100
 update goods set gname='Princess系列 [A10014],30,H',gprice=11 where goodid=100014;
 update goods set gname='Believe系列 [A10015],30,H',gprice=10 where goodid=100015;
 alter table goods add gprice number(10);
+=======
+
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 --商品表
 --女戒
 insert into goods(goodid,gname,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
@@ -3312,3 +3317,4 @@ select distinct(pcarat) from paramter where goodid=100001 order by pcarat;
 
 select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid and g.goodid=100001
 select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 2 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 2 >= rownum) nn where rn > 12 * (2 - 1)
+where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;

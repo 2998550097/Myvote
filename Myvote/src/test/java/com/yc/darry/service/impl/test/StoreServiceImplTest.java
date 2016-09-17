@@ -21,7 +21,7 @@ public class StoreServiceImplTest {
 	private StoreService storeService;
 	@Test
 	public void testAddStore() {
-		Store  store=new Store( "a", "a", 0,"a", "a", "a");
+		Store  store=new Store( null, "a", "a", 0,"a", "a", "a");
 		System.out.println(storeService.addStore(store));
 	}
 

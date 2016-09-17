@@ -3,6 +3,7 @@ package com.yc.darry.handler;
 
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -167,6 +168,38 @@ public class UserHandler {
 		out.println(flag);
 		out.flush();
 		out.close();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/usercount",method=RequestMethod.POST)
+	public int getUserCount(){
+		int userCount = userService.getUserCount();
+		return userCount;
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping("/search")
+	public List<User> search(HttpServletRequest request){
+		String useri=request.getParameter("userid");
+		int userid=0;
+		if(useri!=""){
+			userid=Integer.parseInt(useri);
+		}
+		String urealname=request.getParameter("urealname");
+		String utel=request.getParameter("utel");
+		String usex=request.getParameter("usex");
+		if(utel == null || utel.equals("")){
+			utel=null;
+		}
+		if(usex.equals("")){
+			usex=null;
+		}
+		if(urealname.equals("")){
+			urealname=null;	
+		}
+		return userService.search(userid,urealname,utel,usex);
+		
 	}
 	
 }

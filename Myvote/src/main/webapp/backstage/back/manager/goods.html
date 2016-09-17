@@ -9,7 +9,7 @@
 	
 <div id="add_Goods" class="easyui-dialog" title="添加商品" data-options="iconCls:'icon-add',resizable:true,modal:true,closed:true,fit:true">  
    <br/>
-   <form action="" style="float:left;padding-left:20px" method="post" id="add">
+   <form action="" style="float:left;padding-left:20px" method="post" enctype="multipart/form-data" id="add">
    		<label>商品名：</label><input type="text" id="gname" name="gname" required="required" value=""/><br/><br/>
    		<label>商品系列：</label><select id="seriesname" name="seriesname"></select><br/><br/>
    		<label>商品款式：</label><select id="stylename" name="stylename"></select><br/><br/>
@@ -20,7 +20,7 @@
    		<label>商品切工：</label><input type="text" id="gcutting" name="gcutting" required="required" value=""/><br/><br/>
    		<label>商品价格：</label><input type="text" id="pprice" name="pprice" required="required" value=""/><br/><br/>
    		<label>商品数量：</label><input type="text" id="pcount" name="pcount" required="required" value=""/><br/><br/>
-   		<label>图片：</label><input type="file" multiple="multiple" id="gimage" name="gimage" onchange="previewMultipleImage(this,'gimage_show')"/><br/><br/>
+   		<label>图片：</label><input type="file" multiple="multiple" id="gimage" name="photo" onchange="previewMultipleImage(this,'gimage_show')"/><br/><br/>
    		<div>
     		<script id="editor" type="text/plain" style="width:800px;height:300px;"></script>
 		</div>
@@ -37,19 +37,20 @@
 
 <div id="update_Goods" class="easyui-dialog" title="修改商品" data-options="iconCls:'icon-edit',resizable:true,modal:true,closed:true,fit:true">  
    <br/>
-   <form action=" " style="float:left;padding-left:20px" method="post">
-   		<label>商品编号：</label><input type="text" id="goodid1" name="goodid" required="required" value=""/><br/><br/>
+   <form action=" " style="float:left;padding-left:20px" method="post" enctype="multipart/form-data" id="update">
+   		<label>商品编号：</label><input type="text" id="goodid1" name="goodid" required="required" value="" readonly/><br/><br/>
    		<label>商品名称：</label><input type="text" id="gname1" name="gname" required="required" value=""/><br/><br/>
    		<label>商品系列：</label><select id="seriesname1" name="seriesname"></select><br/><br/>
    		<label>商品款式：</label><select id="stylename1" name="stylename"></select><br/><br/>
    		<label>商品材质：</label><input type="text" id="gmaterial1" name="gmaterial" required="required" value=""/><br/><br/>
-   		<label>商品重量：</label><input type="text" id="pcarat1" name="pcarat" required="required" value=""/><br/><br/>
+   		<label>商品参数编号：</label><input type="text" id="paramterid1" name="paramterid" required="required" value="" /><br/><br/>
+   		<label>商品重量：</label><input type="text" id="pcarat1" name="pcarat" required="required" value="" /><br/><br/>
    		<label>商品手寸：</label><input type="text" id="psize1" name="psize" required="required" value=""/><br/><br/>
    		<label>商品净度：</label><input type="text" id="gcrystal1" name="gcrystal" required="required" value=""/><br/><br/>
    		<label>商品切工：</label><input type="text" id="gcutting1" name="gcutting" required="required" value=""/><br/><br/>
    		<label>商品价格：</label><input type="text" id="pprice1" name="pprice" required="required" value=""/><br/><br/>
    		<label>商品数量：</label><input type="text" id="pcount1" name="pcount" required="required" value=""/><br/><br/>
-   		<label>图片：</label><input type="file" multiple="multiple" id="gimage1" name="gimage" onchange="previewMultipleImage(this,'goods_gimage1_show')"/><br/><br/>
+   		<label>图片：</label><input type="file" multiple="multiple" id="gimage1" name="photo" onchange="previewMultipleImage(this,'goods_gimage1_show')"/><br/><br/>
     		<script id="editor1" type="text/plain" style="width:800px;height:300px;"></script>
    		<a href="javascript:updategoodsInfo()" class="easyui-linkbutton" data-options="iconCls:'icon-edit'">修改</a>
    </form>
@@ -92,6 +93,7 @@ obj=$('#goods_data').datagrid({
 	        {field:'averagescore',title:'平均评分',width:88.5,align:'center'},
 	        {field:'usercount',title:'购买次数',width:88.5,align:'center'},
 	        {field:'goodnum',title:'收藏次数',width:88.5,align:'center'},
+	        {field:'paramterid',title:'参数编号',width:88.5,align:'center'},
 	        {field:'comcount',title:'评论次数',width:88.5,align:'center'},
 	        {field:'pcount',title:'商品数量',width:88.5,align:'center'},
 	        {field:'gother',title:'其他',width:88.5,align:'center'},
@@ -134,6 +136,7 @@ obj=$('#goods_data').datagrid({
 		    		$('#pprice1').val(rows.pprice);
 		    		$('#gcutting1').val(rows.gcutting);
 		    		$('#pcount1').val(rows.pcount);
+		    		$('#paramterid1').val(rows.paramterid);
 		    		ue1.setContent(rows.gother);
 		    		$('#gimage1_show').html(showpic(rows.gimage));
 		    	}
@@ -148,19 +151,22 @@ obj=$('#goods_data').datagrid({
 		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
 		    			if(rs){
 		    				var tids="";
+		    				var paramters="";
 		    				alert(rows.length);
 		    				if(rows.length==1){	
 		    					alert("here");
 	    						tids=rows[0].goodid;
+	    						paramterids=rows[0].paramterid;
 	    					}else{
 	    						for(var i=0;i<rows.length;i++){
 			    					tids+=rows[i].goodid+",";
+			    					paramterids+=rows[i].paramterid+",";
 			    					alert(tids);
 			    				}
 	    					}
 		    				alert(tids);
 		    				//发请求到数据库删除
-		    				$.post("../../../goods/deleteGoods",{goodid:tids},function(data){
+		    				$.post("../../../goods/deleteGoods",{goodid:tids,paramterid:paramterids},function(data){
 		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
@@ -218,29 +224,68 @@ $(function(){
 })
 
 function addgoodsInfo(){
-	var gimage=$("#gimage").val();
-	var gname=$('#gname').val();
-	var seriesname=$('#seriesname').val();
-	var stylename=$('#stylename').val();
-	var pcarat=$('#pcarat').val();
-	var gmaterial=$('#gmaterial').val();
-	var psize=$('#psize').val();
-	var gcrystal=$('#gcrystal').val();
-	var gcutting=$('#gcutting').val();
-	var pprice=$('#pprice').val();
-	var pcount=$('#pcount').val();
-	var gother=ue.getContent();
-	$.post("../../../goods/addGoods",{pcount:pcount,gname:gname,seriesname:seriesname,
-		stylename:stylename,pcarat:pcarat,gmaterial:gmaterial,psize:psize,gcrystal:gcrystal,pprice:pprice,gimage:gimage,gother:gother,gcutting:gcutting},function(data){
-		if(data){
-			$("#add_Goods").dialog('close');
-			obj.datagrid("reload");//刷新表格
-		}else{
-			$.messager.alert('失败提示','商品信息添加失败...','error');
+			$.ajaxFileUpload({
+			url:"../../../goods/addGoods?" + $("#add").serialize()+'&gother='+ue.getContent(),
+			secureuri:false,
+			fileElementId:"gimage",
+			dataType:"json",
+			success:function(data,status){
+				if(data){
+					
+					$("#gimage").val("");
+					$('#gname').val("");
+					$('#seriesname').val("");
+					$('#stylename').val("");
+					$('#pcarat').val("");
+					$('#gmaterial').val("");
+					$('#psize').val("");
+					$('#gcrystal').val("");
+					$('#gcutting').val("");
+					$('#pprice').val("");
+					$('#pcount').val("");
+					ue.setContent("");
+					$("#add_Goods").dialog('close');
+					$("#goods_data").datagrid("reload");
+				}else{
+					$.messager.alert('失败提示','商品数据添加失败...','error');
+				}
+			},error:function(data,status,e){
+			$.messager.alert("错误提示","添加失败...\n"+e,"error");
 		}
 	});
 }
+
 function updategoodsInfo(){
+	$.ajaxFileUpload({
+			url:"../../../goods/updateGoods?" + $("#update").serialize()+'&gother='+ue1.getContent(),
+			secureuri:false,
+			fileElementId:"gimage1",
+			dataType:"json",
+			success:function(data,status){
+				if(data){
+					alert("@@@");
+					$("#update_Goods").dialog('close');
+					obj.datagrid("reload");//刷新表格
+				}else{
+					$.messager.alert('失败提示','商品信息添加失败...','error');
+				}
+			},error:function(data,status,e){
+				$.messager.alert("错误提示","添加失败...\n","error");
+			}
+	});
+	
+} 
+
+function showpic(value){
+	var str="";
+	var pics=value.split(",");
+	for(var i=0;i<pics.length;i++){
+		str+="<img src='../images/"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	}
+	return str;
+}
+
+/* function updategoodsInfo(){
 	var goodid=$("#goodid1").val();
 	var gname=$('#gname1').val();
 	var seriesname=$('#seriesname1').val();
@@ -250,11 +295,12 @@ function updategoodsInfo(){
 	var psize=$('#psize1').val();
 	var gcrystal=$('#gcrystal1').val();
 	var pprice=$('#pprice1').val();
+	var gprice=$('#pprice1').val();
 	var gimage=$("#gimage1").val();
 	var pcount=$('#pcount1').val();
 	var gother=ue1.getContent();
 	var gcutting=$('#gcutting1').val();
-	$.post("../../../goods/updateGoods",{pcount:pcount,gother:gother,gcutting:gcutting,gname:gname,seriesname:seriesname,
+	$.post("../../../goods/updateGoods",{gprice:gprice,goodid:goodid,pcount:pcount,gother:gother,gcutting:gcutting,gname:gname,seriesname:seriesname,
 		stylename:stylename,pcarat:pcarat,gmaterial:gmaterial,psize:psize,gcrystal:gcrystal,pprice:pprice,gimage:gimage},function(data){
 		if(data){
 			$("#update_Store").dialog('close');
@@ -263,14 +309,30 @@ function updategoodsInfo(){
 			$.messager.alert('失败提示','商品信息修改失败...','error');
 		}
 	});
-}
-function showpic(value){
-	var str="";
-	var pics=value.split(",");
-	for(var i=0;i<pics.length;i++){
-		str+="<img src='../images/s"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+} */
+/* function addgoodsInfo(){
+var gimage=$("#gimage").val();
+var gname=$('#gname').val();
+var seriesname=$('#seriesname').val();
+var stylename=$('#stylename').val();
+var pcarat=$('#pcarat').val();
+var gmaterial=$('#gmaterial').val();
+var psize=$('#psize').val();
+var gcrystal=$('#gcrystal').val();
+var gcutting=$('#gcutting').val();
+var pprice=$('#pprice').val();
+var gprice=$('#pprice').val();
+var pcount=$('#pcount').val();
+var gother=ue.getContent();
+$.post("../../../goods/addGoods",{gprice:gprice,pcount:pcount,gname:gname,seriesname:seriesname,
+	stylename:stylename,pcarat:pcarat,gmaterial:gmaterial,psize:psize,gcrystal:gcrystal,pprice:pprice,gimage:gimage,gother:gother,gcutting:gcutting},function(data){
+	if(data){
+		$("#add_Goods").dialog('close');
+		obj.datagrid("reload");//刷新表格
+	}else{
+		$.messager.alert('失败提示','商品信息添加失败...','error');
 	}
-	return str;
-}
+});
+} */
 
 </script>

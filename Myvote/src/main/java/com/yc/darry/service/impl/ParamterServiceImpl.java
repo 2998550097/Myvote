@@ -27,8 +27,8 @@ public class ParamterServiceImpl implements ParamterService{
 	}
 
 	@Override
-	public boolean deleteParamter(Integer goodid) {
-		return paramterMapper.deleteParamter(goodid);
+	public boolean deleteParamter(Integer goodid,Integer paramterid) {
+		return paramterMapper.deleteParamter(goodid,paramterid);
 		
 	}
 

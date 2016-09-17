@@ -24,5 +24,12 @@ public class UsersServiceImplTest {
 		System.out.println(a);
 		assertTrue(a);
 	}
+	
+	@Test
+	public void testuserCount(){
+		int userCount = userService.getUserCount();
+		System.out.println(userCount);
+		assertNotNull(userCount);
+	}
 
 }

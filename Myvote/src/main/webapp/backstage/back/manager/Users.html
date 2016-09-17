@@ -1,6 +1,6 @@
 <table id="Users_data"></table>
 
-<div style="position: absolute;top:60px;left:250px;">
+<div style="position: absolute;top:60px;left:250px;" id="search">
 	会员编号:<input id="Users_userid" type="text" name="userid" />&nbsp;
 	会员名:<input id="Users_urealname" type="text" name="urealname" />&nbsp;
 	会员电话:<input id="Users_utel" type="text" name="utel" />&nbsp;
@@ -41,7 +41,7 @@ var obj=$('#Users_data').datagrid({
 	        			var str="";
 	        			var pics=value.split(",");
 	        			for(var i=0;i<pics.length;i++){
-	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        				str+="<img src='"+pics[i]+"' width='60px' height='60px'/>&nbsp;";
 	        			}
 	        			return str;
 	        		}else{
@@ -101,5 +101,62 @@ function doDelete(tids){
 			$.messager.alert('失败提示','会员信息删除失败...','error');
 		}
 	});
+}
+
+function search(){
+	var userid=$("#Users_userid").val();
+	var urealname=$("#Users_urealname").val();
+	var utel=$("#Users_utel").val();
+	var usex=$("#Users_usex").val();
+	$('#Users_data').datagrid({ 
+		url:'../../../user/search',
+		queryParams:{userid:userid,urealname:urealname,utel:utel,usex:usex},
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:2,
+	    pageList:[2,5,10,15,20,30,3],
+	    sortName:'tids',
+	    remoteSort:false,
+	    columns:[[  
+	  			{field:'tids',title:'',width:27,align:'center',checkbox:true}, 
+	  			{field:'userid',title:'会员编号',width:96,align:'center',sortable:true}, 
+	  			{field:'urealname',title:'会员姓名',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'uname',title:'用户昵称',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
+	  	        {field:'upassword',title:'密码',width:96,align:'center',editor:{type:"text",options:{requires:true}}},  
+	  	        {field:'uemail',title:'邮件帐号',width:96,align:'center',editor:{type:"email",options:{requires:true}}},  
+	  	        {field:'ubirthday',title:'生日',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'usex',title:'性别',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'utel',title:'电话',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'ustate',title:'情感状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'uaddress',title:'地址',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'upostcode',title:'邮编',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'ustatus',title:'激活状态',width:96,align:'center',editor:{type:"text",options:{requires:true}}},
+	  	        {field:'uimage',title:'头像',width:96,align:'center',
+	  	        	formatter:function(value,rowData,index){
+	  	        		if(value!=null){
+	  	        			var str="";
+	  	        			var pics=value.split(",");
+	  	        			for(var i=0;i<pics.length;i++){
+	  	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	  	        			}
+	  	        			return str;
+	  	        		}else{
+	  	        			return;
+	  	        		}
+	  	        	}	
+	  	        
+	  	        }
+	  	        
+	  	     ]],
+	  	    toolbar:[{
+	  		    text:"删除",
+	  		    iconCls:"icon-remove",
+	  		    handler: doDeleteUsers,
+	  		 }]
+	  	}); 
 }
 </script>
