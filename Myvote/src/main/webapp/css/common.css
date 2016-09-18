@@ -81,9 +81,13 @@ i {
 .fr {
 	float: right;
 	display: inline;
-	margin-right: 170px;
 }
 
+.fr1 {
+	float: right;
+	display: inline;
+	margin-right: 170px;
+}
 .fix:after {
 	content: " ";
 	display: block;
@@ -1557,7 +1561,6 @@ a.help-right {
 }
 
 .dr_sametcborder {
-	border: 2px solid #5e5d62;
 	width: 486px;
 	padding-bottom: 14px;
 	position: relative;
@@ -1565,11 +1568,11 @@ a.help-right {
 
 .Popup_close {
 	position: absolute;
-	width: 14px;
-	height: 14px;
-	background: url(../images/close.png) no-repeat;
-	right: 26px;
-	top: 26px;
+	width: 28px;
+	height: 20px;
+	background: url(../images/closebefore.png) no-repeat;
+	right: 10px;
+	top: 10px;
 }
 
 .address_popup .Popup_close {
@@ -1577,7 +1580,7 @@ a.help-right {
 }
 
 .Popup_close:hover {
-	background-position: 0 -14px;
+	background: url(../images/closeafter.png) no-repeat;
 }
 
 .dr_shopPopup {

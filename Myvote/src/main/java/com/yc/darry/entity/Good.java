@@ -209,7 +209,7 @@ public class Good {
 
 	@Override
 	public String toString() {
-		return "Good [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
+		return "\nGood [goodid=" + goodid + ", gname=" + gname + ", gmaterial=" + gmaterial + ", gimage=" + gimage
 				+ ", averagescore=" + averagescore + ", gother=" + gother + ", goodnum=" + goodnum + ", usercount="
 				+ usercount + ", comcount=" + comcount + ", seriesname=" + seriesname + ", stylename=" + stylename
 				+ ", gprice=" + gprice + ", pcarat=" + pcarat + ", psize=" + psize + ", gcrystal=" + gcrystal

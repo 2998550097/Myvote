@@ -9,7 +9,8 @@ public interface ParamterService {
 	boolean addParamter(Paramter paramter);
 
 	boolean updateParamter(Paramter paramter);
-
+	
+	List<String> getPcaratById(int goodid);
 	boolean deleteParamter(Integer goodid,Integer paramterid);
 
 }

@@ -1,7 +1,29 @@
+<%@page import="java.net.URLDecoder"%>
+<%@page import="java.net.URLEncoder"%>
+<%@page import="java.util.List"%>
+<%@page import="com.yc.darry.entity.Good"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String goodid=request.getQueryString().split("&")[0].split("=")[1];
+	String[] pcaratStyle=request.getQueryString().split("&")[1].split("=");
+	String pcaratValue="";
+	String pcaratValues="";
+	if(pcaratStyle.length>1){
+		pcaratValue=pcaratStyle[1];
+		pcaratValues=pcaratValue.split("%20")[0]+"分"+pcaratValue.split("%20")[1];
+		System.out.println(pcaratValues);
+	}
+	Good good=(Good)session.getAttribute(goodid);
+	List<String> pcarats=(List<String>)session.getAttribute(goodid+"_carat");
+	System.out.println(good);
+	String[] gmaterial=good.getGmaterial().split(",");
+	String[] pcarat=good.getParamters().get(0).getPcarat().split("分");
+	String[] imagePath=good.getGimage().split(",");
+	
+%>
 <!DOCTYPE htm>
-
 <html>
 <head>
 <base href="/MyDarry/">
@@ -16,6 +38,8 @@
 <link rel="stylesheet" type="text/css" href="css/same.css">
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/darry_ring.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="js/ckepop.js" charset="utf-8"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
@@ -25,7 +49,6 @@
 <script charset="utf-8" src="js/v.js"></script>
 <script type="text/javascript" src="headerJs/index.js"></script>
 <script async="" src="headerJs/banner.js"></script>
-
 <script type="text/javascript" src="headerJs/sea.js"></script>
 <script>
         // seajs 配置
@@ -38,6 +61,10 @@
         });
         // 加载头部入口模块
         seajs.use("MyDarry/headerJs/header.js");
+		
+        function getStyle(obj){
+			$(obj).addClass("iborder");   	
+        }
     </script>
 <script type="text/javascript" src="headerJs/header.js"></script>
 <link rel="stylesheet" href="css/common.css">
@@ -45,6 +72,7 @@
 <script type="text/javascript" src="js/Magnifier.js"></script>
 <script type="text/javascript" src="js/buy_xq.js"></script>
 <script type="text/javascript" src="js/fd_hd.js"></script>
+
 <script type="text/javascript">
         var DiamondChanged = function(c){
             CurrentDiamondPrice = parseFloat($(c).attr("value"));
@@ -165,26 +193,27 @@
 				</table>
 			</div>
 			<div class="jiadiv_02" style="width: 100%;" id="jiathis_sers">
-				<a href="javascript:;"
-					onclick="jiathis_sendto();"
-					class="jiatitle"><span class="jtico jtico_qzone">QQ空间</span></a><a
-					href="javascript:;"
-					onclick="jiathis_sendto(&#39;tsina&#39;);return false;"
-					class="jiatitle"><span class="jtico jtico_tsina">微博</span></a><a
-					href="javascript:;"
-					onclick="jiathis_sendto(&#39;tqq&#39;);return false;"
-					class="jiatitle"><span class="jtico jtico_tqq">腾讯微博</span></a><a
-					href="javascript:;"
-					onclick="jiathis_sendto(&#39;renren&#39;);return false;"
-					class="jiatitle"><span class="jtico jtico_renren">人人网</span></a><a
-					href="javascript:;"
-					onclick="jiathis_sendto(&#39;weixin&#39;);return false;"
-					class="jiatitle"><span class="jtico jtico_weixin">微信</span></a><a
-					href="javascript:;"
-					onclick="jiathis_sendto(&#39;ishare&#39;);return false;"
-					class="jiatitle"><span class="jtico jtico_ishare">一键分享</span></a><a
-					href="javascript:;" onclick="$CKE.center(this);return false;"
-					class="jiatitle"><span class="jtico jtico_jiathis">查看更多(96)</span></a>
+				<a href="javascript:;" onclick="jiathis_sendto()" class="jiatitle">
+					<span class="jtico jtico_qzone">QQ空间</span>
+				</a>
+				<a href="javascript:;" onclick="jiathis_sendto();" class="jiatitle">
+					<span class="jtico jtico_tsina">微博</span>
+				</a>
+				<a href="javascript:;" onclick="jiathis_sendto();" class="jiatitle">
+					<span class="jtico jtico_tqq">腾讯微博</span>
+				</a>
+				<a href="javascript:;" onclick="jiathis_sendto();" class="jiatitle">
+					<span class="jtico jtico_renren">人人网</span>
+				</a>
+				<a href="javascript:;" onclick="jiathis_sendto();" class="jiatitle">
+					<span class="jtico jtico_weixin">微信</span>
+				</a>
+				<a href="javascript:;" onclick="jiathis_sendto();" class="jiatitle">
+					<span class="jtico jtico_ishare">一键分享</span>
+				</a>
+				<a href="javascript:;" onclick="" class="jiatitle">
+					<span class="jtico jtico_jiathis">查看更多(96)</span>
+				</a>
 				<div style="clear: both"></div>
 			</div>
 			<div class="ckepopBottom" style="width: 100%;">
@@ -340,18 +369,27 @@
 						<!--购买页中间的左边图片-->
 						<div class="buycort_left fl">
 							<ul class="bc_left">
+								<li class="li_border">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[0] %>">
+								</li>
+								<%
+								for(int i=1;i<imagePath.length;i++){
+								%>
+									<li>
+										<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[i]%>">
+									</li>
+								<%
+								}
+								%>
+								
 
-								<li class="li_border"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/201606201013425c46d90c91.jpg"></li>
+								<!-- <li>
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/201606201013489a22139075.jpg">
+								</li>
 
-								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/2016062010134644945bb6a4.jpg"></li>
-
-								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/201606201013489a22139075.jpg"></li>
-
-								<li><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
+								<li>
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/20160620101350d2f9fcb5a8.jpg">
+								</li> -->
 
 							</ul>
 							<!--上下按钮-->
@@ -362,24 +400,32 @@
 						<!--购买页中间的中间图片-->
 						<div class="buycort_center fl">
 							<ul class="ul_center">
-
 								<li id="magnifier0" style="display: list-item;">
-									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/201606201013425c46d90c91.jpg"> 
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[0] %>"> 
 									<span style="position: absolute; left: 192.5px; top: 248px; display: none; width: 150px; height: 150px; border: 1px solid rgb(0, 0, 0); cursor: move; opacity: 0.4; zoom: 1; background: rgb(153, 153, 153);"></span>
 									<div style="position: absolute; overflow: hidden; width: 300px; height: 300px; top: 0px; right: -385px; border: 1px solid rgb(204, 204, 204); z-index: 99998; display: none;">
-										<img src="images/darry_marry/201606201013425c46d90c91.jpg" style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
+										<img src="images/products/<%=imagePath[0] %>" style="position: absolute; left: -386.552px; top: -498px; width: 800px; height: 800px;">
 									</div>
 								</li>
+								
+								<%
+									for(int i=1;i<imagePath.length;i++){
+								%>
+									<li id="magnifier<%=i %>">
+										<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[i] %>">
+									</li>		
+								<%
+									}
+								%>
+								
 
-								<li id="magnifier1">
-									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/2016062010134644945bb6a4.jpg">
+								<!-- <li id="magnifier2">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/201606201013489a22139075.jpg">
 								</li>
 
-								<li id="magnifier2"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/201606201013489a22139075.jpg"></li>
-
-								<li id="magnifier3"><img alt="MY HEART 系列 奢华款 0.7 H"
-									src="images/darry_marry/20160620101350d2f9fcb5a8.jpg"></li>
+								<li id="magnifier3">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/darry_marry/20160620101350d2f9fcb5a8.jpg">
+								</li> -->
 
 							</ul>
 							<div class="kzyl"></div>
@@ -419,9 +465,9 @@
 						<div class="buycort_right fr">
 							<!--钻戒-->
 							<div class="byright_top">
-								<p>MY HEART 系列 奢华款[A03003]</p>
+								<p class="byright_top_name"><%=good.getGname().split(",")[0] %></p>
 								<p>
-									<span>￥39,699</span>
+									<span class="byright_top_price">￥<%=good.getParamters().get(0).getPprice() %></span>
 								</p>
 								<div class="byright_top-xq">
 									<i>最近售出：18354</i> <i>用户评论：69</i> <i>收藏人气：1828</i>
@@ -430,13 +476,14 @@
 							<!--钻戒end-->
 							<!--参数-->
 							<ul class="byright_sec">
-								<li>钻石重量(ct)：<span>0.7</span>
+								<li>
+								钻石重量(ct)：<span class="byright_sec_ct"><%=(double)(Double.parseDouble(pcarat[0])/100.00) %></span>
 								</li>
-								<li>钻石颜色(color)：<span>H</span>
+								<li>钻石颜色(color)：<span class="byright_sec_color"><%=pcarat[1] %></span>
 								</li>
-								<li>钻石净度(clarity)：<span>SI</span>
+								<li>钻石净度(clarity)：<span class="byright_sec_clarity"><%=good.getParamters().get(0).getGcrystal() %></span>
 								</li>
-								<li>钻石切工(cut)：<span></span>
+								<li>钻石切工(cut)：<span class="byright_sec_cut"><%=good.getParamters().get(0).getGcutting() %></span>
 								</li>
 							</ul>
 							<!--参数end-->
@@ -468,8 +515,9 @@
     });
 </script>
 								<div class="thr_first" id="materialDiv">
-									<span>材质：</span> <i value="8199.00" class="iborder">白18K金</i> <i
-										value="9399.00">PT950</i>
+									<span>材质：</span> 
+									<i value="8199.00" class="iborder"><%=gmaterial[0] %></i> 
+									<i value="9399.00"><%=gmaterial[1] %></i>
 
 
 								</div>
@@ -477,24 +525,24 @@
 								<div class="thr_first">
 									<span>手寸：</span> <select name="ctl00$content$ddlHandSize"
 										id="ctl00_content_ddlHandSize"><option value="-1">-请选择-</option>
-										<option value="0">5</option>
-										<option value="0">6</option>
-										<option value="0">7</option>
-										<option value="0">8</option>
-										<option value="0">9</option>
-										<option value="0">10</option>
-										<option value="0">11</option>
-										<option value="0">12</option>
-										<option value="0">13</option>
-										<option value="0">14</option>
-										<option value="0">15</option>
-										<option value="100">16</option>
-										<option value="200">17</option>
-										<option value="300">18</option>
-										<option value="400">19</option>
-										<option value="500">20</option>
-										<option value="600">21</option>
-										<option value="700">22</option></select> <a
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option></select> <a
 										href="http://www.darryring.com/help/77.html" target="_blank">如何测量?</a>
 									<a onclick="" class="droline_showkf" style="cursor: pointer"
 										target="_blank">联系客服</a>
@@ -511,57 +559,24 @@
 							<div id="ctl00_content_tjlzDiv">
 								<p class="more_dp">更多钻石搭配:</p>
 								<ul class="more_ul">
-
-									<li class="" value="15600.00" diamondcode="Z05021300002"
-										ct="0.5" color="H"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z05021300002.html">
-											50分H色 </a></li>
-
-									<li class="moreul_sp" value="31500.00"
-										diamondcode="Z07021300002" ct="0.7" color="H"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z07021300002.html">
-											70分H色 </a></li>
-
-									<li class="" value="35000.00" diamondcode="Z070253000021"
-										ct="0.7" color="D"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z070253000021.html">
-											70分D色 </a></li>
-
-									<li class="" value="66920.00" diamondcode="Z100213000021"
-										ct="1" color="H"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z100213000021.html">
-											100分H色 </a></li>
-
-									<li class="" value="73920.00" diamondcode="Z100234000021"
-										ct="1" color="F"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z100234000021.html">
-											100分F色 </a></li>
-
-									<li class="" value="131900.00" diamondcode="Z100257000021"
-										ct="1" color="D"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z100257000021.html">
-											100分D色 </a></li>
-
-									<li class="" value="165999.00" diamondcode="Z200213000021"
-										ct="2" color="H"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z200213000021.html">
-											200分H色 </a></li>
-
-									<li class="" value="1952400.00" diamondcode="Z300257000021"
-										ct="3" color="D"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z300257000021.html">
-											300分D色 </a></li>
-
-									<li class="" value="2613900.00" diamondcode="Z500214000021"
-										ct="5" color="H"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z500214000021.html">
-											500分H色 </a></li>
-
-									<li class="" value="15192400.00" diamondcode="Z999257000021"
-										ct="9.99" color="D"><a
-										href="http://www.darryring.com/darry_ring/A03003/Z999257000021.html">
-											999分D色 </a></li>
-
+									
+									<%
+										for(int i=0;i<pcarats.size();i++){
+									%>
+									<li class="<%
+											if(pcaratStyle.length>1){
+												if(pcaratValues.equals(pcarats.get(i))){
+												%>iborder<%
+												}	
+											}
+											
+										%>" value="15600.00" diamondcode="Z05021300002" ct="0.5" color="H">
+										<a href="goods/findGoodsById?goodid=<%=good.getGoodid() %>&pcarat=<%=pcarats.get(i) %>" onclick="getStyle(this)"><%=pcarats.get(i) %></a>
+									</li>
+									<%
+										}
+									
+									%>
 									<li class="choose_more" style="display: none">钻石定制</li>
 
 								</ul>
@@ -882,12 +897,13 @@
 										<span> <i class="thered_color" id="i_curr">1</i>/<i
 											id="i_tot">1</i>
 										</span> <em class="no_paget" id="em_up"
-											onclick="getPage(&#39;up&#39;)">上一页</em> <em
-											onclick="getPage(&#39;down&#39;)" id="em_down">下一页</em>
+											onclick="getPage();">上一页</em> <em
+											onclick="getPage();" id="em_down">下一页</em>
 									</div>
 									<p id="lzCount" class="fr">
 										<span>共找到裸钻</span><i></i><span>颗</span>
 									</p>
+
 								</div>
 							</div>
 							<!--筛选end-->
@@ -916,13 +932,10 @@
 										<li class="pli2 pag_gray">下一页&gt;&gt;</li>
 									</ul>
 									<p class="pag_p fl">
-										<span>共0页，到第</span> <input
-											name="ctl00$content$ucdiamonsearch$zsPaging$pag_txt"
-											type="text"
-											id="ctl00_content_ucdiamonsearch_zsPaging_pag_txt"
-											class="pag_txt">页 <input type="button" value="确定"
-											onclick="__CurrentPagingDiamond.PageIndexChaned($(&#39;#ctl00_content_ucdiamonsearch_zsPaging_pag_txt&#39;).val());$(&#39;#ctl00_content_ucdiamonsearch_zsPaging_pag_txt&#39;).val(&#39;&#39;);"
-											class="pag_bt">
+										<span>共0页，到第</span> 
+										<input name="ctl00$content$ucdiamonsearch$zsPaging$pag_txt" type="text" id="ctl00_content_ucdiamonsearch_zsPaging_pag_txt" class="pag_txt">
+											页 
+										<input type="button" value="确定" onclick="" class="pag_bt">
 									</p>
 								</div>
 							</div>
@@ -990,21 +1003,21 @@
 									<tbody>
 										<tr>
 											<td class="border_cs-td1">款式信息</td>
-											<td class="border_cs-td2"><span>产品编号：</span> <em>A03003</em>
+											<td class="border_cs-td2"><span>产品编号：</span> <em><%=good.getGname().split(",")[0].substring(good.getGname().split(",")[0].indexOf("[")) %></em>
 											</td>
 											<td class="border_cs-td3"><span>证书类型：</span> <em></em></td>
-											<td class="border_cs-td5"><span>材 质：</span> <em>白18K金,PT950</em>
+											<td class="border_cs-td5"><span>材 质：</span> <em><%=good.getGmaterial() %></em>
 											</td>
 											<td class="border_cs-td6">&nbsp;</td>
 										</tr>
 										<tr>
 											<td class="border_cs-td1">钻石信息</td>
 											<td class="border_cs-td2"><span>主钻重量：</span> <em
-												id="em_zct">0.7克拉</em></td>
-											<td class="border_cs-td4"><span>净 度：</span> <em>SI</em>
+												id="em_zct"><%=(double)(Double.parseDouble(pcarat[0])/100.00) %>克拉</em></td>
+											<td class="border_cs-td4"><span>净 度：</span> <em><%=good.getParamters().get(0).getGcrystal() %></em>
 											</td>
-											<td class="border_cs-td5"><span>颜 色：</span> <em>H</em></td>
-											<td class="border_cs-td6"><span>切 工：</span> <em></em></td>
+											<td class="border_cs-td5"><span>颜 色：</span> <em><%=pcarat[1] %></em></td>
+											<td class="border_cs-td6"><span>切 工：</span> <em><%=good.getParamters().get(0).getGcutting() %></em></td>
 										</tr>
 
 									</tbody>
@@ -1378,13 +1391,10 @@
 										<li class="pli2">下一页&gt;&gt;</li>
 									</ul>
 									<p class="pag_p fl">
-										<span>共9页，到第</span> <input
-											name="ctl00$content$ucrelatedinfo$uccommnet$ucpaging$pag_txt"
-											type="text"
-											id="ctl00_content_ucrelatedinfo_uccommnet_ucpaging_pag_txt"
-											class="pag_txt">页 <input type="button" value="确定"
-											onclick="__CurrentPagingComment.PageIndexChaned($(&#39;#ctl00_content_ucrelatedinfo_uccommnet_ucpaging_pag_txt&#39;).val());$(&#39;#ctl00_content_ucrelatedinfo_uccommnet_ucpaging_pag_txt&#39;).val(&#39;&#39;);"
-											class="pag_bt">
+										<span>共9页，到第</span>
+										<input name="" type="text" id="ctl00_content_ucrelatedinfo_uccommnet_ucpaging_pag_txt" class="pag_txt">
+											页 
+										<input type="button" value="确定" onclick="" class="pag_bt">
 									</p>
 								</div>
 							</div>
@@ -1768,13 +1778,10 @@
 										<li class="pli2">下一页&gt;&gt;</li>
 									</ul>
 									<p class="pag_p fl">
-										<span>共5页，到第</span> <input
-											name="ctl00$content$ucrelatedinfo$ucq$ucpaging$pag_txt"
-											type="text"
-											id="ctl00_content_ucrelatedinfo_ucq_ucpaging_pag_txt"
-											class="pag_txt">页 <input type="button" value="确定"
-											onclick="__Question.PageIndexChaned($(&#39;#ctl00_content_ucrelatedinfo_ucq_ucpaging_pag_txt&#39;).val());$(&#39;#ctl00_content_ucrelatedinfo_ucq_ucpaging_pag_txt&#39;).val(&#39;&#39;);"
-											class="pag_bt">
+										<span>共5页，到第</span> 
+										<input name="" type="text" id="ctl00_content_ucrelatedinfo_ucq_ucpaging_pag_txt" class="pag_txt">
+										  	页 
+										<input type="button" value="确定" onclick="" class="pag_bt">
 									</p>
 								</div>
 							</div>
@@ -2194,19 +2201,71 @@
 					<!--close-->
 					<div class="yz_close"></div>
 					<!--close end-->
+					
 				</div>
 
 				<!--登录注册弹窗-->
 				<div class="dr_sametc dr_Registsign">
-					<!--关闭按钮-->
-					<a href="javascript:;" class="Popup_close"></a>
-					<!--关闭按钮end-->
-					<iframe id="papLogin" name="papLogin" class="papLogin"
-						src="images/darry_marry/other.html" width="" height=""></iframe>
+					
+					<div class="dr_sametcborder">
+						<!--关闭按钮-->
+						<a href="javascript:;" class="Popup_close"></a>
+						<!--关闭按钮end-->
+						<!--登录-->
+						<div class="dr_Thelogin dr_samezd">
+							<h3>DR族-登录</h3>
+							<input id="loginUser" class="smtxt loginUser" name="email" placeholder="请输入您的邮箱/手机号码" type="text">
+							<input id="loginPwd" class="smtxt loginPassword" name="password" placeholder="请输入密码" type="password">
+							<div class="tcsame_check fix">
+								<a href="http://passport.darryring.com/forget" target="_blank" class="fr">忘记密码?</a>
+								<input type="checkbox">
+								<label>记住密码</label>
+							</div>
+							<div class="tcsame_button">
+								<a href="javascript:;" id="loginSubmit" class="Button_dl" style="display:none;">登录</a>
+								<a href="javascript:;" id="loginDisablet" class="Button_dl Button_disable">登录</a>
+								<a href="javascript:;" class="Button_join">加入DR族</a>
+							</div>
+							<div class="tcsame_third">
+								<span>第三方账户登录</span>
+								<a href="javascript:;" class="third_qq"></a>
+								<a href="javascript:;" class="third_wx"></a>
+								<a href="javascript:;" class="third_wb"></a>
+								<a href="javascript:;" class="third_zfb"></a>
+							</div>
+						</div>
+						<!--登录end-->
+						<!--注册-->
+						<div style="display: none;" class="dr_Registered dr_samezd">
+							<h3>注册加入DR族</h3>
+							<!--报错信息-->
+							<div class="theSame_wrong" style="display:none;">
+								<span>邮箱格式/手机号码不正确，请重新输入</span>
+							</div>
+							<!--报错信息end-->
+							<input class="smtxt loginphone" name="mobile" placeholder="请输入您的手机号码" type="text">
+							<input class="smtxt loginPassword" name="rpassword" placeholder="请输入长度为6-20位数的密码" type="password">
+							<input class="smtxt loginPassword" name="spassword" placeholder="请输入长度为6-20位数的密码" type="password">
+							<input class="used" value="0" type="hidden">
+							<div class="Verificacode fix">
+								<input class="smtxt loginYzm fl" name="code" placeholder="请输入验证码" type="text">
+								<span class="fr">获取语音验证码</span>
+							</div>
+							<div class="tcsame_check tchref_color fix">
+								<input name="check" type="checkbox">
+								<span>同意darry ring用户<a href="http://www.darryring.com/help_se/85.html" target="_blank">注册协议</a>和<a href="http://www.darryring.com/help_se/86.html" target="_blank">隐私条款</a></span>
+							</div>
+							<div class="tcsame_button Button_reg">
+								<a href="javascript:;" class="Button_join">立即 加入DR族</a>
+							</div>
+							<p class="Regis_todl fix">
+								<a href="javascript:;" class="fr">&gt; 已有帐户 登录</a>
+							</p>
+						</div>
 				</div>
 				<!--登录注册弹窗end-->
-
 				<!--验证身份框end-->
+			</div>
 				<script type="text/javascript">
     function strlength(str) { num = str.length; var arr = str.match(/[^\x00-\x80]/ig); if (arr != null) num += arr.length; return num; }
     String.prototype.replaceAll = function (s1, s2) {
@@ -2236,18 +2295,6 @@
         });
     });    
 
-    var loginRefresh = function () {
-        window.loginInterval = setInterval(function () {
-            $.get('http://www.darryring.com/api/login_status.ashx', function (res) {
-                var p = $.parseJSON(res);
-                if (p.result >= 0) {
-                    $('.dr_Registsign,.dr_blackwall').hide();
-                    clearInterval(window.loginInterval);
-                    location.replace(location.href);
-                }
-            });
-        }, 1000);
-    };
 
     $('.yz_close').click(function () {
         $("#textName").val("先生姓名");
@@ -2261,140 +2308,7 @@
         $(".ygmg").hide();
     });
 
-    /*验证弹窗*/
-    $('#newBuy').click(function () {
-        if ($("#ctl00_content_ddlHandSize").val() == -1) {
-            alert("请选择手寸。");
-                return;
-            }
-            if ($(".thr_first .iborder").text() == null || $(".thr_first .iborder").text() == "") {
-                alert("请选择材质");
-                return;
-            }
-            var fontlen = strlength($("#ipt_font").val());
-            if (fontlen > 10) {
-                alert("刻字数超过了10个字符。");
-            }
-            //判断是否登录
-            if ('True' == 'True') {
-                //判断在购物车中是否存在
-                $.get("/API/DarryringYzAPI.ashx", { action: 'cart' }, function (data) {
-                    if (data == "false") {
-                        //购物中不存在
-                        $.get("/API/DarryringYzAPI.ashx", { action: 'darryhome' }, function (dat) {
-                            //未购买过
-                            var json = $.parseJSON(dat);
-                            if (dat == "false") {
-                                $('.yz_password').show();
-                                $(".toyz_begin").show();
-                                $('.backall').show();
-                                $(".gmg").hide();
-                            }
-                            else {
-                                //购买过
-                                $("#cg").text(json.Name);
-                                $(".ygmg").show();
-                                $('.yz_password').show();
-                                $(".toyz_begin").hide();
-                                $('.backall').show();
-                                //addCartFun();
-                                //cartsynccrm(); // 数据上报CRM
-                            }
-                        });
-                    } else {
-                        //购物车中存在
-                        $(".addcart").hide();
-                        $('.yz_password').show();
-                        $(".toyz_begin").hide();
-                        $('.backall').show();
-                        $(".carthave").show();
-                    }
-                });
-            }
-            else {
-                //用户未登录
-                
-                
-                $('.dr_Registsign,.dr_blackwall').show();
-                loginRefresh();
-                
-
-            }
-        });
-
-        //弹窗的一个立即购买
-        $("#btnBuy").click(function () {
-            var name = $("#textName").val();
-            var id = $("#textIDCard").val();
-            sirname = $("#textName").val();
-            sircode = $("#textIDCard").val();
-            var nat = $("#textNat option:selected").text();
-            $.post("/API/DarryringYzAPI.ashx", { action: 'session', name: name, id: id, nat: nat });
-            toBuy();
-            $(".yz_password").hide();
-            $(".wgm").hide();
-        });
-
-        $("#newCart").click(function () {
-            if ($("#ctl00_content_ddlHandSize").val() == -1) {
-                alert("请选择手寸。");
-                return;
-            }
-            if ($(".thr_first .iborder").text() == null || $(".thr_first .iborder").text() == "") {
-                alert("请选择材质");
-                return;
-            }
-            //判断是否登录
-            var fontlen = strlength($("#ipt_font").val());
-            if (fontlen > 10) {
-                alert("刻字数超过了10个字符。");
-                return;
-            }
-
-            if ('True' == 'True') {
-                //判断在购物车中是否存在
-                $.get("/API/DarryringYzAPI.ashx", { action: 'cart' }, function (data) {
-                    if (data == "false") {
-                        //购物中不存在
-                        //初始化数据
-                        $.get("/API/DarryringYzAPI.ashx", { action: 'darryhome' }, function (data) {
-                            var json = $.parseJSON(data);
-                            //未购买过
-                            if (data == "false") {
-                                $('.yz_password').show();
-                                $(".toyz_begin").show();
-                                $('.backall').show();
-                                $(".gmg").hide();
-                            }
-                            else {
-                                //购买过
-                                $("#cg").text(json.Name);
-                                $(".ygmg").show();
-                                $('.yz_password').show();
-                                $(".toyz_begin").hide();
-                                $('.backall').show();
-                            }
-                        });
-                    } else {
-                        //购物车中存在
-                        $(".addcart").hide();
-                        $(".toyz_begin").hide();
-                        $('.backall').show();
-                        $('.yz_password').show();
-                        $(".carthave").show();
-                    }
-                });
-            }
-            else {
-                //用户未登录
-                
-                
-                $('.dr_Registsign,.dr_blackwall').show();
-                loginRefresh();
-                
-
-            }
-        });
+ 
 </script>
 			</div>
 			<script type="text/javascript" src="js/ntkfstat.js"
@@ -2404,7 +2318,11 @@
 
 		<script type="text/javascript">
 //<![CDATA[
-new Magnifier('magnifier0',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013425c46d90c91.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier1',{pPath:'http://img.darryring.com/userfiles/image/product/2016062010134644945bb6a4.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier2',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013489a22139075.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});new Magnifier('magnifier3',{pPath:'http://img.darryring.com/userfiles/image/product/20160620101350d2f9fcb5a8.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});$(function(){favoritesCss(false);});//]]>
+new Magnifier('magnifier0',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013425c46d90c91.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});
+new Magnifier('magnifier1',{pPath:'http://img.darryring.com/userfiles/image/product/2016062010134644945bb6a4.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});
+new Magnifier('magnifier2',{pPath:'http://img.darryring.com/userfiles/image/product/201606201013489a22139075.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});
+new Magnifier('magnifier3',{pPath:'http://img.darryring.com/userfiles/image/product/20160620101350d2f9fcb5a8.jpg',sWidth:150,sHeight:150,sOpacity:0.4,pWidth:300,pHeight:300,mLeft:85,mTop:0});
+$(function(){favoritesCss(false);}); 
 </script>
 	</form>
 	<!-- 底部 -->

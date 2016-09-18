@@ -45,8 +45,14 @@ public class GoodsServiceImpl implements GoodsService{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Good> search(String gname, String seriesname, String stylename) {
 		return goodsMapper.search(gname,seriesname,stylename);
+=======
+	public Good getGoodsById(int goodid,String pcarat) {
+		// TODO Auto-generated method stub
+		return goodsMapper.getGoodsById(goodid,pcarat);
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 	}
 
 }

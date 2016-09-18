@@ -1,15 +1,16 @@
 package com.yc.darry.handler;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -24,6 +25,7 @@ import com.yc.darry.service.SeriesStyleService;
 
 @Controller
 @RequestMapping("/goods")
+
 public class GoodsHandler {
 	
 	@Autowired
@@ -32,6 +34,7 @@ public class GoodsHandler {
 	private ParamterService paramterService;
 	@Autowired
 	private SeriesStyleService seriesstyleService;
+
 	
 	/**
 	 * 查询所有商品
@@ -42,6 +45,24 @@ public class GoodsHandler {
 	public List<Good>  findAll(){
 		return goodsService.getAll();
 	}
+	
+	@RequestMapping("/findGoodsById")
+	public String findGoodsById(int goodid,String pcarat,HttpSession session){
+		 System.out.println(pcarat+"--");
+		 Good goods=goodsService.getGoodsById(goodid,pcarat);
+		 List<String> pcarats=paramterService.getPcaratById(goodid);
+		 session.setAttribute(String.valueOf(goodid)+"_carat", pcarats);
+		 session.setAttribute(String.valueOf(goodid), goods);
+		 String carat=null;
+		 try {
+			 carat=URLDecoder.decode(pcarat,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:../page/darry_marry.jsp?goodid="+goodid+"&pcarat="+carat;
+	}
+	
 	//后端取值
 	@ResponseBody
 	@RequestMapping("/getGoods")
@@ -57,7 +78,7 @@ public class GoodsHandler {
 	 */
 	@ResponseBody
 	@RequestMapping("/findByPage")
-	public Pagination  findByPage(int page,int num,int totalSize,String minPrice,String maxPrice){
+	public Pagination  findByPage(int page,int num,int totalSize,String minPrice,String maxPrice,String seriesname){
 		System.out.println(minPrice+"--"+maxPrice);
 		int min=0;
 		int max=0;
@@ -67,14 +88,32 @@ public class GoodsHandler {
 		if(!"".equals(maxPrice)){
 			max=Integer.parseInt(maxPrice);
 		}
-		Pagination paginations=new Pagination(12, num,min,max);
+		Pagination paginations=new Pagination(12, num,min,max,null);
 		paginations.setTotalSize(totalSize);
 		if(page==0){
-			paginations=goodsService.getGoodByPage(new Pagination(12, page+1,min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, page+1,min,max,seriesname));
 		}else if(page==1){
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo(),min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo(),min,max,seriesname));
 		}else if(page==2){
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==10){
+			max=10;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==11){
+			min=11;
+			max=13;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==14){
+			min=14;
+			max=16;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==17){
+			min=17;
+			max=20;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==21){
+			min=21;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
 		}
 		return paginations;
 	}
