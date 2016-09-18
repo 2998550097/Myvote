@@ -44,4 +44,9 @@ public class GoodsServiceImpl implements GoodsService{
 		return  goodsMapper.getGoods();
 	}
 
+	@Override
+	public List<Good> search(String gname, String seriesname, String stylename) {
+		return goodsMapper.search(gname,seriesname,stylename);
+	}
+
 }

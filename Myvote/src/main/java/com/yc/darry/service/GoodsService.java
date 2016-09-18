@@ -18,4 +18,6 @@ public interface GoodsService {
 
 	int updateGoods(Good good);
 
+	List<Good> search(String gname, String seriesname, String stylename);
+
 }

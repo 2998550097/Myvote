@@ -275,7 +275,141 @@ function updategoodsInfo(){
 	});
 	
 } 
-
+function search(){
+	var gname=$("#gnames").val();
+	var seriesname=$("#seriesnames option:selected").text();
+	var stylename=$("#stylenames option:selected").text();
+	obj=$('#goods_data').datagrid({  
+	    url:'../../../goods/search',  
+	    queryParams:{gname:gname,seriesname:seriesname,stylename:stylename},
+	    fitColumns:true,
+	    striped:true,
+	    loadMsg:"数据加载中",
+	    pagination:true,
+	    fit:true,
+	    pageNumber:1,
+	    pageSize:5,
+	    pageList:[5,10,15,20,30,3],
+	    remoteSort:false,
+	    columns:[[  
+			{field:'tid',title:'',width:27,align:'center',checkbox:true}, 
+	        {field:'goodid',title:'商品编号',width:88.5,align:'center',sortable:true},  
+	        {field:'gname',title:'商品名',width:88.5,align:'center'},
+	        {field:'seriesname',title:'商品系列',width:88.5,align:'center'},
+	        {field:'stylename',title:'商品款式',width:88.5,align:'center'},
+	        {field:'pcarat',title:'商品重量',width:88.5,align:'center'},
+	        {field:'gmaterial',title:'商品材质',width:88.5,align:'center'},
+	        {field:'psize',title:'商品手寸',width:88.5,align:'center'},
+	        {field:'gcutting',title:'商品切工',width:88.5,align:'center'},
+	        {field:'gcrystal',title:'商品净度',width:88.5,align:'center'},
+	        {field:'pprice',title:'商品价格',width:88.5,align:'center'},
+	        {field:'averagescore',title:'平均评分',width:88.5,align:'center'},
+	        {field:'usercount',title:'购买次数',width:88.5,align:'center'},
+	        {field:'goodnum',title:'收藏次数',width:88.5,align:'center'},
+	        {field:'paramterid',title:'参数编号',width:88.5,align:'center'},
+	        {field:'comcount',title:'评论次数',width:88.5,align:'center'},
+	        {field:'pcount',title:'商品数量',width:88.5,align:'center'},
+	        {field:'gother',title:'其他',width:88.5,align:'center'},
+	        {field:'gimage',title:'图片',width:89,align:'center',
+	        	formatter:function(value,rowData,index){
+	        		if(value!=null){
+	        			var str="";
+	        			var pics=value.split(",");
+	        			for(var i=0;i<pics.length;i++){
+	        				str+="<img src='../../"+pics[i]+"'width='60px' height='60px'/>&nbsp;";
+	        			}
+	        			return str;
+	        		}else{
+	        			return;
+	        		}
+	        	}	
+	        }
+	     ]],
+	    toolbar:[{
+	    	text:"添加",
+	    	iconCls:"icon-add",
+	    	handler:function(){
+	    		$('#add_Goods').dialog('open');
+	    	}
+		 },{
+		    text:"修改",
+		   	iconCls:"icon-edit",
+		    handler:function(){
+		    	var rows=obj.datagrid("getChecked")[0];
+		    	if(rows!=undefined){
+		    		$('#update_Goods').dialog('open');
+		    		$('#goodid1').val(rows.goodid);
+		    		$('#gname1').val(rows.gname);
+		    		$('#seriesname1').val(rows.seriesname);
+		    		$('#stylename1').val(rows.stylename);
+		    		$('#pcarat1').val(rows.pcarat);
+		    		$('#gmaterial1').val(rows.gmaterial);
+		    		$('#psize1').val(rows.psize);
+		    		$('#gcrystal1').val(rows.gcrystal);
+		    		$('#pprice1').val(rows.pprice);
+		    		$('#gcutting1').val(rows.gcutting);
+		    		$('#pcount1').val(rows.pcount);
+		    		$('#paramterid1').val(rows.paramterid);
+		    		ue1.setContent(rows.gother);
+		    		$('#gimage1_show').html(showpic(rows.gimage));
+		    	}
+		    }
+		 },{
+		    text:"删除",
+		    iconCls:"icon-remove",
+		    handler:function(){
+		    	//获取选中的行
+		   		var rows=obj.datagrid("getChecked");
+		    	if(rows!=undefined){
+		    		$.messager.confirm('信息确认','您确定要删除选定的数据吗?',function(rs){
+		    			if(rs){
+		    				var tids="";
+		    				var paramters="";
+		    				alert(rows.length);
+		    				if(rows.length==1){	
+		    					alert("here");
+	    						tids=rows[0].goodid;
+	    						paramterids=rows[0].paramterid;
+	    					}else{
+	    						for(var i=0;i<rows.length;i++){
+			    					tids+=rows[i].goodid+",";
+			    					paramterids+=rows[i].paramterid+",";
+			    					alert(tids);
+			    				}
+	    					}
+		    				alert(tids);
+		    				//发请求到数据库删除
+		    				$.post("../../../goods/deleteGoods",{goodid:tids,paramterid:paramterids},function(data){
+		    					if(data){
+			    					$.messager.show({
+			    						title:'成功提示',
+			    						msg:'商品删除成功...',
+			    						timeout:2000,
+			    						showType:'slide'
+			    					});
+			    					rows=null;
+			    					obj.datagrid("reload");//刷新表格
+			    				}else{
+			    					$.messager.alert('失败提示','商品删除失败...','error');
+			    				}
+		    				});
+		    			}else{
+		    				return;
+		    			}
+		    		});
+		    	}else{
+		    		$.messager.show({
+						title:'温馨提示',
+						msg:'请选中您要删除的数据...',
+						timeout:2000,
+						showType:'slide'
+					});
+		    	}
+		    }
+		 }]
+	});
+	
+}
 function showpic(value){
 	var str="";
 	var pics=value.split(",");

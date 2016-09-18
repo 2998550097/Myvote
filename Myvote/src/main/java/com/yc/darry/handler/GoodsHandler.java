@@ -181,4 +181,11 @@ public class GoodsHandler {
 		}
 		return flag;
 	}
+	@ResponseBody
+	@RequestMapping("/search")
+	public List<Good>  search(String gname,String seriesname,String stylename){
+		List<Good> goods=goodsService.search(gname,seriesname,stylename);
+		return goods;
+		
+	}
 }
