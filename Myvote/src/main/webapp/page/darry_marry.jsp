@@ -38,6 +38,8 @@
 <link rel="stylesheet" type="text/css" href="css/same.css">
 <link rel="stylesheet" type="text/css" href="css/kefu.css">
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/myJs/darry_ring.js"></script>
+<script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="js/ckepop.js" charset="utf-8"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
@@ -70,7 +72,7 @@
 <script type="text/javascript" src="js/Magnifier.js"></script>
 <script type="text/javascript" src="js/buy_xq.js"></script>
 <script type="text/javascript" src="js/fd_hd.js"></script>
-<script type="text/javascript" src="js/myJs/darry_ring.js"></script>
+
 <script type="text/javascript">
         var DiamondChanged = function(c){
             CurrentDiamondPrice = parseFloat($(c).attr("value"));
@@ -463,9 +465,9 @@
 						<div class="buycort_right fr">
 							<!--钻戒-->
 							<div class="byright_top">
-								<p><%=good.getGname().split(",")[0] %></p>
+								<p class="byright_top_name"><%=good.getGname().split(",")[0] %></p>
 								<p>
-									<span>￥<%=good.getParamters().get(0).getPprice() %></span>
+									<span class="byright_top_price">￥<%=good.getParamters().get(0).getPprice() %></span>
 								</p>
 								<div class="byright_top-xq">
 									<i>最近售出：18354</i> <i>用户评论：69</i> <i>收藏人气：1828</i>
@@ -475,13 +477,13 @@
 							<!--参数-->
 							<ul class="byright_sec">
 								<li>
-								钻石重量(ct)：<span><%=(double)(Double.parseDouble(pcarat[0])/100.00) %></span>
+								钻石重量(ct)：<span class="byright_sec_ct"><%=(double)(Double.parseDouble(pcarat[0])/100.00) %></span>
 								</li>
-								<li>钻石颜色(color)：<span><%=pcarat[1] %></span>
+								<li>钻石颜色(color)：<span class="byright_sec_color"><%=pcarat[1] %></span>
 								</li>
-								<li>钻石净度(clarity)：<span><%=good.getParamters().get(0).getGcrystal() %></span>
+								<li>钻石净度(clarity)：<span class="byright_sec_clarity"><%=good.getParamters().get(0).getGcrystal() %></span>
 								</li>
-								<li>钻石切工(cut)：<span><%=good.getParamters().get(0).getGcutting() %></span>
+								<li>钻石切工(cut)：<span class="byright_sec_cut"><%=good.getParamters().get(0).getGcutting() %></span>
 								</li>
 							</ul>
 							<!--参数end-->
@@ -523,24 +525,24 @@
 								<div class="thr_first">
 									<span>手寸：</span> <select name="ctl00$content$ddlHandSize"
 										id="ctl00_content_ddlHandSize"><option value="-1">-请选择-</option>
-										<option value="0">5</option>
-										<option value="0">6</option>
-										<option value="0">7</option>
-										<option value="0">8</option>
-										<option value="0">9</option>
-										<option value="0">10</option>
-										<option value="0">11</option>
-										<option value="0">12</option>
-										<option value="0">13</option>
-										<option value="0">14</option>
-										<option value="0">15</option>
-										<option value="100">16</option>
-										<option value="200">17</option>
-										<option value="300">18</option>
-										<option value="400">19</option>
-										<option value="500">20</option>
-										<option value="600">21</option>
-										<option value="700">22</option></select> <a
+										<option value="5">5</option>
+										<option value="6">6</option>
+										<option value="7">7</option>
+										<option value="8">8</option>
+										<option value="9">9</option>
+										<option value="10">10</option>
+										<option value="11">11</option>
+										<option value="12">12</option>
+										<option value="13">13</option>
+										<option value="14">14</option>
+										<option value="15">15</option>
+										<option value="16">16</option>
+										<option value="17">17</option>
+										<option value="18">18</option>
+										<option value="19">19</option>
+										<option value="20">20</option>
+										<option value="21">21</option>
+										<option value="22">22</option></select> <a
 										href="http://www.darryring.com/help/77.html" target="_blank">如何测量?</a>
 									<a onclick="" class="droline_showkf" style="cursor: pointer"
 										target="_blank">联系客服</a>
@@ -2199,19 +2201,71 @@
 					<!--close-->
 					<div class="yz_close"></div>
 					<!--close end-->
+					
 				</div>
 
 				<!--登录注册弹窗-->
 				<div class="dr_sametc dr_Registsign">
-					<!--关闭按钮-->
-					<a href="javascript:;" class="Popup_close"></a>
-					<!--关闭按钮end-->
-					<iframe id="papLogin" name="papLogin" class="papLogin"
-						src="images/darry_marry/other.html" width="" height=""></iframe>
+					
+					<div class="dr_sametcborder">
+						<!--关闭按钮-->
+						<a href="javascript:;" class="Popup_close"></a>
+						<!--关闭按钮end-->
+						<!--登录-->
+						<div class="dr_Thelogin dr_samezd">
+							<h3>DR族-登录</h3>
+							<input id="loginUser" class="smtxt loginUser" name="email" placeholder="请输入您的邮箱/手机号码" type="text">
+							<input id="loginPwd" class="smtxt loginPassword" name="password" placeholder="请输入密码" type="password">
+							<div class="tcsame_check fix">
+								<a href="http://passport.darryring.com/forget" target="_blank" class="fr">忘记密码?</a>
+								<input type="checkbox">
+								<label>记住密码</label>
+							</div>
+							<div class="tcsame_button">
+								<a href="javascript:;" id="loginSubmit" class="Button_dl" style="display:none;">登录</a>
+								<a href="javascript:;" id="loginDisablet" class="Button_dl Button_disable">登录</a>
+								<a href="javascript:;" class="Button_join">加入DR族</a>
+							</div>
+							<div class="tcsame_third">
+								<span>第三方账户登录</span>
+								<a href="javascript:;" class="third_qq"></a>
+								<a href="javascript:;" class="third_wx"></a>
+								<a href="javascript:;" class="third_wb"></a>
+								<a href="javascript:;" class="third_zfb"></a>
+							</div>
+						</div>
+						<!--登录end-->
+						<!--注册-->
+						<div style="display: none;" class="dr_Registered dr_samezd">
+							<h3>注册加入DR族</h3>
+							<!--报错信息-->
+							<div class="theSame_wrong" style="display:none;">
+								<span>邮箱格式/手机号码不正确，请重新输入</span>
+							</div>
+							<!--报错信息end-->
+							<input class="smtxt loginphone" name="mobile" placeholder="请输入您的手机号码" type="text">
+							<input class="smtxt loginPassword" name="rpassword" placeholder="请输入长度为6-20位数的密码" type="password">
+							<input class="smtxt loginPassword" name="spassword" placeholder="请输入长度为6-20位数的密码" type="password">
+							<input class="used" value="0" type="hidden">
+							<div class="Verificacode fix">
+								<input class="smtxt loginYzm fl" name="code" placeholder="请输入验证码" type="text">
+								<span class="fr">获取语音验证码</span>
+							</div>
+							<div class="tcsame_check tchref_color fix">
+								<input name="check" type="checkbox">
+								<span>同意darry ring用户<a href="http://www.darryring.com/help_se/85.html" target="_blank">注册协议</a>和<a href="http://www.darryring.com/help_se/86.html" target="_blank">隐私条款</a></span>
+							</div>
+							<div class="tcsame_button Button_reg">
+								<a href="javascript:;" class="Button_join">立即 加入DR族</a>
+							</div>
+							<p class="Regis_todl fix">
+								<a href="javascript:;" class="fr">&gt; 已有帐户 登录</a>
+							</p>
+						</div>
 				</div>
 				<!--登录注册弹窗end-->
-
 				<!--验证身份框end-->
+			</div>
 				<script type="text/javascript">
     function strlength(str) { num = str.length; var arr = str.match(/[^\x00-\x80]/ig); if (arr != null) num += arr.length; return num; }
     String.prototype.replaceAll = function (s1, s2) {
@@ -2241,18 +2295,6 @@
         });
     });    
 
-    var loginRefresh = function () {
-        window.loginInterval = setInterval(function () {
-            $.get('http://www.darryring.com/api/login_status.ashx', function (res) {
-                var p = $.parseJSON(res);
-                if (p.result >= 0) {
-                    $('.dr_Registsign,.dr_blackwall').hide();
-                    clearInterval(window.loginInterval);
-                    location.replace(location.href);
-                }
-            });
-        }, 1000);
-    };
 
     $('.yz_close').click(function () {
         $("#textName").val("先生姓名");

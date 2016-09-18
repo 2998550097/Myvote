@@ -78,7 +78,7 @@ public class GoodsHandler {
 	 */
 	@ResponseBody
 	@RequestMapping("/findByPage")
-	public Pagination  findByPage(int page,int num,int totalSize,String minPrice,String maxPrice){
+	public Pagination  findByPage(int page,int num,int totalSize,String minPrice,String maxPrice,String seriesname){
 		System.out.println(minPrice+"--"+maxPrice);
 		int min=0;
 		int max=0;
@@ -88,14 +88,32 @@ public class GoodsHandler {
 		if(!"".equals(maxPrice)){
 			max=Integer.parseInt(maxPrice);
 		}
-		Pagination paginations=new Pagination(12, num,min,max);
+		Pagination paginations=new Pagination(12, num,min,max,null);
 		paginations.setTotalSize(totalSize);
 		if(page==0){
-			paginations=goodsService.getGoodByPage(new Pagination(12, page+1,min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, page+1,min,max,seriesname));
 		}else if(page==1){
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo(),min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getnextPageNo(),min,max,seriesname));
 		}else if(page==2){
-			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max));
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==10){
+			max=10;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==11){
+			min=11;
+			max=13;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==14){
+			min=14;
+			max=16;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==17){
+			min=17;
+			max=20;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
+		}else if(page==21){
+			min=21;
+			paginations=goodsService.getGoodByPage(new Pagination(12, paginations.getProPageNo(),min,max,seriesname));
 		}
 		return paginations;
 	}

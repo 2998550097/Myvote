@@ -78,6 +78,9 @@
 		<if test="max!=0">
 			and #{max}>=gprice
 		</if>
+		<if test="seriesname!=null">
+			and gname like '%'||#{seriesname}||'%'
+		</if>
 		) totalSize, ${pagesize} pagesize, ${pagenum}
 		pagenum, nn.* from (select n.*, rownum rn from
 		(select * from goods where gother='求婚钻戒' 
@@ -86,6 +89,9 @@
 		</if>
 		<if test="max!=0">
 			and #{max}>=gprice
+		</if>
+		<if test="seriesname!=null">
+			and gname like '%'||#{seriesname}||'%'
 		</if>
 		 order by goodid) n where ${pagesize} * ${pagenum} >= rownum)
 		nn where rn > ${pagesize} * (${pagenum} - 1)

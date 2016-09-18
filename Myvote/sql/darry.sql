@@ -89,6 +89,19 @@ create table  delivery(
        dstatus varchar2(20)  --是否为默认地址
 );
 
+--购物车
+create table cart(
+	cartid int primary key,--购物车id
+	userid int not null,--用户编号
+	goodid int not null,--商品编号
+	cname varchar2(50),--商品名称
+	csize int,  --手寸
+	cprice number(10) not null, --价格
+	ccount number(10), --数量
+	keword varchar2(20),--刻字
+	pmaterial varchar2(20)--材质
+);
+
 --订单表
 create table orders(
        orderid varchar2(50) primary key, --订单号
@@ -182,6 +195,7 @@ select * from seriesstyle;
 select * from goods;
 select * from paramter;
 select * from delivery;
+select * from cart;
 select * from orders;
 select * from orderdetail;
 select * from collection;
