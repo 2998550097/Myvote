@@ -24,8 +24,13 @@ public class GoodMapperTest {
 	}
 	@Test
 	public void testGetByPage() {
-		Pagination pagination=goodsService.getGoodByPage(new Pagination(15, 1,0,0,"Princess系列"));
+		Pagination pagination=goodsService.getGoodByPage(new Pagination(15, 1,0,0,null));
 		System.out.println(pagination);
 	}
 	
+	@Test
+	public void testGetGoodById() {
+		Good good=goodsService.getGoodsById(100001,"30分H");
+		System.out.println(good);
+	}
 }

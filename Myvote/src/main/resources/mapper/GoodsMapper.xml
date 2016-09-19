@@ -4,6 +4,11 @@
 例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.yc.darry.mapper.GoodsMapper">
+
+	<sql id="getAllGood">
+		select g.*,p.paramterid,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,paramter p where g.goodid=p.goodid and gother='求婚钻戒'
+	</sql>
+	<!-- 查询商品下面的所有参数 -->
 	<resultMap type="Good" id="GoodMap">
 		<id column="goodid" property="goodid"/>
 		<result property="gname" column="gname"/>
@@ -24,19 +29,25 @@
 					<result property="gcrystal" column="gcrystal"/>
 					<result property="gcutting" column="gcutting"/>
 					<result property="pprice" column="pprice"/>
+					<result property="pcount" column="pcount"/>
 		</collection>
 					
 	</resultMap>
 	
-	<select id="getAll" resultMap="GoodMap">
-		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
+	<select id="getGoodsById" resultMap="GoodMap">
+		<include refid="getAllGood"/> and g.goodid=#{goodid}
+		<if test="pcarat!=''">
+			and p.pcarat=#{pcarat}
+		</if>
 	</select>
-	
+	<!-- end -->
 	
 	<!-- 前台查询所有商品SQL -->
 	<select id="getGoods" resultType="Good">
 		select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid 
 	</select>
+	
+	
 	<!-- 后台查询所有SQL -->
 	<select id="getParamterById" resultType="Paramter" parameterType="int">
 		select * from paramter where goodid=#{goodid} 
@@ -67,6 +78,9 @@
 		<if test="max!=0">
 			and #{max}>=gprice
 		</if>
+		<if test="seriesname!=null">
+			and gname like '%'||#{seriesname}||'%'
+		</if>
 		) totalSize, ${pagesize} pagesize, ${pagenum}
 		pagenum, nn.* from (select n.*, rownum rn from
 		(select * from goods where gother='求婚钻戒' 
@@ -75,6 +89,9 @@
 		</if>
 		<if test="max!=0">
 			and #{max}>=gprice
+		</if>
+		<if test="seriesname!=null">
+			and gname like '%'||#{seriesname}||'%'
 		</if>
 		 order by goodid) n where ${pagesize} * ${pagenum} >= rownum)
 		nn where rn > ${pagesize} * (${pagenum} - 1)
@@ -117,4 +134,7 @@
 			delete from goods where goodid = #{goodid}
 	</delete>
 	<!-- 删除数据end  -->
+	<select id="search" resultType="Good">
+			select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid and seriesname=#{seriesname} and stylename=#{stylename} and gname like '%'||#{gname}||'%'
+	</select>
 </mapper>

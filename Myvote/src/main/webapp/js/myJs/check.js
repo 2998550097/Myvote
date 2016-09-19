@@ -6,11 +6,11 @@ $(function(){
     	$.post("series/getname",function(data){
     		var leftstr="";
     		var rightstr="";
-    		for(var i=data.length-1;i>data.length-6;i--){
+    		for(var i=0;i<5;i++){
     			leftstr+='<a href="javascript:getSeriesName(\''+data[i].seriesname+'\','+((i+1)*100)+')">'+data[i].seriesname+'</a>';
     		}
     		$("#leftseries").append(leftstr);
-    		for(var i=data.length-6;i>data.length-10;i--){
+    		for(var i=5;i<9;i++){
     			rightstr+='<a href="javascript:getSeriesName(\''+data[i].seriesname+'\','+((i+1)*100)+')">'+data[i].seriesname+'</a>';
     		}
     		$("#rightseries").before(rightstr);
@@ -28,12 +28,13 @@ $(function(){
     	//系列循环
     	$.post("series/getname",function(data){
     		var str="";
-    		for(i=data.length-1; i>=0;i--){
+    		for(i=0; i<data.length;i++){
     			str += '<a rel="nofollow"  id="series_'+i+'" dr-type="1" href="javascript:getSeriesName(\''+data[i].seriesname+'\','+i+')" >'+data[i].seriesname+'</a> ';
     		}
     		$("#series").append(str);
     	},"json");
    
+    	
     	
     	//javascript:getSeriesName(\''+data[i].seriesname+'\','+i+')
 	//用户是否登录
@@ -112,7 +113,7 @@ function getGoodByPage(page){
 		var span1="";
 		for(var i=0;i<data.goods.length;i++){
 			str+='<li '+(i%3==0?'class="dring_thing_left"' : '')+'>';
-            str+='<a href="">';
+            str+='<a href="goods/findGoodsById?goodid='+data.goods[i].goodid+'&pcarat=" target="_blank">';
             str+='<img width="320" height="320" alt="FOREVER 系列 经典款&nbsp;30分&nbsp;F色" src="images/products/'+data.goods[i].gimage.substring(0,data.goods[i].gimage.indexOf(","))+'">';
             str+='</a>';
             str+='<div class="dring_thing-cort">';

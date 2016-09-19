@@ -5,7 +5,7 @@
  -->
 <mapper namespace="com.yc.darry.mapper.SeriesMapper">
 	<select id="getAll" resultType="Series">
-		select * from series
+		select * from series order by seriesid
 	</select>
 	<insert id="addSeries" parameterType="string">
 		insert into series values(seq_series_id,#{seriesname,jdbcType=VARCHAR})

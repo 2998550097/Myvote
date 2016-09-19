@@ -4,11 +4,11 @@
 	<head>
 		<base href="/MyDarry/">
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="Cart/css/shopping.css" />
-		<link rel="stylesheet" href="Cart/css/common.css" />
-		<link rel="stylesheet" href="Cart/css/drcart.css" />
-		<script type="text/javascript" src="Cart/js/jquery.js"></script>
-		<script type="text/javascript" src="Cart/js/shoppcart.js"></script>
+		<link rel="stylesheet" href="css/shopping.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/drcart.css" />
+		<script type="text/javascript" src="headerJs/jquery.js"></script>
+		<script type="text/javascript" src="js/shoppcart.js"></script>
 		<title> Darry Ring钻戒购物车_Darry Ring求婚钻戒价格 戴瑞珠宝官网  </title>
 		<style type="text/css">
 			body{margin-top: -20px;}
@@ -32,11 +32,11 @@
         <div class="shop_top">
         	<div class="shopt_left fl">
 	            <a href="#" title="Darry Ring">
-	            	<img src="Cart/images/dr.png" width="186" height="42" />
+	            	<img src="images/dr.png" width="186" height="42" />
 	            </a> 
             </div>
             <div class="shopt_right fr">
-                 <span id="ctl00_ltlUname">你好！Gloria_gsl</span>
+                 <span id="ctl00_ltlUname">你好！${users.uname }</span>
                <a href="page/index.jsp" class="my_dr">我的DR</a>
                 <a href="#" class="tc_dr" onclick="javascript:logout()">退出</a>
                <a href="/help.html" class="help_dr">帮助中心</a>
@@ -136,7 +136,7 @@
                 <!--结算-->
                  
                 <div class="shop_js">
-                	<a href="/jewelry" class="jx_shop">继续购物</a>
+                	<a href="page/marrying.jsp" class="jx_shop">继续购物</a>
                     <a href="javascript:clearCart();" class="qk_shop">清空购物车</a>
                     <span>你购买了<i>2</i>件商品</span>
              

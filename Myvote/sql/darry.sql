@@ -96,6 +96,19 @@ create table  delivery(
        dstatus varchar2(20)  --是否为默认地址
 );
 
+--购物车
+create table cart(
+	cartid int primary key,--购物车id
+	userid int not null,--用户编号
+	goodid int not null,--商品编号
+	cname varchar2(50),--商品名称
+	csize int,  --手寸
+	cprice number(10) not null, --价格
+	ccount number(10), --数量
+	keword varchar2(20),--刻字
+	pmaterial varchar2(20)--材质
+);
+
 --订单表
 create table orders(
        orderid varchar2(50) primary key, --订单号
@@ -194,6 +207,7 @@ select * from seriesstyle;
 select * from goods;
 select * from paramter;
 select * from delivery;
+select * from cart;
 select * from orders;
 select * from orderdetail;
 select * from collection;
@@ -288,7 +302,26 @@ insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
+<<<<<<< HEAD
+update goods set gname='Love Line系列 [A10001],30,H',gprice=12 where goodid=100001;
+update goods set gname='Love Line系列 [A10002],50,H',gprice=14 where goodid=100002;
+update goods set gname='Love Line系列 [A10003],99,H',gprice=16 where goodid=100003;
+update goods set gname='Forever系列 [A10004],30,H',gprice=14 where goodid=100004;
+update goods set gname='Forever系列 [A10005],30,H',gprice=10 where goodid=100005;
+update goods set gname='My Heart系列 [A10006],30,H',gprice=10 where goodid=100006;
+update goods set gname='My Heart系列 [A10007],30,J',gprice=10 where goodid=100007;
+update goods set gname='My Heart系列 [A10008],30,H',gprice=10 where goodid=100008;
+update goods set gname='My Heart系列 [A10009],30,H',gprice=10 where goodid=100009;
+update goods set gname='I Swear系列 [A10010],30,H',gprice=10 where goodid=100010;
+update goods set gname='True Love系列 [A10011],30,H',gprice=10 where goodid=100011;
+update goods set gname='I Swear系列 [A10012],30,H',gprice=10 where goodid=100012;
+update goods set gname='Princess系列 [A10013],50,H',gprice=14 where goodid=100013;
+update goods set gname='Princess系列 [A10014],30,H',gprice=11 where goodid=100014;
+update goods set gname='Believe系列 [A10015],30,H',gprice=10 where goodid=100015;
+alter table goods add gprice number(10);
+=======
 
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 --商品表
 --女戒
 insert into goods(goodid,gname,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
@@ -3303,4 +3336,11 @@ commit
 
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 
+where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;
+alter table goods modify gname varchar2(50); 
+
+select distinct(pcarat) from paramter where goodid=100001 order by pcarat;
+
+select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid and g.goodid=100001
+select(select count(1) from goods where gother='求婚钻戒') totalSize, 12 pagesize, 2 pagenum, nn.* from (select n.*, rownum rn from (select * from goods where gother='求婚钻戒' order by goodid) n where 12 * 2 >= rownum) nn where rn > 12 * (2 - 1)
 where g.goodid=c.goodid and g.ssid=ss.ssid and ss.styleid=sy.styleid and ss.seriesid=s.seriesid;

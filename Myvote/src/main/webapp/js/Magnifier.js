@@ -1,20 +1,3 @@
-/*
-
-
-	
-	
-	new Magnifier("Magnifier",{
-		pPath:'',	//大图路径
-		sWidth:100,//小框宽度
-		sHeight:100,//小框高度
-		sOpacity:0.4,//小框透明度
-		pWidth:500,	//大图宽
-		pHeight:500,//大图高
-		mLeft:85,	//大图距离小图左边的距离
-		mTop:0		//大图距离小图上边的距离	
-	});
-
-*/
 
 function Magnifier(id,opt){
 	this.defaults = {

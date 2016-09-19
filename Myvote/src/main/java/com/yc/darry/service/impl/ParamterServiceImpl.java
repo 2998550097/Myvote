@@ -31,4 +31,12 @@ public class ParamterServiceImpl implements ParamterService{
 		return paramterMapper.deleteParamter(goodid,paramterid);
 		
 	}
+
+	@Override
+	public List<String> getPcaratById(int goodid) {
+		// TODO Auto-generated method stub
+		return paramterMapper.getDifPcaratById(goodid);
+	}
+
+	
 }
