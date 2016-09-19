@@ -73,4 +73,11 @@ public class StyleHandler {
 		}
 		return str;
 	}
+	
+	
+	@RequestMapping("/findStyle")
+	public List<Style> findDesigner(PrintWriter out){
+		List<Style> styles=(List<Style>) styleService.getStyle();
+		return styles;
+	}
 }

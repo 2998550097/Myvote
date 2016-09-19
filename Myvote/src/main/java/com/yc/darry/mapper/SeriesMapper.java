@@ -8,4 +8,8 @@ public interface SeriesMapper {
 
 	List<Series> getAll();
 
+	boolean addSeries(String seriesname);
+
+	boolean deleteSeries(String... seriesid);
+
 }

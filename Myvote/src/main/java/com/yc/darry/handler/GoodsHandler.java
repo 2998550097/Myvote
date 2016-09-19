@@ -57,7 +57,6 @@ public class GoodsHandler {
 		 try {
 			 carat=URLDecoder.decode(pcarat,"UTF-8");
 		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "redirect:../page/darry_marry.jsp?goodid="+goodid+"&pcarat="+carat;
