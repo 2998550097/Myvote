@@ -137,12 +137,9 @@ create table orders(
        remark varchar2(2000),   --备注
        oimage varchar2(30) --图片路径
 );
-<<<<<<< HEAD
+
 alter table orders modify oimage varchar2(50);
 
-=======
-insert into orders values(seq_orders_id.nextval, 191,'xp','sdf','123213','aa','asd','ads','a','a','a','df');
->>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 create table orderdetail(
        orderdetailid int primary key, --商品明细
        orderid varchar2(50) not null, --订单编号
