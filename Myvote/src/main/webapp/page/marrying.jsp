@@ -63,10 +63,6 @@
 				</div>
 				<!--左边end-->
 			</div>
-			
-			
-			
-			
 
 			<div class="dr_pink pad-76">
 				<!--宽度1000以内-->
@@ -83,7 +79,6 @@
 				
 					<script type="text/javascript">
 						function seeMore(){
-							
 							if( $("#moreSeries").attr("class") == "moreSeries fl"){
 								$("#moreSeries").addClass("select");
 								$("#series").addClass("drring_seriesShow");

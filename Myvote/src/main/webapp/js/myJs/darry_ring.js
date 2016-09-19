@@ -109,11 +109,18 @@ $(function(){
 						var cprice=$(".byright_top_price").html().substring(1);
 						var csize=$("#ctl00_content_ddlHandSize").val();
 						var pmaterial=$(".thr_first .iborder").text();
-						
+						var keword=$("#ipt_font").val();
+						var imagepath=$("#img_"+goodid).attr("src");
+						alert(imagepath);
 						$.post("cart/addCart?goodid="+goodid+
 								"&cname="+cname+"&cprice="+cprice+
-								"&csize="+csize+"&pmaterial="+pmaterial,function(data){
-							
+								"&csize="+csize+"&pmaterial="+pmaterial+
+								"&keword="+keword+"&imagepath="+imagepath,function(data){
+								if(data){
+									$(".toyz_begin").show();
+									$('.backall').show();
+									$(".gmg").hide(); 
+								}
 								
 						},"json");
 					}

@@ -13,6 +13,57 @@
 		<style type="text/css">
 			body{margin-top: -20px;}
 		</style>
+		<script type="text/javascript">
+			$(function(){
+				//查找所有购物车下面的商品
+				$.post("cart/findAllCart",function(data){
+					var str="";
+					var shopstr="";
+					str+='<tr class="nav_tr">';
+					str+='<td class="sp_td" style="width:240px">商品</td>';
+                    str+='<td class="cz_td" style="width:100px">材质</td>';
+                    str+='<td class="sc_td" style="width:100px">手寸/尺寸</td>';
+                    str+='<td class="kz_td" style="width:100px">刻字</td>';
+                    str+='<td class="gm_td">购买价</td>';
+                    str+='</tr>';
+					for(var i=0;i<data.length;i++){
+ 						str+='<tr class="cp_tr">';
+	                    str+='<td class="sp_td">';
+	         	        str+='<a  class="jx_shop" href="/darry_ring/A06004/Z04023278801.html">';
+	                    str+='<img src="'+data[i].imagepath+'" width="85" height="85" />';
+	         	        str+='<span>'+data[i].cname+'</span></a>';
+		                str+='</td>';
+		                str+='<td class="cz_td">'+data[i].pmaterial+'</td>';
+		                str+='<td class="sc_td">'+data[i].csize+'</td>';
+		                if(data[i].keword!=null){
+			            	str+='<td class="kz_td">'+data[i].keword+'</td>';
+		                }else{
+		                	str+='<td class="kz_td"></td>';
+		                }
+		                str+='<td class="gm_td" style="font-family:微软雅黑">￥'+data[i].cprice+'</td>';
+		                str+='<td class="close_td"><span class="sicon s_close" onclick="deleteCart('+data[i].cartid+');"></span></td>';
+		             	str+='</tr>';
+		             	
+		             	str+='<tr class="kb_tr">';
+                        str+='<td class="sp_td"></td>';
+                        str+='<td class="cz_td"></td>';
+                        str+='<td class="sc_td"></td>';
+                        str+='<td class="kz_td"></td>';
+                        str+='<td class="gm_td"></td>';
+                       	str+='<td class="close_td"></td>';
+                        str+='</tr>';
+					}
+					shopstr+='<a href="page/marrying.jsp" class="jx_shop">继续购物</a>';
+					shopstr+='<a href="javascript:clearCart();" class="qk_shop">清空购物车</a>';
+	                shopstr+='<span>你购买了<i>'+data[0].count+'</i>件商品</span>';
+	                shopstr+='<span>总计：<i class="fw_bold" style="font-family:微软雅黑">￥'+data[0].totalprice+'</i></span>';
+	                shopstr+='<span class="end_bt" onclick="toPay();"><em>立即结算</em></span>';
+					$(".shop_tabble").html("").append(str);
+					$(".shop_js").html("").append(shopstr);
+				},"json");
+			})
+		</script>
+		
 	</head>
 	<body>
 		 <form name="aspnetForm" method="post" action="/nCart/Cart.aspx" id="aspnetForm">
@@ -49,11 +100,11 @@
         <!--导航条end-->
         
     <script type="text/javascript"> 
-    function deleteCart(cid) {
+    function deleteCart(cartid) {
         if (confirm("确认删除？")) {
-            $.get("/nAPI/Cart.aspx?action=delete&cid=" + cid, function () {
-                window.location.reload();
-            });
+           $.post("cart/delete?cartid="+cartid,function(data){
+        	   
+           });
         }
     }
 
@@ -66,16 +117,8 @@
     }
     function toPay() {
         var nu = '2';
-       
-        
-               
         window.location = "/ncart/cart.aspx?action=next&page=Agreement&lan=0";
-                
-               
         window.location = "/ncart/cart.aspx?action=next&page=Agreement&lan=0";
-                
-        
-       
     }
 </script>
 
@@ -93,30 +136,6 @@
                         <td class="kz_td" style="width:100px">刻字</td>
                         <td class="gm_td">购买价</td>
                     </tr>
-                    
-                            <tr class="cp_tr">
-                                <td class="sp_td">
-                        	       <a  class="jx_shop" href="/darry_ring/A06004/Z04023278801.html">
-                                   <img src="images/2015093019140361614ead1d.jpg" width="85" height="85" />
-                        	        <span>
-                                    TRUE LOVE系列 典雅</span></a>
-                                </td>
-                                <td class="cz_td">白18K金</td>
-                                <td class="sc_td">8</td>
-                                <td class="kz_td"></td>
-                                <td class="gm_td" style="font-family:微软雅黑">￥19099</td>
-                                <td class="close_td"><span class="sicon s_close" onclick="deleteCart(185580);"></span></td>
-                            </tr>
-                        
-                             <tr class="kb_tr">
-                                <td class="sp_td"></td>
-                                <td class="cz_td"></td>
-                                <td class="sc_td"></td>
-                                <td class="kz_td"></td>
-                                <td class="gm_td"></td>
-                                <td class="close_td"></td>
-                            </tr>
-                        
                             <tr class="cp_tr">
                                 <td class="sp_td">
                         	       <a  class="jx_shop" href="/dr_phonics/P09050/none.html">
