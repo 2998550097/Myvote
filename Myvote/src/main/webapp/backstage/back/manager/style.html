@@ -7,8 +7,8 @@
 	var flag;
 	
 	obj=$('#Design_data').datagrid({  
-	    url:'../../newsDesignervlet',  
-	    queryParams:{op:'findAllDesign'},
+	    url:'../../../style/findStyle',  
+	    //queryParams:{op:'findAllDesign'},
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -17,7 +17,7 @@
 	    pageNumber:1,
 	    pageSize:2,
 	    pageList:[2,5,10,15,20,30,3],
-	    sortName:'tid',
+	    sortName:'tids',
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
@@ -28,8 +28,6 @@
 	    	text:"添加",
 	    	iconCls:"icon-add",
 	    	handler:function(){
-	    		currentOp="addNewsType";
-	    		flag="添加";
 	    		if(editRow!=undefined){//说明有行正在被编辑
 	    			obj.datagrid("rejectChanges");//回滚所有的数据
 	    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
@@ -38,37 +36,8 @@
 	    			obj.datagrid("insertRow",{index:0,row:{}});
 	    			obj.datagrid("beginEdit",0);
 	    			editRow=0;//记录当前被编辑行的索引
-	    		}
-	    	}
-	    },{
-	    	text:"修改",
-	    	iconCls:"icon-edit",
-	    	handler:function(){
-	    		currentOp="updateNewsType";
-	    		flag="修改";
-	    		var rows=obj.datagrid("getChecked")[0];
-	    		if(rows!=undefined){
-	    			if(editRow!=undefined){//说明有行正在被编辑
-	    				obj.datagrid("rejectChanges");//回滚所有的数据
-		    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
-		    			editRow=undefined;
-	    			}else{
-	    				//获取用户选中的行的索引
-	    				var index=obj.datagrid("getRowIndex",rows);
-	    				obj.datagrid("updateRow",{index:index,row:rows});//回滚所有的数据
-		    			obj.datagrid("beginEdit",index);
-		    			editRow=index;//记录当前被编辑行的索引
-	    			}
-	    		}else{
-	    			$.messager.show({
-						title:'温馨提示',
-						msg:'请选中您要修改的数据...',
-						timeout:2000,
-						showType:'slide'
-					});
-	    		}
-	    		
-	    	}
+	    		} 
+	    	}	
 	    },{
 	    	text:"删除",
 	    	iconCls:"icon-remove",
@@ -134,7 +103,7 @@
     				//保存到数据库
     				rows["op"]=currentOp;
     				
-    				$.post("../../newsDesignservlet",rows,function(data){
+    				$.post("../../../style/"+rows["op"],rows,function(data){
     					if(data>0){
     						$.messager.show({
     							title:'成功提示',

@@ -8,4 +8,7 @@ public interface SeriesService {
 
 	List<Series> getSeries();
 
+	boolean addSeries(String seriesname);
+
+	boolean deleteSeries(String... seriesid);
 }
