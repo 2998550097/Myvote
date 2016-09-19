@@ -74,10 +74,27 @@ public class StyleHandler {
 		return str;
 	}
 	
-	
+	@ResponseBody
 	@RequestMapping("/findStyle")
-	public List<Style> findDesigner(PrintWriter out){
+	public List<Style> findStyle(){
 		List<Style> styles=(List<Style>) styleService.getStyle();
 		return styles;
+	}
+	
+	@RequestMapping("/addStyle")
+	public void addStyle(String stylename,PrintWriter out){
+		boolean flag=styleService.addStyle(stylename);
+		out.println(flag);
+		out.flush();
+		out.close();
+	}
+	
+	@RequestMapping("/deleteStyle")
+	public void deleteStyle(String styleid,PrintWriter out){
+		String[] styleids=styleid.split(",");
+		boolean flag=styleService.deleteStyle(styleids);
+		out.println(flag);
+		out.flush();
+		out.close();
 	}
 }
