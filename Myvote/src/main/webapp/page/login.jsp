@@ -94,8 +94,8 @@ function passwordValidate(){
 						<div class="dr_minAction">
 							<div class="errorMsg" id="loginError" style="">${errorMsg }</div>
                             
-							<input type="text" class="ipTxt ico-user" value="2998550097@qq.com" id="txtName" name="uemail" placeholder="请输入您的邮箱/手机号码" required="required" onblur="eamilValidate()">
-							<input type="password" class="ipTxt ico-pwd" value="123456" id="txtPwd" name="upassword" placeholder="请输入密码" required="required" onblur="passwordValidate()">
+							<input type="text" class="ipTxt ico-user" value="" id="txtName" name="uemail" placeholder="请输入您的邮箱/手机号码" required="required" onblur="eamilValidate()">
+							<input type="password" class="ipTxt ico-pwd" value="" id="txtPwd" name="upassword" placeholder="请输入密码" required="required" onblur="passwordValidate()">
 							<p class="dr_actionPwd"><a class="fr" href="page/forget.jsp">忘记密码?</a><input id="isRemember" type="checkbox"><label for="isRemember">记住密码</label></p>
 						</div>
 						<div id="login" class="dr_Btns">
