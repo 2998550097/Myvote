@@ -7,8 +7,10 @@ public class Delivery {
 	private String dtel;
 	private String dpostcode;
 	private String dstatus;
+	private String solidtel;
+	private Integer userid;
 
-	public Delivery(Integer delivertyId, String dname, String ddetail, String dtel, String dpostcode, String dstatus) {
+	public Delivery(Integer delivertyId, String dname, String ddetail, String dtel, String dpostcode, String dstatus,String solidtel,Integer userid) {
 		super();
 		this.delivertyId = delivertyId;
 		this.dname = dname;
@@ -16,6 +18,8 @@ public class Delivery {
 		this.dtel = dtel;
 		this.dpostcode = dpostcode;
 		this.dstatus = dstatus;
+		this.solidtel = solidtel;
+		this.userid = userid;
 	}
 
 	public Delivery() {
@@ -73,7 +77,23 @@ public class Delivery {
 	@Override
 	public String toString() {
 		return "Delivery [delivertyId=" + delivertyId + ", dname=" + dname + ", ddetail=" + ddetail + ", dtel=" + dtel
-				+ ", dpostcode=" + dpostcode + ", dstatus=" + dstatus + "]";
+				+ ", dpostcode=" + dpostcode + ", dstatus=" + dstatus +", solidtel=" + solidtel + ", userid=" + userid + "]";
+	}
+
+	public String getSolidtel() {
+		return solidtel;
+	}
+
+	public void setSolidtel(String solidtel) {
+		this.solidtel = solidtel;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 }

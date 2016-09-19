@@ -2,32 +2,100 @@
 
 <!DOCTYPE html >
 
-<!-- saved from url=(0043)http://www.darryring.com/ncart/Address.aspx -->
 <html>
 <head>
 <base href="/MyDarry/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="Cart/css/shopping.css">
-<link rel="stylesheet" type="text/css" href="Cart/css/common.css">
-<link rel="stylesheet" type="text/css" href="Cart/css/drcart.css">
-
-<script src="Cart/js/hm.js">
-	
-</script>
-<script charset="utf-8" src="Cart/js/lxb.js"></script>
-<script charset="utf-8" src="Cart/js/v.js"></script>
-<script async="" src="Cart/js/analytics.js"></script>
-<script type="text/javascript" src="Cart/js/jquery.js"></script>
-<script type="text/javascript" src="Cart/js/shoppcart.js"></script>
+<link rel="stylesheet" type="text/css" href="css/shopping.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/drcart.css">
+<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script src="js/managershopping.js"></script>
+<script src="js/hm.js">	</script>
+<script charset="utf-8" src="js/lxb.js"></script>
+<script charset="utf-8" src="js/v.js"></script>
+<script async="" src="js/analytics.js"></script>
+<script type="text/javascript" src="headerJs/jquery.js"></script>
+<script type="text/javascript" src="js/shoppcart.js"></script>
 
 <title>提交订单Darry Ring求婚钻戒价格 戴瑞珠宝官网</title>
 <title></title>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/zh_cn.js" data-requiremodule="lang"></script>
+	src="js/zh_cn.js" data-requiremodule="lang"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
+	src="js/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
+	src="js/comet.chat.js" data-requiremodule="TChat"></script>
+	
+<script type="text/javascript">
+	
+	var goodid=window.location.href.split("=")[1];
+	$(function(){
+		$.get("dev/getDev",function(data){
+			var str="";
+			for(var i=0;i<data.length;i++){
+				var state=0;
+				if(data[i].status=="是"){
+					state=1;
+				}
+				str+='<div '+(state=1?'class="shop_adress-top check_bk"' : '"shop_adress-top"')+'">';
+				str+='<input type="radio" name="adress" value="143479" checked="checked">';
+				str+='<label>'+data[i].ddetail+'</label>';
+				if(data[i].dtel!=null){
+					str+='<label> '+data[i].dname+'(收) '+data[i].dtel+'</label>';
+				}
+				if(data[i].solidtel!=null){
+					str+='<label> '+data[i].dname+'(收) '+data[i].solidtel+'</label>';
+				}
+				str+='<span></span>';
+				str+='<a href="javascript:showAddress(143479);">修改</a>';
+				str+='<i>|</i>';
+				str+='<a href="javascript:deleteAddress(143479);">删除</a>';
+				str+='</div>';
+				
+			}
+			
+			str+='<div class="shop_adress-top">';
+			str+='<input type="radio" name="adress" id="addressNew">'
+			str+='<label for="addressNew" class="adress_color">添加新地址</label>';
+			str+='</div>';
+			
+			$(".shop_adress-add").before(str);
+		},"json");
+		
+		$.get("cart/getCartById?goodid="+goodid,function(data){
+			var str="";
+			var totalstr="";
+			str+='<tr class="shop_adressqr-first">';
+			str+='<td class="shop_adress-shoop">商 品</td>';
+			str+='<td class="shop_adress-cz">材 质</td>';
+			str+='<td class="shop_adress-sc">手寸/尺寸</td>';
+			str+='<td class="shop_adress-kz">刻 字</td>';
+			str+='<td class="shop_adress-pirce">价 格</td></tr>';
+			
+			str+='<tr class="shop_adressqr-sec">';
+			str+='<td class="shop_adress-shoop">'+data.cname+'</td>';
+			str+='<td class="shop_adress-cz">'+data.pmaterial+'</td>';
+			str+='td class="shop_adress-sc">'+data.csize+'</td>';
+			if(data.keword!=null){
+				str+='<td class="shop_adress-kz">'+data.keword+'</td>';
+			}else{
+				str+='<td class="shop_adress-kz"></td>';
+			}
+			str+='<td class="shop_adress-pirce"><span style="font-family: 微软雅黑">￥'+data.cprice+'</span></td>';
+			str+='</tr>';
+			$(".shop_adressqr-of").html("").append(str);
+			totalstr+='<div class="fl">';
+			totalstr+='<span> 总计</span>';
+			totalstr+='</div>';
+			totalstr+='<div class="fr">';
+			totalstr+='<i>'+data.count+'</i><span>件商品</span> <span>应付金额：</span> <i class="fw_bold" style="font-family: 微软雅黑">￥'+data.totalprice+'</i></div>';
+			
+			$(".shop_adress-zj").append(totalstr);
+		},"json");
+		
+	});
+</script>	
 </head>
 <body>
 	<div id="nTalk_post_hiddenElement"
@@ -52,7 +120,7 @@
 				<!--头部-->
 				<div class="shop_top">
 					<div class="shopt_left fl">
-						<a href="#" title="Darry Ring"> <img src="Cart/images/dr.png"
+						<a href="#" title="Darry Ring"> <img src="images/dr.png"
 							width="186" height="42">
 						</a>
 					</div>
@@ -77,12 +145,6 @@
 								"check_bk");
 						$(control).find("input:radio").attr("checked", true);
 					}
-					//市数据加载事件
-
-					var CityDataLoadEvent = function() {
-					};
-					var DistrictDataLoadEvent = function() {
-					};
 
 					$(function() {
 						//绑定地址点击事件
@@ -100,61 +162,12 @@
 							showNewAddress();
 						});
 
-						//省下拉框ID
-						var province = "#province";
-						var city = "#city";
-						var district = "#district";
-						//加载省信息
-						$.get("/nAPI/AddressInfo.ashx?action=province",
-								function(data) {
-									$(data).each(function() {
-										bindDdlData(province, this);
-									});
-								});
-						//省下拉框onchange事件
-						$(province).change(
-								function() {
-									var dataLoad = function(data) {
-										$(city + " option:not(:first)")
-												.remove();
-										$(data).each(function() {
-											bindDdlData(city, this);
-										});
-										CityDataLoadEvent();
-									};
-
-									$.get(
-											"/nAPI/AddressInfo.ashx?action=city&code="
-													+ $(this).val(), function(
-													data) {
-												dataLoad(data);
-											});
-
-								});
-						//市下拉框onchange事件
-						$(city).change(
-								function() {
-									var dataLoad = function(data) {
-										$(district + " option:not(:first)")
-												.remove();
-										$(data).each(function() {
-											bindDdlData(district, this);
-										});
-										DistrictDataLoadEvent();
-									};
-
-									$.get(
-											"/nAPI/AddressInfo.ashx?action=district&code="
-													+ $(this).val(), function(
-													data) {
-												dataLoad(data);
-											});
-								});
 
 						//保存地址按钮事件
 						$(".save").click(
 								function() {
 									var data = getData();
+									
 									if (data.name == "") {
 										alert("收货人不能为空。");
 										return;
@@ -178,10 +191,6 @@
 										alert("手机号/固定电话必填一个。");
 										return;
 									}
-									if (data.smsmobile == "") {
-										alert("购买人手机不能为空！");
-										return;
-									}
 
 									if (data.street == "") {
 										alert("详细地址不能为空。");
@@ -191,14 +200,20 @@
 										alert("请输入邮编");
 										return;
 									}
-									var action = "save";
-									if (isNaN(data.ID)) {
-										action = "add";
+									
+									var detail=data.province+data.city+data.district+data.street;
+									var status="否";
+									if(data.Isdefault="checked"){
+										status="是";
 									}
-									$.post("/nAPI/AddressInfo.ashx?action="
-											+ action, data, function() {
-										window.location.reload();
-									});
+									$.post("dev/add?dname="+data.name+"&ddetail="+detail+
+											"&dpostcode="+data.postcode+"&dtel="+data.mobile+
+											"&dstatus="+status+"&solidtel="+data.telephone,function(data){
+										if(data){
+											window.location.href="page/Order.jsp";
+										}
+									})
+									
 								});
 					});
 
@@ -260,8 +275,7 @@
 							"mobile" : $("#mobile").val(),
 							"smsmobile" : $("#smsmobile").val(),
 							"telephone" : $("#telephone").val(),
-							"IsDefault" : $("#cbDefaultAddress")
-									.attr("checked")
+							"IsDefault" : $("#cbDefaultAddress").attr("checked")
 						};
 					}
 
@@ -311,15 +325,13 @@
 							alert("请先选择一个地址。");
 							return;
 						}
-						var nu = '1';
-
-						$("#aspnetForm").submit();
-
+						var remark=$(".shop_adress-text").html();
+						$.get("orders/add?remark="+remark+"&goodid="+goodid,function(data){
+							if(data){
+								window.location.href="page/submitOrder.jsp?goodid="+goodid;
+							}
+						});
 					}
-					$(function() {
-						$("#aspnetForm").attr("action",
-								"Address.aspx?action=post&process=darryring");
-					});
 				</script>
 
 				<!--内容-->
@@ -331,57 +343,29 @@
 						<div class="shop_cort-adress">
 							<!--地址-->
 
-							<div class="shop_adress-top check_bk">
-								<input type="radio" name="adress" id="addressNew"
-									checked="checked"><label for="addressNew"
-									class="adress_color">添加新地址</label>
-							</div>
+							<!-- <div class="shop_adress-top check_bk">
+								<input type="radio" name="adress" id="addressNew">
+								<label for="addressNew" class="adress_color">添加新地址</label>
+							</div> -->
 							<!--地址end-->
 							<!--新加地址-->
-							<div class="shop_adress-add" style="">
+							<div class="shop_adress-add" style="display:none">
 								<h4>添加新地址</h4>
 								<div class="shop_adress-Toadd">
 									<label><i>*</i>收 货 人：</label> <input id="addressName"
 										type="text" placeholder="请准确填写真实姓名" class="true_name">
 								</div>
 								<div class="shop_adress-Toadd" style="">
-									<label><i>*</i>所在地区：</label> <select id="province">
+									<label><i>*</i>所在地区：</label> 
+									<select id="province" name="province">
 										<option value="-1">请选择省份</option>
-										<option value="340000">安徽省</option>
-										<option value="110000">北京市</option>
-										<option value="350000">福建省</option>
-										<option value="620000">甘肃省</option>
-										<option value="440000">广东省</option>
-										<option value="450000">广西壮族自治区</option>
-										<option value="520000">贵州省</option>
-										<option value="460000">海南省</option>
-										<option value="130000">河北省</option>
-										<option value="410000">河南省</option>
-										<option value="230000">黑龙江省</option>
-										<option value="420000">湖北省</option>
-										<option value="430000">湖南省</option>
-										<option value="220000">吉林省</option>
-										<option value="320000">江苏省</option>
-										<option value="360000">江西省</option>
-										<option value="210000">辽宁省</option>
-										<option value="150000">内蒙古自治区</option>
-										<option value="640000">宁夏回族自治区</option>
-										<option value="630000">青海省</option>
-										<option value="370000">山东省</option>
-										<option value="140000">山西省</option>
-										<option value="610000">陕西省</option>
-										<option value="310000">上海市</option>
-										<option value="510000">四川省</option>
-										<option value="120000">天津市</option>
-										<option value="540000">西藏自治区</option>
-										<option value="650000">新疆维吾尔自治区</option>
-										<option value="530000">云南省</option>
-										<option value="330000">浙江省</option>
-										<option value="500000">重庆市</option>
-										<option value="820000">香港</option>
-									</select> <span>市：</span> <select id="city">
+									</select> 
+									<span>市：</span> 
+									<select id="city" name="city">
 										<option value="-1">请选择城市</option>
-									</select> <span>县：</span> <select id="district">
+									</select> 
+									<span>县：</span> 
+									<select id="district" name="district">
 										<option value="-1">请选择区县</option>
 									</select>
 								</div>
@@ -398,12 +382,8 @@
 									<span class="oth_color">或</span> <span>固定电话：</span> <input
 										id="telephone" type="text">
 								</div>
-								<div class="shop_adress-Toadd">
-									<label><i>*</i>购买人手机：</label> <input id="smsmobile" type="text"
-										placeholder="物流短信接收手机号" class="true_number">
-								</div>
 								<div class="shop_adress-sp">
-									<input type="checkbox" id="cbDefaultAddress"> <label
+									<input type="checkbox" id="cbDefaultAddress" value="是"> <label
 										for="cbDefaultAddress">设为默认地址</label>
 								</div>
 								<div class="shop_adress-save">
@@ -421,7 +401,7 @@
 								<!--订单-->
 								<table border="0" cellspacing="0" cellpadding="0"
 									class="shop_adressqr-of">
-									<tbody>
+									<!-- <tbody>
 										<tr class="shop_adressqr-first">
 											<td class="shop_adress-shoop">商 品</td>
 											<td class="shop_adress-cz">材 质</td>
@@ -439,20 +419,11 @@
 												style="font-family: 微软雅黑">￥13999</span></td>
 										</tr>
 
-
-
-									</tbody>
+									</tbody> -->
 								</table>
 								<!--订单end-->
 								<!--总计-->
 								<div class="shop_adress-zj">
-									<div class="fl">
-										<span> 总计</span>
-									</div>
-									<div class="fr">
-										<i>1</i> <span>件商品</span> <span>应付金额：</span> <i
-											class="fw_bold" style="font-family: 微软雅黑">￥13,999</i>
-									</div>
 								</div>
 								<!--总计-->
 								<!--最后一块-->
@@ -510,7 +481,7 @@
 						Reserved. 粤ICP备11012085号</p>
 					<p>中国互联网违法信息举报中心 | 中国公安网络110报警服务 | 本网站提供所售商品的正式发票</p>
 					<div class="shop_foot-img">
-						<img src="Cart/images/db.jpg" width="776" height="55">
+						<img src="images/db.jpg" width="776" height="55">
 					</div>
 				</div>
 				<!--底部end-->

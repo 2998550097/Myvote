@@ -16,7 +16,37 @@ $(function(){
 				if (fontlen > 10) {
 					alert("刻字数超过了10个字符。");
 				}
-				// 判断是否登录
+				
+				$.post("style/check",function(data){
+					if(data==0){//用户未登录
+						$('.dr_Registsign,.dr_blackwall').show();
+					}else{
+						var cname=$(".byright_top_name").html();
+						var cprice=$(".byright_top_price").html().substring(1);
+						var csize=$("#ctl00_content_ddlHandSize").val();
+						var pmaterial=$(".thr_first .iborder").text();
+						var keword=$("#ipt_font").val();
+						var imagepath=$("#img_"+goodid).attr("src");
+						alert(imagepath);
+						$.post("cart/addCart?goodid="+goodid+
+								"&cname="+cname+"&cprice="+cprice+
+								"&csize="+csize+"&pmaterial="+pmaterial+
+								"&keword="+keword+"&imagepath="+imagepath,function(data){
+								if(data==1){//添加
+									window.location.href="page/Order.jsp?goodid="+goodid;
+								}else if(data==2){//购物车中有
+									$(".addcart").hide();
+									$(".toyz_begin").hide();
+									$('.backall').show();
+									$('.yz_password').show();
+									$(".carthave").show();
+								}
+								
+						},"json");
+					}
+					
+				},"json");
+				/*// 判断是否登录
 				if ('True' == 'True') {
 					// 判断在购物车中是否存在
 					$.get("/API/DarryringYzAPI.ashx", {
@@ -60,7 +90,7 @@ $(function(){
 					$('.dr_Registsign,.dr_blackwall').show();
 					loginRefresh();
 
-				}
+				}*/
 			});
 
 	// 弹窗的一个立即购买
@@ -116,10 +146,15 @@ $(function(){
 								"&cname="+cname+"&cprice="+cprice+
 								"&csize="+csize+"&pmaterial="+pmaterial+
 								"&keword="+keword+"&imagepath="+imagepath,function(data){
-								if(data){
-									$(".toyz_begin").show();
+								if(data==1){//添加
 									$('.backall').show();
 									$(".gmg").hide(); 
+								}else if(data==2){//购物车中有
+									$(".addcart").hide();
+									$(".toyz_begin").hide();
+									$('.backall').show();
+									$('.yz_password').show();
+									$(".carthave").show();
 								}
 								
 						},"json");

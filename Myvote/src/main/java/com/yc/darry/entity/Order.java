@@ -1,52 +1,59 @@
 package com.yc.darry.entity;
 
 public class Order {
-	private Integer orderId;
-	private Integer userId;
+	private String orderid;
+	private Integer userid;
 	private String oname;
 	private String odetail;
 	private String ophone;
 	private String opostcode;
+	private String oordertime;
 	private String oarrivaltime;
 	private String ologisticsstyle;
 	private String otel;
 	private String ostatus;
 	private String remark;
+	private String oimage;
+	private Integer odcount;
+	private String odname;
+	private Integer totalprice;
 
-	public Order(Integer orderId, Integer userId, String oname, String odetail, String ophone, String opostcode,
-			String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark) {
+	public Order(String orderid, Integer userid, String oname, String odetail, String ophone, String opostcode,
+			String oordertime,String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark,String oimage) {
 		super();
-		this.orderId = orderId;
-		this.userId = userId;
+		this.orderid = orderid;
+		this.userid = userid;
 		this.oname = oname;
 		this.odetail = odetail;
 		this.ophone = ophone;
 		this.opostcode = opostcode;
+		this.oordertime = oordertime;
 		this.oarrivaltime = oarrivaltime;
 		this.ologisticsstyle = ologisticsstyle;
 		this.otel = otel;
 		this.ostatus = ostatus;
 		this.remark = remark;
+		this.oimage = oimage;
 	}
 
 	public Order() {
 		super();
 	}
 
-	public Integer getOrderId() {
-		return orderId;
+	public String getOrderid() {
+		return orderid;
 	}
 
-	public void setOrderId(Integer orderId) {
-		this.orderId = orderId;
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
 	}
 
-	public Integer getUserId() {
-		return userId;
+	public Integer getUserid() {
+		return userid;
 	}
 
-	public void setUserId(Integer userId) {
-		this.userId = userId;
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	public String getOname() {
@@ -121,12 +128,54 @@ public class Order {
 		this.remark = remark;
 	}
 
-	@Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", userId=" + userId + ", oname=" + oname + ", odetail=" + odetail
-				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oarrivaltime=" + oarrivaltime
-				+ ", ologisticsstyle=" + ologisticsstyle + ", otel=" + otel + ", ostatus=" + ostatus + ", remark="
-				+ remark + "]";
+	
+	public String getOordertime() {
+		return oordertime;
 	}
 
+	public void setOordertime(String oordertime) {
+		this.oordertime = oordertime;
+	}
+
+	public String getOimage() {
+		return oimage;
+	}
+
+	public void setOimage(String oimage) {
+		this.oimage = oimage;
+	}
+
+	public Integer getOdcount() {
+		return odcount;
+	}
+
+	public void setOdcount(Integer odcount) {
+		this.odcount = odcount;
+	}
+
+	public String getOdname() {
+		return odname;
+	}
+
+	public void setOdname(String odname) {
+		this.odname = odname;
+	}
+
+	public Integer getTotalprice() {
+		return totalprice;
+	}
+
+	public void setTotalprice(Integer totalprice) {
+		this.totalprice = totalprice;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [orderid=" + orderid + ", userid=" + userid + ", oname=" + oname + ", odetail=" + odetail
+				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oordertime=" + oordertime + ", oarrivaltime="
+				+ oarrivaltime + ", ologisticsstyle=" + ologisticsstyle + ", otel=" + otel + ", ostatus=" + ostatus
+				+ ", remark=" + remark + ", oimage=" + oimage + ", odcount=" + odcount + ", odname=" + odname
+				+ ", totalprice=" + totalprice + "]";
+	}
+	
 }

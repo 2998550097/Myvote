@@ -1,34 +1,36 @@
 package com.yc.darry.entity;
 
 public class OrderDetail {
-	private Integer orderdetailId;
+	private Integer orderdetailid;
 	private String orderid;
 	private Integer goodid;
 	private Integer odcount;
 	private double discount;
 	private double totalprice;
-
+	private String odname;
+	
 	public OrderDetail() {
 		super();
 	}
 
-	public OrderDetail(Integer orderdetailId, String orderid, Integer goodid, Integer odcount, double discount,
-			double totalprice) {
+	public OrderDetail(Integer orderdetailid, String orderid, Integer goodid, Integer odcount, double discount,
+			double totalprice,String odname) {
 		super();
-		this.orderdetailId = orderdetailId;
+		this.orderdetailid = orderdetailid;
 		this.orderid = orderid;
 		this.goodid = goodid;
 		this.odcount = odcount;
 		this.discount = discount;
 		this.totalprice = totalprice;
+		this.setOdname(odname);
 	}
 
-	public Integer getOrderdetailId() {
-		return orderdetailId;
+	public Integer getOrderdetailid() {
+		return orderdetailid;
 	}
 
-	public void setOrderdetailId(Integer orderdetailId) {
-		this.orderdetailId = orderdetailId;
+	public void setOrderdetailid(Integer orderdetailid) {
+		this.orderdetailid = orderdetailid;
 	}
 
 	public String getOrderid() {
@@ -71,10 +73,20 @@ public class OrderDetail {
 		this.totalprice = totalprice;
 	}
 
-	@Override
-	public String toString() {
-		return "OrderDetail [orderdetailId=" + orderdetailId + ", orderid=" + orderid + ", goodid=" + goodid
-				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + "]";
+	public String getOdname() {
+		return odname;
 	}
 
+	public void setOdname(String odname) {
+		this.odname = odname;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDetail [orderdetailid=" + orderdetailid + ", orderid=" + orderid + ", goodid=" + goodid
+				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + ", odname="
+				+ odname + "]";
+	}
+
+	
 }

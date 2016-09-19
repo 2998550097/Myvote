@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="css/shopping.css" />
 		<link rel="stylesheet" href="css/common.css" />
 		<link rel="stylesheet" href="css/drcart.css" />
+		<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src="headerJs/jquery.js"></script>
 		<script type="text/javascript" src="js/shoppcart.js"></script>
 		<title> Darry Ring钻戒购物车_Darry Ring求婚钻戒价格 戴瑞珠宝官网  </title>
@@ -16,6 +17,10 @@
 		<script type="text/javascript">
 			$(function(){
 				//查找所有购物车下面的商品
+				refreshCart();
+			})
+			
+			function refreshCart(){
 				$.post("cart/findAllCart",function(data){
 					var str="";
 					var shopstr="";
@@ -57,11 +62,11 @@
 					shopstr+='<a href="javascript:clearCart();" class="qk_shop">清空购物车</a>';
 	                shopstr+='<span>你购买了<i>'+data[0].count+'</i>件商品</span>';
 	                shopstr+='<span>总计：<i class="fw_bold" style="font-family:微软雅黑">￥'+data[0].totalprice+'</i></span>';
-	                shopstr+='<span class="end_bt" onclick="toPay();"><em>立即结算</em></span>';
+	                shopstr+='<span class="end_bt" onclick="toPay('+data[0].goodid+');"><em>立即结算</em></span>';
 					$(".shop_tabble").html("").append(str);
 					$(".shop_js").html("").append(shopstr);
 				},"json");
-			})
+			}
 		</script>
 		
 	</head>
@@ -103,22 +108,26 @@
     function deleteCart(cartid) {
         if (confirm("确认删除？")) {
            $.post("cart/delete?cartid="+cartid,function(data){
-        	   
+        	   if(data){
+        		   refreshCart();
+        	   }
            });
         }
     }
-
+	
+    //清除所有
     function clearCart() {
-        if (confirm("确认清除？")) {
-            $.get("/nAPI/Cart.aspx?action=clear", function () {
-                window.location.reload();
-            });
+        if (confirm("确认清除所有？")) {
+        	 $.get("cart/deleteAll",function(data){
+          	   if(data){
+          		   refreshCart();
+          	   }
+             });
         }
     }
-    function toPay() {
-        var nu = '2';
-        window.location = "/ncart/cart.aspx?action=next&page=Agreement&lan=0";
-        window.location = "/ncart/cart.aspx?action=next&page=Agreement&lan=0";
+    
+    function toPay(goodid) {
+       window.location.href="page/Order.jsp?goodid="+goodid;
     }
 </script>
 
@@ -198,7 +207,7 @@
     	<p>Copyright &copy; 2006-2015 www.darryring.com 戴瑞珠宝 All Rights Reserved. 粤ICP备11012085号</p>
         <p>中国互联网违法信息举报中心 | 中国公安网络110报警服务 | 本网站提供所售商品的正式发票</p>
         <div class="shop_foot-img">
-        	<img src="Cart/images/db.jpg" width="776" height="55" />
+        	<img src="images/db.jpg" width="776" height="55" />
         </div>
     </div>
     <!--底部end-->
