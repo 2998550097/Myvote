@@ -134,4 +134,7 @@
 			delete from goods where goodid = #{goodid}
 	</delete>
 	<!-- 删除数据end  -->
+	<select id="search" resultType="Good">
+			select g.*,p.paramterid,s.seriesname,sy.stylename,p.pcarat,p.psize,p.gcrystal,p.gcutting,p.pprice,p.pcount from goods g,seriesstyle ss,series s,style sy , paramter p where g.goodid=p.goodid and g.goodid=ss.goodid and ss.seriesid=s.seriesid and ss.styleid=sy.styleid and seriesname=#{seriesname} and stylename=#{stylename} and gname like '%'||#{gname}||'%'
+	</select>
 </mapper>

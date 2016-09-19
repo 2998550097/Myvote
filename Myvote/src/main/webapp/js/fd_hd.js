@@ -101,10 +101,9 @@ $(function () {
 
     /*预览效果点击显示*/
     $(".ylxg").click(function () {
-    	alert(111);
         $('.kzyl').show();
         var kz = $('.kzyl');
-        kz.html($("#ipt_font").val());
+        kz.html($("#ipt_font").val())
         //html改成text也可以执行
     });
 });

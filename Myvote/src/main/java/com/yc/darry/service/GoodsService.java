@@ -21,6 +21,8 @@ public interface GoodsService {
 
 	int updateGoods(Good good);
 
+	List<Good> search(String gname, String seriesname, String stylename);
+
 	Good getGoodsById(@Param("goodid")int goodid,@Param("pcarat")String pcarat);
 
 }

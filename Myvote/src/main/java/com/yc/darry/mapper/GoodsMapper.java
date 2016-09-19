@@ -20,7 +20,8 @@ public interface GoodsMapper {
 
 	boolean deleteGoods(Integer goodid);
 
+	List<Good> search(@Param("gname")String gname,@Param("seriesname")String seriesname,@Param("stylename")String stylename);
+	
 	Good getGoodsById(@Param("goodid")int goodid,@Param("pcarat")String pcarat);
-
 
 }
