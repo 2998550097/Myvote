@@ -1,4 +1,4 @@
-<table id="Design_data"></table>
+<table id="Style_data"></table>
 
 <script>
 	var obj;
@@ -6,7 +6,7 @@
 	var currentOp;
 	var flag;
 	
-	obj=$('#Design_data').datagrid({  
+	obj=$('#Style_data').datagrid({  
 	    url:'../../../style/findStyle',  
 	    //queryParams:{op:'findAllDesign'},
 	    fitColumns:true,
@@ -21,8 +21,8 @@
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-	        {field:'tid',title:'款式类型编号',width:100,align:'center',sortable:true},  
-	        {field:'tname',title:'款式类型名称',width:100,align:'center',editor:{type:"text",options:{requires:true}}}  
+	        {field:'styleid',title:'款式类型编号',width:100,align:'center',sortable:true},  
+	        {field:'stylename',title:'款式类型名称',width:100,align:'center',editor:{type:"text",options:{requires:true}}}  
 	    ]],
 	    toolbar:[{
 	    	text:"添加",
@@ -49,13 +49,13 @@
 	    				if(rs){
 	    					var tids="";
 	    					for(var i=0;i<rows.length-1;i++){
-	    						tids+=rows[i].tid+",";
+	    						tids+=rows[i].styleid+",";
 	    					}
-	    					tids+=rows[i].tid;
+	    					tids+=rows[i].styleid;
 	    					
 	    					//发请求到数据库删除
-	    					$.post("../../newsDesignervlet",{op:"delNewsType",tid:tids},function(data){
-	    						if(data>0){
+	    					$.post("../../../style/deleteStyle",{styleid:tids},function(data){
+	    						if(data){
 		    						$.messager.show({
 		    							title:'成功提示',
 		    							msg:'款式类型删除成功...',
@@ -103,8 +103,8 @@
     				//保存到数据库
     				rows["op"]=currentOp;
     				
-    				$.post("../../../style/"+rows["op"],rows,function(data){
-    					if(data>0){
+    				$.post("../../../style/addStyle",{stylename:rows.stylename},function(data){
+    					if(data){
     						$.messager.show({
     							title:'成功提示',
     							msg:'款式类型'+flag+'成功...',

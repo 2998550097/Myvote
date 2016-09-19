@@ -8,7 +8,7 @@
 		select * from series order by seriesid
 	</select>
 	<insert id="addSeries" parameterType="string">
-		insert into series values(seq_series_id,#{seriesname,jdbcType=VARCHAR})
+		insert into series values(seq_series_id.nextval,#{seriesname,jdbcType=VARCHAR})
 	</insert>
 	<delete id="deleteSeries" parameterType="string">
 			delete from series where seriesid in 

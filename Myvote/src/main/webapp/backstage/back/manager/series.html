@@ -21,7 +21,7 @@
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
 	        {field:'seriesid',title:'系列类型编号',width:100,align:'center',sortable:true},  
-	        {field:'seriesname',title:'系列类型名称',width:100,align:'center',editor:{Series:"text",options:{requires:true}}}  
+	        {field:'seriesname',title:'系列类型名称',width:100,align:'center',editor:{type:"text",options:{requires:true}}}  
 	    ]],
 	    toolbar:[{
 	    	text:"添加",
@@ -100,7 +100,8 @@
 	    			obj.datagrid("rejectChanges");//回滚所有的数据
 	    		}else{
     				//保存到数据库
-    				$.post("../../../series/addSeries",{seriesname:rows.name},function(data){
+    				alert(rows.seriesname);
+    				$.post("../../../series/addSeries",{seriesname:rows.seriesname},function(data){
     					if(data){
     						$.messager.show({
     							title:'成功提示',
