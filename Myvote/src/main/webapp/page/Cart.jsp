@@ -103,7 +103,6 @@
     function deleteCart(cartid) {
         if (confirm("确认删除？")) {
            $.post("cart/delete?cartid="+cartid,function(data){
-        	   
            });
         }
     }
