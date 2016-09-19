@@ -45,7 +45,7 @@
 
 <script type="text/javascript">
 	$(function(){
-		$.get("orderdetail/getAllorderDetail",function(data){
+		$.get("orders/getAllorderDetail",function(data){
 			
 		});
 	})

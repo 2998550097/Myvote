@@ -7,6 +7,7 @@ create table admin(
 select adminid from admin
 insert into admin values(1,'a','a');
 
+select * from users;
 create table users(
        userid int primary key, --用户编号
        ucardId varchar2(20) unique, --身份证号码
@@ -41,6 +42,7 @@ create table series(
        seriesid int primary key,  --系列号
        seriesname varchar2(20) not null --系列名字
 );
+
 --款式表
 create table style(
        styleid int primary key,  --款式号
@@ -52,6 +54,11 @@ create table seriesStyle(
        styleid int,
        goodid int not null
 );
+select c.commentid,u.uname,g.gname,o.orderid,c.commessage,c.comscore,c.comimage from comments c,users u,goods g,orders o where c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid
+select * from comments;
+select * from users;
+select * from orders;
+
 --商品表
 create table goods(
        goodid int primary key, --商品编号
@@ -66,7 +73,7 @@ create table goods(
 );
 drop table goods
 
-insert into goods values(100028,'小碗','完美','wwww',1.2,0,0,0,'n')
+insert into goods values(100028,'小碗','完美','wwww',1,0,0,0,'n')
 select * from goods
 --商品参数表
 create table paramter(
@@ -130,8 +137,12 @@ create table orders(
        remark varchar2(2000),   --备注
        oimage varchar2(30) --图片路径
 );
+<<<<<<< HEAD
 alter table orders modify oimage varchar2(50);
 
+=======
+insert into orders values(seq_orders_id.nextval, 191,'xp','sdf','123213','aa','asd','ads','a','a','a','df');
+>>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 create table orderdetail(
        orderdetailid int primary key, --商品明细
        orderid varchar2(50) not null, --订单编号
@@ -162,8 +173,13 @@ create table comments(
       comimage varchar2(1000), --上传图片
       comscore number(2,1)  --评分
 );
-insert into comments values(seq_comments_id.nextval,1301,1230,'2016-9-5','有毒',null,2.1);
-
+select * from comments;
+select * from users;
+select * from goods;
+select * from orders;
+c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid 
+insert into comments values(seq_comments_id.nextval,191,100001,'2016-9-5','有毒',null,2.1);
+select c.commentid,u.uname,g.gname,o.orderid,c.commessage,c.comscore,c.comimage from comments c,users u,goods g,orders o where c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid 
 --发表文章
 create table article(
        articleid int primary key, --文章编号
@@ -3338,7 +3354,7 @@ values(seq_paramter_id.nextval,100026,'5分H',null,'SI',null,6,30);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100027,'4分J',null,'SI',null,4,30);
 
-
+commit
 
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 
