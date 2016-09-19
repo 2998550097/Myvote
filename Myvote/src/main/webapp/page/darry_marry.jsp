@@ -370,7 +370,7 @@
 						<div class="buycort_left fl">
 							<ul class="bc_left">
 								<li class="li_border">
-									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[0] %>">
+									<img alt="MY HEART 系列 奢华款 0.7 H" src="images/products/<%=imagePath[0] %>" id="img_<%=goodid %>">
 								</li>
 								<%
 								for(int i=1;i<imagePath.length;i++){

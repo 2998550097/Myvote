@@ -106,9 +106,13 @@ create table cart(
 	cprice number(10) not null, --价格
 	ccount number(10), --数量
 	keword varchar2(20),--刻字
-	pmaterial varchar2(20)--材质
+	pmaterial varchar2(20),--材质
+	imagepath varchar2(50) --图片路径
 );
-
+select c.*,(select count(1) from cart) usercount,(select sum(cprice) from cart) totalprice from cart c where userid=114;
+select count(1) count from cart; 
+select sum(cprice) totalprice from cart;
+alter table cart add imagepath varchar2(50);
 --订单表
 create table orders(
        orderid varchar2(50) primary key, --订单号
@@ -190,6 +194,7 @@ create sequence seq_style_id start with 1001;
 create sequence seq_seriesstyle_id start with 10001;
 create sequence seq_goods_id start with 100001;
 create sequence seq_paramter_id start with 1001;
+create sequence seq_cart_id start with 1;
 create sequence seq_delivery_id start with 1000001;
 create sequence seq_orders_id start with 100000000001;
 create sequence seq_orderdetail_id start with 1000001;

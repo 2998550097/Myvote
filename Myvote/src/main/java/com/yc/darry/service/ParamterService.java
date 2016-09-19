@@ -11,6 +11,7 @@ public interface ParamterService {
 	boolean updateParamter(Paramter paramter);
 	
 	List<String> getPcaratById(int goodid);
+	
 	boolean deleteParamter(Integer goodid,Integer paramterid);
 
 }
