@@ -1,7 +1,7 @@
 package com.yc.darry.entity;
 
 public class OrderDetail {
-	private Integer orderdetailId;
+	private Integer orderdetailid;
 	private String orderid;
 	private Integer goodid;
 	private Integer odcount;
@@ -10,25 +10,6 @@ public class OrderDetail {
 
 	public OrderDetail() {
 		super();
-	}
-
-	public OrderDetail(Integer orderdetailId, String orderid, Integer goodid, Integer odcount, double discount,
-			double totalprice) {
-		super();
-		this.orderdetailId = orderdetailId;
-		this.orderid = orderid;
-		this.goodid = goodid;
-		this.odcount = odcount;
-		this.discount = discount;
-		this.totalprice = totalprice;
-	}
-
-	public Integer getOrderdetailId() {
-		return orderdetailId;
-	}
-
-	public void setOrderdetailId(Integer orderdetailId) {
-		this.orderdetailId = orderdetailId;
 	}
 
 	public String getOrderid() {
@@ -71,10 +52,28 @@ public class OrderDetail {
 		this.totalprice = totalprice;
 	}
 
-	@Override
-	public String toString() {
-		return "OrderDetail [orderdetailId=" + orderdetailId + ", orderid=" + orderid + ", goodid=" + goodid
-				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + "]";
+	public Integer getOrderdetailid() {
+		return orderdetailid;
 	}
 
+	public void setOrderdetailid(Integer orderdetailid) {
+		this.orderdetailid = orderdetailid;
+	}
+
+	public OrderDetail(Integer orderdetailid, String orderid, Integer goodid, Integer odcount, double discount,
+			double totalprice) {
+		super();
+		this.orderdetailid = orderdetailid;
+		this.orderid = orderid;
+		this.goodid = goodid;
+		this.odcount = odcount;
+		this.discount = discount;
+		this.totalprice = totalprice;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderDetail [orderdetailid=" + orderdetailid + ", orderid=" + orderid + ", goodid=" + goodid
+				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + "]";
+	}
 }
