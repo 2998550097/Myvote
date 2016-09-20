@@ -8,4 +8,8 @@ public interface StyleMapper {
 
 	List<Style> getAll();
 
+	boolean addStyle(String stylename);
+
+	boolean deleteStyle(String... styleid);
+
 }

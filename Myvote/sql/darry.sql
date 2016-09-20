@@ -7,6 +7,7 @@ create table admin(
 select adminid from admin
 insert into admin values(1,'a','a');
 
+select * from users;
 create table users(
        userid int primary key, --用户编号
        ucardId varchar2(20) unique, --身份证号码
@@ -41,6 +42,7 @@ create table series(
        seriesid int primary key,  --系列号
        seriesname varchar2(20) not null --系列名字
 );
+
 --款式表
 create table style(
        styleid int primary key,  --款式号
@@ -52,6 +54,11 @@ create table seriesStyle(
        styleid int,
        goodid int not null
 );
+select c.commentid,u.uname,g.gname,o.orderid,c.commessage,c.comscore,c.comimage from comments c,users u,goods g,orders o where c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid
+select * from comments;
+select * from users;
+select * from orders;
+
 --商品表
 create table goods(
        goodid int primary key, --商品编号
@@ -66,7 +73,7 @@ create table goods(
 );
 drop table goods
 
-insert into goods values(100028,'小碗','完美','wwww',1.2,0,0,0,'n')
+insert into goods values(100028,'小碗','完美','wwww',1,0,0,0,'n')
 select * from goods
 --商品参数表
 create table paramter(
@@ -84,10 +91,16 @@ create table  delivery(
        deliveryid int primary key, --地址编号
        dname varchar2(20) not null, --收件人姓名
        ddetail varchar2(100) not null, --详细地址    
-       dtel varchar2(20) not null, --联系电话
+       dtel varchar2(20), --联系电话
        dpostcode varchar2(10), --邮编
-       dstatus varchar2(20)  --是否为默认地址
+       dstatus varchar2(20),  --是否为默认地址
+       solidtel varchar2(13), --固定电话
+       userid int --用户编号
 );
+
+alter table delivery add solidtel varchar2(13);
+alter table delivery add userid int;
+alter table delivery modify dtel varchar2(20);
 
 --购物车
 create table cart(
@@ -103,6 +116,8 @@ create table cart(
 	imagepath varchar2(50) --图片路径
 );
 select c.*,(select count(1) from cart) usercount,(select sum(cprice) from cart) totalprice from cart c where userid=114;
+
+select count(1) from cart where goodid=100001 and userid=114
 select count(1) count from cart; 
 select sum(cprice) totalprice from cart;
 alter table cart add imagepath varchar2(50);
@@ -119,8 +134,11 @@ create table orders(
        ologisticsstyle varchar2(20),  --物流方式
        otel varchar2(20),  --联系电话
        ostatus varchar2(10), --订单状态
-       remark varchar2(2000)   --备注
+       remark varchar2(2000),   --备注
+       oimage varchar2(30) --图片路径
 );
+
+alter table orders modify oimage varchar2(50);
 
 create table orderdetail(
        orderdetailid int primary key, --商品明细
@@ -128,8 +146,10 @@ create table orderdetail(
        goodid int not null, --商品编号
        odcount int, --商品数量
        discount number(2,1),  --商品折扣
-       totalprice number(10)  --总价格
+       totalprice number(10),  --总价格
+       odname varchar2(30) --商品名称
 );
+alter table orderdetail add odname varchar2(30);
 drop table orderdetail;
 --收藏表
 create table collection(
@@ -150,8 +170,13 @@ create table comments(
       comimage varchar2(1000), --上传图片
       comscore number(2,1)  --评分
 );
-insert into comments values(seq_comments_id.nextval,1301,1230,'2016-9-5','有毒',null,2.1);
-
+select * from comments;
+select * from users;
+select * from goods;
+select * from orders;
+c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid 
+insert into comments values(seq_comments_id.nextval,191,100001,'2016-9-5','有毒',null,2.1);
+select c.commentid,u.uname,g.gname,o.orderid,c.commessage,c.comscore,c.comimage from comments c,users u,goods g,orders o where c.orderid=o.orderid and o.userid=u.userid and g.goodid=c.goodid 
 --发表文章
 create table article(
        articleid int primary key, --文章编号
@@ -173,7 +198,11 @@ create table articlecom(
        actime varchar2(50) not null,--评论时间
        praisecount int --点赞次数
 );
+select od.*,(select oimage from orders where orderid=od.orderid) odpath,(select ostatus from orders where orderid=od.orderid and userid=o.userid) odstatus from orderdetail od,orders o where o.orderid=od.orderid and o.userid=114
 
+select od.*,(select imagepath from cart where goodid=od.goodid and userid=o.userid) path,(select ostatus from orders where orderid=od.orderid and userid=o.userid) status from orderdetail od,orders o where o.orderid=od.orderid and goodid=100001 and o.userid=114
+select dstatus from orders where orderid=
+select gimage from goods where goodid=100001
 create sequence seq_admin_id start with 2;
 create sequence seq_user_id start with 111;
 create sequence seq_store_id start with 11;
@@ -184,7 +213,7 @@ create sequence seq_goods_id start with 100001;
 create sequence seq_paramter_id start with 1001;
 create sequence seq_cart_id start with 1;
 create sequence seq_delivery_id start with 1000001;
-create sequence seq_orders_id start with 100000000001;
+create sequence seq_orders_id start with 1000000001;
 create sequence seq_orderdetail_id start with 1000001;
 create sequence seq_collection_id start with 10000001;
 create sequence seq_comments_id start with 1000001;
@@ -295,7 +324,6 @@ insert into seriesstyle(goodid,seriesid,styleid) values(104,1004,100025);
 insert into seriesstyle(goodid,seriesid,styleid) values(103,1004,100026);
 
 update goods set gother='求婚钻戒' where goodid between 100001 and 100015; --在最后一个字段加上标志类型
-<<<<<<< HEAD
 update goods set gname='Love Line系列 [A10001],30,H',gprice=12 where goodid=100001;
 update goods set gname='Love Line系列 [A10002],50,H',gprice=14 where goodid=100002;
 update goods set gname='Love Line系列 [A10003],99,H',gprice=16 where goodid=100003;
@@ -312,9 +340,7 @@ update goods set gname='Princess系列 [A10013],50,H',gprice=14 where goodid=100
 update goods set gname='Princess系列 [A10014],30,H',gprice=11 where goodid=100014;
 update goods set gname='Believe系列 [A10015],30,H',gprice=10 where goodid=100015;
 alter table goods add gprice number(10);
-=======
 
->>>>>>> branch 'master' of ssh://git@github.com/2998550097/Myvote.git
 --商品表
 --女戒
 insert into goods(goodid,gname,gmaterial,gimage,averagescore,goodnum,usercount,comcount,gother)
@@ -3325,7 +3351,7 @@ values(seq_paramter_id.nextval,100026,'5分H',null,'SI',null,6,30);
 insert into paramter(paramterid,goodid,pcarat,psize,gcrystal,gcutting,pprice,pcount) 
 values(seq_paramter_id.nextval,100027,'4分J',null,'SI',null,4,30);
 
-
+commit
 
 select g.*,c.collectionId,c.ctime,s.seriesname,sy.stylename  
 from goods g,collection c,seriesstyle ss,series s,style sy 

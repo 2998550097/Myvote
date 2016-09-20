@@ -14,9 +14,18 @@ public class StyleServiceImpl implements StyleService {
 	@Autowired
 	private StyleMapper styleMapper;
 	
-	@Override
 	public List<Style> getStyle() {
 		return styleMapper.getAll();
+	}
+
+	@Override
+	public boolean addStyle(String stylename) {
+		return styleMapper.addStyle(stylename);
+	}
+
+	@Override
+	public boolean deleteStyle(String... styleids) {
+		return styleMapper.deleteStyle(styleids);
 	}
 
 }

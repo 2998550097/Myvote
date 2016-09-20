@@ -166,9 +166,9 @@ function confirmValidate(){
 									<!--错误提示-->
 									<div class="errorMsg" id="erError">${errorMsg }</div>
 									<!--错误提示-->
-									<input type="text" name="uemail" id="uemail" value="2998550097@qq.com" class="ipTxt ico-email" placeholder="请输入您的邮箱地址" required="required" onblur="eamilValidate()"> 
-									<input type="password" name="upassword" id="upassword" value="123456" class="ipTxt ico-pwd" placeholder="请输入长度为6-20位数的密码" required="required" onblur="passwordValidate()"> 
-									<input type="password" id="upassword_confirm" value="123456" class="ipTxt ico-pwd" placeholder="请再次确认密码" required="required" onblur="confirmValidate()">
+									<input type="text" name="uemail" id="uemail" value="" class="ipTxt ico-email" placeholder="请输入您的邮箱地址" required="required" onblur="eamilValidate()"> 
+									<input type="password" name="upassword" id="upassword" value="" class="ipTxt ico-pwd" placeholder="请输入长度为6-20位数的密码" required="required" onblur="passwordValidate()"> 
+									<input type="password" id="upassword_confirm" value="" class="ipTxt ico-pwd" placeholder="请再次确认密码" required="required" onblur="confirmValidate()">
 									<div class="fix">
 										<input type="text" name="emailCode" value="" class="ipTxt ico-send inputCode" placeholder="请输入验证码" required="required">
 										<a class="yxCode fr" href="javascript:void(0)" title="点击刷新验证码" >

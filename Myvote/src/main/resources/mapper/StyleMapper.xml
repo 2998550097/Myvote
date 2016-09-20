@@ -7,4 +7,15 @@
 	<select id="getAll" resultType="Style">
 		select * from style
 	</select>
+	
+	<insert id="addStyle" parameterType="string">
+		insert into style values(seq_style_id.nextval,#{stylename,jdbcType=VARCHAR})
+	</insert>
+	<delete id="deleteStyle" parameterType="string">
+			delete from style where styleid in 
+			
+		<foreach collection="array" item="styleid" open="(" close=")" separator=",">
+				#{styleid}
+		</foreach>
+	</delete>
 </mapper>

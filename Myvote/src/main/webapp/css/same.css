@@ -1097,9 +1097,9 @@ em, i {
 }
 /*关闭按钮*/
 .yz_close {
-	background: url(/nimages/dr_yz/close.png) no-repeat;
-	width: 16px;
-	height: 16px;
+	background: url(../images/closebefore.png) no-repeat;
+	width: 28px;
+	height: 20px;
 	position: absolute;
 	right: 16px;
 	top: 16px;

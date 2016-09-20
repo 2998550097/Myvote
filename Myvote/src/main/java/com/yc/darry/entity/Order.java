@@ -1,7 +1,7 @@
 package com.yc.darry.entity;
 
 public class Order {
-	private String  orderid;
+	private String orderid;
 	private Integer userid;
 	private String oname;
 	private String odetail;
@@ -13,19 +13,61 @@ public class Order {
 	private String otel;
 	private String ostatus;
 	private String remark;
+
 	private Integer orderdetailid;
 	private Integer goodid;
 	private Integer odcount;
 	private double discount;
 	private double totalprice;
 
-	
-	public String getoordertime() {
-		return oordertime;
+	private String oimage;
+
+	private String odname;
+
+	public Order(String orderid, Integer userid, String oname, String odetail, String ophone, String opostcode,
+			String oordertime, String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark,
+			Integer orderdetailid, Integer goodid, Integer odcount, double discount, double totalprice, String oimage,
+			String odname) {
+		super();
+		this.orderid = orderid;
+		this.userid = userid;
+		this.oname = oname;
+		this.odetail = odetail;
+		this.ophone = ophone;
+		this.opostcode = opostcode;
+		this.oordertime = oordertime;
+		this.oarrivaltime = oarrivaltime;
+		this.ologisticsstyle = ologisticsstyle;
+		this.otel = otel;
+		this.ostatus = ostatus;
+		this.remark = remark;
+		this.orderdetailid = orderdetailid;
+		this.goodid = goodid;
+		this.odcount = odcount;
+		this.discount = discount;
+		this.totalprice = totalprice;
+		this.oimage = oimage;
+		this.odname = odname;
 	}
 
-	public void setoordertime(String oordertime) {
-		this.oordertime = oordertime;
+	public Order() {
+		super();
+	}
+
+	public String getOrderid() {
+		return orderid;
+	}
+
+	public void setOrderid(String orderid) {
+		this.orderid = orderid;
+	}
+
+	public Integer getUserid() {
+		return userid;
+	}
+
+	public void setUserid(Integer userid) {
+		this.userid = userid;
 	}
 
 	public String getOname() {
@@ -58,6 +100,14 @@ public class Order {
 
 	public void setOpostcode(String opostcode) {
 		this.opostcode = opostcode;
+	}
+
+	public String getOordertime() {
+		return oordertime;
+	}
+
+	public void setOordertime(String oordertime) {
+		this.oordertime = oordertime;
 	}
 
 	public String getOarrivaltime() {
@@ -100,22 +150,6 @@ public class Order {
 		this.remark = remark;
 	}
 
-	public String getOrderid() {
-		return orderid;
-	}
-
-	public void setOrderid(String orderid) {
-		this.orderid = orderid;
-	}
-
-	public Integer getUserid() {
-		return userid;
-	}
-
-	public void setUserid(Integer userid) {
-		this.userid = userid;
-	}
-
 	public Integer getOrderdetailid() {
 		return orderdetailid;
 	}
@@ -156,8 +190,20 @@ public class Order {
 		this.totalprice = totalprice;
 	}
 
-	
-	public Order() {
+	public String getOimage() {
+		return oimage;
+	}
+
+	public void setOimage(String oimage) {
+		this.oimage = oimage;
+	}
+
+	public String getOdname() {
+		return odname;
+	}
+
+	public void setOdname(String odname) {
+		this.odname = odname;
 	}
 
 	@Override
@@ -166,32 +212,8 @@ public class Order {
 				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oordertime=" + oordertime + ", oarrivaltime="
 				+ oarrivaltime + ", ologisticsstyle=" + ologisticsstyle + ", otel=" + otel + ", ostatus=" + ostatus
 				+ ", remark=" + remark + ", orderdetailid=" + orderdetailid + ", goodid=" + goodid + ", odcount="
-				+ odcount + ", discount=" + discount + ", totalprice=" + totalprice + "]";
+				+ odcount + ", discount=" + discount + ", totalprice=" + totalprice + ", oimage=" + oimage + ", odname="
+				+ odname + "]";
 	}
-
-	public Order(String orderid, Integer userid, String oname, String odetail, String ophone, String opostcode,
-			String oordertime, String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark,
-			Integer orderdetailid, Integer goodid, Integer odcount, double discount, double totalprice) {
-		super();
-		this.orderid = orderid;
-		this.userid = userid;
-		this.oname = oname;
-		this.odetail = odetail;
-		this.ophone = ophone;
-		this.opostcode = opostcode;
-		this.oordertime = oordertime;
-		this.oarrivaltime = oarrivaltime;
-		this.ologisticsstyle = ologisticsstyle;
-		this.otel = otel;
-		this.ostatus = ostatus;
-		this.remark = remark;
-		this.orderdetailid = orderdetailid;
-		this.goodid = goodid;
-		this.odcount = odcount;
-		this.discount = discount;
-		this.totalprice = totalprice;
-	}
-
-	
 
 }

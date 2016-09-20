@@ -61,7 +61,7 @@ obj=$('#Comment_data').datagrid({
 		    				
 		    				//发请求到数据库删除
 		    				$.post("../../../comment/deleteComment",{commentid:tids},function(data){
-		    					if(data>0){
+		    					if(data){
 			    					$.messager.show({
 			    						title:'成功提示',
 			    						msg:'评论删除成功...',

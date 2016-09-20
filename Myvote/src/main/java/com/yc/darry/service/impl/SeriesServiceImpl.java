@@ -19,4 +19,14 @@ public class SeriesServiceImpl implements SeriesService {
 		return seriesMapper.getAll();
 	}
 
+	@Override
+	public boolean addSeries(String seriesname) {
+		return seriesMapper.addSeries(seriesname);
+	}
+
+	@Override
+	public boolean deleteSeries(String... seriesid) {
+		return seriesMapper.deleteSeries(seriesid);
+	}
+
 }

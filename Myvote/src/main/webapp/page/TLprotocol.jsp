@@ -1,30 +1,31 @@
 <%@ page pageEncoding="utf-8"%>
 
-<!DOCTYPE html >
+<!DOCTYPE html>
 <head>
 <base href="/MyDarry/"> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="Cart/css/shopping.css">
-<link rel="stylesheet" type="text/css" href="Cart/css/common.css">
-<link rel="stylesheet" type="text/css" href="Cart/css/drcart.css">
-
-<script src="Cart/js/hm.js"></script>
-<script charset="utf-8" src="Cart/js/lxb.js"></script>
-<script charset="utf-8" src="Cart/js/v.js"></script>
-<script async="" src="Cart/js/analytics.js"></script>
-<script type="text/javascript" src="Cart/js/jquery.js"></script>
-<script type="text/javascript" src="Cart/js/shoppcart.js"></script>
+<link rel="stylesheet" type="text/css" href="css/shopping.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/drcart.css">
+<link href="css/WdatePicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+<script src="js/hm.js"></script>
+<script charset="utf-8" src="js/lxb.js"></script>
+<script charset="utf-8" src="js/v.js"></script>
+<script async="" src="js/analytics.js"></script>
+<script type="text/javascript" src="headerJs/jquery.js"></script>
+<script type="text/javascript" src="js/shoppcart.js"></script>
 
 <title>真爱协议_Darry Ring求婚钻戒价格 戴瑞珠宝官网</title>
-<script type="text/javascript" src="Cart/js/WdatePicker.js"></script>
-<link href="Cart/css/WdatePicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/WdatePicker.js"></script>
+
 <title></title>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/zh_cn.js" data-requiremodule="lang"></script>
+	src="s/zh_cn.js" data-requiremodule="lang"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/chat.in.js" data-requiremodule="chatManage"></script>
+	src="s/chat.in.js" data-requiremodule="chatManage"></script>
 <script type="text/javascript" async="async" charset="utf-8"
-	src="Cart/js/comet.chat.js" data-requiremodule="TChat"></script>
+	src="js/comet.chat.js" data-requiremodule="TChat"></script>
 </head>
 <body>
 	<div id="nTalk_post_hiddenElement"
@@ -50,7 +51,7 @@
 				<div class="shop_top">
 					<div class="shopt_left fl">
 						<a href="http://www.darryring.com/" title="Darry Ring"> <img
-							src="Cart/images/dr.png" width="186" height="42">
+							src="images/dr.png" width="186" height="42">
 						</a>
 					</div>
 					<div class="shopt_right fr">
@@ -209,7 +210,7 @@
 						Reserved. 粤ICP备11012085号</p>
 					<p>中国互联网违法信息举报中心 | 中国公安网络110报警服务 | 本网站提供所售商品的正式发票</p>
 					<div class="shop_foot-img">
-						<img src="Cart/images/db.jpg" width="776" height="55">
+						<img src="images/db.jpg" width="776" height="55">
 					</div>
 				</div>
 				<!--底部end-->

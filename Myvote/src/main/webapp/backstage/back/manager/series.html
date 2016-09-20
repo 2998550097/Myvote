@@ -1,14 +1,13 @@
 <table id="Series_data"></table>
 
 <script>
-	var obj;
-	var editRow=undefined;//记录当前正在被编辑的行
+ 	var obj;
+ 	var editRow=undefined;//记录当前正在被编辑的行
 	var currentOp;
 	var flag;
 	
 	obj=$('#Series_data').datagrid({  
-	    url:'../../newsSeriesServlet',  
-	    queryParams:{op:'findAllSeriess'},
+	    url:'../../../series/findAllSeries',  
 	    fitColumns:true,
 	    striped:true,
 	    loadMsg:"数据加载中",
@@ -17,57 +16,26 @@
 	    pageNumber:1,
 	    pageSize:2,
 	    pageList:[2,5,10,15,20,30,3],
-	    sortName:'tid',
+	    sortName:'tids',
 	    remoteSort:false,
 	    columns:[[  
 			{field:'tids',title:'',width:100,align:'center',checkbox:true}, 
-	        {field:'tid',title:'系列类型编号',width:100,align:'center',sortable:true},  
-	        {field:'tname',title:'系列类型名称',width:100,align:'center',editor:{Series:"text",options:{requires:true}}}  
+	        {field:'seriesid',title:'系列类型编号',width:100,align:'center',sortable:true},  
+	        {field:'seriesname',title:'系列类型名称',width:100,align:'center',editor:{type:"text",options:{requires:true}}}  
 	    ]],
 	    toolbar:[{
 	    	text:"添加",
 	    	iconCls:"icon-add",
 	    	handler:function(){
-	    		currentOp="addNewsSeries";
-	    		flag="添加";
-	    		if(editRow!=undefined){//说明有行正在被编辑
-	    			obj.datagrid("rejectChanges");//回滚所有的数据
-	    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
-	    			editRow=undefined;
-	    		}else{
-	    			obj.datagrid("insertRow",{index:0,row:{}});
-	    			obj.datagrid("beginEdit",0);
-	    			editRow=0;//记录当前被编辑行的索引
-	    		}
-	    	}
-	    },{
-	    	text:"修改",
-	    	iconCls:"icon-edit",
-	    	handler:function(){
-	    		currentOp="updateNewsSeries";
-	    		flag="修改";
-	    		var rows=obj.datagrid("getChecked")[0];
-	    		if(rows!=undefined){
-	    			if(editRow!=undefined){//说明有行正在被编辑
-	    				obj.datagrid("rejectChanges");//回滚所有的数据
-		    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
-		    			editRow=undefined;
-	    			}else{
-	    				//获取用户选中的行的索引
-	    				var index=obj.datagrid("getRowIndex",rows);
-	    				obj.datagrid("updateRow",{index:index,row:rows});//回滚所有的数据
-		    			obj.datagrid("beginEdit",index);
-		    			editRow=index;//记录当前被编辑行的索引
-	    			}
-	    		}else{
-	    			$.messager.show({
-						title:'温馨提示',
-						msg:'请选中您要修改的数据...',
-						timeout:2000,
-						showSeries:'slide'
-					});
-	    		}
-	    		
+	    		if(editRow!=undefined){ //说明有行正在被编辑 
+					obj.datagrid("rejectChanges");//回滚所有的数据
+					obj.datagrid("endEdit",editRow)//关闭正在编辑的行
+					editRow=undefined;
+				}else{
+					obj.datagrid('insertRow',{index:0,row:{}} );
+					obj.datagrid("beginEdit",0);
+					editRow=0;//记录当前被编辑行的索引
+				}
 	    	}
 	    },{
 	    	text:"删除",
@@ -80,13 +48,13 @@
 	    				if(rs){
 	    					var tids="";
 	    					for(var i=0;i<rows.length-1;i++){
-	    						tids+=rows[i].tid+",";
+	    						tids+=rows[i].seriesid+",";
 	    					}
-	    					tids+=rows[i].tid;
+	    					tids+=rows[i].seriesid;
 	    					
 	    					//发请求到数据库删除
-	    					$.post("../../newsSeriesServlet",{op:"delNewsSeries",tid:tids},function(data){
-	    						if(data>0){
+	    					$.post("../../../series/deleteSeries",{seriesid:tids},function(data){
+	    						if(data){
 		    						$.messager.show({
 		    							title:'成功提示',
 		    							msg:'系列类型删除成功...',
@@ -132,13 +100,12 @@
 	    			obj.datagrid("rejectChanges");//回滚所有的数据
 	    		}else{
     				//保存到数据库
-    				rows["op"]=currentOp;
-    				
-    				$.post("../../newsSeriesServlet",rows,function(data){
-    					if(data>0){
+    				alert(rows.seriesname);
+    				$.post("../../../series/addSeries",{seriesname:rows.seriesname},function(data){
+    					if(data){
     						$.messager.show({
     							title:'成功提示',
-    							msg:'系列类型'+flag+'成功...',
+    							msg:'系列类型添加成功...',
     							timeout:2000,
     							showSeries:'slide'
     						});
@@ -148,7 +115,7 @@
     		    			obj.datagrid("rejectChanges");//回滚所有的数据
     		    			obj.datagrid("endEdit",editRow);//关闭正在被编辑的行
     					}else{
-    						$.messager.alert('失败提示','系列类型'+flag+'失败...','error');
+    						$.messager.alert('失败提示','系列类型添加失败...','error');
     					}
     				});
     				}

@@ -2177,7 +2177,7 @@
 							</p>
 							<p>在您的购物车中已存在Darry Ring钻戒，无法重复购买。</p>
 							<p>
-								点击<a href="http://www.darryring.com/cart/cart.html">这里</a>进入购物车。祝您购物愉快
+								点击<a href="page/Cart.jsp">这里</a>进入购物车。祝您购物愉快
 								！
 							</p>
 						</div>
@@ -2191,7 +2191,7 @@
 							</p>
 							<p>Darry Ring 钻戒 已加入购物车。</p>
 							<p>
-								点击<a href="http://www.darryring.com/cart/cart.html">这里</a>进入购物车。祝您购物愉快
+								点击<a href="page/Cart.jsp">这里</a>进入购物车。祝您购物愉快
 								！
 							</p>
 						</div>

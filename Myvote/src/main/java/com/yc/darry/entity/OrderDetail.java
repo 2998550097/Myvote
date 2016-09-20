@@ -7,9 +7,18 @@ public class OrderDetail {
 	private Integer odcount;
 	private double discount;
 	private double totalprice;
-
+	private String odname;
+	
 	public OrderDetail() {
 		super();
+}
+
+	public Integer getOrderdetailid() {
+		return orderdetailid;
+	}
+
+	public void setOrderdetailid(Integer orderdetailid) {
+		this.orderdetailid = orderdetailid;
 	}
 
 	public String getOrderid() {
@@ -52,16 +61,16 @@ public class OrderDetail {
 		this.totalprice = totalprice;
 	}
 
-	public Integer getOrderdetailid() {
-		return orderdetailid;
+	public String getOdname() {
+		return odname;
 	}
 
-	public void setOrderdetailid(Integer orderdetailid) {
-		this.orderdetailid = orderdetailid;
+	public void setOdname(String odname) {
+		this.odname = odname;
 	}
 
 	public OrderDetail(Integer orderdetailid, String orderid, Integer goodid, Integer odcount, double discount,
-			double totalprice) {
+			double totalprice, String odname) {
 		super();
 		this.orderdetailid = orderdetailid;
 		this.orderid = orderid;
@@ -69,11 +78,14 @@ public class OrderDetail {
 		this.odcount = odcount;
 		this.discount = discount;
 		this.totalprice = totalprice;
+		this.odname = odname;
 	}
 
 	@Override
 	public String toString() {
 		return "OrderDetail [orderdetailid=" + orderdetailid + ", orderid=" + orderid + ", goodid=" + goodid
-				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + "]";
+				+ ", odcount=" + odcount + ", discount=" + discount + ", totalprice=" + totalprice + ", odname="
+				+ odname + "]";
 	}
+
 }

@@ -56,7 +56,7 @@ $(function(){
 				}else{
 					tabs.tabs('add',{
 						title:"款式管理",
-						href:"design.html",
+						href:"style.html",
 						closable:true
 					});
 				}
