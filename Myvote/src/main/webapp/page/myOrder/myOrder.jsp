@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/help.css">
 <link rel="stylesheet" href="page/myOrder/css/member.css" />
 <script type="text/javascript" src="headerJs/jquery-1.11.3.min.js"></script>
+
 <script type="text/javascript" src="js/myJs/check.js"></script>
 <script src="js/hm.js"></script>
 <script charset="utf-8" src="js/lxb.js"></script>
@@ -44,11 +45,7 @@
 		</script>
 
 <script type="text/javascript">
-	$(function(){
-		$.get("orders/getAllorderDetail",function(data){
-			
-		});
-	})
+	
 	
 	function qbd() {
 		$("#qbd").addClass("member_all-nav-click");
@@ -60,8 +57,6 @@
 		$("#qbd").removeClass("member_all-nav-click");
 	}
 </script>
-	
-		
 
 </head>
 <body>
@@ -178,8 +173,8 @@
 									</script>
 									<table class="member_title-table" border="0" cellpadding="0"
 										cellspacing="0">
-										<tbody>
-											<tr class="member_myorder-table-first">
+										
+											<%-- <tr class="member_myorder-table-first">
 												<td class="myorder-table_td1">订单商品</td>
 												<td class="myorder-table_td2">订单金额</td>
 												<td class="myorder-table_td2">已付金额</td>
@@ -187,8 +182,7 @@
 												<td class="myorder-table_td5">订单状态</td>
 												<td class="myorder-table_td6">操作</td>
 											</tr>
-											<c:forEach items="${od }" var="item">
-												<tr class="member_myorder-table-sec">
+											<tr class="member_myorder-table-sec">
 												<td class="myorder-table-sec_td1" colspan="4">订单号：${item.orderid }</td>
 												<td class="myorder-table-sec_td2" colspan="2">下单时间：${item.oordertime }</td>
 											</tr>
@@ -198,12 +192,12 @@
 												<div class="myorder-table-third-cp">
 												<div class="img_left fl">
 												<a href="/darry_ring/A02001/Z03023478801.html">
-												<img width="55" height="55" src="${item.oimage }">
+												<img width="55" height="55" src="">
 												</a>
 												</div>
 												<div class="img_right fr">
 												<a href="/darry_ring/A02001/Z03023478801.html">
-												<p>${item.odname }</p>
+												<p>-</p>
 												</a>
 												</div>
 												</div>
@@ -213,7 +207,7 @@
 												</td>
 												<td class="myorder-table_td2" style="font-family:微软雅黑;"> ¥0</td>
 												<td class="myorder-table_td4" style=""></td>
-												<td class="myorder-table_td5"> ${item.ostatus }</td>
+												<td class="myorder-table_td5"> </td>
 												<td class="myorder-table_td6">
 												<a class="myorder-table_pay" href="/nCart/ConfirmOrder.aspx?orderid=20160920022851558523&process=other">支 付</a>
 												<p>
@@ -224,10 +218,7 @@
 												</p>
 												</td>
 											</tr>
-											</c:forEach>
-											
-											
-										</tbody>
+									 --%>
 									</table>
 
 									<table class="member_myorder-table" border="0" cellpadding="0"
@@ -245,7 +236,7 @@
 											}
 										}
 									</script>
-									<table class="member_title-table" border="0" cellpadding="0"
+									<<!-- table class="member_title-table" border="0" cellpadding="0"
 										cellspacing="0">
 										<tbody>
 											<tr class="member_myorder-table-first">
@@ -307,7 +298,7 @@
 													<p style="display: normal"></p></td>
 											</tr>
 										</tbody>
-									</table>
+									</table> -->
 								</div>
 							</div>
 						</div>
@@ -322,6 +313,47 @@
 		<script>
 	    // 加载底部入口模块
 	   		seajs.use("MyDarry/footerJs/footer.js");
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$.post("orders/getAllorderDetail",function(data){
+					 var str="";
+					for(var i=0;i<data.length;i++){
+						str+='<tr class="member_myorder-table-first">';
+						str+='<td class="myorder-table_td1">订单商品</td>';
+						str+='<td class="myorder-table_td2">订单金额</td>';
+						str+='<td class="myorder-table_td3">已付金额</td>';
+						str+='<td class="myorder-table_td4">预计到货日期</td>';
+						str+='<td class="myorder-table_td5">订单状态</td>';
+						str+='<td class="myorder-table_td6">操作</td></tr>';
+						str+='<tr class="member_myorder-table-sec">'; 
+						str+='<td class="myorder-table-sec_td1" colspan="4">订单号：'+data[i].orderid+'</td>';
+						str+='<td class="myorder-table-sec_td2" colspan="2">下单时间：'+data[i].oordertime+'</td></tr>';
+						
+						str+='<tr class="member_myorder-table-third"><td class="myorder-table_td1"><div class="myorder-table-third-cp">';
+						str+='<div class="img_left fl"><a href="/darry_ring/A02001/Z03023478801.html">';
+						str+='<img width="55" height="55" src="'+data[i].oimage+'"></a></div><div class="img_right fr"><a href="/darry_ring/A02001/Z03023478801.html">';
+						str+='<p>-</p></a></div></div>';
+						str+='</td><td class="myorder-table_td3">';
+						str+='<div class="myorder-table-third-cp" style="height:55px;line-height:55px;font-family:微软雅黑;"> '+data[i].totalprice+'</div>';
+						str+='</td>';
+						str+='<td class="myorder-table_td2" style="font-family:微软雅黑;"> ¥0</td>';
+						str+='<td class="myorder-table_td4" style=""></td>';
+						str+='<td class="myorder-table_td5">'+data[i].ostatus+'</td>';
+						str+='<td class="myorder-table_td6">';
+						str+='<a class="myorder-table_pay" href="/nCart/ConfirmOrder.aspx?orderid=20160920022851558523&process=other">支 付</a>';
+						str+='<p>';
+						str+='<a href="/member/orderview.aspx?orderid=20160920022851558523&lan=0">查看</a>';
+						str+='</p>';
+						str+='<p style="display:normal">';
+						str+='<a onclick="deleteOrder()">取消订单</a>';
+						str+='</p>';
+						str+='</td>';
+						str+='</tr>';  
+					}
+					$(".member_title-table").html(str); 
+				},"json");
+			});
 		</script>
 </body>
 </html>
