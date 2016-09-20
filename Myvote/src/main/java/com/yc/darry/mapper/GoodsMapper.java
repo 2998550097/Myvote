@@ -1,9 +1,7 @@
 package com.yc.darry.mapper;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
-
 import com.yc.darry.entity.Good;
 import com.yc.darry.entity.Pagination;
 

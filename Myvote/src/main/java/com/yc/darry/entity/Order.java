@@ -13,13 +13,21 @@ public class Order {
 	private String otel;
 	private String ostatus;
 	private String remark;
-	private String oimage;
+
+	private Integer orderdetailid;
+	private Integer goodid;
 	private Integer odcount;
+	private double discount;
+	private double totalprice;
+
+	private String oimage;
+
 	private String odname;
-	private Integer totalprice;
 
 	public Order(String orderid, Integer userid, String oname, String odetail, String ophone, String opostcode,
-			String oordertime,String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark,String oimage) {
+			String oordertime, String oarrivaltime, String ologisticsstyle, String otel, String ostatus, String remark,
+			Integer orderdetailid, Integer goodid, Integer odcount, double discount, double totalprice, String oimage,
+			String odname) {
 		super();
 		this.orderid = orderid;
 		this.userid = userid;
@@ -33,7 +41,13 @@ public class Order {
 		this.otel = otel;
 		this.ostatus = ostatus;
 		this.remark = remark;
+		this.orderdetailid = orderdetailid;
+		this.goodid = goodid;
+		this.odcount = odcount;
+		this.discount = discount;
+		this.totalprice = totalprice;
 		this.oimage = oimage;
+		this.odname = odname;
 	}
 
 	public Order() {
@@ -88,6 +102,14 @@ public class Order {
 		this.opostcode = opostcode;
 	}
 
+	public String getOordertime() {
+		return oordertime;
+	}
+
+	public void setOordertime(String oordertime) {
+		this.oordertime = oordertime;
+	}
+
 	public String getOarrivaltime() {
 		return oarrivaltime;
 	}
@@ -128,21 +150,20 @@ public class Order {
 		this.remark = remark;
 	}
 
-	
-	public String getOordertime() {
-		return oordertime;
+	public Integer getOrderdetailid() {
+		return orderdetailid;
 	}
 
-	public void setOordertime(String oordertime) {
-		this.oordertime = oordertime;
+	public void setOrderdetailid(Integer orderdetailid) {
+		this.orderdetailid = orderdetailid;
 	}
 
-	public String getOimage() {
-		return oimage;
+	public Integer getGoodid() {
+		return goodid;
 	}
 
-	public void setOimage(String oimage) {
-		this.oimage = oimage;
+	public void setGoodid(Integer goodid) {
+		this.goodid = goodid;
 	}
 
 	public Integer getOdcount() {
@@ -153,6 +174,30 @@ public class Order {
 		this.odcount = odcount;
 	}
 
+	public double getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(double discount) {
+		this.discount = discount;
+	}
+
+	public double getTotalprice() {
+		return totalprice;
+	}
+
+	public void setTotalprice(double totalprice) {
+		this.totalprice = totalprice;
+	}
+
+	public String getOimage() {
+		return oimage;
+	}
+
+	public void setOimage(String oimage) {
+		this.oimage = oimage;
+	}
+
 	public String getOdname() {
 		return odname;
 	}
@@ -161,21 +206,14 @@ public class Order {
 		this.odname = odname;
 	}
 
-	public Integer getTotalprice() {
-		return totalprice;
-	}
-
-	public void setTotalprice(Integer totalprice) {
-		this.totalprice = totalprice;
-	}
-
 	@Override
 	public String toString() {
 		return "Order [orderid=" + orderid + ", userid=" + userid + ", oname=" + oname + ", odetail=" + odetail
 				+ ", ophone=" + ophone + ", opostcode=" + opostcode + ", oordertime=" + oordertime + ", oarrivaltime="
 				+ oarrivaltime + ", ologisticsstyle=" + ologisticsstyle + ", otel=" + otel + ", ostatus=" + ostatus
-				+ ", remark=" + remark + ", oimage=" + oimage + ", odcount=" + odcount + ", odname=" + odname
-				+ ", totalprice=" + totalprice + "]";
+				+ ", remark=" + remark + ", orderdetailid=" + orderdetailid + ", goodid=" + goodid + ", odcount="
+				+ odcount + ", discount=" + discount + ", totalprice=" + totalprice + ", oimage=" + oimage + ", odname="
+				+ odname + "]";
 	}
-	
+
 }
